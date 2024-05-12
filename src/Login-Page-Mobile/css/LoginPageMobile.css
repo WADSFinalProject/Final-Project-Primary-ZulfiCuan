@@ -1,0 +1,33 @@
+.MainDisplayMobile {
+    height: 100vh;
+    width: 100%;
+    display: grid;
+    background-color: #04315B;
+    grid-template-rows: 1fr 2fr 1fr;
+}
+
+.LogoDesign {
+    text-align: center;
+    margin: auto;
+    color: #BDD8B0;
+    font-size: 40px;
+    font-family: 'MuseoModerno','Courier New', Courier, monospace;
+    font-weight: 700;
+}
+
+.LoginPrimaryCase {
+    margin: auto;
+    align-items: center;
+}
+
+.LoginPrimaryMobileForm {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+}
+
+.LoginPageMobileTitle {
+    color: #FAF9F6;
+    font-family: "Helvetica";
+    font-size: 23px;
+    font-weight: 700;
+}

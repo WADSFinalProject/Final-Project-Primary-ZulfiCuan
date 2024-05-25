@@ -3,26 +3,34 @@ import { useState } from "react";
 
 // eslint-disable-next-line react/prop-types
 function DropDown({label}) {
+  const styleForm = {
+    '& .MuiInputBase-root': {
+      // some cringe number work difference of 0.157 barely noticeable
+      height: '78.5%'
+    },
+    '& .MuiOutlinedInput-root': {
+      "&.Mui-focused fieldset": {
+        borderColor: 'green'
+      },
+      borderRadius: '10px',
+    },
+    "& label.Mui-focused": {
+      color: 'green'
+    }
+  }
+  
   const [age, setAge] = useState('');
 
   const handleChange = (event) => {
     setAge(event.target.value);
   };
   return (
-    <FormControl>
-        <InputLabel id="dropdown">Role</InputLabel>
+    <FormControl sx={styleForm}>
+        <InputLabel id="dropdown" >Role</InputLabel>
         <Select
         value={age}
         labelId="dropdown"
         label={label}
-        sx={{
-          '& .MuiSelect-select': {
-            height: '100%'
-          },
-          '& .MuiFormControl-root': {
-            borderRadius: '10px',
-          }
-        }}
         onChange={handleChange}
         >
             <MenuItem value="">None</MenuItem>

@@ -3,23 +3,30 @@ import { IconButton, InputAdornment, TextField } from "@mui/material";
 import { useState } from 'react'
 
 // eslint-disable-next-line react/prop-types
-function PasswordInput({label}) {
+function PasswordInput({label, color = color}) {
   const [showPassword, setShowPassword] = useState(false);
   const handleClickShowPassword = () => {
     setShowPassword(!showPassword);
   };
+  const style = {
+    '& .MuiInputBase-input': {
+      height: '100%'
+    },
+    '& .MuiOutlinedInput-root': {
+      "&.Mui-focused fieldset": {
+        borderColor: color,
+      },
+      borderRadius: '10px',
+    },
+    "& label.Mui-focused": {
+      color: color,
+    }
+  }
   return (
     <TextField 
       type={showPassword ? "text" : "password"}
       label={label}
-      sx={{
-        '& .MuiInputBase-input': {
-          height: '100%'
-        },
-        '& .MuiOutlinedInput-root': {
-          borderRadius: '10px',
-        }
-      }}
+      sx={style}
       InputProps={{
         endAdornment: (
           <InputAdornment position="end">

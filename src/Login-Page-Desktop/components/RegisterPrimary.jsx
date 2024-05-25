@@ -11,11 +11,11 @@ function RegisterPrimary({click, currentState}) {
     <div>
       <form className='RegisterContainer'>
         <label className='TitleRegister'>Register</label>
-        <TextInput label={"Fullname"} />
+        <TextInput label={"Fullname"} color={'green'}/>
         <DropDown label={"Role"} />
-        <DateInput />
-        <PasswordInput label={"Password"} />
-        <PasswordInput label={"Confirm Password"} />
+        <DateInput color={'green'} />
+        <PasswordInput label={"Password"} color={'green'}/>
+        <PasswordInput label={"Confirm Password"} color={'green'}/>
         <div className='RememberMe'>
           <label className='CheckText'>
             <input type='checkbox' className='TickBox'></input> I Agree To The Terms and Conditions

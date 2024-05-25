@@ -10,8 +10,8 @@ function LoginPrimary({click, currentState}) {
     <div>
       <form className='LoginContainer'>
         <label className='TitleLogin'>Login</label>
-        <TextInput label={"Email / Username"} />
-        <PasswordInput label="Password" />
+        <TextInput label={"Email / Username"} color={'#1976d2'}/>
+        <PasswordInput label="Password" color={'#1976d2'}/>
         {/* <TextInput placeHolder={'Email / Username'} imgSRC={'src/assets/images/Emailcon.svg'} type={'Text'}/>
         <TextInput placeHolder={'Password'} imgSRC={'src/assets/images/LockIcon.svg'} type={"Password"}/> */}
         <div className='ExtraButtons'>

@@ -1,0 +1,35 @@
+.DesktopPlaceholder {
+    height: 100vh;
+    width: 100vw;
+    background-color: #214D76;
+    position: absolute;
+}
+
+.DesktopPlaceholderText {
+    margin-top: 45vh;
+    text-align: center;
+    color: white;
+    font-family: Helvetica, sans-serif;
+}
+
+.NavigationCentraManager {
+    position: fixed;
+    overflow: auto;
+    background-color: #BDD8B0;
+    width: 100%;
+    bottom: 0;
+    text-align: center;
+}
+
+.HeaderCentraManager {
+    position: fixed;
+    overflow: auto;
+    width: 100%;
+    background-color: #BDD8B0;
+    text-align: center;
+}
+
+.NavigationManagerContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1.75fr 1fr 1fr;
+}

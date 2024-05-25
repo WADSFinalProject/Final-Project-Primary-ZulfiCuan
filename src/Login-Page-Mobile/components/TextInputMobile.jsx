@@ -1,19 +1,37 @@
+import { Height } from '@mui/icons-material'
 import { TextField } from '@mui/material'
 
 // eslint-disable-next-line react/prop-types
 function TextInputMobile({label}) {
+  const style = {
+    // Root class for the input field
+    "& .MuiOutlinedInput-root": {
+      color: "#BDD8B0",
+      borderRadius: "10px",
+      "&.Mui-focused fieldset": {
+        // Hard Coded Green to make my life easier sorry TT
+        borderColor: "#BDD8B0",
+      },
+      // Class for the border around the input field
+      "& .MuiOutlinedInput-notchedOutline": {
+        borderColor: "#BDD8B0",
+      },
+    },
+    // Class for the label of the input field
+    "& .MuiInputLabel-outlined": {
+      color: "#BDD8B0",
+    },
+    "& label.Mui-focused": {
+      color: "#BDD8B0",
+    }
+  }
+
   return (
     <TextField 
+        size='large'
         label={label}
         variant="outlined"
-        sx={{
-          '& .MuiInputBase-input': {
-            height: '100%'
-          },
-          '& .MuiOutlinedInput-root': {
-            borderRadius: '10px',
-          }
-        }}
+        sx={style}
     ></TextField>
   )
 }

@@ -1,4 +1,5 @@
 import '../css/LoginPageMobile.css'
+import ButtonInputMobile from './ButtonInputMobile.jsx'
 import PasswordInputMobile from './PasswordInputMobile.jsx'
 import TextInputMobile from './TextInputMobile.jsx'
 
@@ -10,7 +11,7 @@ function LoginPrimaryMobile() {
             <TextInputMobile label={'Email'} />
             <PasswordInputMobile label={'Password'}/>
             <p className='LoginPageMobileSubText'>Forgot Password?</p>
-            <button type='submit' className='LoginPageMobileButton'>Login</button>
+            <ButtonInputMobile label={"Login"}/>
         </form>
     </div>
   )

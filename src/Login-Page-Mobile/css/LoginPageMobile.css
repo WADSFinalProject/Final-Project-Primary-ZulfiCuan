@@ -3,7 +3,7 @@
     width: 100%;
     display: grid;
     background-color: #04315B;
-    grid-template-rows: 1fr 2fr 1fr;
+    grid-template-rows: 27.4fr 42.8fr 29.8fr;
 }
 
 .LogoDesign {
@@ -18,16 +18,26 @@
 .LoginPrimaryCase {
     margin: auto;
     align-items: center;
+    width: 90.2vw;
 }
 
 .LoginPrimaryMobileForm {
     display: grid;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 27fr 20fr 20fr 19.5fr 13.5fr;
 }
 
 .LoginPageMobileTitle {
     color: #FAF9F6;
     font-family: "Helvetica";
-    font-size: 23px;
+    font-size: 36px;
     font-weight: 700;
+    margin: 30px 0px 30px 0px;
+}
+
+.LoginPageMobileSubText {
+    color: white;
+    font-family: "Helvetica";
+    font-size: 12px;
+    text-align: right;
+    margin-top: 5px;
 }

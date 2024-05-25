@@ -8,18 +8,36 @@ function PasswordInputMobile({label}) {
   const handleClickShowPassword = () => {
     setShowPassword(!showPassword);
   };
+  const style = {
+    // Root class for the input field
+    "& .MuiOutlinedInput-root": {
+      color: "#BDD8B0",
+      borderRadius: "10px",
+      borderColor: "#BDD8B0",
+      "&.Mui-focused fieldset": {
+        // Hard Coded Green to make my life easier sorry TT
+        borderColor: "#BDD8B0",
+      },
+      // Class for the border around the input field
+      "& .MuiOutlinedInput-notchedOutline": {
+        borderColor: "#BDD8B0",
+      },
+    },
+    // Class for the label of the input field
+    "& .MuiInputLabel-outlined": {
+      color: "#BDD8B0",
+    },
+    "& label.Mui-focused": {
+      color: "#BDD8B0",
+    }
+  }
+
   return (
     <TextField 
+      size="large"
       type={showPassword ? "text" : "password"}
       label={label}
-      sx={{
-        '& .MuiInputBase-input': {
-          height: '100%'
-        },
-        '& .MuiOutlinedInput-root': {
-          borderRadius: '10px',
-        }
-      }}
+      sx={style}
       InputProps={{
         endAdornment: (
           <InputAdornment position="end">
@@ -27,6 +45,9 @@ function PasswordInputMobile({label}) {
               aria-label="toggle password visibility"
               onClick={handleClickShowPassword}
               edge="end"
+              sx={{
+                color: "#BDD8B0"
+              }}
             >
               {showPassword ? <VisibilityOff /> : <Visibility />}
             </IconButton>

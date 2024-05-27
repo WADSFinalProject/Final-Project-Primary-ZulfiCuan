@@ -7,7 +7,7 @@ And add all your modules using npm install on the primary repo dont copy any fil
 
 To download the repo please use git clone or git pull so you have access to all the files and are able to push to the repository
 
-How to copy the repository:
+How to copy the repository (Make sure to be in an Empty Folder) :
 1. Create a local github repository using git init
 ```
 git init

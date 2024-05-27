@@ -14,7 +14,7 @@ git init
 ```
 2. Then use set the github remote link
 ```
-git remote add https://github.com/WADSFinalProject/Final-Project-Primary-ZulfiCuan/
+git remote add origin https://github.com/WADSFinalProject/Final-Project-Primary-ZulfiCuan/
 ```
 3. Then pull the repository using git pull
 ```

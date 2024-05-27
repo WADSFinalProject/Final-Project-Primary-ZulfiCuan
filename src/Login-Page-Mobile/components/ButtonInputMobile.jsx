@@ -1,4 +1,4 @@
-import { Button, colors } from "@mui/material"
+import { Button} from "@mui/material"
 
 // eslint-disable-next-line react/prop-types
 function ButtonInputMobile({label}) {

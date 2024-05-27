@@ -5,7 +5,7 @@ import UseWindowThreshold from "../UseWindowThreshold"
 
 // eslint-disable-next-line react/prop-types
 function SwitchLogin() {
-  const MAX_MOBILE_WIDTH = 900
+  const MAX_MOBILE_WIDTH = 950
   const isMobileSize = UseWindowThreshold(MAX_MOBILE_WIDTH)
 
   useEffect(() => {

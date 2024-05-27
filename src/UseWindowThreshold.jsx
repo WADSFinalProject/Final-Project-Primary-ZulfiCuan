@@ -17,7 +17,7 @@ const UseWindowThreshold = threshold => {
 
     window.addEventListener("resize", handleResize)
     return () => window.removeEventListener("resize", handleResize)
-  }, [])
+  }, [threshold])
 
   return isMobileSize
 }

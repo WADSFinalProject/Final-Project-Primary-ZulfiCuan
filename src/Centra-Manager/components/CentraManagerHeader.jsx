@@ -1,9 +1,12 @@
+import HeaderTextSlot from "./HeaderTextSlot"
+import NotificationButton from "./NotificationButton"
+
 // eslint-disable-next-line react/prop-types
-function CentraManagerHeader() {
+function CentraManagerHeader({Label}) {
     return (
       <div className="HeaderManagerContainer">
-          <div>Primary Text</div>
-          <div>Notification Button</div>
+          <HeaderTextSlot label={Label}/>
+          <NotificationButton />
       </div>
     )
   }

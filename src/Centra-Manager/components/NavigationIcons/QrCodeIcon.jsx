@@ -2,7 +2,9 @@
 function QrCodeIcon() {
     return (
       <div className="QrCodeIconMainContainer">
-          <div>QR Code</div>
+          <img src="src/Centra-Manager/assets/qrcodecontainer.svg" className="QrCodeItems"></img>
+          <img src="src/Centra-Manager/assets/qrcodeouter.svg" className="QrCodeItems"></img>
+          <img src="src/Centra-Manager/assets/qrcodeinner.svg" className="QrCodeItems"></img>
       </div>
     )
   }

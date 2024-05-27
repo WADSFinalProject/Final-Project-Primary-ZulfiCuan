@@ -19,6 +19,7 @@
     margin: auto;
     align-items: center;
     width: 90.2vw;
+    max-width: 600px;
 }
 
 .LoginPrimaryMobileForm {

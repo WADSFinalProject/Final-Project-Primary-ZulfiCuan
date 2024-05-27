@@ -30,9 +30,11 @@ git checkout master
 ![alt text](SRCImage.png)
 
 Here and Add necessary files outside
+
 ![alt text](FolderImage.png)
 
 Make sure to create your folder here and follow this if possible
+
 ![alt text](RouteImage.png)
 
 Then add the routes here in the app.jsx file

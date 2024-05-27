@@ -25,3 +25,7 @@ git pull
 git checkout master
 ```
 5. Then you should see all the files there
+
+# Remember to add all files into the src folder and add all necessary files if you have too
+![alt text](SRCImage.png)
+Here and Add necessary files outside

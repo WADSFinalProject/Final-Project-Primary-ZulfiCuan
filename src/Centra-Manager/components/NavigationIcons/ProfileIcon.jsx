@@ -5,7 +5,7 @@ function ProfileIcon({NavigationState, setNavigationState}) {
     var TextColor = "#3C9284"
     var BarSize = "0px"
     
-    if (NavigationState[4] == true) {
+    if (NavigationState[4][0] == true) {
       ImagePathHead = "src/Centra-Manager/assets/profile-head-pressed.svg"
       ImagePathBody = "src/Centra-Manager/assets/profile-body-pressed.svg"
       TextColor = "#04315B"
@@ -19,7 +19,7 @@ function ProfileIcon({NavigationState, setNavigationState}) {
     return (
       <div>
         <div className="CentraManagerBar" style={{width: BarSize}}></div>
-        <div className="ProfileIconMainContainer" onClick={() => setNavigationState([false, false, false, false, true])}>
+        <div className="ProfileIconMainContainer" onClick={() => setNavigationState([[false], [false, false, false, false], [false], [false], [true]])}>
             <div className="imageContainerProfile">
               <img className="CentraManagerNavigationHeadIcon" src={ImagePathHead}></img>
               <img className="CentraManagerNavigationBodyIcon" src={ImagePathBody}></img>

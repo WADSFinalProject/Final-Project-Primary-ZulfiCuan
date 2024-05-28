@@ -9,26 +9,35 @@ import CentraManagerProfileMain from "./BodyComponents/CentraManagerProfileMain"
 // eslint-disable-next-line react/prop-types
 function CentraManagerCentral() {
    // eslint-disable-next-line no-unused-vars
-  const [NavigationSlot, setNavigationSlot] = useState([true, false, false, false, false]);
-  // eslint-disable-next-line no-unused-vars
+  const [NavigationSlot, setNavigationSlot] = useState([[true], [false, false, false, false], [false], [false], [false]]);
+
   var HeaderLabel = 'Home'
   var currentPosition  = <CentraManagerDashboard />
 
-  if (NavigationSlot[0] == true) {
+  if (NavigationSlot[0][0] == true) {
     HeaderLabel = 'Home'
     currentPosition  = <CentraManagerDashboard />
-  } else if (NavigationSlot[1] == true) {
+  } else if (NavigationSlot[1][0] == true) {
     HeaderLabel = 'Production'
-    currentPosition  = <CentraManagerProductionMain />
-  } else if (NavigationSlot[2] == true) {
+    currentPosition  = <CentraManagerProductionMain setProductionPosition={setNavigationSlot} ProductionPosition={NavigationSlot} />
+  } else if (NavigationSlot[2][0] == true) {
     HeaderLabel = 'QR'
     currentPosition = <CentraManagerProductionMain />
-  } else if (NavigationSlot[3] == true) {
+  } else if (NavigationSlot[3][0] == true) {
     HeaderLabel = 'Shipping'
     currentPosition = <CentraManagerShippingMain />
-  } else if (NavigationSlot[4] == true) {
+  } else if (NavigationSlot[4][0] == true) {
     HeaderLabel = 'Profile'
     currentPosition = <CentraManagerProfileMain />
+  } else if (NavigationSlot[1][1] == true) {
+    HeaderLabel = 'Wet Leaves'
+    currentPosition  = <CentraManagerProductionMain setProductionPosition={setNavigationSlot} ProductionPosition={NavigationSlot} />
+  } else if (NavigationSlot[1][2] == true) {
+    HeaderLabel = 'Dry Leaves'
+    currentPosition  = <CentraManagerProductionMain setProductionPosition={setNavigationSlot} ProductionPosition={NavigationSlot} />
+  } else if (NavigationSlot[1][3] == true) {
+    HeaderLabel = 'Flour'
+    currentPosition  = <CentraManagerProductionMain setProductionPosition={setNavigationSlot} ProductionPosition={NavigationSlot} />
   }
   // eslint-disable-next-line no-unused-vars
   return (

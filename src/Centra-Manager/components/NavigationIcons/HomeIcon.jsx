@@ -4,7 +4,7 @@ function HomeIcon({NavigationState, setNavigationState}) {
     var TextColor = "#3C9284"
     var BarSize = "0px"
     
-    if (NavigationState[0] == true) {
+    if (NavigationState[0][0] == true) {
       ImagePath = "src/Centra-Manager/assets/home-pressed.svg"
       TextColor = "#04315B"
       BarSize = "50px"
@@ -16,7 +16,7 @@ function HomeIcon({NavigationState, setNavigationState}) {
     return (
       <div>
         <div className="CentraManagerBar" style={{width: BarSize}}></div>
-        <div className="HomeIconMainContainer" onClick={() => setNavigationState([true, false, false, false, false])}>
+        <div className="HomeIconMainContainer" onClick={() => setNavigationState([[true], [false, false, false, false], [false], [false], [false]])}>
             <div className="imageContainer">
               <img src={ImagePath}></img>
             </div>

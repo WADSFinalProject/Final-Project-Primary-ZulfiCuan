@@ -4,26 +4,26 @@ import ProductionInsideChart from '../Charts/ProductionInsideChart'
 import BatchContainerProduction from './BatchContainerProduction'
 
 // eslint-disable-next-line react/prop-types
-function WetLeaves() {
+function FlourLeaves() {
   // eslint-disable-next-line no-unused-vars
   const [DataLeaves, setDataLeaves] = useState([{
     ID: "ID W23",
-    SecondSlot: "John Doe",
-    Weight: "14 kg",
+    SecondSlot: "M14",
+    Weight: "10 kg",
     date: "14/02/2024",
-    status: "Usable" 
+    status: "exp. 14/05/2024" 
   }, {
     ID: "ID W33",
-    SecondSlot: "John Doe",
-    Weight: "14 kg",
+    SecondSlot: "M15",
+    Weight: "10 kg",
     date: "14/02/2024",
-    status: "Usable" 
+    status: "exp. 14/05/2024" 
   }, {
     ID: "ID W43",
-    SecondSlot: "John Doe",
-    Weight: "14 kg",
+    SecondSlot: "M16",
+    Weight: "10 kg",
     date: "14/02/2024",
-    status: "Expired" 
+    status: "exp. 14/05/2024" 
   },
 ])
   return (
@@ -52,4 +52,4 @@ function WetLeaves() {
   )
 }
 
-export default WetLeaves
+export default FlourLeaves

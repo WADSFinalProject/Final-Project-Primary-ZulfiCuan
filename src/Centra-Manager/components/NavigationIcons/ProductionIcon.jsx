@@ -4,7 +4,7 @@ function ProductionIcon({NavigationState, setNavigationState}) {
     var TextColor = "#3C9284"
     var BarSize = "0px"
     
-    if (NavigationState[1] == true) {
+    if (NavigationState[1][0] == true || NavigationState[1][1] == true || NavigationState[1][2] == true || NavigationState[1][3] == true) {
       ImagePath = "src/Centra-Manager/assets/production-pressed.svg"
       TextColor = "#04315B"
       BarSize = "50px"
@@ -16,7 +16,7 @@ function ProductionIcon({NavigationState, setNavigationState}) {
     return (
       <div>
         <div className="CentraManagerBar" style={{width: BarSize}}></div>
-        <div className="ProductionIconMainContainer" onClick={() => setNavigationState([false, true, false, false, false])}>
+        <div className="ProductionIconMainContainer" onClick={() => setNavigationState([[false], [true, false, false, false], [false], [false], [false]])}>
             <div className="imageContainer">
               <img src={ImagePath}></img>
             </div>

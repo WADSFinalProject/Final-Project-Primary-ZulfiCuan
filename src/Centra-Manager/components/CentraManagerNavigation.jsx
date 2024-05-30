@@ -1,3 +1,4 @@
+import '../css/CentraManager.css'
 import HomeIcon from "./NavigationIcons/HomeIcon"
 import ProductionIcon from "./NavigationIcons/ProductionIcon"
 import ProfileIcon from "./NavigationIcons/ProfileIcon"

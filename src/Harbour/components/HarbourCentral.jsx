@@ -30,7 +30,7 @@ function HarbourCentral() {
           <HarbourHeader Label={HeaderLabel}/>
         </div>
         <div className="BodyCentraManager">{currentPosition}</div>
-        <div className="NavigationCentraManager">
+        <div className="NavigationHarbour">
           <HarbourNavigation setNavigationSlot={setNavigationSlot} NavigationSlot={NavigationSlot} />
         </div>
     </div>

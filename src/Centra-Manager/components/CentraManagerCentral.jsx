@@ -1,4 +1,5 @@
 import { useState } from "react"
+import '../css/CentraManager.css'
 import CentraManagerHeader from "./CentraManagerHeader"
 import CentraManagerNavigation from "./CentraManagerNavigation"
 import CentraManagerDashboard from "./BodyComponents/CentraManagerDashboard"

@@ -1,6 +1,7 @@
 import UseWindowThreshold from "../../UseWindowThreshold"
 import CentraManagerCentral from "./CentraManagerCentral"
 import DesktopPlaceholder from "./DesktopPlaceholder"
+import '../css/CentraManager.css'
 import { useEffect } from "react"
 
 // eslint-disable-next-line react/prop-types

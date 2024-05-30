@@ -20,7 +20,7 @@
     text-align: center;
 }
 
-.NavigationManagerContainer {
+.NavigationHarbour {
     display: grid;
     grid-template-columns: 2fr 1.2fr 2fr;
     background-color: #BDD8B0;

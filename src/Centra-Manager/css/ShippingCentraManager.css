@@ -1,0 +1,21 @@
+.ShippingViewButtonsContainer {
+    display: grid;
+    grid-template-columns: 100px 100px 100px 100px;
+    gap: 4px;
+    overflow-x: auto;
+    margin-top: 10px;
+}
+
+.ShippingViewButtonContainerText {
+    border: 1px solid #04315B;
+    border-radius: 20px;
+    text-align: center;
+    color: #04315B;
+    font-family: Helvetica;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    padding: 10px 0px 10px 0px;
+    transition: ease-in 0.2s;
+}

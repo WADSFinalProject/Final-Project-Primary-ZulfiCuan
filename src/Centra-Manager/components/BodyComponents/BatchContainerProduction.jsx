@@ -2,7 +2,7 @@ import '../../css/ProductionCentraManager.css'
 import PropTypes from "prop-types";
 
 // eslint-disable-next-line react/prop-types
-function BatchContainerProduction({data}) {
+function BatchContainerProduction({data , setDeleteUpdate}) {
   var styleStatus = {
     border: "1px solid #2D756A",
     background: "#BEDED9",
@@ -46,8 +46,8 @@ function BatchContainerProduction({data}) {
       </div>
       <div className='BatchProductionCotainerBottomText'>
         <div className='BatchProductionContainerBottomTextEdit'>
-          <div className='BatchProductionContainerDeleteButton'>
-            <div style={{margin: "auto"}}>Delete</div>
+          <div className='BatchProductionContainerDeleteButton' onClick={() => setDeleteUpdate(true)}>
+            <div style={{margin: "auto"}} >Delete</div>
             <img src='src\Centra-Manager\assets\DeleteIcon.svg' style={{margin: "auto"}}></img>
           </div>
           <div className='BatchProductionContainerEditButton'>

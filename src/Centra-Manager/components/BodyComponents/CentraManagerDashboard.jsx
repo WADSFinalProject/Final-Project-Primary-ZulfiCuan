@@ -5,7 +5,32 @@ import ShippingDashboard from "./ShippingDashboard"
 
 // eslint-disable-next-line react/prop-types
 function CentraManagerDashboard() {
-    const testTable = [1, 2, 3]
+    const testTable = [
+        {
+            ShippingID: "1239 8628 2748 29",
+            Status: "Delivered",
+            Provider: "Indonesia's Military",
+            Weight: "10 kg",
+            BatchID: "F24, F25",
+            Date: "05/02/24"
+        },
+        {
+            ShippingID: "1239 8628 2748 29",
+            Status: "Delivered",
+            Provider: "Indonesia's Military",
+            Weight: "10 kg",
+            BatchID: "F24, F25",
+            Date: "05/02/24"
+        },
+        {
+            ShippingID: "1239 8628 2748 29",
+            Status: "Shipping",
+            Provider: "Indonesia's Military",
+            Weight: "10 kg",
+            BatchID: "F24, F25",
+            Date: "05/02/24"
+        },
+    ]
   return (
     <div>
         <div className="CentraManagerDashboardTopWrapper">
@@ -26,7 +51,7 @@ function CentraManagerDashboard() {
             </div>
             <div>
                 {testTable.map((testTable, index) => (
-                    <div key={index}><ShippingDashboard /></div>
+                    <div key={index}><ShippingDashboard ShippingData={testTable} animationStart={index * 200 + 100} /></div>
                 ))}
             </div>
         </div>

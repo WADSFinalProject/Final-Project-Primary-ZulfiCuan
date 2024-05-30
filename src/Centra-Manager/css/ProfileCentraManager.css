@@ -1,0 +1,89 @@
+.ProfileCentraManagerContainerTopHalf {
+    position: absolute;
+    top: 0;
+    background-color: #BDD8B0;
+    text-align: center;
+    width: 100%;
+    border-radius: 0px 0px 40px 40px;
+}
+
+.ProfileCentraManagerImageContainer {
+    width: 106px;
+    height: 106px;
+    border-radius: 50%;
+    border: 2px solid white;
+    margin: 10px 0px 5px 0px;
+}
+
+.ProfileCentraManagerContainerTitle {
+    color: #04315B;
+    font-family: "Helvetica";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin-top: 10px;
+}
+
+.ProfileCentraManagerContainerTextUsername {
+    color: #04315B;
+    text-align: center;
+    font-family: "Helvetica";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.ProfileCentraManagerContainerSubText {
+    color: #04315B;
+    font-family: "Helvetica";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.ProfileCentraManagerContainerIDText {
+    color: #FAF9F6;
+    font-family: "Helvetica";
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    border-radius: 20px;
+    background: #3C9284;
+    padding: 4px 12px;
+    width: 50px;
+    margin: 10px auto 30px auto;
+    justify-content: center;
+}
+
+.ProfileColorContainer {
+    width: 100vw;
+    height: 95vh;
+    background-color: #EBEBEB;
+}
+
+.ProfileCentraManagerContainerEditProfileButton {
+    border-radius: 12px;
+    border: 1px solid #04315B;
+    background: #FAF9F6;
+    width: 92%;
+    margin: 16px auto 0px auto;
+    padding: 20px 0px 20px 0px;
+    display: grid;
+    grid-template-columns: 40px 80px 1fr;
+}
+
+.ProfileCentraManagerButtonImagePlaceHolder {
+    margin: auto;
+}
+
+.ProfileCentraManagerTextLabel {
+    margin: auto auto auto 0;
+}
+
+.ProfileCentraManagerArrowImage {
+    margin: auto 10px auto auto;
+}

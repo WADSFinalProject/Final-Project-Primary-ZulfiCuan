@@ -2,9 +2,12 @@ import { useState } from 'react'
 import '../../css/ProductionCentraManager.css'
 import ProductionInsideChart from '../Charts/ProductionInsideChart'
 import BatchContainerProduction from './BatchContainerProduction'
+import DeleteProductionInside from './DeleteProductionInside'
 
 // eslint-disable-next-line react/prop-types
 function WetLeaves() {
+  // eslint-disable-next-line no-unused-vars
+  const [DeleteShow, setDeleteShow] = useState(false)
   // eslint-disable-next-line no-unused-vars
   const [DataLeaves, setDataLeaves] = useState([{
     ID: "ID W23",
@@ -44,9 +47,12 @@ function WetLeaves() {
         </div>
         <div>
           {DataLeaves.map((dataLeaves, index) => (
-                    <div key={index}><BatchContainerProduction data={dataLeaves} /></div>
+                    <div key={index}><BatchContainerProduction data={dataLeaves} setDeleteUpdate={setDeleteShow} /></div>
                 ))}
         </div>
+      </div>
+      <div>
+        {DeleteShow ? <DeleteProductionInside CloseDeleteScreen={setDeleteShow}/> : <></>}
       </div>
     </div>
   )

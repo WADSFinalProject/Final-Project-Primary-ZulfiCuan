@@ -1,0 +1,30 @@
+.table-card {
+    border-radius: 8px;
+    margin-bottom: 10px;
+    padding: 10px;
+  }
+  
+  .table-header {
+    background-color: #3C9284;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 8px 8px 0 0;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .table-details {
+    background-color: white;
+    padding: 10px;
+    border-radius: 0 0 8px 8px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  
+  .detail-item {
+    display: flex;
+    justify-content: space-between;
+  }
+  

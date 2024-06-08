@@ -7,7 +7,7 @@ import ShippingIcon from "./NavigationIcons/ShippingIcon"
 import { useSpring, animated } from '@react-spring/web'
 
 // eslint-disable-next-line react/prop-types
-function CentraManagerNavigation({NavigationSlot, setNavigationSlot}) {
+function CentraManagerNavigation({NavigationSlot, setNavigationSlot, setQRCode}) {
     const springs = useSpring({
       config: {
         tension: 150, 
@@ -18,7 +18,7 @@ function CentraManagerNavigation({NavigationSlot, setNavigationSlot}) {
     })
     return (
       <animated.div className="NavigationCentraManagerPrimary" style={{...springs}}>
-        <QrCodeIcon />
+        <QrCodeIcon setNavigation={setQRCode}/>
         <div className="NavigationManagerContainer">
             <div><HomeIcon NavigationState={NavigationSlot} setNavigationState={setNavigationSlot}/></div>
             <div><ProductionIcon NavigationState={NavigationSlot} setNavigationState={setNavigationSlot}/></div>

@@ -1,8 +1,18 @@
 import '../../css/ProductionCentraManager.css'
 import PropTypes from "prop-types";
+import { useSpring, animated } from '@react-spring/web'
 
 // eslint-disable-next-line react/prop-types
-function BatchContainerProduction({data , setDeleteUpdate}) {
+function BatchContainerProduction({data , setDeleteUpdate, animationStart}) {
+  const springs = useSpring({
+    config: {
+      tension: 190, 
+      friction: 60
+    },
+    from: { y: animationStart },
+    to: { y: 0 },
+  })
+
   var styleStatus = {
     border: "1px solid #2D756A",
     background: "#BEDED9",
@@ -29,7 +39,7 @@ function BatchContainerProduction({data , setDeleteUpdate}) {
   }
 
   return (
-    <div className='BatchProductionContainerContainer'>
+    <animated.div className='BatchProductionContainerContainer' style={{...springs}}>
       <div>
         <div className='BatchProductionContainerTopText'>
           <div>{data.ID}</div>
@@ -56,7 +66,7 @@ function BatchContainerProduction({data , setDeleteUpdate}) {
           </div>
         </div>
       </div>
-    </div>
+    </animated.div>
   )
 }
 

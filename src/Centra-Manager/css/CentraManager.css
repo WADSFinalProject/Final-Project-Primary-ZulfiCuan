@@ -108,3 +108,48 @@
 .BodyCentraManager {
     padding-top: 30px;
 }
+
+.CentraManagerQRCodePopUpPage {
+    position: fixed;
+    overflow: auto;
+    width: 100%;
+    bottom: 0;
+}
+
+.ContainerQRNavigationPopUp {
+    background-color: white;
+    border-radius: 20px 20px 0px 0px;
+}
+
+.QRCodePopUpImageContainer {
+    height: 100px;
+    margin-top: 10px;
+    background-position: center;
+    text-align: center;
+    color: #D9D9D9;
+    font-family: "Helvetica";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    vertical-align: middle;
+    line-height: 100px;
+    border-radius: 12px;
+}
+
+.ContainerQRNavigationPopUpContainer {
+    width: 92%;
+    margin: auto;
+    padding: 23px 0px 23px 0px;
+}
+
+.ContainerQRNavigationPopupSubText {
+    text-align: center;
+    color: #04315B;
+    font-family: "Helvetica";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    padding-bottom: 10px;
+}

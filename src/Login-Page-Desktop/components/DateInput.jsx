@@ -1,6 +1,7 @@
 import { DatePicker, LocalizationProvider } from "@mui/x-date-pickers"
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 
+// eslint-disable-next-line react/prop-types
 function DateInput({color}) {
   const style = {
     '& .MuiInputBase-input': {

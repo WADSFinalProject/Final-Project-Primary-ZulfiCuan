@@ -16,7 +16,12 @@ function ProductionIcon({NavigationState, setNavigationState}) {
     return (
       <div>
         <div className="CentraManagerBar" style={{width: BarSize}}></div>
-        <div className="ProductionIconMainContainer" onClick={() => setNavigationState([[false], [true, false, false, false], [false], [false], [false]])}>
+        <div className="ProductionIconMainContainer" onClick={() => setNavigationState(
+          [[false, false], 
+          [true, false, false, false, false, false, false, false, false, false], 
+          [false, false, false, false, false], 
+          [false, false, false], 
+          [false, false, false]])}>
             <div className="imageContainer">
               <img src={ImagePath}></img>
             </div>

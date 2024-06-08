@@ -4,7 +4,7 @@ import ProductionInsideChart from '../Charts/ProductionInsideChart'
 import BatchContainerProduction from './BatchContainerProduction'
 
 // eslint-disable-next-line react/prop-types
-function DryLeaves() {
+function DryLeaves({setNavigation}) {
   // eslint-disable-next-line no-unused-vars
   const [DataLeaves, setDataLeaves] = useState([{
     ID: "ID W23",
@@ -36,7 +36,13 @@ function DryLeaves() {
           </div>
           <div className='ProductionInsideAddNewButton'>
             <img src='src\Centra-Manager\assets\AddIcon.svg' className='ProductionInsideAddedNewImage'></img>
-            <div className='ProductionInsideAddedNewText'>Add New</div>
+            <div className='ProductionInsideAddedNewText' onClick={
+              () => setNavigation([[false, false], 
+              [false, false, false, false, false, true, false, false, false, false], 
+              [false, false, false, false, false], 
+              [false, false, false], 
+              [false, false, false]])}
+            >Add New</div>
           </div>
         </div>
         <div className='ProductionInsideChartContainer'>
@@ -44,7 +50,7 @@ function DryLeaves() {
         </div>
         <div>
           {DataLeaves.map((dataLeaves, index) => (
-                    <div key={index}><BatchContainerProduction data={dataLeaves} /></div>
+                    <div key={index}><BatchContainerProduction data={dataLeaves} animationStart={index * 200 + 100}/></div>
                 ))}
         </div>
       </div>

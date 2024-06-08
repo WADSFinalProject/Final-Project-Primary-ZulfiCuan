@@ -19,7 +19,12 @@ function ProfileIcon({NavigationState, setNavigationState}) {
     return (
       <div>
         <div className="CentraManagerBar" style={{width: BarSize}}></div>
-        <div className="ProfileIconMainContainer" onClick={() => setNavigationState([[false], [false, false, false, false], [false], [false], [true]])}>
+        <div className="ProfileIconMainContainer" onClick={() => setNavigationState(
+          [[false, false], 
+          [false, false, false, false, false, false, false, false, false, false], 
+          [false, false, false, false, false], 
+          [false, false, false], 
+          [true, false, false]])}>
             <div className="imageContainerProfile">
               <img className="CentraManagerNavigationHeadIcon" src={ImagePathHead}></img>
               <img className="CentraManagerNavigationBodyIcon" src={ImagePathBody}></img>

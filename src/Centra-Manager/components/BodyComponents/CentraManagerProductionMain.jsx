@@ -10,17 +10,37 @@ function CentraManagerProductionMain({ProductionPosition, setProductionPosition}
   var currentPosition = <ProductionDashboard setBody={setProductionPosition}/>
   
   if (ProductionPosition[1][0] == true) {
-    () => setProductionPosition([[false], [true, false, false, false], [false], [false], [false]])
+    () => setProductionPosition(
+      [[false, false], 
+      [true, false, false, false, false, false, false, false, false, false], 
+      [false, false, false, false, false], 
+      [false, false, false], 
+      [false, false, false]])
     currentPosition = <ProductionDashboard setBody={setProductionPosition}/>
   } else if (ProductionPosition[1][1] == true) {
-    () => setProductionPosition([[false], [false, true, false, false], [false], [false], [false]])
-    currentPosition = <WetLeaves />
+    () => setProductionPosition(
+      [[false, false], 
+      [false, true, false, false, false, false, false, false, false, false], 
+      [false, false, false, false, false], 
+      [false, false, false], 
+      [false, false, false]])
+    currentPosition = <WetLeaves setNavigation={setProductionPosition}/>
   } else if (ProductionPosition[1][2] == true) {
-    () => setProductionPosition([[false], [false, false, true, false], [false], [false], [false]])
-    currentPosition = <DryLeaves />
+    () => setProductionPosition(
+      [[false, false], 
+      [false, false, true, false, false, false, false, false, false, false], 
+      [false, false, false, false, false], 
+      [false, false, false], 
+      [false, false, false]])
+    currentPosition = <DryLeaves setNavigation={setProductionPosition}/>
   } else if (ProductionPosition[1][3] == true) {
-    () => setProductionPosition([[false], [false, false, false, true], [false], [false], [false]])
-    currentPosition = <FlourLeaves />
+    () => setProductionPosition(
+      [[false, false], 
+      [false, false, false, true, false, false, false, false, false, false], 
+      [false, false, false, false, false], 
+      [false, false, false], 
+      [false, false, false]])
+    currentPosition = <FlourLeaves setNavigation={setProductionPosition}/>
   }
 
   return (

@@ -5,7 +5,7 @@ import BatchContainerProduction from './BatchContainerProduction'
 import DeleteProductionInside from './DeleteProductionInside'
 
 // eslint-disable-next-line react/prop-types
-function WetLeaves() {
+function WetLeaves({setNavigation}) {
   // eslint-disable-next-line no-unused-vars
   const [DeleteShow, setDeleteShow] = useState(false)
   // eslint-disable-next-line no-unused-vars
@@ -39,7 +39,13 @@ function WetLeaves() {
           </div>
           <div className='ProductionInsideAddNewButton'>
             <img src='src\Centra-Manager\assets\AddIcon.svg' className='ProductionInsideAddedNewImage'></img>
-            <div className='ProductionInsideAddedNewText'>Add New</div>
+            <div className='ProductionInsideAddedNewText' onClick={
+              () => setNavigation([[false, false], 
+              [false, false, false, false, true, false, false, false, false, false], 
+              [false, false, false, false, false], 
+              [false, false, false], 
+              [false, false, false]])}
+              >Add New</div>
           </div>
         </div>
         <div className='ProductionInsideChartContainer'>
@@ -47,7 +53,7 @@ function WetLeaves() {
         </div>
         <div>
           {DataLeaves.map((dataLeaves, index) => (
-                    <div key={index}><BatchContainerProduction data={dataLeaves} setDeleteUpdate={setDeleteShow} /></div>
+                    <div key={index}><BatchContainerProduction data={dataLeaves} setDeleteUpdate={setDeleteShow} animationStart={index * 200 + 100}/></div>
                 ))}
         </div>
       </div>

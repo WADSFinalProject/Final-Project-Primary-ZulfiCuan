@@ -1,7 +1,7 @@
 // eslint-disable-next-line react/prop-types
-function QrCodeIcon() {
+function QrCodeIcon({setNavigation}) {
     return (
-      <div className="QrCodeIconMainContainer">
+      <div className="QrCodeIconMainContainer" onClick={() => setNavigation()}>
           <img src="src/Centra-Manager/assets/qrcodecontainer.svg" className="QrCodeItems"></img>
           <img src="src/Centra-Manager/assets/qrcodeouter.svg" className="QrCodeItems"></img>
           <img src="src/Centra-Manager/assets/qrcodeinner.svg" className="QrCodeItems"></img>

@@ -16,7 +16,12 @@ function HomeIcon({NavigationState, setNavigationState}) {
     return (
       <div>
         <div className="CentraManagerBar" style={{width: BarSize}}></div>
-        <div className="HomeIconMainContainer" onClick={() => setNavigationState([[true], [false, false, false, false], [false], [false], [false]])}>
+        <div className="HomeIconMainContainer" onClick={() => setNavigationState(
+          [[true, false], 
+          [false, false, false, false, false, false, false, false, false, false], 
+          [false, false, false, false, false], 
+          [false, false, false], 
+          [false, false, false]])}>
             <div className="imageContainer">
               <img src={ImagePath}></img>
             </div>

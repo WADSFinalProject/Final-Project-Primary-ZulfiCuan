@@ -16,7 +16,12 @@ function ShippingIcon({NavigationState, setNavigationState}) {
     return (
       <div>
         <div className="CentraManagerBar" style={{width: BarSize}}></div>
-        <div className="ShippingIconMainContainer" onClick={() => setNavigationState([[false], [false, false, false, false], [false], [true], [false]])}>
+        <div className="ShippingIconMainContainer" onClick={() => setNavigationState(
+          [[false, false], 
+          [false, false, false, false, false, false, false, false, false, false], 
+          [false, false, false, false, false], 
+          [true, false, false], 
+          [false, false, false]])}>
             <div className="imageContainer">
               <img src={ImagePath} className="NavigationCentraManagerImage"></img>
             </div>

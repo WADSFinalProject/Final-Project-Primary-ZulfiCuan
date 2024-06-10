@@ -13,6 +13,9 @@ import CentraManagerAddNewWet from "./EditAndNewComponent/CentraManagerAddNewWet
 import CentraManagerAddNewDry from "./EditAndNewComponent/CentraManagerAddNewDry"
 import CentraManagerAddFlour from "./EditAndNewComponent/CentraManagerAddFlour"
 import QRNavigationPopUpCM from "./QRNavigationPopUpCM"
+import QRCodeScanningPageCentraManager from "./QRCodeScanningPageCentraManager"
+import CentraManagerShippingAddNew from "./BodyComponents/CentraManagerShippingAddNew"
+import CentraManagerShippingTrackOrder from "./BodyComponents/CentraManagerShippingTrackOrder"
 
 var PreviousSlot = 
 [[true, false], 
@@ -23,7 +26,6 @@ var PreviousSlot =
 
 // eslint-disable-next-line react/prop-types
 function CentraManagerCentral() {
-   // eslint-disable-next-line no-unused-vars
   const [NavigationSlot, setNavigationSlot] = useState(
     [[true, false], 
     [false, false, false, false, false, false, false, false, false, false], 
@@ -40,12 +42,35 @@ function CentraManagerCentral() {
     })) 
     
     const [QRCode, QRCodeAnimation] = useSpring(() => ({
+      config: {
+        tension: 100, 
+        friction: 60
+      },
       from: { y: 0, x: 0},
       to: { y: 0, x: 0 },
     }))
 
+    const vhToPixel = value => (window.innerHeight * value) / 100;
+    const [QRCover, QRCoverAnimation] = useSpring(() => ({
+      config: {
+        tension: 10000, 
+        friction: 10,
+        clamp: true
+      },
+      from: { y: 0, x: 0,},
+      to: { y: 0, x: 0 },
+    }))
+
     function QRCodeOpen() {
-        QRCodeAnimation.start({to: {y: -600}})
+        QRCodeAnimation.start({to: {y: -621}})
+        QRCoverAnimation.start({to: {y: vhToPixel(-150)}})
+        document.body.style.overflow = "hidden";
+    }
+
+    function QRCodeClose() {
+        QRCodeAnimation.start({to: {y: 621}})
+        QRCoverAnimation.start({to: {y: vhToPixel(150)}})
+        document.body.style.overflow = "scroll";
     }
 
   var HeaderLabel = 'Home'
@@ -76,7 +101,7 @@ function CentraManagerCentral() {
       api.start({to: {y: 0,},})
   } else if (NavigationSlot[3][0] == true) {
     HeaderLabel = 'Shipping'
-    currentPosition = <CentraManagerShippingMain />
+    currentPosition = <CentraManagerShippingMain setNavigation={setNavigationSlot}/>
     headerPosition = <CentraManagerHeader Label={HeaderLabel} setNavigation={setNavigationSlot}/>
     PreviousSlot = 
       [[false, false], 
@@ -149,6 +174,22 @@ function CentraManagerCentral() {
     currentPosition = <CentraManagerAddFlour setNavigation={setNavigationSlot} previousState={PreviousSlot}/>
     headerPosition = <CentraManagerHeaderBackButton label={HeaderLabel} setNavigation={setNavigationSlot} previousState={PreviousSlot} size={"20px"}/>
     api.start({to: {y: 200,},})
+  } else if (NavigationSlot[2][0] == true) {
+    QRCodeClose()
+    HeaderLabel = 'Scanning QR'
+    currentPosition = <QRCodeScanningPageCentraManager />
+    headerPosition = <CentraManagerHeaderBackButton label={HeaderLabel} setNavigation={setNavigationSlot} previousState={PreviousSlot} size={"20px"}/>
+    api.start({to: {y: 200,},})
+  } else if (NavigationSlot[3][1] == true) {
+    HeaderLabel = 'Add New Shipping ID'
+    currentPosition = <CentraManagerShippingAddNew setNavigation={setNavigationSlot} previousState={PreviousSlot} />
+    headerPosition = <CentraManagerHeaderBackButton label={HeaderLabel} setNavigation={setNavigationSlot} previousState={PreviousSlot} size={"20px"}/>
+    api.start({to: {y: 200,},})
+  } else if (NavigationSlot[3][2] == true) {
+    HeaderLabel = 'Track Order'
+    currentPosition = <CentraManagerShippingTrackOrder />
+    headerPosition = <CentraManagerHeaderBackButton label={HeaderLabel} setNavigation={setNavigationSlot} previousState={PreviousSlot} size={"20px"}/>
+    api.start({to: {y: 200,},})
   }
   return (
     <div>
@@ -160,8 +201,9 @@ function CentraManagerCentral() {
           <CentraManagerNavigation setNavigationSlot={setNavigationSlot} NavigationSlot={NavigationSlot} setQRCode={QRCodeOpen}/>
         </animated.div>
         <animated.div className='CentraManagerQRCodePopUpPage' style={{...QRCode}}>
-          <QRNavigationPopUpCM />
+          <QRNavigationPopUpCM setNavigation={setNavigationSlot}/>
         </animated.div>
+        <animated.div className="CentraManagerQRCodePopUpCover" style={{...QRCover}} onClick={() => QRCodeClose()}></animated.div>
     </div>
   )
 }

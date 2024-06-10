@@ -113,7 +113,8 @@
     position: fixed;
     overflow: auto;
     width: 100%;
-    bottom: 0;
+    bottom: -621px;
+    z-index: 5000;
 }
 
 .ContainerQRNavigationPopUp {
@@ -152,4 +153,74 @@
     font-weight: 700;
     line-height: normal;
     padding-bottom: 10px;
+}
+
+.QROROptionNavigationContainer {
+    display: grid;
+    grid-template-columns: 5fr 1fr 5fr;
+    margin-top: 20px;
+}
+
+.QROROptionNavigationLine {
+    height: 1px;
+    width: 100%;
+    background-color: #04315B;
+    margin: auto;
+}
+
+.QROROptionNavigationText {
+    color: #04315B;
+    font-family: "Helvetica";
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    text-align: center;
+}
+
+.QRAddManuallyButton {
+    background-color: #04315B;
+    margin-top: 20px;
+    height: 45px;
+    border-radius: 10px;
+}
+
+.QRAddManuallyText {
+    color: #FAF9F6;
+    font-family: "Helvetica";
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 700;
+    text-align: center;
+}
+
+.QRAddManuallyPlusImage {
+    margin: auto;
+}
+
+.QRAddManuallyButtonContainer {
+    margin: auto;
+    height: 100%;
+    width: 100%;
+    line-height: 45px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.PlusCentraManager {
+    color: #FAF9F6;
+    font-family: "Helvetica";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    margin: auto;
+}
+
+.CentraManagerQRCodePopUpCover {
+    overflow: auto;
+    position: fixed;
+    bottom: -150vh;
+    height: 150vh;
+    width: 100vw;
+    background-color: rgb(111, 109, 109, 0.5);
 }

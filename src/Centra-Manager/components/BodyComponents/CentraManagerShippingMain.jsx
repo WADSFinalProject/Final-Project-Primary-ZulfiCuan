@@ -2,7 +2,8 @@ import { useState } from 'react'
 import '../../css/ShippingCentraManager.css'
 import ShippingDashboard from './ShippingDashboard'
 
-function CentraManagerShippingMain() {
+// eslint-disable-next-line react/prop-types
+function CentraManagerShippingMain({setNavigation}) {
   const [currentButtonPosition, setCurrentButtonPosition] = useState([true, false, false, false])
   const selectedStyle = {
     backgroundColor: "#04315B",
@@ -104,7 +105,12 @@ function dataTableCheck(Position, Table) {
           </div>
           <div className='ProductionInsideAddNewButton'>
             <img src='src\Centra-Manager\assets\AddIcon.svg' className='ProductionInsideAddedNewImage'></img>
-            <div className='ProductionInsideAddedNewText'>Add New</div>
+            <div className='ProductionInsideAddedNewText' onClick={() => setNavigation(
+              [[false, false], 
+              [false, false, false, false, false, false, false, false, false, false], 
+              [false, false, false, false, false], 
+              [false, true, false], 
+              [false, false, false]])}>Add New</div>
           </div>
         </div>
         <div className='ShippingViewButtonsContainer'>

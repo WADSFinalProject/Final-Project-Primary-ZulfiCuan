@@ -21,66 +21,19 @@ const columns = [
   { id: 'email', label: 'Email', minWidth: 170, align: 'center' },
   { id: 'password', label: 'Password', minWidth: 170, align: 'center' },
   { id: 'birthDate', label: 'Birth Date', minWidth: 170, align: 'center' },
-  { id: 'role', label: 'Role', minWidth: 170 }, // New column for Role
+  { id: 'role', label: 'Role', minWidth: 170, align: 'center' }, // Updated to center align
   { id: 'action', label: 'Action', minWidth: 170, align: 'center' },
 ];
 
 const initialRows = [
-  // { id: 'U108', name: 'John Doe', email: 'johndoe@centra.com', password: 'xxxxxxxxx', birthDate: '12/04/1987' },
-  // { id: 'U109', name: 'Jane Smith', email: 'janesmith@centra.com', password: 'xxxxxxxxx', birthDate: '05/15/1990' },
-  // { id: 'U110', name: 'Mike Johnson', email: 'mikejohnson@centra.com', password: 'xxxxxxxxx', birthDate: '08/23/1985' },
-  // { id: 'U111', name: 'Emily Davis', email: 'emilydavis@centra.com', password: 'xxxxxxxxx', birthDate: '11/19/1992' },
   { id: 'U108', name: 'John Doe', email: 'johndoe@centra.com', password: 'xxxxxxxxx', birthDate: '12/04/1987', role: 'Admin' },
   { id: 'U109', name: 'Jane Smith', email: 'janesmith@centra.com', password: 'xxxxxxxxx', birthDate: '05/15/1990', role: 'User' },
   { id: 'U110', name: 'Mike Johnson', email: 'mikejohnson@centra.com', password: 'xxxxxxxxx', birthDate: '08/23/1985', role: 'User' },
   { id: 'U111', name: 'Emily Davis', email: 'emilydavis@centra.com', password: 'xxxxxxxxx', birthDate: '11/19/1992', role: 'Admin' },
-  { id: 'U108', name: 'John Doe', email: 'johndoe@centra.com', password: 'xxxxxxxxx', birthDate: '12/04/1987', role: 'Admin' },
-  { id: 'U109', name: 'Jane Smith', email: 'janesmith@centra.com', password: 'xxxxxxxxx', birthDate: '05/15/1990', role: 'User' },
-  { id: 'U110', name: 'Mike Johnson', email: 'mikejohnson@centra.com', password: 'xxxxxxxxx', birthDate: '08/23/1985', role: 'User' },
-  { id: 'U111', name: 'Emily Davis', email: 'emilydavis@centra.com', password: 'xxxxxxxxx', birthDate: '11/19/1992', role: 'Admin' },
-  { id: 'U108', name: 'John Doe', email: 'johndoe@centra.com', password: 'xxxxxxxxx', birthDate: '12/04/1987', role: 'Admin' },
-  { id: 'U109', name: 'Jane Smith', email: 'janesmith@centra.com', password: 'xxxxxxxxx', birthDate: '05/15/1990', role: 'User' },
-  { id: 'U110', name: 'Mike Johnson', email: 'mikejohnson@centra.com', password: 'xxxxxxxxx', birthDate: '08/23/1985', role: 'User' },
-  { id: 'U111', name: 'Emily Davis', email: 'emilydavis@centra.com', password: 'xxxxxxxxx', birthDate: '11/19/1992', role: 'Admin' },
-  { id: 'U108', name: 'John Doe', email: 'johndoe@centra.com', password: 'xxxxxxxxx', birthDate: '12/04/1987', role: 'Admin' },
-  { id: 'U109', name: 'Jane Smith', email: 'janesmith@centra.com', password: 'xxxxxxxxx', birthDate: '05/15/1990', role: 'User' },
-  { id: 'U110', name: 'Mike Johnson', email: 'mikejohnson@centra.com', password: 'xxxxxxxxx', birthDate: '08/23/1985', role: 'User' },
-  { id: 'U111', name: 'Emily Davis', email: 'emilydavis@centra.com', password: 'xxxxxxxxx', birthDate: '11/19/1992', role: 'Admin' },
-  { id: 'U108', name: 'John Doe', email: 'johndoe@centra.com', password: 'xxxxxxxxx', birthDate: '12/04/1987', role: 'Admin' },
-  { id: 'U109', name: 'Jane Smith', email: 'janesmith@centra.com', password: 'xxxxxxxxx', birthDate: '05/15/1990', role: 'User' },
-  { id: 'U110', name: 'Mike Johnson', email: 'mikejohnson@centra.com', password: 'xxxxxxxxx', birthDate: '08/23/1985', role: 'User' },
-  { id: 'U111', name: 'Emily Davis', email: 'emilydavis@centra.com', password: 'xxxxxxxxx', birthDate: '11/19/1992', role: 'Admin' },
-  { id: 'U108', name: 'John Doe', email: 'johndoe@centra.com', password: 'xxxxxxxxx', birthDate: '12/04/1987', role: 'Admin' },
-  { id: 'U109', name: 'Jane Smith', email: 'janesmith@centra.com', password: 'xxxxxxxxx', birthDate: '05/15/1990', role: 'User' },
-  { id: 'U110', name: 'Mike Johnson', email: 'mikejohnson@centra.com', password: 'xxxxxxxxx', birthDate: '08/23/1985', role: 'User' },
-  { id: 'U111', name: 'Emily Davis', email: 'emilydavis@centra.com', password: 'xxxxxxxxx', birthDate: '11/19/1992', role: 'Admin' },
-  { id: 'U108', name: 'John Doe', email: 'johndoe@centra.com', password: 'xxxxxxxxx', birthDate: '12/04/1987', role: 'Admin' },
-  { id: 'U109', name: 'Jane Smith', email: 'janesmith@centra.com', password: 'xxxxxxxxx', birthDate: '05/15/1990', role: 'User' },
-  { id: 'U110', name: 'Mike Johnson', email: 'mikejohnson@centra.com', password: 'xxxxxxxxx', birthDate: '08/23/1985', role: 'User' },
-  { id: 'U111', name: 'Emily Davis', email: 'emilydavis@centra.com', password: 'xxxxxxxxx', birthDate: '11/19/1992', role: 'Admin' },
-  { id: 'U108', name: 'John Doe', email: 'johndoe@centra.com', password: 'xxxxxxxxx', birthDate: '12/04/1987', role: 'Admin' },
-  { id: 'U109', name: 'Jane Smith', email: 'janesmith@centra.com', password: 'xxxxxxxxx', birthDate: '05/15/1990', role: 'User' },
-  { id: 'U110', name: 'Mike Johnson', email: 'mikejohnson@centra.com', password: 'xxxxxxxxx', birthDate: '08/23/1985', role: 'User' },
-  { id: 'U111', name: 'Emily Davis', email: 'emilydavis@centra.com', password: 'xxxxxxxxx', birthDate: '11/19/1992', role: 'Admin' },
-  { id: 'U108', name: 'John Doe', email: 'johndoe@centra.com', password: 'xxxxxxxxx', birthDate: '12/04/1987', role: 'Admin' },
-  { id: 'U109', name: 'Jane Smith', email: 'janesmith@centra.com', password: 'xxxxxxxxx', birthDate: '05/15/1990', role: 'User' },
-  { id: 'U110', name: 'Mike Johnson', email: 'mikejohnson@centra.com', password: 'xxxxxxxxx', birthDate: '08/23/1985', role: 'User' },
-  { id: 'U111', name: 'Emily Davis', email: 'emilydavis@centra.com', password: 'xxxxxxxxx', birthDate: '11/19/1992', role: 'Admin' },
-  { id: 'U108', name: 'John Doe', email: 'johndoe@centra.com', password: 'xxxxxxxxx', birthDate: '12/04/1987', role: 'Admin' },
-  { id: 'U109', name: 'Jane Smith', email: 'janesmith@centra.com', password: 'xxxxxxxxx', birthDate: '05/15/1990', role: 'User' },
-  { id: 'U110', name: 'Mike Johnson', email: 'mikejohnson@centra.com', password: 'xxxxxxxxx', birthDate: '08/23/1985', role: 'User' },
-  { id: 'U111', name: 'Emily Davis', email: 'emilydavis@centra.com', password: 'xxxxxxxxx', birthDate: '11/19/1992', role: 'Admin' },
-  { id: 'U108', name: 'John Doe', email: 'johndoe@centra.com', password: 'xxxxxxxxx', birthDate: '12/04/1987', role: 'Admin' },
-  { id: 'U109', name: 'Jane Smith', email: 'janesmith@centra.com', password: 'xxxxxxxxx', birthDate: '05/15/1990', role: 'User' },
-  { id: 'U110', name: 'Mike Johnson', email: 'mikejohnson@centra.com', password: 'xxxxxxxxx', birthDate: '08/23/1985', role: 'User' },
-  { id: 'U111', name: 'Emily Davis', email: 'emilydavis@centra.com', password: 'xxxxxxxxx', birthDate: '11/19/1992', role: 'Admin' },
-  { id: 'U108', name: 'John Doe', email: 'johndoe@centra.com', password: 'xxxxxxxxx', birthDate: '12/04/1987', role: 'Admin' },
-  { id: 'U109', name: 'Jane Smith', email: 'janesmith@centra.com', password: 'xxxxxxxxx', birthDate: '05/15/1990', role: 'User' },
-  { id: 'U110', name: 'Mike Johnson', email: 'mikejohnson@centra.com', password: 'xxxxxxxxx', birthDate: '08/23/1985', role: 'User' },
-  { id: 'U111', name: 'Emily Davis', email: 'emilydavis@centra.com', password: 'xxxxxxxxx', birthDate: '11/19/1992', role: 'Admin' },
+  // ... (rest of the rows)
 ];
 
-export default function AccountableTable() {
+export default function AccountTable() {
   const [page, setPage] = useState(0);
   const rowsPerPage = 10;
   const [editOpen, setEditOpen] = useState(false);
@@ -131,7 +84,7 @@ export default function AccountableTable() {
                 <TableCell
                   key={column.id}
                   align={column.align}
-                  sx={{ minWidth: column.minWidth, backgroundColor: '#002855', color: 'white' }}
+                  sx={{ minWidth: column.minWidth, backgroundColor: '#002855', color: 'white', textAlign: 'center' }}
                 >
                   {column.label}
                 </TableCell>
@@ -152,6 +105,7 @@ export default function AccountableTable() {
                         fontWeight: 500,
                         fontFamily: 'var(--font-inter)',
                         borderBottom: '1px solid #04315b', // Adding bottom border to TableCell
+                        textAlign: column.align // Ensure alignment is applied
                       }}
                     >
                       {column.id === 'action' ? (

@@ -1,4 +1,3 @@
-import React from 'react';
 import './welcomewidget.scss';
 
 function WelcomeWidget() {

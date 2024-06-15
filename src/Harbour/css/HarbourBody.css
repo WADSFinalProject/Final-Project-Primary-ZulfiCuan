@@ -29,7 +29,7 @@
     background-color: white;
 }
 
-.CentraManagerDashboardTopWrapper {
+.HarbourDashboardTopWrapper {
     background-color: #EBEBEB;
     padding-bottom: 20px;
     padding-top: 20px;
@@ -46,7 +46,7 @@
     margin-bottom: 10px;
 }
 
-.ShippingTitleHeaderCentraManager {
+.ShippingTitleHeaderHarbour {
     display: grid;
     grid-template-columns: 1fr 1fr;
 }
@@ -75,7 +75,7 @@
     margin: auto 0 auto 0
 }
 
-.GapSetterCentraManagerDashboard {
+.GapSetterHarbourDashboard {
     margin-top: 30px;
 }
 

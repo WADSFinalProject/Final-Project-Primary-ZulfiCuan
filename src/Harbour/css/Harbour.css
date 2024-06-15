@@ -12,7 +12,7 @@
     font-family: Helvetica, sans-serif;
 }
 
-.NavigationCentraManager {
+.NavigationHarbour {
     position: fixed;
     overflow: auto;
     width: 100%;
@@ -34,11 +34,11 @@
     justify-content: center;
 }
 
-.NavigationCentraManagerImage {
+.NavigationHarbourImage {
     margin: auto;
 }
 
-.CentraManagerNavigationText {
+.HarbourNavigationText {
     font-size: 12px;
     font-family: Helvetica, sans-serif;
     position: relative;
@@ -56,21 +56,21 @@
     justify-content: center;
 }
 
-.CentraManagerNavigationHeadIcon {
+.HarbourNavigationHeadIcon {
     width: 18.2125px;
     height: 18.2125px;
     margin: auto;
     margin-bottom: -1px;
 }
 
-.CentraManagerNavigationBodyIcon {
+.HarbourNavigationBodyIcon {
     width: 32.0875px;
     height: 13.75px;
     margin: auto;
     margin-top: -2px;
 }
 
-.CentraManagerBar {
+.HarbourBar {
     width: 0px;
     height: 5px;
     background-color: #04315B;
@@ -92,7 +92,7 @@
     transform: translate(-50%, -50%);
 }
 
-.HeaderCentraManager {
+.HeaderHarbour {
     position: fixed;
     overflow: auto;
     width: 100%;
@@ -105,6 +105,6 @@
     grid-template-columns: 1fr 1fr;
 }
 
-.BodyCentraManager {
+.BodyHarbour {
     padding-top: 30px;
 }

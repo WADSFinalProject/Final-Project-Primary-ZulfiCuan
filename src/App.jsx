@@ -6,6 +6,7 @@ import HarbourQRMain from './Harbour/components/HarbourQRMain';
 import MainPage from './Admin/Pages/MainPage/MainPage';
 import '../src/index.css'
 import XYZStorage from './Storage-Mobile/pages/real-main-page';
+import FirstPageH from './HarbourBackup/pages/firstPageH';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
                 <Route exact path="/" element={<SwitchLogin />} />
                 <Route exact path="/CentraManager" element={<CentraManagerMain />} />
                 <Route exact path="/Harbour" element={<HarbourMain />} />
+                <Route exact path="/HarbourTest" element={<FirstPageH />} />                
                 <Route exact path="/HarbourQR" element={<HarbourQRMain />} />
                 <Route exact path="/Admin" element={<MainPage />} />
                 <Route exact path="/xyzstorage" element={<XYZStorage />} />

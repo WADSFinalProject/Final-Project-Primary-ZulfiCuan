@@ -1,7 +1,11 @@
+import HarbourHeaderQR from "./HarbourHeaderQR"
 
 function HarbourQRMain() {
     return (
-      <h1>HarbourQRMain</h1>
+      <><div className = "HarbourHeaderContainer">
+        <HarbourHeaderQR />
+      </div>
+      <h1>HarbourQRMain</h1></>
     )
   }
   

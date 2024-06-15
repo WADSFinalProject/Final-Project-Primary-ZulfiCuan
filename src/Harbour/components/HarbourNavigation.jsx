@@ -14,7 +14,7 @@ function HarbourNavigation({NavigationSlot, setNavigationSlot}) {
       to: { y: 0 },
     })
     return (
-      <animated.div className="NavigationCentraManagerPrimary" style={{...springs}}>
+      <animated.div className="NavigationHarbourPrimary" style={{...springs}}>
         <div><QrCodeIcon NavigationState={NavigationSlot} setNavigationState={setNavigationSlot}/></div>
         <div className="NavigationManagerContainer">
             <div><HistoryIcon NavigationState={NavigationSlot} setNavigationState={setNavigationSlot}/></div>

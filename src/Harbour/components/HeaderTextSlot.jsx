@@ -9,7 +9,7 @@ function HeaderTextSlot({label}) {
     )
   } else {
   return (
-    <div className="HeaderTextOtherCentraManager">{label}</div>
+    <div className="HeaderTextOtherHarbour">{label}</div>
   )
 }
 }

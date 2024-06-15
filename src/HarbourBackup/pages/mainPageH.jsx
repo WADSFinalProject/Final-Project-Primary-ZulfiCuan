@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
 import useTogglePages from '../hooks/useTogglePages'
-import Rescale from './rescale';
+import History from './history';
 import Notifications from './notifications';
 import Account from './account'
 import EditProfile from './editprofile'
@@ -20,7 +20,7 @@ function MainPageHarbour() {
 
   return (
     <div>
-      {pages[0][0] && <Rescale togglePage={togglePage} pages={pages}/>}
+      {pages[0][0] && <History togglePage={togglePage} pages={pages}/>}
       {pages[0][1] && <Notifications togglePage={togglePage} pages={pages}/>}
       {pages[1][0] && <Account togglePage={togglePage} pages={pages}/>}
       {pages[1][1] && <EditProfile togglePage={togglePage} pages={pages}/>}

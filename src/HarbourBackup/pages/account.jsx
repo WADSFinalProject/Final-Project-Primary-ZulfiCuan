@@ -81,7 +81,7 @@ function Account({ togglePage, pages }) {
 
         <animated.div style={{...appear}}>
           <p className='text-sm text-secondary font-hnroman'>
-            Harbour Manager
+            Harbour
           </p>
         </animated.div>
 

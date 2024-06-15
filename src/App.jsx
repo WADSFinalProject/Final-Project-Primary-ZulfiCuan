@@ -5,6 +5,7 @@ import HarbourMain from './Harbour/components/HarbourMain'
 import HarbourQRMain from './Harbour/components/HarbourQRMain';
 import MainPage from './Admin/Pages/MainPage/MainPage';
 import StorageMainPage from './Storage-Mobile/pages/main-page'
+import '../src/index.css'
 
 function App() {
   return (

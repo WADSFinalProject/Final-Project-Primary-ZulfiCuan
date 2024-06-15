@@ -3,6 +3,7 @@ import SwitchLogin from './Login-Page-Desktop/SwitchLogin';
 import CentraManagerMain from './Centra-Manager/components/CentraManagerMain';
 import HarbourMain from './Harbour/components/HarbourMain'
 import HarbourQRMain from './Harbour/components/HarbourQRMain';
+import MainPage from './Admin/Pages/MainPage/MainPage';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
                 <Route exact path="/CentraManager" element={<CentraManagerMain />} />
                 <Route exact path="/Harbour" element={<HarbourMain />} />
                 <Route exact path="/HarbourQR" element={<HarbourQRMain />} />
+                <Route exact path="/Admin" element={<MainPage />} />
             </Routes>
         </Router>
     </div>

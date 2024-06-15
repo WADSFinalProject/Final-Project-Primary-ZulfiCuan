@@ -1,0 +1,43 @@
+.widget {
+  display: flex;
+  flex-direction: row; 
+  justify-content: space-between;
+  flex: 1;
+  padding: 20px;
+  background-color: #04315b;
+  border-radius: 10px;
+  color: #faf9f6;
+  width: 100%;
+
+  .left { 
+    flex-direction: column;
+    flex: 1;
+
+    .title {
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+    .bottom {
+      display: flex;
+      align-items: center;
+
+      .counter {
+        display: flex;
+        font-size: 45px;
+        color: #faf9f6;
+        text-align: left;
+        font-weight: 600;
+        margin: auto 0px 0px 21px;
+      }
+
+      .type {
+        width: 324px;
+        font-size: 32px;
+        display: flex;
+        color: #faf9f6;
+        text-align: left;
+        margin: auto 0px 0px 21px;
+      }
+    }
+  }
+}

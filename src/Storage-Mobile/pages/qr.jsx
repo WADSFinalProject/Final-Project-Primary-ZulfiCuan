@@ -22,7 +22,7 @@ function QR({ togglePage, pages }) {
 
   const [QRItem, setQRItem] = useState({
     id: 'S39',
-    centraID: 'C67',
+    batchID: 'C67',
     weight: '5.1',
     date: '05/02/2024',
   })
@@ -99,7 +99,7 @@ function QR({ togglePage, pages }) {
   const [isSaving, setIsSaving] = useState(false);
 
   const save = async () => {
-    if (!QRItem.id || !QRItem.centraID || !QRItem.weight || !QRItem.date) {
+    if (!QRItem.id || !QRItem.batchID || !QRItem.weight || !QRItem.date) {
       alert('Error: Please fill in all fields');
       return;
     }
@@ -190,12 +190,12 @@ function QR({ togglePage, pages }) {
         <FormField 
         otherStyles='mt-2 w-[90vw]'
         containerStyles='rounded-lg px-4 border border-secondary bg-offwhite'
-        title='Centra ID'
+        title='Batch ID'
         titleStyles='font-hnroman text-secondary'
         showTitle='true'
         textStyles='bg-offwhite flex-1 font-hnroman text-secondary text-sm'
-        value={QRItem.centraID}
-        handleChangeText={(e) => setQRItem({ ...QRItem, centraID: e.target.value})}
+        value={QRItem.batchID}
+        handleChangeText={(e) => setQRItem({ ...QRItem, batchID: e.target.value})}
         type="text"
         />
 

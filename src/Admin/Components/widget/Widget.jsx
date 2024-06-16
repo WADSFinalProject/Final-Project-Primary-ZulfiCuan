@@ -28,12 +28,12 @@ function Widget({ type }) {
   }
 
   return (
-    <div className="widget">
-      <div className="left">
-        <span className="title">{title}</span>
-        <div className="bottom">
-          <span className="counter">{count}</span>
-          <span className="type">{unit}</span>
+    <div className="widget-admin">
+      <div className="left-admin">
+        <span className="title-admin">{title}</span>
+        <div className="bottom-admin">
+          <span className="counter-admin">{count}</span>
+          <span className="type-admin">{unit}</span>
         </div>
       </div>
     </div>

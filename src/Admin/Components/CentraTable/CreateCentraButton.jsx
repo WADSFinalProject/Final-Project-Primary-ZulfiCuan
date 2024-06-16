@@ -6,11 +6,11 @@ const CreateCentraButton = ({ onClick }) => {
   return (
     <Button
       variant="outlined"
-      className="createCentraButton"
+      className="createCentraButton-admin"
       onClick={onClick}
       startIcon={<AddOutlinedIcon />}
     >
-      Add Account
+      Add Centra
     </Button>
   );
 };

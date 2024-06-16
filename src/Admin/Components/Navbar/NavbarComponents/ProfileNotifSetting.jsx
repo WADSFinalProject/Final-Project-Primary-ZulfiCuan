@@ -11,20 +11,20 @@ function ProfileNotifSetting({togglePage, pages}) {
     });
     
   return (
-    <div className="items">
-            <div className="profile">
-              <div className="name">{ProfiileNotifNames.userName}</div>
-              <div className="role">{ProfiileNotifNames.userRole}</div>
+    <div className="items-admin">
+            <div className="profile-admin">
+              <div className="name-admin">{ProfiileNotifNames.userName}</div>
+              <div className="role-admin">{ProfiileNotifNames.userRole}</div>
             </div>
-            <div className="item" >
-              <img src="src/Admin/assets/pexels-lum3n-44775-406014.jpg" alt="" className='avatar' />
+            <div className="item-admin" >
+              <img src="src/Admin/assets/pexels-lum3n-44775-406014.jpg" alt="" className='avatar-admin' />
             </div>
-            <div className="separator"></div>
-            <div className="item">
+            <div className="separator-admin"></div>
+            <div className="item-admin">
               <NotificationsNoneOutlinedIcon style={{ color: 'rgba(4, 49, 91, 1)' }} onClick={() => togglePage(0, 0)} />
-              <div className="counter">1</div>
+              <div className="counter-admin">1</div>
             </div>
-            <div className="setting">
+            <div className="setting-admin">
               <SettingsOutlinedIcon style={{ color: 'rgba(4, 49, 91, 1)' }} />
             </div>
           </div>

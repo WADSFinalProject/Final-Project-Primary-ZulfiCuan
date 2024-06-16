@@ -15,13 +15,13 @@ function Centra({togglePage, pages}) {
     setShowAddCentra(false);
   };
   return (
-    <div className='CentraPage'>
+    <div className='CentraPage-admin'>
       <SideBar togglePage={togglePage} pages />
-      <div className="CentraContent">
+      <div className="CentraContent-admin">
       <Navbar />
-        <div className="CentraTableContainer">
-          <div className="CentraHeader">
-            <h1 className="CentraTitle">Centra</h1>
+        <div className="CentraTableContainer-admin">
+          <div className="CentraHeader-admin">
+            <h1 className="CentraTitle-admin">Centra</h1>
           </div>
         </div>
         <CentraTable />

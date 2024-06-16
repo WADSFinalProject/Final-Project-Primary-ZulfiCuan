@@ -9,24 +9,24 @@ import NotificationWidget from '../../Components/widget/NotificationWidget.jsx';
 
 function Dashboard({ togglePage, pages }) {
   return (
-    <div className="dashboardPage">
+    <div className="dashboardPage-admin">
       <SideBar togglePage={togglePage} pages={pages} />
-      <div className="dashboardContent">
+      <div className="dashboardContent-admin">
         <Navbar togglePage={togglePage} pages={pages} />
-        <div className="welcomeWidgetContainer">
+        <div className="welcomeWidgetContainer-admin">
           <WelcomeWidget />
         </div>
-        <div className="widgetsContainer">
+        <div className="widgetsContainer-admin">
           <Widget type="PendAccount" />
           <Widget type="ActiveAccount" />
           <Widget type="ActiveCentra" />
         </div>
-        <div className="chartsAndNotificationContainer">
-          <div className="chartAndNotificationWrapper">
-            <div className="chartWrapper">
+        <div className="chartsAndNotificationContainer-admin">
+          <div className="chartAndNotificationWrapper-admin">
+            <div className="chartWrapper-admin">
               <Chart />
             </div>
-            <div className="notificationWrapper">
+            <div className="notificationWrapper-admin">
               <NotificationWidget />
             </div>
           </div>

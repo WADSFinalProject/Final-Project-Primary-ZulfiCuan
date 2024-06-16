@@ -1,6 +1,6 @@
 import React from 'react';
 import { Line } from 'react-chartjs-2';
-import 'chart.js/auto';
+import 'chart.js/auto'; 
 import './LineChart.scss';  // Create a separate stylesheet for chart styles
 
 const LineChart = () => {
@@ -45,7 +45,7 @@ const LineChart = () => {
   };
 
   return (
-    <div className="chartContainer">
+    <div className="chartContainer-admin">
       <Line data={data} options={options} />
     </div>
   );

@@ -6,12 +6,12 @@ import './AddAccountPage.scss';
 
 const AddAccountPage = ({ onBack }) => {
   return (
-    <div className="addAccountPage">
+    <div className="addAccountPage-admin">
       <div className="header">
-        <IconButton className="backButton" onClick={onBack}>
+        <IconButton className="backButton-admin" onClick={onBack}>
           <ArrowBack />
         </IconButton>
-        <Typography variant="h4" className="pageTitle">Add Account</Typography>
+        <Typography variant="h4" className="pageTitle-admin">Add Account</Typography>
       </div>
       <AccountForm />
     </div>

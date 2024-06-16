@@ -1,4 +1,4 @@
-.navbar {
+.navbar-admin {
     width: 100%; // Match the total height of the sidebar's top section including margins
     padding: 10px 0px 10px 0px;
     border-bottom: 0.5px solid rgba(255, 255, 255, 0.1);
@@ -9,7 +9,7 @@
     background-color: #bdd8b0;
     
 
-    .wrapper {
+    .wrapper-admin {
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -17,7 +17,7 @@
         padding: 0 20px; // Adjusted padding
         margin-bottom: 10px;
 
-        .search {
+        .search-admin {
             display: flex;
             align-items: center;
             background-color: white;
@@ -27,7 +27,7 @@
             border: 2px solid rgba(4, 49, 91, 1);
             width: 50%; // Use percentage to make it responsive
 
-            .searchIcon {
+            .searchIcon-admin {
                 color: rgba(4, 49, 91, 1); // Color of the search icon
                 margin: 0px 0px 0px 21px;
             }
@@ -46,33 +46,33 @@
             }
         }
 
-        .items {
+        .items-admin {
             margin-left: auto;
             display: flex;
             align-items: center;
 
-            .profile {
+            .profile-admin {
                 display: flex;
                 flex-direction: column;
                 align-items: flex-start;
                 margin-right: 15px; // Adjust spacing between profile and avatar
             }
 
-            .name {
+            .name-admin {
                 font-size: 14px;
                 color: rgba(4, 49, 91, 1);
                 margin: 0;
                 font-weight: 500;
             }
 
-            .role {
+            .role-admin {
                 font-size: 12px;
                 color: rgba(4, 49, 91, 1);
                 margin: 0;
                 align-self: flex-end; // Aligns the role text to the right
             }
 
-            .item {
+            .item-admin {
                 display: flex;
                 align-items: center;
                 margin-left: 15px; // Adjust the spacing between icons as needed
@@ -80,20 +80,20 @@
                 position: relative;
             }
 
-            .separator {
+            .separator-admin {
                 width: 1px;
                 height: 30px; // Adjust the height as needed
                 background-color: rgba(4, 49, 91, 1);
                 margin: 0 15px; // Adjust the spacing as needed
             }
 
-            .avatar {
+            .avatar-admin {
                 width: 30px;
                 height: 30px;
                 border-radius: 50%;
             }
 
-            .counter {
+            .counter-admin {
                 width: 15px;
                 height: 15px;
                 background-color: #ff7c52;

@@ -19,16 +19,16 @@ function Account({togglePage, pages}) {
   };
 
   return (
-    <div className="accountPage">
+    <div className="accountPage-admin">
       <SideBar togglePage={togglePage}/>
-      <div className="accountContent">
+      <div className="accountContent-admin">
         <Navbar />
         {showAddAccount ? (
           <AddAccountPage onBack={handleBack} />
         ) : (
-          <div className="accountTableContainer">
-            <div className="accountHeader">
-              <h1 className="accountTitle">Account</h1>
+          <div className="accountTableContainer-admin">
+            <div className="accountHeader-admin">
+              <h1 className="accountTitle-admin">Account</h1>
               <CreateAccountButton onClick={handleAddAccount} />
             </div>
           <AccountTable />

@@ -4,12 +4,12 @@ import NotificationsNoneOutlinedIcon from '@mui/icons-material/NotificationsNone
 
 const NotificationWidget = () => {
   return (
-    <div className="notificationWidget">
-      <div className="notificationHeader">
-        <span className="notificationIcon"><NotificationsNoneOutlinedIcon/></span>
-        <span className="notificationTitle">Notification</span>
+    <div className="notificationWidget-admin">
+      <div className="notificationHeader-admin">
+        <span className="notificationIcon-admin"><NotificationsNoneOutlinedIcon/></span>
+        <span className="notificationTitle-admin">Notification</span>
       </div>
-      <ul className="notificationList">
+      <ul className="notificationList-admin">
         <li>you have three new pending accounts !</li>
         <li>Mas Budi requests manager role</li>
         <li>John Doe is now active !</li>

@@ -6,7 +6,7 @@ const CreateAccountButton = ({ onClick }) => {
   return (
     <Button
       variant="outlined"
-      className="createAccountButton"
+      className="createAccountButton-admin"
       onClick={onClick}
       startIcon={<AddOutlinedIcon />}
     >

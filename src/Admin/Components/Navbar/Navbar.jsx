@@ -12,8 +12,8 @@ function Navbar({togglePage, pages}) {
   const userRole = "Admin"; // This will come from your backend
 
   return (
-    <div className='navbar'>
-      <div className="wrapper">
+    <div className='navbar-admin'>
+      <div className="wrapper-admin">
         <Search/>
         <div>
         <ProfileNotifSetting userName={userName} userRole={userRole} togglePage={togglePage} pages={pages} />

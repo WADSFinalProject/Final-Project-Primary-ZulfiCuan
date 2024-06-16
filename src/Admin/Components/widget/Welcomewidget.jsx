@@ -7,8 +7,8 @@ function WelcomeWidget() {
   const formattedDate = `${weekday}, ${currentDate.toLocaleDateString('en-GB', options)}`;
 
   return (
-    <div className="welcomeWidget">
-      <div className="date">{formattedDate}</div>
+    <div className="welcomeWidget-admin">
+      <div className="date-admin">{formattedDate}</div>
       <h1>Welcome John Doe!</h1>
       <p>There are 3 pending Accounts that you must review. Please go to the Account Section so you may handle them.</p>
     </div>

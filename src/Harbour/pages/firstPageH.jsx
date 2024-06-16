@@ -6,7 +6,7 @@ import { useEffect } from 'react'
 
 function Harbour() {
 
-    const MAX_MOBILE_WIDTH = 768
+    const MAX_MOBILE_WIDTH = 640
     const isMobileSize = UseWindowThreshold(MAX_MOBILE_WIDTH)
 
     useEffect(() => {

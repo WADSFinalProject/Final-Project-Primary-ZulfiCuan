@@ -131,7 +131,7 @@ function History({ togglePage, pages }) {
 
   return (
     <div className='container flex flex-col min-h-screen'>
-      <div className='z-10 items-start flex w-full items-center py-3 px-4 bg-primary h-16 fixed overflow-auto'>
+      <div className='items-start flex w-full items-center py-3 px-4 bg-primary h-16 fixed overflow-auto'>
           <animated.div style={{...appear}}>
             <img
                 src={images.xyzPfp}
@@ -164,7 +164,7 @@ function History({ togglePage, pages }) {
           />
       </div>
 
-      <div className='flex items-center bg-white z-10 fixed h-12 w-full pt-2 pb-5 px-4 mt-14'>
+      <div className='flex items-center bg-white fixed h-12 w-full pt-2 pb-5 px-4 mt-14'>
         <animated.p style={{...springs}} className='text-secondary mt-4 text-2xl font-hnbold'>
             Scanning History
         </animated.p>
@@ -195,7 +195,7 @@ function History({ togglePage, pages }) {
       <div className='flex flex-1 flex-col'> 
         <div className='flex flex-1 flex-col items-center overflow-y-hidden bg-white pt-2 pb-[11vh]'>
             {filteredData.map(item => (
-              <animated.div style={{...springs2}} className='my-1 w-[90vw] h-20 bg-primary-100 overflow-hidden rounded-lg flex flex-col items-center' key={item.id}>
+              <div className='my-1 w-[90vw] h-20 bg-primary-100 overflow-hidden rounded-lg flex flex-col items-center' key={item.id}>
                 <div className='flex container'>
                   <p className='flex-grow ml-2 my-1 text-white font-hnmedium text-sm text-left'>Order:</p>
                   <p className='flex-grow mr-2 my-1 text-white font-hnmedium text-sm text-right underline'>{item.orderId}</p>
@@ -221,7 +221,7 @@ function History({ togglePage, pages }) {
                       <div className='flex-grow h-4'><p className='text-secondary font-hnroman text-xs'>{formatDate(item.time)}</p></div>
                   </div>
                 </div>
-              </animated.div>
+              </div>
             ))}
         </div>
       </div>

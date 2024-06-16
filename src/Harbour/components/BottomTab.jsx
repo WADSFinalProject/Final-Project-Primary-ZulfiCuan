@@ -73,7 +73,7 @@ function BottomTab({ scrollPercent, togglePage, pages }) {
         <TabButton onClick={() => toggleExpand()} active={pages[2][0]}>
             <div style={{
             position: 'absolute',
-            zIndex: isExpanded ? '10000' : '100',
+            zIndex: isExpanded ? '100' : '',
             top: isExpanded ? "auto" : "-6vh",
             width: isExpanded ? "250vw" : "12vh",
             height: isExpanded ? "250vh" : "12vh",

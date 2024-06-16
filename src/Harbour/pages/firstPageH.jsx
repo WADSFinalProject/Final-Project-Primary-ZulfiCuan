@@ -4,7 +4,7 @@ import MainPageHarbour from './mainPageH'
 import DesktopWarning from './desktopwarning'
 import { useEffect } from 'react'
 
-function FirstPageH() {
+function Harbour() {
 
     const MAX_MOBILE_WIDTH = 768
     const isMobileSize = UseWindowThreshold(MAX_MOBILE_WIDTH)
@@ -20,4 +20,4 @@ function FirstPageH() {
   )
 }
 
-export default FirstPageH
+export default Harbour

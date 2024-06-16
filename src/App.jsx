@@ -5,6 +5,7 @@ import MainPage from './Admin/Pages/MainPage/MainPage';
 import '../src/index.css'
 import XYZStorage from './Storage-Mobile/pages/real-main-page';
 import Harbour from './Harbour/pages/firstPageH';
+import ManagerPage from './XYZ-Manager/Pages/MainPage/ManagerPage';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
                 <Route exact path="/Harbour" element={<Harbour />} />                
                 <Route exact path="/Admin" element={<MainPage />} />
                 <Route exact path="/XYZstorage" element={<XYZStorage />} />
+                <Route exact path="/XYZManager" element={<ManagerPage />} />
             </Routes>
         </Router>
     </div>

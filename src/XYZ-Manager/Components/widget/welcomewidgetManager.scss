@@ -1,0 +1,28 @@
+.welcomeWidget-manager {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 20px;
+  background-color: rgba(189, 216, 176, 1);
+  border-radius: 20px;
+  color: rgba(4, 49, 91, 1);
+  width: 100%;
+  border: 2px solid black;
+
+  .date-manager {
+      font-size: 16px;
+      font-weight: bold;
+      margin-bottom: 10px;
+  }
+
+  h1 {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 10px;
+  }
+
+  p {
+    font-size: 15px;
+  }
+}

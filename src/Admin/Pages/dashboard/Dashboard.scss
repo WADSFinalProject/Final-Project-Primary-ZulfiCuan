@@ -45,6 +45,10 @@
 
 .notificationWrapper {
   flex: 1; /* Take 1 part of the chartAndNotificationWrapper */
-  min-width: 300px;
+  display: flex;
+  flex-direction: column;
 }
 
+.notificationWidget {
+  flex: 1; /* Fill the available vertical space */
+}

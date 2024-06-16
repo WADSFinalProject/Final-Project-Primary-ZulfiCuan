@@ -10,18 +10,25 @@ function RescaleLists() {
     const [isRescaledScreen, setIsRescaledScreen] = useState(false)
 
     const packageList= [
-        {id: 1, title: "Package 247-F", provider: "Indonesia's Military", weight: "10", batchID: "F24, F25", date: "05/02/2024", expiryDate: "05/02/2024", rescaled: false},
-        {id: 2, title: "Package 244-F", provider: "Indonesia's Military", weight: "20", batchID: "F24, F25", date: "05/02/2024", expiryDate: "05/02/2024", rescaled: true},
-        {id: 3, title: "Package 243-F", provider: "Indonesia's Military", weight: "10", batchID: "F24, F25", date: "05/02/2024", expiryDate: "05/02/2024", rescaled: true},
-        {id: 4, title: "Package 248-G", provider: "Red Cross Indonesia", weight: "15", batchID: "G24, G25", date: "06/02/2024", expiryDate: "06/02/2024", rescaled: false},
-        {id: 5, title: "Package 252-A", provider: "Indonesia's Military", weight: "12", batchID: "A24, A25", date: "08/02/2024", expiryDate: "08/02/2024", rescaled: false},
-        {id: 6, title: "Package 242-G", provider: "Red Cross Indonesia", weight: "15", batchID: "G24, G25", date: "06/02/2024", expiryDate: "06/02/2024", rescaled: false},
-        {id: 7, title: "Package 261-F", provider: "Indonesia's Military", weight: "14", batchID: "F24, F25", date: "05/02/2024", expiryDate: "05/02/2024", rescaled: true},
+        {id: 1, title: "Package 247-F", provider: "Indonesia's Military", weight: 10, batchID: "F24, F25", date: "05/02/2024", expiryDate: "05/02/2024", rescaled: false},
+        {id: 2, title: "Package 244-F", provider: "Indonesia's Military", weight: 20, batchID: "F24, F25", date: "05/02/2024", expiryDate: "05/02/2024", rescaled: true},
+        {id: 3, title: "Package 243-F", provider: "Indonesia's Military", weight: 10, batchID: "F24, F25", date: "05/02/2024", expiryDate: "05/02/2024", rescaled: true},
+        {id: 4, title: "Package 248-G", provider: "Red Cross Indonesia", weight: 15, batchID: "G24, G25", date: "06/02/2024", expiryDate: "06/02/2024", rescaled: false},
+        {id: 5, title: "Package 252-A", provider: "Indonesia's Military", weight: 12, batchID: "A24, A25", date: "08/02/2024", expiryDate: "08/02/2024", rescaled: false},
+        {id: 6, title: "Package 242-G", provider: "Red Cross Indonesia", weight: 15, batchID: "G24, G25", date: "06/02/2024", expiryDate: "06/02/2024", rescaled: false},
+        {id: 7, title: "Package 261-F", provider: "Indonesia's Military", weight: 14, batchID: "F24, F25", date: "05/02/2024", expiryDate: "05/02/2024", rescaled: true},
+        {id: 8, title: "Package 247-F", provider: "Indonesia's Military", weight: 10, batchID: "F24, F25", date: "05/02/2024", expiryDate: "05/02/2024", rescaled: false},
+        {id: 9, title: "Package 244-F", provider: "Indonesia's Military", weight: 20, batchID: "F24, F25", date: "05/02/2024", expiryDate: "05/02/2024", rescaled: true},
+        {id: 10, title: "Package 243-F", provider: "Indonesia's Military", weight: 10, batchID: "F24, F25", date: "05/02/2024", expiryDate: "05/02/2024", rescaled: true},
+        {id: 11, title: "Package 248-G", provider: "Red Cross Indonesia", weight: 15, batchID: "G24, G25", date: "06/02/2024", expiryDate: "06/02/2024", rescaled: false},
+        {id: 12, title: "Package 252-A", provider: "Indonesia's Military", weight: 12, batchID: "A24, A25", date: "08/02/2024", expiryDate: "08/02/2024", rescaled: false},
+        {id: 13, title: "Package 242-G", provider: "Red Cross Indonesia", weight: 15, batchID: "G24, G25", date: "06/02/2024", expiryDate: "06/02/2024", rescaled: false},
+        {id: 14, title: "Package 261-F", provider: "Indonesia's Military", weight: 14, batchID: "F24, F25", date: "05/02/2024", expiryDate: "05/02/2024", rescaled: true},
     ]
 
   return (
     <div className='mt-40 flex flex-1 flex-col'>
-        <div className='fixed w-full container h-8 flex bg-offwhite'>
+        <div className='z-10 fixed w-full container h-8 flex bg-offwhite'>
             <button 
             className={`flex-1 rounded-t-xl border-2 border-offwhite-200 border-b-0 ${isRescaledScreen === false ? 'bg-offwhite-100' : 'bg-offwhite'}`}
             onClick={() => setIsRescaledScreen (false)}>

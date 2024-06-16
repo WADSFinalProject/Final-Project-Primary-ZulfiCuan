@@ -64,7 +64,7 @@ function Rescale({ togglePage, pages }) {
 
   return (
     <div className='container flex flex-col min-h-screen'>
-      <div className='items-start flex w-full items-center py-3 px-4 bg-primary h-16 fixed overflow-auto'>
+      <div className='z-10 items-start flex w-full items-center py-3 px-4 bg-primary h-16 fixed overflow-auto'>
           <animated.div style={{...appear}}>
             <img
                 src={images.xyzPfp}
@@ -97,7 +97,7 @@ function Rescale({ togglePage, pages }) {
           />
       </div>
 
-      <div className='fixed h-12 w-full py-2 px-4 bg-offwhite mt-16'>
+      <div className='z-10 fixed h-12 w-full py-2 px-4 bg-offwhite mt-16'>
         <animated.p style={{...springs}} className='text-secondary text-2xl font-hnbold'>
             Rescaling Packages
         </animated.p>

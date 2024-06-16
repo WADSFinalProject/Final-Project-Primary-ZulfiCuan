@@ -37,6 +37,7 @@ const SpinningHourglass = () => {
             <img 
             src={icons.xyzHourglass}
             className='w-3 h-3'
+            style={{ zIndex: -10 }}
             />
           </animated.div>
       </animated.div>

@@ -63,17 +63,17 @@ function BottomTab({ scrollPercent, togglePage, pages }) {
     <TabBar>
         <TabButton onClick={() => togglePage(0, 0)} active={pages[0][0]}>
             <TabIcon 
-            src={icons.xyzRescale} 
-            alt="Rescale" 
+            src={icons.xyzHistory} 
+            alt="History" 
             style={activeIconTint(pages[0][0])}
             />
-            <p className='font-hnroman text-xs'>Rescale</p>
+            <p className='font-hnroman text-xs'>History</p>
         </TabButton>
 
         <TabButton onClick={() => toggleExpand()} active={pages[2][0]}>
             <div style={{
             position: 'absolute',
-            zIndex: isExpanded ? '10000' : '100',
+            zIndex: isExpanded ? '100' : '',
             top: isExpanded ? "auto" : "-6vh",
             width: isExpanded ? "250vw" : "12vh",
             height: isExpanded ? "250vh" : "12vh",

@@ -14,6 +14,7 @@ import Backdrop from '@mui/material/Backdrop';
 import CircularProgress from '@mui/material/CircularProgress';
 import Button from '@mui/material/Button';
 import EditAccountPopup from '../PopupEditAssest/EditAccountPopup'; // Import the EditAccountPopup component
+import DeleteAccountPopup from '../PopupEditAssest/DeleteAccountPopup';
 
 const columns = [
   { id: 'id', label: 'ID', minWidth: 170, align: 'center' },
@@ -173,13 +174,11 @@ export default function AccountTable() {
         onSave={handleSaveAccount}
       />
       {/* Delete popup */}
-      <Backdrop
-        sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
+      <DeleteAccountPopup
         open={deleteOpen}
-        onClick={handleDeleteClose}
-      >
-        <CircularProgress color="inherit" />
-      </Backdrop>
+        onClose={handleDeleteClose}
+        // onDelete={handleDeleteAccount}
+      />
     </Paper>
   );
 }

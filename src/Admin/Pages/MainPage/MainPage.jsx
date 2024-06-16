@@ -1,20 +1,22 @@
 import React from 'react';
-import useTogglePages from "../../../Storage-Mobile/hooks/useTogglePages.jsx";
-import Dashboard from "../Home/Dashboard.jsx";
+import useTogglePages from "../PageHandler/useTogglePages";
+import Dashboard from "../dashboard/Dashboard.jsx";
 import Account from "../Account/Account.jsx";
 import SideBar from '../../Components/sidebar/SideBar.jsx'; // Import SideBar
+import { useState } from 'react';
 
-const pageLogic = [
-  [false, true], // rescale page, notification page
+export const pageLogic = [
+  [true, false], // rescale page, notification page
   [false], // account-page
 ];
 
 function MainPage() {
-  const [pages, setTogglePage] = useTogglePages(pageLogic);
+  const [pages, togglePage] = useTogglePages(pageLogic);
+
   return (
     <div>
-      {pages[0][0] && <Dashboard togglePage={setTogglePage} pages={pages} />}
-      {pages[0][1] && <Account />}
+      {pages[0][0] && <Dashboard togglePage={togglePage} pages={pages} />}
+      {pages[0][1] && <Account togglePage={togglePage}/>}
     </div>
   );
 }

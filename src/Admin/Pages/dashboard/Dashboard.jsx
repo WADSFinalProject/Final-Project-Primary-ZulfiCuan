@@ -12,7 +12,7 @@ function Dashboard({ togglePage, pages }) {
     <div className="dashboardPage">
       <SideBar togglePage={togglePage} pages={pages} />
       <div className="dashboardContent">
-        <Navbar />
+        <Navbar togglePage={togglePage} pages={pages} />
         <div className="welcomeWidgetContainer">
           <WelcomeWidget />
         </div>

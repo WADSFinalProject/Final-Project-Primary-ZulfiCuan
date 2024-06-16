@@ -7,7 +7,7 @@ import AccountTable from '../../Components/AccountTable/AccountTable.jsx';
 import CreateAccountButton from '../../Components/AccountTable/CreateAccountButton.jsx';
 import AddAccountPage from '../../Pages/AddAccount/AddAccountPage.jsx';
 
-function Account() {
+function Account({togglePage, pages}) {
   const [showAddAccount, setShowAddAccount] = useState(false);
 
   const handleAddAccount = () => {
@@ -20,7 +20,7 @@ function Account() {
 
   return (
     <div className="accountPage">
-      <SideBar />
+      <SideBar togglePage={togglePage}/>
       <div className="accountContent">
         <Navbar />
         {showAddAccount ? (

@@ -5,6 +5,7 @@ import HarbourMain from './Harbour/components/HarbourMain'
 import HarbourQRMain from './Harbour/components/HarbourQRMain';
 import MainPage from './Admin/Pages/MainPage/MainPage';
 import StorageMainPage from './Storage-Mobile/pages/main-page'
+import TestMainPage from './Test/test-main-page';
 import '../src/index.css'
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
                 <Route exact path="/HarbourQR" element={<HarbourQRMain />} />
                 <Route exact path="/Admin" element={<MainPage />} />
                 <Route exact path="/xyzstorage" element={<StorageMainPage/>} />
+                <Route exact path="/test" element={<TestMainPage/>} />
             </Routes>
         </Router>
     </div>

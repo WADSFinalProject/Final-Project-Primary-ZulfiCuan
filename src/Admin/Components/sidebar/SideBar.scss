@@ -12,18 +12,21 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        margin-top: 10%;
+        margin-bottom: 10%;
         
         .logo {
-            font-size: 33px;
+            font-size: 2.5rem;
             font-weight: bold;
             font-family: 'MuseoModerno', 'Courier New', Courier, monospace;
             color: #faf9f6;
             text-align: center;
+            justify-content: center;
         }
     }
 
     .center {
-        padding-left: 5px;
+        padding-left: 0.5rem;
     
         ul {
             list-style: none;

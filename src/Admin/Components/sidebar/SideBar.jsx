@@ -8,7 +8,7 @@ import AdjustIcon from '@mui/icons-material/Adjust';
 function SideBar({ togglePage, pages }) { 
     return (
       <div className='sidebar'>
-          <div className="top">
+          <div className="top" onClick={() => togglePage(0, 0)}>
               <span className="logo">Moringa</span>
           </div>
           <div className="center">
@@ -16,13 +16,13 @@ function SideBar({ togglePage, pages }) {
                   <li onClick={() => togglePage(0, 0)}>
                       <DashboardOutlinedIcon className='icon' />
                       <span>Dashboard</span>
-                  </li>
-                  <li>
+                  </li >
+                  <li >
                       <AdjustIcon className='icon' />
                       <span>Centra</span>
                   </li>
                   
-                  <li>
+                  <li onClick={() => togglePage(0, 1)}>
                       <PersonOutlineOutlinedIcon className='icon'/>
                       <span>Accounts</span>
                   </li>

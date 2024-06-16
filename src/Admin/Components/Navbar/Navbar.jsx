@@ -3,10 +3,11 @@ import './Navbar.scss';
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 import NotificationsNoneOutlinedIcon from '@mui/icons-material/NotificationsNoneOutlined';
 import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
-import Search from "../NavbarComponents/Search.jsx"
-import ProfileNotifSetting from '../NavbarComponents/ProfileNotifSetting.jsx';
+import Search from "./NavbarComponents/Search.jsx"
+import ProfileNotifSetting from './NavbarComponents/ProfileNotifSetting.jsx';
 
-function Navbar() {
+// eslint-disable-next-line react/prop-types
+function Navbar({togglePage, pages}) {
   const userName = "John Doe"; // This will come from your backend
   const userRole = "Admin"; // This will come from your backend
 
@@ -15,7 +16,7 @@ function Navbar() {
       <div className="wrapper">
         <Search/>
         <div>
-        <ProfileNotifSetting userName={userName} userRole={userRole}/>
+        <ProfileNotifSetting userName={userName} userRole={userRole} togglePage={togglePage} pages={pages} />
         </div>
       </div>
     </div>

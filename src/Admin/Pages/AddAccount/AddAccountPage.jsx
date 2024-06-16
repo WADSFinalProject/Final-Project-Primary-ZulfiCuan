@@ -1,7 +1,7 @@
 import React from 'react';
 import { IconButton, Typography } from '@mui/material';
 import { ArrowBack } from '@mui/icons-material';
-import AccountForm from "../../Components/AccountForm/AccountForm";
+import AccountForm from "../../Components/AddAccount/AccountForm";
 import './AddAccountPage.scss';
 
 const AddAccountPage = ({ onBack }) => {

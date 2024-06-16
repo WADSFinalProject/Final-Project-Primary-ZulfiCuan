@@ -7,7 +7,7 @@ function RescaledStorageList({ allStorage }) {
   return (
     <>
         {allStorage.filter(storage => storage.isRescaled === true).map(storage => (
-          <div className='my-1 w-[90vw] h-32 bg-secondary overflow-hidden border-offwhite-300 border-2 rounded-lg flex flex-col items-center' key={storage.idShipment}>
+          <div className='my-1 w-[90vw] h-32 bg-primary-100 overflow-hidden border-offwhite-300 border-2 rounded-lg flex flex-col items-center' key={storage.idShipment}>
             <p className='my-1 text-offwhite font-hnmedium text-xs'>Package {storage.idShipment}</p>
 
             <div className='bg-offwhite w-full h-full flex flex-col justify-evenly px-2 py-1'>
@@ -30,15 +30,9 @@ function RescaledStorageList({ allStorage }) {
               </div>
 
               <div className='flex'>
-                  <div className='w-20 h-4'><p className='text-secondary font-hnroman text-xs'>Arrival Date</p></div>
-                  <div className='w-2 h-4'><p className='text-secondary font-hnroman text-xs'>:</p></div>
-                  <div className='flex-grow h-4'><p className='text-secondary font-hnroman text-xs'>{formatDate(storage.arrival)}</p></div>
-              </div>
-
-              <div className='flex'>
                 <div>
                   <div className='flex'>
-                      <div className='w-20 h-4'><p className='text-secondary font-hnroman text-xs'>Rescaled Date</p></div>
+                      <div className='w-20 h-4'><p className='text-secondary font-hnroman text-xs'>Rescaled On</p></div>
                       <div className='w-2 h-4'><p className='text-secondary font-hnroman text-xs'>:</p></div>
                       <div className='flex-grow h-4'><p className='text-secondary font-hnroman text-xs'>{formatDate(storage.rescaledDate)}</p></div>
                   </div>

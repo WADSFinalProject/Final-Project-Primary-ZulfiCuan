@@ -55,7 +55,7 @@ function RescaleLists() {
 
   return (
     <div className='mt-40 flex flex-1 flex-col'>
-        <div className='z-10 fixed w-full container h-8 flex bg-offwhite'>
+        <div className='fixed w-full container h-8 flex bg-offwhite'>
             <button 
             className={`flex-1 rounded-t-xl border-2 border-offwhite-200 border-b-0 ${isRescaledScreen === false ? 'bg-offwhite-100' : 'bg-offwhite'}`}
             onClick={() => setIsRescaledScreen (false)}>

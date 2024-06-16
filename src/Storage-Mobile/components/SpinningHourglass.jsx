@@ -16,7 +16,6 @@ const SpinningHourglass = () => {
                 friction: 12,
                 easing: easings.easeInElastic
             },
-      loop: true,      
     });
 
     // Pause animation (no change, just a delay)
@@ -25,7 +24,6 @@ const SpinningHourglass = () => {
       from: { opacity: 1 },
       to: { opacity: 1 },
       config: { duration: 1000 }, // 1 second pause
-      loop: true,
     });
   
     // Chain the animations with specified delays

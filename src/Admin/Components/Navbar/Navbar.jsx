@@ -8,7 +8,7 @@ import ProfileNotifSetting from './NavbarComponents/ProfileNotifSetting.jsx';
 
 // eslint-disable-next-line react/prop-types
 function Navbar({togglePage, pages}) {
-  const userName = "John Doe"; // This will come from your backend
+  const userName = "John D"; // This will come from your backend
   const userRole = "Admin"; // This will come from your backend
 
   return (

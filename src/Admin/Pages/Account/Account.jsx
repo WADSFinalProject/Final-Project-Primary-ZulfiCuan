@@ -31,8 +31,9 @@ function Account({togglePage, pages}) {
               <h1 className="accountTitle">Account</h1>
               <CreateAccountButton onClick={handleAddAccount} />
             </div>
-            <AccountTable />
+          <AccountTable />
           </div>
+
         )}
       </div>
     </div>

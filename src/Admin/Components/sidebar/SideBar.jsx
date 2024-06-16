@@ -7,7 +7,7 @@ import AdjustIcon from '@mui/icons-material/Adjust';
 // eslint-disable-next-line react/prop-types
 function SideBar({ togglePage, pages }) { 
     return (
-      <div className='sidebar'>
+      <div className='sidebar' >
           <div className="top" onClick={() => togglePage(0, 0)}>
               <span className="logo">Moringa</span>
           </div>
@@ -17,12 +17,12 @@ function SideBar({ togglePage, pages }) {
                       <DashboardOutlinedIcon className='icon' />
                       <span>Dashboard</span>
                   </li >
-                  <li >
+                  <li onClick={() => togglePage(0, 1)}>
                       <AdjustIcon className='icon' />
                       <span>Centra</span>
                   </li>
                   
-                  <li onClick={() => togglePage(0, 1)}>
+                  <li onClick={() => togglePage(0, 2)}>
                       <PersonOutlineOutlinedIcon className='icon'/>
                       <span>Accounts</span>
                   </li>

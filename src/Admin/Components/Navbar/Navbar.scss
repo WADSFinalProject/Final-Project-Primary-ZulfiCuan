@@ -6,7 +6,10 @@
     align-items: center;
     font-size: 14px;
     color: #555;
-    background-color: rgba(189, 216, 176, 1);
+    background-color: #bdd8b0;
+    position: sticky;
+    top: 0;
+    z-index: 999;
 
     .wrapper {
         display: flex;
@@ -28,7 +31,7 @@
 
             .searchIcon {
                 color: rgba(4, 49, 91, 1); // Color of the search icon
-                margin-right: 5px; // Adjust spacing between icon and input
+                margin: 0px 0px 0px 21px;
             }
 
             input {

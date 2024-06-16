@@ -1,30 +1,57 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
+import UnrescaledStorageList from './UnrescaledStorageList'
+import RescaledStorageList from './RescaledStorageList'
 import { icons } from '../constants'
 import Popup from 'reactjs-popup'
 import PopUpForm from './PopUpForm'
 import SpinningHourglass from './SpinningHourglass'
+import axios from 'axios'
 
 function RescaleLists() {
 
     const [isRescaledScreen, setIsRescaledScreen] = useState(false)
 
-    const packageList= [
-        {id: 1, title: "Package 247-F", provider: "Indonesia's Military", weight: 10, batchID: "F24, F25", date: "05/02/2024", expiryDate: "05/02/2024", rescaled: false},
-        {id: 2, title: "Package 244-F", provider: "Indonesia's Military", weight: 20, batchID: "F24, F25", date: "05/02/2024", expiryDate: "05/02/2024", rescaled: true},
-        {id: 3, title: "Package 243-F", provider: "Indonesia's Military", weight: 10, batchID: "F24, F25", date: "05/02/2024", expiryDate: "05/02/2024", rescaled: true},
-        {id: 4, title: "Package 248-G", provider: "Red Cross Indonesia", weight: 15, batchID: "G24, G25", date: "06/02/2024", expiryDate: "06/02/2024", rescaled: false},
-        {id: 5, title: "Package 252-A", provider: "Indonesia's Military", weight: 12, batchID: "A24, A25", date: "08/02/2024", expiryDate: "08/02/2024", rescaled: false},
-        {id: 6, title: "Package 242-G", provider: "Red Cross Indonesia", weight: 15, batchID: "G24, G25", date: "06/02/2024", expiryDate: "06/02/2024", rescaled: false},
-        {id: 7, title: "Package 261-F", provider: "Indonesia's Military", weight: 14, batchID: "F24, F25", date: "05/02/2024", expiryDate: "05/02/2024", rescaled: true},
-        {id: 8, title: "Package 247-F", provider: "Indonesia's Military", weight: 10, batchID: "F24, F25", date: "05/02/2024", expiryDate: "05/02/2024", rescaled: false},
-        {id: 9, title: "Package 244-F", provider: "Indonesia's Military", weight: 20, batchID: "F24, F25", date: "05/02/2024", expiryDate: "05/02/2024", rescaled: true},
-        {id: 10, title: "Package 243-F", provider: "Indonesia's Military", weight: 10, batchID: "F24, F25", date: "05/02/2024", expiryDate: "05/02/2024", rescaled: true},
-        {id: 11, title: "Package 248-G", provider: "Red Cross Indonesia", weight: 15, batchID: "G24, G25", date: "06/02/2024", expiryDate: "06/02/2024", rescaled: false},
-        {id: 12, title: "Package 252-A", provider: "Indonesia's Military", weight: 12, batchID: "A24, A25", date: "08/02/2024", expiryDate: "08/02/2024", rescaled: false},
-        {id: 13, title: "Package 242-G", provider: "Red Cross Indonesia", weight: 15, batchID: "G24, G25", date: "06/02/2024", expiryDate: "06/02/2024", rescaled: false},
-        {id: 14, title: "Package 261-F", provider: "Indonesia's Military", weight: 14, batchID: "F24, F25", date: "05/02/2024", expiryDate: "05/02/2024", rescaled: true},
-    ]
+    // const [packageList, setPackageList] = useState([]);
+
+    // useEffect(() => {
+    //     // Fetch package list data from the backend when the component mounts
+    //     fetchPackageList();
+    // }, []);
+
+    const [allStorage, setAllStorage] = useState([]);
+
+    useEffect(() => {
+    axios.get('http://localhost:8000/storages')
+      .then(response => {
+        setAllStorage(response.data.all_storage);
+      })
+      .catch(error => {
+        console.error('Error fetching storage data:', error);
+      });
+    }, []);
+
+    // async function fetchPackageList() {
+    //     try {
+    //         const response = await axios.get('http://localhost:8000/storages');
+    //         // Convert the response data to an array of package objects
+    //         const packageArray = Object.values(response.data).map((item) => ({
+    //             idShipment: item.idShipment,
+    //             title: "Package " + item.idShipment,
+    //             rescaledDate: item.rescaledDate,
+    //             timeCreated: item.timeCreated,
+    //             provider: item.provider,
+    //             idStorage: item.idStorage,
+    //             weight: item.weight,
+    //             isRescaled: item.isRescaled,
+    //             expiredDate: item.expiredDate
+    //         }));
+    //         setPackageList(packageArray);
+    //         console.log(packageArray);
+    //     } catch (error) {
+    //         console.error('Error fetching package list:', error);
+    //     }
+    // }
 
   return (
     <div className='mt-40 flex flex-1 flex-col'>
@@ -47,8 +74,11 @@ function RescaleLists() {
         </div>
         
         <div className='mt-8 flex flex-1 flex-col items-center overflow-y-hidden bg-offwhite-100 pt-2 pb-[11vh]'>
-            {isRescaledScreen === false &&
-                packageList.filter(item => item.rescaled === false).map((item) => (
+
+            {isRescaledScreen === false && <UnrescaledStorageList allStorage={allStorage} />}
+            {isRescaledScreen && <RescaledStorageList allStorage={allStorage} />}
+            {/* {isRescaledScreen === false &&
+                packageList.filter(item => item.isRescaled === false).map((item) => (
                     
                     <div className='my-1 w-[90vw] h-32 bg-secondary overflow-hidden border-offwhite-300 border-2 rounded-lg flex flex-col items-center' key={item.id}>
                         <p className='my-1 text-offwhite font-hnmedium text-xs'>{item.title}</p>
@@ -67,23 +97,23 @@ function RescaleLists() {
                             </div>
 
                             <div className='flex'>
-                                <div className='w-20 h-4'><p className='text-secondary font-hnroman text-xs'>Batch ID</p></div>
+                                <div className='w-20 h-4'><p className='text-secondary font-hnroman text-xs'>Storage ID</p></div>
                                 <div className='w-2 h-4'><p className='text-secondary font-hnroman text-xs'>:</p></div>
-                                <div className='flex-grow h-4'><p className='text-secondary font-hnroman text-xs'>{item.batchID}</p></div>
+                                <div className='flex-grow h-4'><p className='text-secondary font-hnroman text-xs'>{item.idStorage}</p></div>
                             </div>
 
                             <div className='flex'>
                                 <div>
                                     <div className='flex'>
-                                        <div className='w-20 h-4'><p className='text-secondary font-hnroman text-xs'>Date</p></div>
+                                        <div className='w-20 h-4'><p className='text-secondary font-hnroman text-xs'>Date Created</p></div>
                                         <div className='w-2 h-4'><p className='text-secondary font-hnroman text-xs'>:</p></div>
-                                        <div className='flex-grow h-4'><p className='text-secondary font-hnroman text-xs'>{item.date}</p></div>
+                                        <div className='flex-grow h-4'><p className='text-secondary font-hnroman text-xs'>{item.timeCreated}</p></div>
                                     </div>
 
                                     <div className='flex'>
                                         <div className='w-20 h-4'><p className='text-secondary font-hnroman text-xs'>Expiry Date</p></div>
                                         <div className='w-2 h-4'><p className='text-secondary font-hnroman text-xs'>:</p></div>
-                                        <div className='flex-grow h-4'><p className='text-secondary font-hnroman text-xs'>{item.expiryDate}</p></div>
+                                        <div className='flex-grow h-4'><p className='text-secondary font-hnroman text-xs'>{item.expiredDate}</p></div>
                                     </div>
                                 </div>
                                 
@@ -149,7 +179,7 @@ function RescaleLists() {
             }
 
             {isRescaledScreen === true &&
-                packageList.filter(item => item.rescaled === true).map((item) => (
+                packageList.filter(item => item.isRescaled === true).map((item) => (
                     
                     <div className='my-1 w-[90vw] h-32 bg-primary-100 overflow-hidden border-offwhite-300 border-2 rounded-lg flex flex-col items-center' key={item.id}>
                         <p className='my-1 text-offwhite font-hnmedium text-xs'>{item.title}</p>
@@ -168,23 +198,23 @@ function RescaleLists() {
                             </div>
 
                             <div className='flex'>
-                                <div className='w-20 h-4'><p className='text-secondary font-hnroman text-xs'>Batch ID</p></div>
+                                <div className='w-20 h-4'><p className='text-secondary font-hnroman text-xs'>Storage ID</p></div>
                                 <div className='w-2 h-4'><p className='text-secondary font-hnroman text-xs'>:</p></div>
-                                <div className='flex-grow h-4'><p className='text-secondary font-hnroman text-xs'>{item.batchID}</p></div>
+                                <div className='flex-grow h-4'><p className='text-secondary font-hnroman text-xs'>{item.idStorage}</p></div>
                             </div>
 
                             <div className='flex'>
                                 <div>
                                     <div className='flex'>
-                                        <div className='w-20 h-4'><p className='text-secondary font-hnroman text-xs'>Date</p></div>
+                                        <div className='w-20 h-4'><p className='text-secondary font-hnroman text-xs'>Rescaled Date</p></div>
                                         <div className='w-2 h-4'><p className='text-secondary font-hnroman text-xs'>:</p></div>
-                                        <div className='flex-grow h-4'><p className='text-secondary font-hnroman text-xs'>{item.date}</p></div>
+                                        <div className='flex-grow h-4'><p className='text-secondary font-hnroman text-xs'>{item.rescaledDate}</p></div>
                                     </div>
 
                                     <div className='flex'>
                                         <div className='w-20 h-4'><p className='text-secondary font-hnroman text-xs'>Expiry Date</p></div>
                                         <div className='w-2 h-4'><p className='text-secondary font-hnroman text-xs'>:</p></div>
-                                        <div className='flex-grow h-4'><p className='text-secondary font-hnroman text-xs'>{item.expiryDate}</p></div>
+                                        <div className='flex-grow h-4'><p className='text-secondary font-hnroman text-xs'>{item.expiredDate}</p></div>
                                     </div>
                                 </div>
                                 
@@ -247,7 +277,7 @@ function RescaleLists() {
                     </div>
                     
                 ))
-            }
+            } */}
         </div>
     </div>
   )

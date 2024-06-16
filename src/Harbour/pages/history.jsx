@@ -197,8 +197,8 @@ function History({ togglePage, pages }) {
             {filteredData.map(item => (
               <div className='my-1 w-[90vw] h-20 bg-primary-100 overflow-hidden rounded-lg flex flex-col items-center' key={item.id}>
                 <div className='flex container'>
-                  <p className='flex-grow ml-2 my-1 text-white font-hnmedium text-sm text-left'>Order:</p>
-                  <p className='flex-grow mr-2 my-1 text-white font-hnmedium text-sm text-right underline'>{item.orderId}</p>
+                  <p className='flex-grow ml-2 my-1 text-white font-hnmedium text-xs text-left'>Order:</p>
+                  <p className='flex-grow mr-2 my-1 text-white font-hnmedium text-xs text-right underline'>{item.orderId}</p>
                 </div>
 
                 <div className='bg-offwhite-400 w-full h-full flex flex-col justify-evenly px-2 py-1'>

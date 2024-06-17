@@ -15,6 +15,9 @@ function PieChartDashboard({dataPie}) {
     const option = {
       reposive: true,
       plugins: {
+        legend: {
+          display: false,
+        },
         title: {
           display: "true",
           text: String( + dataPie[0] + "%"),

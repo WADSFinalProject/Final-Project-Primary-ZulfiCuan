@@ -18,6 +18,11 @@ function DashBoardBarChart() {
     const option = {
         reposive: true,
         indexAxis: "y",
+        plugins: {
+            legend: {
+              display: false,
+            },
+          },
     }
   return (
     <div className="BarChartDashboardContainer">

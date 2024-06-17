@@ -3,7 +3,7 @@ import { Line } from 'react-chartjs-2';
 import 'chart.js/auto'; 
 import './LineChart.scss';  // Create a separate stylesheet for chart styles
 
-const LineChart = () => {
+function LineChart() {
   Chart.register(CategoryScale, LinearScale, BarElement, PointElement, LineElement, Filler, Tooltip)
   const data = {
     labels: [1, 2, 3, 4, 5, 6, 7, 8, 9],
@@ -50,6 +50,6 @@ const LineChart = () => {
       <Line data={data} options={options} />
     </div>
   );
-};
+}
 
 export default LineChart;

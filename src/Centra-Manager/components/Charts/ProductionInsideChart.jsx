@@ -21,7 +21,12 @@ function ProductionInsideChart() {
                 beginAtZero: true,
                 max: 10,
             }
-        }
+        },
+        plugins: {
+            legend: {
+              display: false,
+            },
+          },
     }
   return (
     <div style={{margin: "auto"}}>

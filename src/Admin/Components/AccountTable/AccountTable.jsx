@@ -76,109 +76,108 @@ export default function AccountTable() {
   const emptyRows = rowsPerPage - Math.min(rowsPerPage, rows.length - page * rowsPerPage);
 
   return (
-    <Paper sx={{ width: '100%', overflow: 'hidden', borderRadius: '16px' }}>
-      <TableContainer>
-        <Table stickyHeader aria-label="sticky table">
-          <TableHead>
-            <TableRow>
-              {columns.map((column) => (
-                <TableCell
-                  key={column.id}
-                  align={column.align}
-                  sx={{ minWidth: column.minWidth, backgroundColor: '#002855', color: 'white', textAlign: 'center' }}
-                >
-                  {column.label}
-                </TableCell>
-              ))}
-            </TableRow>
-          </TableHead>
-          <TableBody sx={{ backgroundColor: '#ebebeb' }}>
-            {rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row, rowIndex) => (
-              <TableRow hover role="checkbox" tabIndex={-1} key={rowIndex}>
-                {columns.map((column) => {
-                  const value = row[column.id];
-                  return (
-                    <TableCell
-                      key={column.id}
-                      align={column.align}
-                      sx={{
-                        color: '#002855',
-                        fontWeight: 500,
-                        fontFamily: 'var(--font-inter)',
-                        borderBottom: '1px solid #04315b', // Adding bottom border to TableCell
-                        textAlign: column.align // Ensure alignment is applied
-                      }}
-                    >
-                      {column.id === 'action' ? (
-                        <>
-                          <IconButton
-                            aria-label="edit"
-                            sx={{
-                              color: '#ffffff',
-                              backgroundColor: '#ff7c52',
-                              borderRadius: '8px',
-                              marginRight: '5px',
-                              '&:hover': {
-                                backgroundColor: '#ff6a3e',
-                              },
-                            }}
-                            onClick={() => handleEditOpen(row)} // Open edit popup on click
-                          >
-                            <EditOutlinedIcon />
-                          </IconButton>
-                          <IconButton
-                            aria-label="delete"
-                            sx={{
-                              color: '#ffffff',
-                              backgroundColor: '#ff7c52',
-                              borderRadius: '8px',
-                              '&:hover': {
-                                backgroundColor: '#ff6a3e',
-                              },
-                            }}
-                            onClick={handleDeleteOpen} // Open delete popup on click
-                          >
-                            <DeleteOutlineIcon />
-                          </IconButton>
-                        </>
-                      ) : (
-                        value
-                      )}
-                    </TableCell>
-                  );
-                })}
-              </TableRow>
+  <Paper sx={{ width: '100%', overflow: 'hidden', borderRadius: '16px', maxWidth: '100%' }}>
+    <TableContainer sx={{ maxHeight: 'calc(100vh - 150px)', overflowX: 'auto' }}>
+      <Table stickyHeader aria-label="sticky table">
+        <TableHead>
+          <TableRow>
+            {columns.map((column) => (
+              <TableCell
+                key={column.id}
+                align={column.align}
+                sx={{ minWidth: column.minWidth, backgroundColor: '#002855', color: 'white', textAlign: 'center' }}
+              >
+                {column.label}
+              </TableCell>
             ))}
-            {emptyRows > 0 && (
-              <TableRow style={{ height: 53 * emptyRows }}>
-                <TableCell colSpan={columns.length} />
-              </TableRow>
-            )}
-          </TableBody>
-        </Table>
-      </TableContainer>
-      <TablePagination
-        sx={{ backgroundColor: '#ebebeb' }}
-        rowsPerPageOptions={[10]}
-        component="div"
-        count={rows.length}
-        rowsPerPage={rowsPerPage}
-        page={page}
-        onPageChange={handleChangePage}
-      />
-      {/* Edit popup */}
-      <EditAccountPopup
-        open={editOpen}
-        onClose={handleEditClose}
-        accountDetails={selectedAccount}
-        onSave={handleSaveAccount}
-      />
-      {/* Delete popup */}
-      <DeleteAccountPopup
-        open={deleteOpen}
-        onClose={handleDeleteClose}
-        // onDelete={handleDeleteAccount}
-      />
-    </Paper>
+          </TableRow>
+        </TableHead>
+        <TableBody sx={{ backgroundColor: '#ebebeb' }}>
+          {rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row, rowIndex) => (
+            <TableRow hover role="checkbox" tabIndex={-1} key={rowIndex}>
+              {columns.map((column) => {
+                const value = row[column.id];
+                return (
+                  <TableCell
+                    key={column.id}
+                    align={column.align}
+                    sx={{
+                      color: '#002855',
+                      fontWeight: 500,
+                      fontFamily: 'var(--font-inter)',
+                      borderBottom: '1px solid #04315b',
+                      textAlign: column.align,
+                    }}
+                  >
+                    {column.id === 'action' ? (
+                      <>
+                        <IconButton
+                          aria-label="edit"
+                          sx={{
+                            color: '#ffffff',
+                            backgroundColor: '#ff7c52',
+                            borderRadius: '8px',
+                            marginRight: '5px',
+                            '&:hover': {
+                              backgroundColor: '#ff6a3e',
+                            },
+                          }}
+                          onClick={() => handleEditOpen(row)}
+                        >
+                          <EditOutlinedIcon />
+                        </IconButton>
+                        <IconButton
+                          aria-label="delete"
+                          sx={{
+                            color: '#ffffff',
+                            backgroundColor: '#ff7c52',
+                            borderRadius: '8px',
+                            '&:hover': {
+                              backgroundColor: '#ff6a3e',
+                            },
+                          }}
+                          onClick={handleDeleteOpen}
+                        >
+                          <DeleteOutlineIcon />
+                        </IconButton>
+                      </>
+                    ) : (
+                      value
+                    )}
+                  </TableCell>
+                );
+              })}
+            </TableRow>
+          ))}
+          {emptyRows > 0 && (
+            <TableRow style={{ height: 53 * emptyRows }}>
+              <TableCell colSpan={columns.length} />
+            </TableRow>
+          )}
+        </TableBody>
+      </Table>
+    </TableContainer>
+    <TablePagination
+      sx={{ backgroundColor: '#ebebeb' }}
+      rowsPerPageOptions={[10]}
+      component="div"
+      count={rows.length}
+      rowsPerPage={rowsPerPage}
+      page={page}
+      onPageChange={handleChangePage}
+    />
+    <EditAccountPopup
+      open={editOpen}
+      onClose={handleEditClose}
+      accountDetails={selectedAccount}
+      onSave={handleSaveAccount}
+    />
+    <DeleteAccountPopup
+      open={deleteOpen}
+      onClose={handleDeleteClose}
+      // onDelete={handleDeleteAccount}
+    />
+  </Paper>
+
   );
 }

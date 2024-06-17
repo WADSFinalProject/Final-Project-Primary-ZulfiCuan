@@ -1,0 +1,54 @@
+.dashboardPage-admin {
+  display: flex;
+  height: 100vh;
+}
+
+.dashboardContent-admin {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  overflow: auto;
+}
+
+.welcomeWidgetContainer-admin {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+.widgetsContainer-admin {
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 20px;
+  width: 100%;
+}
+
+.chartsAndNotificationContainer-admin {
+  display: flex;
+  flex: 1;
+  padding: 20px;
+  width: 100%;
+}
+
+.chartAndNotificationWrapper-admin {
+  display: flex;
+  gap: 20px;
+  flex: 2; /* Take 2 parts of the available space */
+}
+
+.chartWrapper-admin {
+  flex: 2; /* Take 2 parts of the chartAndNotificationWrapper */
+  min-width: 300px;
+  height: 400px;
+}
+
+.notificationWrapper-admin {
+  flex: 1; /* Take 1 part of the chartAndNotificationWrapper */
+  display: flex;
+  flex-direction: column;
+}
+
+.notificationWidget-admin {
+  flex: 1; /* Fill the available vertical space */
+}

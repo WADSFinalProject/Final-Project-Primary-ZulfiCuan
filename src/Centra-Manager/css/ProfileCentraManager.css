@@ -12,7 +12,7 @@
     height: 106px;
     border-radius: 50%;
     border: 2px solid white;
-    margin: 10px 0px 5px 0px;
+    margin: 10px auto 5px auto;
 }
 
 .ProfileCentraManagerContainerTitle {
@@ -54,7 +54,7 @@
     border-radius: 20px;
     background: #3C9284;
     padding: 4px 12px;
-    width: 50px;
+    width: 80px;
     margin: 10px auto 30px auto;
     justify-content: center;
 }

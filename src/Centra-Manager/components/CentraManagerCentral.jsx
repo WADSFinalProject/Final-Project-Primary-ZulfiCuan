@@ -31,8 +31,8 @@ function CentraManagerCentral() {
     [false, false, false, false, false, false, false, false, false, false], 
     [false, false, false, false, false], 
     [false, false, false], 
-    [false, false, false]]);
-    
+    [false, false, false]]);  
+
     const [springs, api] = useSpring(() => ({
       config: {
         tension: 150, 

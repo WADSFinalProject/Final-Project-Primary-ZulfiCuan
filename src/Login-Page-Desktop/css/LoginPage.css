@@ -35,6 +35,7 @@ body,html {
     font-size: 60px;
     font-family: 'MuseoModerno','Courier New', Courier, monospace;
     transition: color 0.5s ease;
+    font-weight: 600;
 }
 
 /* Notes 

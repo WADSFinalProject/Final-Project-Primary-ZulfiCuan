@@ -1,8 +1,8 @@
 import UseWindowThreshold from "../../UseWindowThreshold"
 import CentraManagerCentral from "./CentraManagerCentral"
-import DesktopPlaceholder from "./DesktopPlaceholder"
 import '../css/CentraManager.css'
 import { useEffect } from "react"
+import DesktopWarning from "../../Storage-Mobile/pages/desktopwarning"
 
 // eslint-disable-next-line react/prop-types
 function CentraManagerMain() {
@@ -15,7 +15,7 @@ function CentraManagerMain() {
 
   return (
     <>
-      { isMobileSize ? <CentraManagerCentral /> : <DesktopPlaceholder /> }
+      { isMobileSize ? <CentraManagerCentral /> : <DesktopWarning /> }
     </>
   )
 }

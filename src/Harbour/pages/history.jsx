@@ -1,4 +1,5 @@
 import React from 'react'
+import axios from 'axios'
 import { icons, images } from '../constants'
 import BottomTab from '../components/BottomTab'
 import { useState, useEffect } from 'react'
@@ -7,6 +8,8 @@ import { useSpring, animated } from '@react-spring/web'
 function History({ togglePage, pages }) {
 
   const [scrollPercent, setScrollPercent] = useState(0);
+  const [allShipments, setShipments] = useState([]);
+  const [timeFilter, setTimeFilter] = useState('all');
 
   const handleScroll = () => {
     const scrollTop = window.scrollY;
@@ -21,6 +24,19 @@ function History({ togglePage, pages }) {
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
+  }, []);
+
+  useEffect(() => {
+    const fetchAllShipments = async () => {
+      try {
+        const response = await axios.get('http://localhost:8000/shipments');
+        setShipments(response.data.all_shipment);
+      } catch (error) {
+        console.error('Error fetching shipments:', error);
+      }
+    };
+
+    fetchAllShipments();
   }, []);
 
   const springs = useSpring({
@@ -69,57 +85,37 @@ function History({ togglePage, pages }) {
     to: { y: 0, opacity: 1 },
   })
 
-  const historyList= [
-    {orderId: 1, centraID: "C67", weight: 10, time: '2024-06-16T00:00:00'},
-    {orderId: 2, centraID: "C67", weight: 10, time: '2024-06-15T10:30:00'},
-    {orderId: 3, centraID: "C67", weight: 10, time: '2024-06-10T10:30:00'},
-    {orderId: 4, centraID: "C67", weight: 10, time: '2024-06-04T10:30:00'},
-    {orderId: 5, centraID: "C67", weight: 10, time: '2024-06-16T00:00:00'},
-    {orderId: 6, centraID: "C67", weight: 10, time: '2024-06-15T10:30:00'},
-    {orderId: 7, centraID: "C67", weight: 10, time: '2024-06-10T10:30:00'},
-    {orderId: 8, centraID: "C67", weight: 10, time: '2024-06-04T10:30:00'},
-    {orderId: 9, centraID: "C67", weight: 10, time: '2024-06-16T00:00:00'},
-    {orderId: 10, centraID: "C67", weight: 10, time: '2024-06-15T10:30:00'},
-    {orderId: 11, centraID: "C67", weight: 10, time: '2024-06-10T10:30:00'},
-    {orderId: 12, centraID: "C67", weight: 10, time: '2024-06-04T10:30:00'},
-    {orderId: 13, centraID: "C67", weight: 10, time: '2024-06-16T00:00:00'},
-    {orderId: 14, centraID: "C67", weight: 10, time: '2024-06-15T10:30:00'},
-    {orderId: 15, centraID: "C67", weight: 10, time: '2024-06-10T10:30:00'},
-    {orderId: 16, centraID: "C67", weight: 10, time: '2024-06-04T10:30:00'},
-  ]
-  
-  const [timeFilter, setTimeFilter] = useState('all');
-
   // Function to handle time filter change
   const handleTimeFilterChange = (filterValue) => {
     setTimeFilter(filterValue);
   };
 
   // Function to filter data based on time
-  const filteredData = historyList.filter(item => {
+  const filteredData = allShipments.filter(item => {
+    const itemDate = new Date(item.estimated);
+
     if (timeFilter === 'all') {
       return true; // Return true for all items if time filter is set to 'all'
     } else if (timeFilter === 'today') {
       // Filter items with date equal to today's date
       const today = new Date();
-      return item.time.split('T')[0] === today.toISOString().split('T')[0];
+      return itemDate.toISOString().split('T')[0] === today.toISOString().split('T')[0];
     } else if (timeFilter === 'last7days') {
       // Filter items within the last 7 days
       const last7days = new Date();
       last7days.setDate(last7days.getDate() - 6); // 7 days ago from today
-      const itemDate = new Date(item.time.split('T')[0]);
       return itemDate >= last7days;
     } else if (timeFilter === 'thisMonth') {
       // Filter items within the current month
       const today = new Date();
       const firstDayOfMonth = new Date(today.getFullYear(), today.getMonth(), 1);
-      const itemDate = new Date(item.time.split('T')[0]);
       return itemDate >= firstDayOfMonth;
     } else {
       return true; // Add more filtering options if needed
     }
   });
 
+  // Function to format date from the database
   const formatDate = (dateTimeString) => {
     const dateObj = new Date(dateTimeString);
     const day = String(dateObj.getDate()).padStart(2, '0');
@@ -127,7 +123,6 @@ function History({ togglePage, pages }) {
     const year = String(dateObj.getFullYear()).slice(-2); // Extracting last 2 digits of the year
     return `${day}/${month}/${year}`;
   };
-  
 
   return (
     <div className='container flex flex-col min-h-screen'>
@@ -195,10 +190,10 @@ function History({ togglePage, pages }) {
       <div className='flex flex-1 flex-col'> 
         <div className='flex flex-1 flex-col items-center overflow-y-hidden bg-white pt-2 pb-[11vh]'>
             {filteredData.map(item => (
-              <div className='my-1 w-[90vw] h-20 bg-primary-100 overflow-hidden rounded-lg flex flex-col items-center' key={item.id}>
+              <div className='my-1 w-[90vw] h-20 bg-primary-100 overflow-hidden rounded-lg flex flex-col items-center' key={item.idShipment}>
                 <div className='flex container'>
                   <p className='flex-grow ml-2 my-1 text-white font-hnmedium text-xs text-left'>Order:</p>
-                  <p className='flex-grow mr-2 my-1 text-white font-hnmedium text-xs text-right underline'>{item.orderId}</p>
+                  <p className='flex-grow mr-2 my-1 text-white font-hnmedium text-xs text-right underline'>{item.orderNumber}</p>
                 </div>
 
                 <div className='bg-offwhite-400 w-full h-full flex flex-col justify-evenly px-2 py-1'>
@@ -206,7 +201,7 @@ function History({ togglePage, pages }) {
                     <div className='flex flex-grow'>
                       <div className='w-20 h-4'><p className='text-secondary font-hnroman text-xs'>Centra ID</p></div>
                       <div className='w-2 h-4'><p className='text-secondary font-hnroman text-xs'>:</p></div>
-                      <div className='flex-grow h-4'><p className='text-secondary font-hnroman text-xs'>{item.centraID}</p></div>
+                      <div className='flex-grow h-4'><p className='text-secondary font-hnroman text-xs'>{item.idCentra}</p></div>
                     </div>
                     <div className='flex flex-grow'>
                       <div className='w-20 h-4'><p className='text-secondary font-hnroman text-xs'>Weight</p></div>
@@ -218,7 +213,7 @@ function History({ togglePage, pages }) {
                   <div className='flex'>
                       <div className='w-20 h-4'><p className='text-secondary font-hnroman text-xs'>Date</p></div>
                       <div className='w-2 h-4'><p className='text-secondary font-hnroman text-xs'>:</p></div>
-                      <div className='flex-grow h-4'><p className='text-secondary font-hnroman text-xs'>{formatDate(item.time)}</p></div>
+                      <div className='flex-grow h-4'><p className='text-secondary font-hnroman text-xs'>{formatDate(item.estimated)}</p></div>
                   </div>
                 </div>
               </div>

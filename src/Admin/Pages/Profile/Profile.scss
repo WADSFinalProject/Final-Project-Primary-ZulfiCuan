@@ -1,0 +1,125 @@
+$blue: #003366;
+$light-blue: #c8e6c9;
+$dark-blue: #002244;
+$white: #ffffff;
+$text: #04315B;
+
+
+.settings-container {
+  padding: 25px;
+  margin: auto;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: $white;
+  border-radius: 8px;
+  max-width: 700px; /* Increased max-width to make borders longer */
+}
+
+.header {
+  text-align: left;
+  margin-bottom: 10px;
+  color: $blue;
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px !important;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 1px !important;
+}
+
+.label {
+  color: $blue;
+  font-weight: bold;
+}
+
+.input, .select {
+  padding: 14px !important;
+  font: helvetica;
+  font-size: 16px;
+  color: $text;
+  font-weight: 500;
+  border: 1px solid $blue;
+  border-radius: 4px;
+  width: 100%; /* Ensure full width */
+  max-width: 100%; /* Ensure full width */
+  box-sizing: border-box; /* Ensure padding is included in the width */
+}
+
+.radio-group-container {
+  border: 2px solid $blue;
+  padding: 13px;
+  border-radius: 14px;
+  width: 100%; /* Ensure full width */
+  max-width: 100%; /* Ensure full width */
+  box-sizing: border-box; /* Ensure padding is included in the width */
+}
+
+.radio-group {
+  display: flex;
+  justify-content: space-evenly;
+
+}
+
+.radio-group label {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  color: $text;
+  font-weight: 500;
+}
+
+.button-group {
+  display: flex;
+  justify-content: space-between;
+}
+
+.button {
+  padding: 14px 20px !important;
+  cursor: pointer;
+  border-radius: 25px;
+  font-weight: bold;
+  font-size: 16px;
+  border: 2px solid $blue;
+}
+
+.cancel-button {
+  background-color: $white;
+  color: $blue;
+}
+
+.save-button {
+  background-color: $blue;
+  color: $white;
+  border: none;
+}
+
+.button:hover {
+  opacity: 0.9;
+}
+
+.sign-out-button {
+  background-color: $white !important;
+  color: $blue !important;
+  border: 3px solid $blue !important;
+  margin-top: 20px;
+  width: 100%;
+  border-radius: 25px !important;
+}
+
+.sign-out-button:hover {
+  background-color: $blue !important;
+  color: $white !important;
+}
+    
+.button-sizing{
+    align-items: center;
+    padding-right: 43px;
+    padding-left: 43px;
+}

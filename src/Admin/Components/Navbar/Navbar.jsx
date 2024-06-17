@@ -15,7 +15,7 @@ function Navbar({togglePage, pages}) {
     <div className='navbar-admin'>
       <div className="wrapper-admin">
         <Search/>
-        <div>
+        <div className='ProfileNotifSettingPosistion-Admin'>
         <ProfileNotifSetting userName={userName} userRole={userRole} togglePage={togglePage} pages={pages} />
         </div>
       </div>

@@ -45,8 +45,8 @@ function RescaledStorageList({ allStorage }) {
                 </div>
 
                 <Popup trigger=
-                {<button className='ml-auto rounded-lg w-20 h-7 bg-ornge flex justify-evenly items-center'>
-                    <p className='font-hnmedium text-xs text-offwhite'>Rescale</p>
+                {<button className='ml-auto rounded-lg w-14 h-7 bg-ornge flex justify-evenly items-center'>
+                    <p className='font-hnmedium text-xs text-offwhite'>Edit</p>
                     <SpinningHourglass />
                 </button>}
                 modal nested>
@@ -55,12 +55,12 @@ function RescaledStorageList({ allStorage }) {
                             <div className='fixed flex flex-col items-center justify-center inset-0 bg-black bg-opacity-50'>
                                 <div className='flex flex-col h-[45vh] w-[80vw] border-2 border-offwhite-100 rounded-xl bg-offwhite'>
                                     <p className='mx-5 font-hnbold text-xl text-secondary my-4'>
-                                        Input Rescale
+                                        Edit Weight
                                     </p>
 
                                     <div className='mt-1 flex'>
                                         <p className='ml-5 font-hnroman text-md text-secondary'>
-                                            Initial Weight :
+                                            Current Weight :
                                         </p>
                                         <p className='ml-2 font-hnbold text-md text-secondary'>
                                             {storage.weight} kg

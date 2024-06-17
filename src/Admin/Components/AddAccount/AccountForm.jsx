@@ -1,5 +1,5 @@
 import React from 'react';
-import { TextField, MenuItem, Button, Box, Typography } from '@mui/material';
+import { TextField, MenuItem, Button } from '@mui/material';
 import './AccountForm.scss';
 
 const roles = ['XYZ Central', 'Guard Harbour'];
@@ -7,8 +7,7 @@ const roles = ['XYZ Central', 'Guard Harbour'];
 const AccountForm = () => {
   return (
     <div className="formContainer-admin">
-      <Typography variant="h6" className="formTitle-admin">Input Data</Typography>
-      <Box component="form" noValidate autoComplete="off" className="formBox-admin">
+      <form noValidate autoComplete="off" className="formBox-admin">
         <div className="formRow-admin">
           <TextField
             label="Full Name"
@@ -65,7 +64,7 @@ const AccountForm = () => {
         <Button variant="contained" color="primary" className="submitButton-admin">
           Confirm
         </Button>
-      </Box>
+      </form>
     </div>
   );
 };

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import SideBar from "../../Components/sidebar/SideBarManager.jsx"
-import Navbar from "../../Components/Navbar/NavbarManager.jsx"
+import Navbar2 from "../../Components/Navbar/NavbarManager2.jsx"
 import './SettingsManager.scss';
 
 // eslint-disable-next-line react/prop-types
@@ -35,7 +35,7 @@ const SettingsForms = ({togglePage, pages}) => {
     <div className="home-manager">
     <SideBar togglePage={togglePage} pages={pages}/>
     <div className="homeContainer-manager">
-        <Navbar togglePage={togglePage} pages={pages}/>
+        <Navbar2 togglePage={togglePage} pages={pages}/>
         <div className="settings-container-manager">
       <h1 className="header-manager">Settings</h1>
       <form onSubmit={handleSubmit} className="form-manager">

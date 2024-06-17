@@ -1,6 +1,6 @@
 import "./DashboardManager.scss"
 import SideBar from "../../Components/sidebar/SideBarManager.jsx"
-import Navbar from "../../Components/Navbar/NavbarManager.jsx"
+import Navbar2 from "../../Components/Navbar/NavbarManager2.jsx"
 import WelcomeWidget from "../../Components/widget/WelcomewidgetManager.jsx"
 import BarGraph from "../../Components/graphs/Bargraphs.jsx"
 import DonutChart from "../../Components/graphs/Donutchart.jsx"
@@ -68,7 +68,7 @@ function Dashboard({togglePage, pages}) {
     <div className="home-2-manager">
         <SideBar togglePage={togglePage} pages={pages}/>
         <div className="homeContainer-manager">
-            <Navbar togglePage={togglePage} pages={pages}/>
+            <Navbar2 togglePage={togglePage} pages={pages}/>
             <div className="welcomewidget-2-manager">
               <WelcomeWidget togglePage={togglePage} pages={pages}/>
             </div>

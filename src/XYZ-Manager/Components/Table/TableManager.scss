@@ -4,7 +4,7 @@
     margin-top: 10px;
     border-radius: 1rem; /* Increase the border-radius for curvier edges */
     width: 97%; /* Adjust the width to make the container smaller */
-    height: 65%;
+    height: 61%;
     margin-left: auto; /* Center the container horizontally */
     margin-right: auto; /* Center the container horizontally */
   }
@@ -96,20 +96,20 @@
   
   .table-manager .th-manager:nth-child(3),
   .table-manager .td-manager:nth-child(3) {
-    padding-right: 5px; /* Adjust this value as needed */
+    padding-right: 10px; /* Adjust this value as needed */
   }
   
   .table-manager .th-manager:nth-child(4),
   .table-manager .td-manager:nth-child(4) {
-    padding-right: 10px; /* Adjust this value as needed */
+    padding-right: 40px; /* Adjust this value as needed */
   }
   
   .table-manager .th-manager:nth-child(5),
   .table-manager .td-manager:nth-child(5) {
-    padding-right: 40px; /* Adjust this value as needed */
+    padding-right: 70px /* Adjust this value as needed */
   }
   
   .table-manager .th-manager:nth-child(6),
   .table-manager .td-manager:nth-child(6) {
-    padding-right: 10px; /* Adjust this value as needed */
+    padding-right: 10%; /* Adjust this value as needed */
   }

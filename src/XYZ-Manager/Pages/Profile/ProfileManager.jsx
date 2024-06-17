@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './ProfileManager.scss';
 import SideBar from '../../Components/sidebar/SideBarManager';
-import Navbar from '../../Components/Navbar/NavbarManager';
+import Navbar2 from '../../Components/Navbar/NavbarManager2';
 import MySVG from '../../assets/choose_file_image.svg';
 
 const Profile = ({togglePage, pages}) => {
@@ -50,7 +50,7 @@ const Profile = ({togglePage, pages}) => {
     <div className="home-manager">
       <SideBar togglePage={togglePage} pages={pages}/>
       <div className="homeContainer-manager">
-        <Navbar togglePage={togglePage} pages={pages}/>
+        <Navbar2 togglePage={togglePage} pages={pages}/>
         <div className="container-manager">
           <h1 className="header-manager">Profile</h1>
           <div className="image-container-manager">

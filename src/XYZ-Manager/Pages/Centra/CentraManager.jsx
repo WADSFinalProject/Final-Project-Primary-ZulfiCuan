@@ -106,17 +106,20 @@ function Centra({togglePage, pages}) {
           </div>
         </div>
         <div className="centraContainer-manager">
+          
           <div className="centra1-manager">Centra1</div>
+          
           <div className="map-container1-manager">
             <div id="map1-manager">
               {/* Another Google Maps component or any other content goes here */}
+              
             </div>
           </div>
         </div>
         {/* Render paginated data */}
         <div className="shipment-data-manager">{renderData()}</div>
         {/* Render PageButtons component */}
-        {/* <PageButtons currentPage={currentPage} totalPages={totalPages} onPageChange={handlePageChange} /> */}
+        <PageButtons currentPage={currentPage} totalPages={totalPages} onPageChange={handlePageChange} />
       </div>
     </div>
   );

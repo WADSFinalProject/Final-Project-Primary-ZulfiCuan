@@ -3,7 +3,7 @@ import "./ShipmentMain.scss";
 import SideBar from "../../Components/sidebar/SideBarManager.jsx";
 import Navbar from "../../Components/Navbar/NavbarManager.jsx";
 import Table from "../../Components/Table/TableManager.jsx"; // Adjust the import path as needed
-import PageButtons from "../../Components/PageButtons/PageButtons.jsx";
+import PageButtonsShipment from "../../Components/PageButtonsShipment/PageButtonsShipment.jsx";
 
 const sampleShipmentData = [
   {
@@ -245,10 +245,11 @@ function ShipmentMain({togglePage, pages}) {
           >
             Cancelled
           </button>
-          <PageButtons
+          <PageButtonsShipment
             currentPage={currentPage}
             totalPages={totalPages}
             onPageChange={handlePageChange}
+            
           />
         </div>
         <div className="shipment-container-manager">

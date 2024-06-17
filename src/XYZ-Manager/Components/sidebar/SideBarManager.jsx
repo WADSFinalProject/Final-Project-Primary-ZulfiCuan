@@ -10,7 +10,7 @@ import WarehouseOutlinedIcon from '@mui/icons-material/WarehouseOutlined';
 function SideBar({togglePage, pages}) {
   return (
     <div className='sidebar-manager'>
-        <div className="top-manager">
+        <div className="top-manager" onClick={() => togglePage(0,0)}>
             <span className="logo-manager">Moringa</span>
         </div>
         <div className="center-manager">

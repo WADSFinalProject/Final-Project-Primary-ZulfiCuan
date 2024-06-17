@@ -8,23 +8,24 @@ import CreateAccountButton from '../../Components/AccountTable/CreateAccountButt
 import AddAccountPage from '../../Pages/AddAccount/AddAccountPage.jsx';
 
 function Account({togglePage, pages}) {
-  const [showAddAccount, setShowAddAccount] = useState(false);
-
+  const [showAddAccount, setShowAddAccount] = useState(false); // toggle for account
   const handleAddAccount = () => {
-    setShowAddAccount(true);
+    setShowAddAccount(true); // show add account form
   };
 
   const handleBack = () => {
-    setShowAddAccount(false);
+    setShowAddAccount(false); // hide add account form
   };
 
   return (
     <div className="accountPage-admin">
       <SideBar togglePage={togglePage}/>
       <div className="accountContent-admin">
-        <Navbar />
+        <Navbar togglePage={togglePage}/>
         {showAddAccount ? (
-          <AddAccountPage onBack={handleBack} />
+          <div className="editAccountContainer-admin">
+            <AddAccountPage onBack={handleBack} />
+          </div>
         ) : (
           <div className="accountTableContainer-admin">
             <div className="accountHeader-admin">

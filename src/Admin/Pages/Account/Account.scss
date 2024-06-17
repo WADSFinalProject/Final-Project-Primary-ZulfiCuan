@@ -33,7 +33,13 @@
   margin: 0; /* Ensure there is no default margin */
   font-weight: bold;
 }
-
+.editAccountContainer-admin{
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  margin: 0px 20px 20px;
+  // overflow: hidden; /* Ensure it doesn't overflow */
+}
 .createAccountButton-admin {
   margin-left: auto; /* Push the button to the right */
   background-color: transparent;

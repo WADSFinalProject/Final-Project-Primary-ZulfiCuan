@@ -49,6 +49,10 @@ $blue : #003366;
 .button-upload-manager{
   width:250px;
 }
+
+.button-reset-manager{
+  width:125px;
+}
 .file-input-manager {
   margin-left: 10px;
 }
@@ -61,9 +65,28 @@ $blue : #003366;
   cursor: pointer;
   border-radius: 4px;
   transition: background-color 0.3s ease;
-  text-align: center !important;
+  text-align: center;
 
 }
+
+.button2-manager {
+  background-color: #c8e6c9;
+  color: $blue;
+  border: none;
+  padding: 8px 16px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+  text-align: center;
+  border-radius: 25px;
+  font-weight: bold;
+}
+.button2-manager:hover {
+  background-color: #a5d6a7;
+}
+
+
+
 .input-group-password-manager .button-manager{
   position: relative;
   background-color: $blue;

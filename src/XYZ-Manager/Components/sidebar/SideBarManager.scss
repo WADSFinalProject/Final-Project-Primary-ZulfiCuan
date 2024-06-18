@@ -1,8 +1,12 @@
 .sidebar-manager{
     background-color: #04315b;
-    flex: 1;
+    width: 15vw; // Adjust the percentage of the viewport width here
+    min-width: 250px; // Ensure it doesn't get smaller than 250px
     min-height: 100vh;
+    display: flex;
+    flex-direction: column;
     overflow-y: auto;
+    font-family: 'Helvetica', sans-serif;
 
     .top-manager{
         height: 50px;
@@ -21,7 +25,8 @@
             color: #faf9f6;
             text-align: center;
             cursor: pointer;
-            padding-top: 5%;
+            padding-top: 1%;
+            position: fixed;
         }
         
     }
@@ -32,6 +37,7 @@
             list-style: none;
             margin: 0;
             padding: 0;
+            position: fixed;
         }
     
         li {
@@ -39,12 +45,15 @@
             align-items: center;
             padding: 24px;
             cursor: pointer;
+            width: 140%;
+            
 
 // Hover effect cool maybe ask michelle 
             &:hover {
                 background-color: #bdd8b0d2;
                 border-radius: 12px; // Change shape on hover
                 box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); // Add shadow on hover
+                
     
                 .icon-manager {
                     color: #04315b; // Change to desired color
@@ -58,6 +67,7 @@
             .icon-manager {
                 font-size: 18px;
                 color: #faf9f6;
+                
             }
     
             span {

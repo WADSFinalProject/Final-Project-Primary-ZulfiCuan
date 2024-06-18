@@ -8,7 +8,7 @@ import Search from './Search/SearchManager';
 // eslint-disable-next-line react/prop-types
 function Navbar({togglePage, pages}) {
   const userName = "John Doe"; // This will come from your backend
-  const userRole = "Admin"; // This will come from your backend
+  const userRole = "Manager"; // This will come from your backend
 
   return (
     <div className='navbar-manager'>
@@ -24,7 +24,7 @@ function Navbar({togglePage, pages}) {
               <img src="src/assets/pexels-lum3n-44775-406014.jpg" alt="" className='avatar-manager' />
             </div>
             <div className="separator-manager"></div>
-            <div className="item-manager">
+            <div className="item-manager" onClick={() => togglePage(0,2)}>
               <NotificationsNoneOutlinedIcon style={{ color: 'rgba(4, 49, 91, 1)' }} />
               <div className="counter-manager">1</div>
             </div>

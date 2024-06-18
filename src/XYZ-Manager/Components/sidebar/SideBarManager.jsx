@@ -28,7 +28,7 @@ function SideBar({togglePage, pages}) {
                     < LocalShippingOutlinedIcon className='icon-manager'/>
                     <span>Shipping</span>
                 </li>
-                <li>
+                <li onClick={() => togglePage(1,2)}>
                 < WarehouseOutlinedIcon className='icon-manager'/>
                     <span>Storage</span>
                 </li>

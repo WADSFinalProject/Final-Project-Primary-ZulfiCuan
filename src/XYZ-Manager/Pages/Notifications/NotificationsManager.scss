@@ -1,0 +1,41 @@
+$blue: #003366;
+$light-blue: #c8e6c9;
+$dark-blue: #002244;
+$white: #ffffff;
+$text: #04315B;
+
+.notification-manager {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px;
+    background-color: $white;
+    border-radius: 20px;
+    color: rgba(4, 49, 91, 1);
+    width: 97%;
+    border: 2px solid black;
+    margin-top: 2%;
+    margin-left: 1%;
+    
+  
+    .notification-date-manager {
+        font-size: 16px;
+        font-weight: bold;
+        margin-bottom: 5px;
+        cursor: default;
+    }
+  
+    h1 {
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 10px;
+        cursor: default;
+    }
+  
+    p {
+      font-size: 15px;
+      font-weight: 600;
+      cursor: default;
+    }
+  }

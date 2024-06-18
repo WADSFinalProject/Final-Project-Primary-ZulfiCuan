@@ -74,7 +74,7 @@ function Dashboard({togglePage, pages}) {
             </div>
             <div className="centra-2-manager">Centra</div>
             <div className="map-container-manager">
-            <MapContainer center={[-5.565210, 123.121014]} zoom={5.2} zoomControl={false} style={{ height: '210px', width: '1230px' }}>
+            <MapContainer center={[-5.565210, 123.121014]} zoom={5.2} zoomControl={false} style={{ height: '210px', width: '1200px' }}>
               <TileLayer
                 attribution="JawgLab"
                 url="https://tile.jawg.io/e5d8beb2-b5e0-4ac4-bb0b-9b553e2f5acb/{z}/{x}/{y}{r}.png?access-token=DfaT20L6p2ckAELwn9yTxvLM6O6PAYil1yP7DbDPLdiZqXc8G1hhkai4HtTJCTLv"

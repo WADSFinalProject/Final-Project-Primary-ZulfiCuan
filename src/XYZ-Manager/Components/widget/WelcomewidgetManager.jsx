@@ -11,7 +11,7 @@ function WelcomeWidget() {
     <div className="welcomeWidget-manager">
       <div className="date-manager">{formattedDate}</div>
       <h1>Welcome John Doe!</h1>
-      <p>There are 3 pending Accounts that you must review. Please go to the Account Section so you may handle them.</p>
+      <p>There are 2 new delivered shipments that must be reviewed. Please go to the Shipment Section so you may handle them.</p>
     </div>
   );
 }

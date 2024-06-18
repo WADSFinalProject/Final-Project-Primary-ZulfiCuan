@@ -249,9 +249,9 @@ function ShipmentMain({togglePage, pages}) {
             currentPage={currentPage}
             totalPages={totalPages}
             onPageChange={handlePageChange}
-            
           />
         </div>
+        
         <div className="shipment-container-manager">
           <div id="shipment" className="shipment-fields-manager">
             <div className="field-manager" >Batch ID</div>

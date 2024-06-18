@@ -1,24 +1,24 @@
 .home-manager {
-    display: flex;
-  }
+  display: flex;
+}
+
+.homeContainer-manager {
+  flex: 4;
+}
   
-  .homeContainer-manager {
-    flex: 4;
-  }
+.shipment-manager {
+  margin: 20px;
+  font-size: 24px;
+  font-weight: bold;
+  color: rgba(4, 49, 91, 1);
+}
   
-  .shipment-manager {
-    margin: 20px;
-    font-size: 24px;
-    font-weight: bold;
-    color: rgba(4, 49, 91, 1);
-  }
-  
-  .buttonsContainer-manager {
-    display: flex;
-    gap: 10px;
-    margin-top: 20px;
-    margin-left: 20px; /* Adjust this value to move the buttons to the right */
-  }
+.buttonsContainer-manager {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+  margin-left: 20px; /* Adjust this value to move the buttons to the right */
+}
   
   .button-manager {
     padding: 5px 15px;

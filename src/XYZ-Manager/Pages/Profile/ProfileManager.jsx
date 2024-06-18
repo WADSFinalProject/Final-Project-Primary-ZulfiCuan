@@ -66,8 +66,8 @@ const Profile = ({togglePage, pages}) => {
   />
    <div className="container-text-below-buttons-manager">
     <div className="buttons-vertical-manager">
-    <button type="button" onClick={handleSubmit} className="button-manager button-upload-manager">Upload</button>
-    <button type="button" onClick={handleReset} className="button-manager">Reset</button>
+    <button type="button" onClick={handleSubmit} className="button2-manager button-upload-manager">Upload</button>
+    <button type="button" onClick={handleReset} className="button2-manager button-reset-manager">Reset</button>
     </div>
     <div className = "h3-style-manager">
       <h3>Allowed JPG, GIF, or PNG. Max size of 1MB.</h3>

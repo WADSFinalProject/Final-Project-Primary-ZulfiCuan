@@ -17,6 +17,7 @@ function Centra({togglePage, pages}) {
   return (
     <div className='CentraPage-admin'>
       <SideBar togglePage={togglePage} pages />
+      <div className="fixdash"></div>
       <div className="CentraContent-admin">
       <Navbar togglePage={togglePage} pages />
       {showAddCentra ? (

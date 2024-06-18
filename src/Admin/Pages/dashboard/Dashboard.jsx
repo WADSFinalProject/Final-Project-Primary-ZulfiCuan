@@ -11,7 +11,7 @@ function Dashboard({ togglePage, pages }) {
   return (
     <div className="dashboardPage-admin">
       <SideBar togglePage={togglePage} pages={pages} />
-      <div className="gyat"></div>
+      <div className="fixdash"></div>
       <div className="dashboardContent-admin">
         <Navbar togglePage={togglePage} pages={pages} />
         <div className="welcomeWidgetContainer-admin">

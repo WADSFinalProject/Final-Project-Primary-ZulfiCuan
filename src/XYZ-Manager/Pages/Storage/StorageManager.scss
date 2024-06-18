@@ -1,15 +1,15 @@
-.accountPage-admin {
+.accountPage-manager {
     display: flex;
     height: 100vh;
   }
   
-  .accountContent-admin {
+  .accountContent-manager {
     display: flex;
     flex-direction: column;
     flex: 1;
   }
   
-  .accountTableContainer-admin {
+  .accountTableContainer-manager {
     display: flex;
     flex-direction: column;
     flex: 1;
@@ -17,7 +17,7 @@
     // overflow: hidden; /* Ensure it doesn't overflow */
   }
   
-  .accountHeader-admin {
+  .accountHeader-manager {
     display: flex;
     align-items: center;
     justify-content: space-between; /* This will space the title and button */
@@ -25,7 +25,7 @@
     padding-bottom: 5px;  
   }
   
-  .accountTitle-admin {
+  .accountTitle-manager {
     font-size: 32px;
     font-family: "Helvetica";
     color: #04315b;
@@ -33,14 +33,14 @@
     margin: 0; /* Ensure there is no default margin */
     font-weight: bold;
   }
-  // .editAccountContainer-admin{
+  // .editAccountContainer-manager{
   //   display: flex;
   //   flex-direction: column;
   //   flex: 1;
   //   margin: 0px 20px 20px;
   //   // overflow: hidden; /* Ensure it doesn't overflow */
   // }
-  .createAccountButton-admin {
+  .createAccountButton-manager {
     margin-left: auto; /* Push the button to the right */
     background-color: transparent;
     color: black !important;
@@ -55,7 +55,7 @@
       border-color: black !important;
     }
   
-    .MuiButton-startIcon-admin {
+    .MuiButton-startIcon-manager {
       color: black; /* Makes the icon color black */
     }
   }

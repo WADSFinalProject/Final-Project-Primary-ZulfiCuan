@@ -201,7 +201,7 @@ const sampleShipmentData = [
 ];
 
 function ShipmentMain({togglePage, pages}) {
-  const [activeButton, setActiveButton] = useState(null);
+  const [activeButton, setActiveButton] = useState('viewAll');
   const [currentPage, setCurrentPage] = useState(1); // State to manage current page
   const itemsPerPage = 8; // Number of items per page
   const totalPages = Math.ceil(sampleShipmentData.length / itemsPerPage); // Calculate total pages
@@ -262,7 +262,7 @@ function ShipmentMain({togglePage, pages}) {
             <div className="field-manager">Estimated Arrival</div>
           </div>
         </div>
-        <Table togglePage={togglePage} pages={pages}
+        <Table activeButton={activeButton} togglePage={togglePage} pages={pages}
           shipmentData={sampleShipmentData.slice(
             (currentPage - 1) * itemsPerPage,
             currentPage * itemsPerPage

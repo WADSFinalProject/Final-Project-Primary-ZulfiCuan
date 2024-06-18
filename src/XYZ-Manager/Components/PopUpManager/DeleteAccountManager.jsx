@@ -46,7 +46,7 @@ const DeleteAccountManager = ({ togglePage, pages, open, onClose, onDelete }) =>
         >
           <DeleteOutlineIcon />
         </IconButton>
-        Delete Account
+        Delete
         <IconButton
           aria-label="close"
           onClick={onClose}
@@ -63,7 +63,7 @@ const DeleteAccountManager = ({ togglePage, pages, open, onClose, onDelete }) =>
       <DialogContent>
         <Grid container spacing={2}>
           <Grid item xs={12}>
-            <p>Are you sure you want to delete this account?</p>
+            <p>Are you sure you want to delete this line?</p>
           </Grid>
         </Grid>
       </DialogContent>

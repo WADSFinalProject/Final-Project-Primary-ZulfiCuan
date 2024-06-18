@@ -268,17 +268,17 @@ function Shipping({togglePage, pages}) {
       </div>
       <div className="shipments">
       <div className="header">
-        <h2>Delivered</h2>
+        <h2 className="Delivered-manager">Delivered</h2>
         <button className="close-button" onClick={() => togglePage(2,1)}>×</button>
       </div>
       <div className="shipment-info">
         <div className = "shipment-info-text">
             <h2>Shipment Information</h2>
         </div>
-        <p><strong>Shipment ID:</strong> xxxxxxxx</p>
-        <p><strong>Batch ID:</strong> xxxxxxxx</p>
-        <p><strong>Order Details:</strong> xx Kg Flour Leaves</p>
-        <p><strong>Address:</strong> xxxxxxxxxxx xx xxxxxxxx x xxxxxxx xx xxxxxxxx</p>
+        <p><strong>Shipment ID:</strong> 001</p>
+        <p><strong>Batch ID:</strong> 2602177051</p>
+        <p><strong>Tracking Location:</strong> New York, NY</p>
+        <p><strong>Shipping Address:</strong> 123 Main St, NY 10001</p>
       </div>
       <div className="timeline">
         <div className="timeline-item">

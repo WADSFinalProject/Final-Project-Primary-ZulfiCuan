@@ -14,7 +14,7 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import InputLabel from '@mui/material/InputLabel';
 
-const EditAccountManager = ({ togglePage, pages, open, onClose, accountDetails, onSave }) => {
+const EditAccountManager = ({ open, onClose, accountDetails, onSave }) => {
   const [formValues, setFormValues] = useState({
     batchid: '',
     shippingid: '',
@@ -68,7 +68,7 @@ const EditAccountManager = ({ togglePage, pages, open, onClose, accountDetails, 
         >
           <EditOutlinedIcon />
         </IconButton>
-        Edit Account
+        Edit Table
         <IconButton
           aria-label="close"
           onClick={onClose}

@@ -29,7 +29,7 @@ const DonutChart = ({ percentage }) => {
     <svg
       ref={svgRef}
       className="donut-chart-manager"
-      width="100%"
+      width="85%"
       height="100%"
       viewBox={`0 0 ${radius * 2} ${radius * 2}`}
     >

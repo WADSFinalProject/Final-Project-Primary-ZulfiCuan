@@ -1,7 +1,7 @@
 import React from 'react'
 import { icons } from '../constants'
 
-const SearchBar = ({ value, handleChangeText, otherStyles}) => {
+const SearchBar = ({ value, handleSearchText, otherStyles}) => {
 
   return (
     <div className={`space-y-2 px-4 pb-2 ${otherStyles}`}>
@@ -19,7 +19,7 @@ const SearchBar = ({ value, handleChangeText, otherStyles}) => {
           className="flex-1 font-hnroman text-sm bg-offwhite"
           value={value}
           placeholder="Search"
-          onChange={handleChangeText}
+          onChange={handleSearchText}
         />
 
       </div>

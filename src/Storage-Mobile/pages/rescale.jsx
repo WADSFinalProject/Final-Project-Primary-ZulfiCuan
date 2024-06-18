@@ -62,6 +62,12 @@ function Rescale({ togglePage, pages }) {
     to: { y: 0, opacity: 1 },
   })  
 
+  const [searchQuery, setSearchQuery] = useState('');
+  const handleSearch = (event) => {
+    // console.log(searchQuery);
+    setSearchQuery(event.target.value);
+  };
+
   return (
     <div className='container flex flex-col min-h-screen'>
       <div className='items-start flex w-full items-center py-3 px-4 bg-primary h-16 fixed overflow-auto'>
@@ -105,9 +111,11 @@ function Rescale({ togglePage, pages }) {
 
       <SearchBar 
       otherStyles="fixed h-12 w-full mt-28 bg-offwhite"
+      handleSearchText={handleSearch}
+      value={searchQuery}
       />
      
-      <RescaleLists />
+      <RescaleLists searchQuery={searchQuery} />
       
       <BottomTab scrollPercent={scrollPercent} togglePage={togglePage} pages={pages}/>
     </div>   

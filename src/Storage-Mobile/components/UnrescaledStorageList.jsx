@@ -4,7 +4,7 @@ import PopUpForm from './PopUpForm';
 import axios from 'axios';
 import { icons } from '../constants';
 
-function UnrescaledStorageList({ allStorage }) {
+function UnrescaledStorageList({ allStorage, searchQuery }) {
   const [newWeight, setNewWeight] = useState(null);
   const [selectedStorage, setSelectedStorage] = useState(null);
 
@@ -45,6 +45,13 @@ function UnrescaledStorageList({ allStorage }) {
     <>
       {allStorage
         .filter((storage) => storage.isRescaled === false)
+        .filter(storage => 
+          storage.provider.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          storage.weight.toString().includes(searchQuery.toLowerCase()) ||
+          storage.idStorage.toString().includes(searchQuery.toLowerCase()) ||
+          storage.idShipment.toString().includes(searchQuery.toLowerCase()) ||
+          storage.arrival.toString().includes(searchQuery.toLowerCase()) ||
+          storage.expiredDate.toString().includes(searchQuery.toLowerCase()))
         .map((storage) => (
           <div
             className='my-1 w-[90vw] h-32 bg-secondary overflow-hidden border-offwhite-300 border-2 rounded-lg flex flex-col items-center'
@@ -196,9 +203,7 @@ function UnrescaledStorageList({ allStorage }) {
 }
 
 function formatDate(dateTimeString) {
-  const date = new Date(dateTimeString);
-  const options = { day: '2-digit', month: '2-digit', year: 'numeric' };
-  return date.toLocaleDateString(undefined, options); // This will format the date as dd/mm/yyyy
-}
+  return dateTimeString.split('T')[0];
+};
 
 export default UnrescaledStorageList;

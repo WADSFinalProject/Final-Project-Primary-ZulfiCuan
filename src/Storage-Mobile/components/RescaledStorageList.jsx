@@ -5,7 +5,7 @@ import { icons } from '../constants';
 import { useState } from 'react';
 import axios from 'axios';
 
-function RescaledStorageList({ allStorage }) {
+function RescaledStorageList({ allStorage, searchQuery }) {
     const [newWeight, setNewWeight] = useState(null);
   const [selectedStorage, setSelectedStorage] = useState(null);
 
@@ -33,7 +33,16 @@ function RescaledStorageList({ allStorage }) {
 
   return (
     <>
-        {allStorage.filter(storage => storage.isRescaled === true).map(storage => (
+        {allStorage
+        .filter(storage => storage.isRescaled === true)
+        .filter(storage => 
+            storage.provider.toLowerCase().includes(searchQuery.toLowerCase()) ||
+            storage.weight.toString().includes(searchQuery.toLowerCase()) ||
+            storage.idStorage.toString().includes(searchQuery.toLowerCase()) ||
+            storage.idShipment.toString().includes(searchQuery.toLowerCase()) ||
+            storage.rescaledDate.toString().includes(searchQuery.toLowerCase()) ||
+            storage.expiredDate.toString().includes(searchQuery.toLowerCase()))
+        .map(storage => (
           <div className='my-1 w-[90vw] h-32 bg-primary-100 overflow-hidden border-offwhite-300 border-2 rounded-lg flex flex-col items-center' key={storage.idShipment}>
             <p className='my-1 text-offwhite font-hnmedium text-xs'>Package {storage.idShipment}</p>
 
@@ -90,7 +99,7 @@ function RescaledStorageList({ allStorage }) {
                             <div className='fixed flex flex-col items-center justify-center inset-0 bg-black bg-opacity-50'>
                                 <div className='flex flex-col h-[45vh] w-[80vw] border-2 border-offwhite-100 rounded-xl bg-offwhite'>
                                     <p className='mx-5 font-hnbold text-xl text-secondary my-4'>
-                                        Edit Weight
+                                        Edit Rescale
                                     </p>
 
                                     <div className='mt-1 flex'>
@@ -146,9 +155,7 @@ function RescaledStorageList({ allStorage }) {
 }
 
 function formatDate(dateTimeString) {
-  const date = new Date(dateTimeString);
-  const options = { day: '2-digit', month: '2-digit', year: 'numeric' };
-  return date.toLocaleDateString(undefined, options); // This will format the date as dd/mm/yyyy
-}
+    return dateTimeString.split('T')[0];
+};
 
 export default RescaledStorageList;

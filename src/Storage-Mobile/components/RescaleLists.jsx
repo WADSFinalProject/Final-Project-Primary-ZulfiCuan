@@ -4,7 +4,7 @@ import UnrescaledStorageList from './UnrescaledStorageList'
 import RescaledStorageList from './RescaledStorageList'
 import axios from 'axios'
 
-function RescaleLists() {
+function RescaleLists({searchQuery}) {
 
     const [isRescaledScreen, setIsRescaledScreen] = useState(false)
 
@@ -42,8 +42,8 @@ function RescaleLists() {
         
         <div className='mt-8 flex flex-1 flex-col items-center overflow-y-hidden bg-offwhite-100 pt-2 pb-[11vh]'>
 
-            {isRescaledScreen === false && <UnrescaledStorageList allStorage={allStorage} />}
-            {isRescaledScreen && <RescaledStorageList allStorage={allStorage} />}
+            {isRescaledScreen === false && <UnrescaledStorageList allStorage={allStorage} searchQuery={searchQuery} />}
+            {isRescaledScreen && <RescaledStorageList allStorage={allStorage} searchQuery={searchQuery}/>}
             
         </div>
     </div>

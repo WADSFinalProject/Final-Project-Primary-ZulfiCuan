@@ -19,7 +19,7 @@ function storageManagerPage({togglePage, pages}) {
     <div className="accountPage-manager">
       <SideBar togglePage={togglePage} pages={pages}/>
       <div className="accountContent-manager">
-        <Navbar togglePage={togglePage} pages={pages}/>
+        <Navbar togglePage={togglePage} pages={pages} />
           <div className="accountTableContainer-manager">
             <div className="accountHeader-manager">
               <h1 className="accountTitle-manager">Storage</h1>

@@ -1,10 +1,10 @@
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 
-function Search() {
+function Search({value, handleTextChange}) {
   return (
     <div className="search-manager">
           <SearchOutlinedIcon className="searchIcon-manager" />
-          <input type="text" placeholder='Search' />
+          <input value={value} onChange={handleTextChange} type="text" placeholder='Search' />
     </div>
   )
 }

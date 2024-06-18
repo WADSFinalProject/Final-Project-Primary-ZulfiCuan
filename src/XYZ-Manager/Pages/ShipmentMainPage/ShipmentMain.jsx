@@ -214,11 +214,26 @@ function ShipmentMain({togglePage, pages}) {
     setCurrentPage(page);
   };
 
+  const [query, setQuery] = useState('');
+  const handleSearch = (searchQuery) => {
+    setQuery(searchQuery);
+    // console.log(query);
+  };
+
+
+  const filteredData = sampleShipmentData.filter(shipment => 
+    shipment.batchId.toString().includes(query.toLowerCase()) ||
+    shipment.shippingId.toString().includes(query.toLowerCase()) ||
+    shipment.trackingLocation.toLowerCase().includes(query.toLowerCase()) ||
+    shipment.shippingAddress.toLowerCase().includes(query.toLowerCase()) ||
+    shipment.estimatedArrival.toString().includes(query.toLowerCase())
+  );
+
   return (
     <div className="home-manager">
-      <SideBar togglePage={togglePage} pages={pages}/>
+      <SideBar togglePage={togglePage} pages={pages} />
       <div className="homeContainer-manager">
-        <Navbar togglePage={togglePage} pages={pages}/>
+        <Navbar togglePage={togglePage} pages={pages} value={query} onSearch={handleSearch}/>
         <div className="shipment-manager">Shipments</div>
         <div className="buttonsContainer-manager">
           <button
@@ -263,7 +278,7 @@ function ShipmentMain({togglePage, pages}) {
           </div>
         </div>
         <Table activeButton={activeButton} togglePage={togglePage} pages={pages}
-          shipmentData={sampleShipmentData.slice(
+          shipmentData={filteredData.slice(
             (currentPage - 1) * itemsPerPage,
             currentPage * itemsPerPage
           )}

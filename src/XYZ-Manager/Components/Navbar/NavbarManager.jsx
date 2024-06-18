@@ -4,16 +4,24 @@ import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 import NotificationsNoneOutlinedIcon from '@mui/icons-material/NotificationsNoneOutlined';
 import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
 import Search from './Search/SearchManager';
+import { useState } from 'react';
 
 // eslint-disable-next-line react/prop-types
-function Navbar({togglePage, pages}) {
+function Navbar({togglePage, pages, onSearch, value }) {
   const userName = "John Doe"; // This will come from your backend
   const userRole = "Manager"; // This will come from your backend
+
+  const handleInputChange = (e) => {
+    onSearch(e.target.value);
+  };
 
   return (
     <div className='navbar-manager'>
       <div className="wrapper-manager">
-        <Search/>
+        <Search
+        value={value}
+        handleTextChange={handleInputChange} 
+        />
         <div className='ProfileNotifSettingPosistion-Manager'>
           <div className="items-manager">
             <div className="profile-manager">

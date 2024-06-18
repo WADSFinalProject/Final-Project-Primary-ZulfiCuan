@@ -41,7 +41,7 @@ const columns = [
 
 export default function CentraTable() {
   const [page, setPage] = useState(0);
-  const rowsPerPage = 10;
+  const rowsPerPage = 8;
   const [editOpen, setEditOpen] = useState(false);
   const [deleteOpen, setDeleteOpen] = useState(false);
   const [selectedAccount, setSelectedAccount] = useState(null);
@@ -81,7 +81,7 @@ export default function CentraTable() {
   const emptyRows = rowsPerPage - Math.min(rowsPerPage, rows.length - page * rowsPerPage);
 
   return (
-    <Paper sx={{ width: '100%', overflow: 'hidden', borderRadius: '16px' }}>
+    <Paper sx={{ marginBottom: '1.5rem', width: '100%', overflow: 'hidden', borderRadius: '16px' }}>
       <TableContainer>
         <Table stickyHeader aria-label="sticky table">
           <TableHead>
@@ -90,7 +90,7 @@ export default function CentraTable() {
                 <TableCell
                   key={column.id}
                   align={column.align}
-                  sx={{ minWidth: column.minWidth, backgroundColor: '#002855', color: 'white', textAlign: 'center' }}
+                  sx={{ height: '2rem', minWidth: column.minWidth, backgroundColor: '#002855', color: 'white', textAlign: 'center' }}
                 >
                   {column.label}
                 </TableCell>
@@ -106,12 +106,14 @@ export default function CentraTable() {
                     <TableCell
                       key={column.id}
                       align={column.align}
+                      padding='none'
                       sx={{
                         color: '#002855',
                         fontWeight: 500,
                         fontFamily: 'var(--font-inter)',
                         borderBottom: '1px solid #04315b', // Adding bottom border to TableCell
-                        textAlign: column.align // Ensure alignment is applied
+                        textAlign: column.align, // Ensure alignment is applied
+                        height: '3rem',
                       }}
                     >
                       {column.id === 'action' ? (
@@ -119,10 +121,14 @@ export default function CentraTable() {
                           <IconButton
                             aria-label="edit"
                             sx={{
+                              objectFit: 'contain',
+                              width: '1.5rem',
+                              height: '1.5rem',
                               color: '#ffffff',
                               backgroundColor: '#ff7c52',
-                              borderRadius: '8px',
+                              borderRadius: '0.5rem',
                               marginRight: '5px',
+                              marginY:'0',
                               '&:hover': {
                                 backgroundColor: '#ff6a3e',
                               },
@@ -134,9 +140,13 @@ export default function CentraTable() {
                           <IconButton
                             aria-label="delete"
                             sx={{
+                              objectFit: 'contain',
+                              width: '1.5rem',
+                              height: '1.5rem',
                               color: '#ffffff',
                               backgroundColor: '#ff7c52',
-                              borderRadius: '8px',
+                              borderRadius: '0.5rem',
+                              marginY:'0',
                               '&:hover': {
                                 backgroundColor: '#ff6a3e',
                               },
@@ -164,7 +174,7 @@ export default function CentraTable() {
       </TableContainer>
       <TablePagination
         sx={{ backgroundColor: '#ebebeb' }}
-        rowsPerPageOptions={[10]}
+        rowsPerPageOptions={[8]}
         component="div"
         count={rows.length}
         rowsPerPage={rowsPerPage}

@@ -24,7 +24,7 @@ function ProfileNotifSetting({togglePage, pages}) {
                 <div className="counter-admin">1</div>
             </div>
             <div className="setting-admin">
-                <SettingsOutlinedIcon style={{ color: 'rgba(4, 49, 91, 1)', fontSize: '32px' }} />
+                <SettingsOutlinedIcon style={{ color: 'rgba(4, 49, 91, 1)', fontSize: '32px' }} onClick={() => togglePage(0, 3)} />
             </div>
         </div>
     );

@@ -1,8 +1,18 @@
 $blue: #003366;
-$light-blue: #c8e6c9;
+$light-green: #c8e6c9;
 $dark-blue: #002244;
 $white: #ffffff;
 $text: #04315B;
+
+.NotificationTitle-manager {
+  font-size: 32px;
+  font-family: "Helvetica";
+  color: #04315b;
+  text-align: left;
+  margin: 0; /* Ensure there is no default margin */
+  font-weight: bold;
+  padding: 20px 20px 0 20px; 
+}
 
 .notification-manager {
     display: flex;
@@ -12,11 +22,13 @@ $text: #04315B;
     padding: 20px;
     background-color: $white;
     border-radius: 20px;
-    color: rgba(4, 49, 91, 1);
+    color: $blue;
     width: 97%;
     border: 2px solid black;
     margin-top: 2%;
     margin-left: 1%;
+    
+ 
     
   
     .notification-date-manager {

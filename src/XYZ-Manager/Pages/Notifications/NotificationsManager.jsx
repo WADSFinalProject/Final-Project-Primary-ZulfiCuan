@@ -14,6 +14,7 @@ function NotificationManager({togglePage, pages}) {
         <SideBar togglePage={togglePage} pages={pages}/>
         <div className="homeContainer-manager">
             <Navbar2 togglePage={togglePage} pages={pages}/>
+            <h1 className="NotificationTitle-manager">Notifications </h1>
               <div className="notification-manager">
                 <div className="notification-date-manager">{formattedDate}</div>
                   <h1>Shipping Notification!</h1>

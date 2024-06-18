@@ -10,10 +10,7 @@ import TableRow from '@mui/material/TableRow';
 import IconButton from '@mui/material/IconButton';
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
-import Backdrop from '@mui/material/Backdrop';
-import CircularProgress from '@mui/material/CircularProgress';
-import Button from '@mui/material/Button';
-import EditAccountPopup from '../PopupEditAssest/EditAccountPopup'; // Import the EditAccountPopup component
+import EditAccountPopup from '../PopupEditAssest/EditAccountPopup';
 import DeleteAccountPopup from '../PopupEditAssest/DeleteAccountPopup';
 
 const columns = [
@@ -22,7 +19,7 @@ const columns = [
   { id: 'email', label: 'Email', minWidth: 170, align: 'center' },
   { id: 'password', label: 'Password', minWidth: 170, align: 'center' },
   { id: 'birthDate', label: 'Birth Date', minWidth: 170, align: 'center' },
-  { id: 'role', label: 'Role', minWidth: 170, align: 'center' }, // Updated to center align
+  { id: 'role', label: 'Role', minWidth: 170, align: 'center' },
   { id: 'action', label: 'Action', minWidth: 170, align: 'center' },
 ];
 
@@ -31,12 +28,17 @@ const initialRows = [
   { id: 'U109', name: 'Jane Smith', email: 'janesmith@centra.com', password: 'xxxxxxxxx', birthDate: '05/15/1990', role: 'User' },
   { id: 'U110', name: 'Mike Johnson', email: 'mikejohnson@centra.com', password: 'xxxxxxxxx', birthDate: '08/23/1985', role: 'User' },
   { id: 'U111', name: 'Emily Davis', email: 'emilydavis@centra.com', password: 'xxxxxxxxx', birthDate: '11/19/1992', role: 'Admin' },
+  { id: 'U108', name: 'John Doe', email: 'johndoe@centra.com', password: 'xxxxxxxxx', birthDate: '12/04/1987', role: 'Admin' },
+  { id: 'U109', name: 'Jane Smith', email: 'janesmith@centra.com', password: 'xxxxxxxxx', birthDate: '05/15/1990', role: 'User' },
+  { id: 'U110', name: 'Mike Johnson', email: 'mikejohnson@centra.com', password: 'xxxxxxxxx', birthDate: '08/23/1985', role: 'User' },
+  { id: 'U111', name: 'Emily Davis', email: 'emilydavis@centra.com', password: 'xxxxxxxxx', birthDate: '11/19/1992', role: 'Admin' },
+  { id: 'U109', name: 'Jane Smith', email: 'janesmith@centra.com', password: 'xxxxxxxxx', birthDate: '05/15/1990', role: 'User' },
   // ... (rest of the rows)
 ];
 
 export default function AccountTable() {
   const [page, setPage] = useState(0);
-  const rowsPerPage = 10;
+  const rowsPerPage = 8;
   const [editOpen, setEditOpen] = useState(false);
   const [deleteOpen, setDeleteOpen] = useState(false);
   const [selectedAccount, setSelectedAccount] = useState(null);
@@ -64,20 +66,19 @@ export default function AccountTable() {
   };
 
   const handleSaveAccount = (updatedAccount) => {
-    console.log('Updated account details:', updatedAccount); // Debugging line
-    // Update the rows with the new account details
+    console.log('Updated account details:', updatedAccount);
     const updatedRows = rows.map((row) =>
       row.id === updatedAccount.id ? updatedAccount : row
     );
     setRows(updatedRows);
-    handleEditClose(); // Close the edit popup
+    handleEditClose();
   };
 
   const emptyRows = rowsPerPage - Math.min(rowsPerPage, rows.length - page * rowsPerPage);
 
   return (
-    <Paper sx={{ width: '100%', overflow: 'hidden', borderRadius: '16px' }}>
-      <TableContainer>
+    <Paper sx={{ width: '100%', overflow: 'hidden', borderRadius: '16px', maxWidth: '100%' }}>
+      <TableContainer sx={{ maxHeight: 'calc(100vh - 150px)', overflowX: 'auto' }}>
         <Table stickyHeader aria-label="sticky table">
           <TableHead>
             <TableRow>
@@ -105,8 +106,8 @@ export default function AccountTable() {
                         color: '#002855',
                         fontWeight: 500,
                         fontFamily: 'var(--font-inter)',
-                        borderBottom: '1px solid #04315b', // Adding bottom border to TableCell
-                        textAlign: column.align // Ensure alignment is applied
+                        borderBottom: '1px solid #04315b',
+                        textAlign: column.align,
                       }}
                     >
                       {column.id === 'action' ? (
@@ -122,7 +123,7 @@ export default function AccountTable() {
                                 backgroundColor: '#ff6a3e',
                               },
                             }}
-                            onClick={() => handleEditOpen(row)} // Open edit popup on click
+                            onClick={() => handleEditOpen(row)}
                           >
                             <EditOutlinedIcon />
                           </IconButton>
@@ -136,7 +137,7 @@ export default function AccountTable() {
                                 backgroundColor: '#ff6a3e',
                               },
                             }}
-                            onClick={handleDeleteOpen} // Open delete popup on click
+                            onClick={handleDeleteOpen}
                           >
                             <DeleteOutlineIcon />
                           </IconButton>
@@ -166,18 +167,15 @@ export default function AccountTable() {
         page={page}
         onPageChange={handleChangePage}
       />
-      {/* Edit popup */}
       <EditAccountPopup
         open={editOpen}
         onClose={handleEditClose}
         accountDetails={selectedAccount}
         onSave={handleSaveAccount}
       />
-      {/* Delete popup */}
       <DeleteAccountPopup
         open={deleteOpen}
         onClose={handleDeleteClose}
-        // onDelete={handleDeleteAccount}
       />
     </Paper>
   );

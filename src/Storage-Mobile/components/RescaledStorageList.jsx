@@ -1,7 +1,7 @@
 import React from 'react';
 import Popup from 'reactjs-popup';
 import PopUpForm from './PopUpForm';
-import SpinningHourglass from './SpinningHourglass';
+import { icons } from '../constants';
 
 function RescaledStorageList({ allStorage }) {
   return (
@@ -47,7 +47,11 @@ function RescaledStorageList({ allStorage }) {
                 <Popup trigger=
                 {<button className='ml-auto rounded-lg w-14 h-7 bg-ornge flex justify-evenly items-center'>
                     <p className='font-hnmedium text-xs text-offwhite'>Edit</p>
-                    <SpinningHourglass />
+                    <img 
+                    src={icons.xyzHG}
+                    className='w-3 h-3'
+                    style={{objectFit: 'contain'}}
+                    />
                 </button>}
                 modal nested>
                     {

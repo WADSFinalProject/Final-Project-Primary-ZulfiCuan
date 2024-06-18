@@ -7,11 +7,11 @@ import './AddAccountPage.scss';
 const AddAccountPage = ({ onBack }) => {
   return (
     <div className="addAccountPage-admin">
-      <div className="header">
+      <div className="header-admin">
         <IconButton className="backButton-admin" onClick={onBack}>
-          <ArrowBack />
+          <ArrowBack style={{color: '#04315b'}}/>
         </IconButton>
-        <Typography variant="h4" className="pageTitle-admin">Add Account</Typography>
+        <h1 className="pageTitle-admin">Add Account</h1>
       </div>
       <AccountForm />
     </div>

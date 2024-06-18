@@ -10,9 +10,12 @@
     border: none; /* Remove border for the back button */
     padding: 0; /* Remove padding */
     background: transparent; /* Remove background */
+    color: #04315b;
+
 }
 
 .pageTitle-admin {
     color: #04315b;
     font-family: var(--font-helvetica-neue);
+    font-size: 32px;
 }

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import SideBar from "../../Components/sidebar/SideBarManager.jsx"
-import Navbar2 from "../../Components/Navbar/NavbarManager2.jsx"
-import './SettingsManager.scss';
+import SideBar from "../../Components/sidebar/SideBar.jsx"
+import Navbar from "../../Components/Navbar/Navbar.jsx"
+import './Settingsadmin.scss';
 
 // eslint-disable-next-line react/prop-types
 const SettingsForms = ({togglePage, pages}) => {
@@ -32,55 +32,55 @@ const SettingsForms = ({togglePage, pages}) => {
   };
 
   return (
-    <div className="home-manager">
+    <div className="home-admin">
     <SideBar togglePage={togglePage} pages={pages}/>
-    <div className="homeContainer-manager">
-        <Navbar2 togglePage={togglePage} pages={pages}/>
-        <div className="settings-container-manager">
-      <h1 className="header-manager">Settings</h1>
-      <form onSubmit={handleSubmit} className="form-manager">
-        <div className="input-group-manager">
-          <label className="label-manager">Language</label>
+    <div className="homeContainer-admin">
+        <Navbar togglePage={togglePage} pages={pages}/>
+        <div className="settings-container-admin">
+      <h1 className="header-admin">Settings</h1>
+      <form onSubmit={handleSubmit} className="form-admin">
+        <div className="input-group-admin">
+          <label className="label-admin">Language</label>
           <select
             name="language"
             value={formData.language}
             onChange={handleChange}
-            className="input-manager"
+            className="input-admin"
           >
             <option value="English (US)">English (US)</option>
             <option value="English (UK)">English (UK)</option>
             <option value="Indonesian">Indonesian</option>
           </select>
         </div>
-        <div className="input-group-manager">
-          <label className="label-manager">Notifications</label>
+        <div className="input-group-admin">
+          <label className="label-admin">Notifications</label>
           <select
             name="notifications"
             value={formData.notifications}
             onChange={handleChange}
-            className="input-manager"
+            className="input-admin"
           >
             <option value="On: Banners, Sounds">On: Banners, Sounds</option>
             <option value="Off">Off</option>
           </select>
         </div>
-        <div className="input-group-manager">
+        <div className="input-group-admin">
           <label className="label">Time Zone</label>
           <select
             name="timeZone"
             value={formData.timeZone}
             onChange={handleChange}
-            className="input-manager"
+            className="input-admin"
           >
             <option value="Western Indonesia Time">Western Indonesia Time</option>
             <option value="Central Indonesia Time">Central Indonesia Time</option>
             <option value="Eastern Indonesia Time">Eastern Indonesia Time</option>
           </select>
         </div>
-        <div className="input-group-manager">
+        <div className="input-group-admin">
           <label className="label">Time Setting</label>
-          <div className="radio-group-container-manager">
-            <div className="radio-group-manager">
+          <div className="radio-group-container-admin">
+            <div className="radio-group-admin">
               <label>
                 <input
                   type="radio"
@@ -104,12 +104,12 @@ const SettingsForms = ({togglePage, pages}) => {
             </div>
           </div>
         </div>
-        <div className = "button-sizing-manager">
-        <div className="button-group-manager">
-          <button type="button" className="button-manager cancel-button-manager">Cancel</button>
-          <button type="submit" className="button-manager save-button-manager">Save</button>
+        <div className = "button-sizing-admin">
+        <div className="button-group-admin">
+          <button type="button" className="button-admin cancel-button-admin">Cancel</button>
+          <button type="submit" className="button-admin save-button-admin">Save</button>
         </div>
-        <button type="button-manager" onClick={handleSignOut} className="button-manager sign-out-button-manager">Sign Out</button>
+        <button type="button-admin" onClick={handleSignOut} className="button-admin sign-out-button-admin">Sign Out</button>
         </div>
       </form>
     </div>

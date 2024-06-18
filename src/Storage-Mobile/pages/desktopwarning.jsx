@@ -31,7 +31,7 @@ function DesktopWarning() {
         className='w-48 h-48'
         style={{ objectFit: 'contain', filter: "url(#redFilter)"}}
         />
-        <div className='mt-10'><img src="https://readme-typing-svg.herokuapp.com?font=MuseoModerno&weight=800&size=48&duration=3000&pause=1000&color=FAF9F6&center=true&vCenter=true&random=false&width=435&lines=Sorry!" alt="Typing SVG" /></div>
+        <div className='mt-10 h-[50px]'><img src="https://readme-typing-svg.herokuapp.com?font=MuseoModerno&weight=800&size=48&duration=3000&pause=1000&color=FAF9F6&center=true&vCenter=true&random=false&width=435&lines=Sorry!" alt="Typing SVG" /></div>
         <p className='mt-3 text-center text-xl font-hnroman text-offwhite'>Please switch to a mobile device<br/>to view this page.</p>
     </div>
   )

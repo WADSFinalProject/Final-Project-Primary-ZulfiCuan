@@ -2,22 +2,26 @@
     background-color: #04315b;
     flex: 1;
     min-height: 100vh;
+    overflow-y: auto;
+
     .top-manager{
         height: 50px;
         display: flex;
         align-items: center;
         justify-content: center;
+        margin-bottom: 10%;
+        margin-top: 2%;
         
         .logo-manager{
-            width: 187px;
+            width:100%;
             font-size: 33px;
             font-weight: bold;
             display: inline-block;
             font-family: 'MuseoModerno','Courier New', Courier, monospace;
             color: #faf9f6;
             text-align: center;
-          
-          
+            cursor: pointer;
+            padding-top: 5%;
         }
         
     }

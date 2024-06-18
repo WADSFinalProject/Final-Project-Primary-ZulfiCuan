@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import Popup from 'reactjs-popup';
 import PopUpForm from './PopUpForm';
-import SpinningHourglass from './SpinningHourglass';
 import axios from 'axios';
+import { icons } from '../constants';
 
 function UnrescaledStorageList({ allStorage }) {
   const [newWeight, setNewWeight] = useState(null);
@@ -21,6 +21,7 @@ function UnrescaledStorageList({ allStorage }) {
       .then((response) => {
         // Handle success, if needed
         console.log('Weight updated successfully:', response.data);
+        window.location.reload();
         // You can also update the state or perform any other actions after successful update
       })
       .catch((error) => {
@@ -30,14 +31,15 @@ function UnrescaledStorageList({ allStorage }) {
   };
   
 
-  useEffect(() => {
-    if (newWeight !== null && selectedStorage !== null) {
-      // Perform actions after weight update
-      console.log('New weight:', newWeight);
-      console.log('Selected storage:', selectedStorage);
-      // Add any other actions you want to perform here
-    }
-  }, [newWeight, selectedStorage]);
+  // useEffect(() => {
+  //   if (newWeight !== null && selectedStorage !== null) {
+  //     // Perform actions after weight update
+  //     console.log('New weight:', newWeight);
+  //     console.log('Selected storage:', selectedStorage);
+  //     // Add any other actions you want to perform here
+  //   }
+  // }, [newWeight, selectedStorage]);
+  
 
   return (
     <>
@@ -124,7 +126,11 @@ function UnrescaledStorageList({ allStorage }) {
                   trigger={
                     <button className='ml-auto rounded-lg w-20 h-7 bg-ornge flex justify-evenly items-center'>
                       <p className='font-hnmedium text-xs text-offwhite'>Rescale</p>
-                      <SpinningHourglass />
+                      <img 
+                      src={icons.xyzHG}
+                      className='w-3 h-3'
+                      style={{objectFit: 'contain'}}
+                      />
                     </button>
                   }
                   modal

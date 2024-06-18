@@ -1,0 +1,65 @@
+.home-manager {
+  display: flex;
+}
+
+.homeContainer-manager {
+  flex: 4;
+}
+  
+.shipment-manager {
+  margin: 20px;
+  font-size: 24px;
+  font-weight: bold;
+  color: rgba(4, 49, 91, 1);
+}
+  
+.buttonsContainer-manager {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+  margin-left: 20px; /* Adjust this value to move the buttons to the right */
+}
+  
+  .button-manager {
+    padding: 5px 15px;
+    border: 2px solid rgba(4, 49, 91, 1);
+    border-radius: 5px;
+    background-color: white;
+    color: rgba(4, 49, 91, 1);
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+  
+    &:hover {
+      background-color: rgba(4, 49, 91, 1);
+      color: white;
+    }
+  }
+  
+  .button.active-manager {
+    background-color: rgba(4, 49, 91, 1);
+    color: white;
+  }
+  
+  .shipment-container-manager {
+    background-color: rgba(189, 216, 176, 1);
+    padding: 5px;
+    margin-top: 20px; /* Increased the margin-top to create a larger gap */
+    border-radius: 1rem; /* Increase the border-radius for curvier edges */
+    width: 97%; /* Adjust the width to make the container smaller */
+    margin-left: auto; /* Center the container horizontally */
+    margin-right: auto; /* Center the container horizontally */
+  }
+  
+  .shipment-fields-manager {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 80px; /* Adjust the gap between fields */
+    padding-left: 20px; /* Move fields to the right slightly */
+  }
+  
+  .field-manager {
+    color: rgba(4, 49, 91, 1);
+    padding: 10px;
+    border-radius: 5px;
+    font-weight: bold;
+  }

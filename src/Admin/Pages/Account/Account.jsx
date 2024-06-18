@@ -21,7 +21,7 @@ function Account({togglePage, pages}) {
     <div className="accountPage-admin">
       <SideBar togglePage={togglePage}/>
       <div className="accountContent-admin">
-        <Navbar togglePage={togg`lePage}/>
+        <Navbar togglePage={togglePage}/>
         {showAddAccount ? (
           <div className="editAccountContainer-admin">
             <AddAccountPage onBack={handleBack} />

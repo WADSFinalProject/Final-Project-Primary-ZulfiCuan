@@ -44,7 +44,7 @@ function UnrescaledStorageList({ allStorage }) {
   return (
     <>
       {allStorage
-        .filter((storage) => !storage.isRescaled)
+        .filter((storage) => storage.isRescaled === false)
         .map((storage) => (
           <div
             className='my-1 w-[90vw] h-32 bg-secondary overflow-hidden border-offwhite-300 border-2 rounded-lg flex flex-col items-center'
@@ -137,7 +137,6 @@ function UnrescaledStorageList({ allStorage }) {
                   nested
                   onOpen={() => {
                     setSelectedStorage(storage);
-                    console.log('Rescale menu opened for storage:', storage);
                   }}
                 >
                   {(close) => (

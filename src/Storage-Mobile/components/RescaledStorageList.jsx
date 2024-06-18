@@ -2,8 +2,35 @@ import React from 'react';
 import Popup from 'reactjs-popup';
 import PopUpForm from './PopUpForm';
 import { icons } from '../constants';
+import { useState } from 'react';
+import axios from 'axios';
 
 function RescaledStorageList({ allStorage }) {
+    const [newWeight, setNewWeight] = useState(null);
+  const [selectedStorage, setSelectedStorage] = useState(null);
+
+  const onWeightChange = (newWeight) => {
+    setNewWeight(newWeight);
+  };
+
+  const updateWeight = (selectedStorage) => {
+    const weightInt = parseInt(newWeight.value, 10); // Parse weight into an integer
+    console.log(weightInt);
+    axios.put(`http://localhost:8000/storages/put/${selectedStorage.idStorage}`, 
+        { weight: weightInt }
+    )
+      .then((response) => {
+        // Handle success, if needed
+        console.log('Weight updated successfully:', response.data);
+        window.location.reload();
+        // You can also update the state or perform any other actions after successful update
+      })
+      .catch((error) => {
+        // Handle error, if needed
+        console.error('Error updating weight:', error);
+      });
+  };
+
   return (
     <>
         {allStorage.filter(storage => storage.isRescaled === true).map(storage => (
@@ -53,7 +80,11 @@ function RescaledStorageList({ allStorage }) {
                     style={{objectFit: 'contain'}}
                     />
                 </button>}
-                modal nested>
+                modal nested
+                onOpen={() => {
+                    setSelectedStorage(storage);
+                  }}
+                  >
                     {
                         close => (
                             <div className='fixed flex flex-col items-center justify-center inset-0 bg-black bg-opacity-50'>
@@ -76,8 +107,8 @@ function RescaledStorageList({ allStorage }) {
                                     </p>
 
                                     <PopUpForm 
-                                    value={storage.weight}
-                                    onWeightChange=''
+                                    onChange={(e) => onWeightChange({ value: e.target.value })}
+                                    placeholder={storage.weight}
                                     />
 
                                     <div className='mx-4 flex items-center justify-evenly mt-auto mb-4'>
@@ -88,7 +119,11 @@ function RescaledStorageList({ allStorage }) {
                                         </button>
 
                                         <button
-                                        onClick={() => close()}
+                                        onClick={() => {
+                                            console.log(selectedStorage)
+                                          updateWeight(selectedStorage);
+                                          close();
+                                        }}
                                         className='rounded-3xl mx-1 flex-grow h-12 border-2 border-secondary bg-secondary flex items-center justify-center'>
                                             <p className='text-base font-hnmedium text-offwhite'>Confirm</p>
                                         </button>

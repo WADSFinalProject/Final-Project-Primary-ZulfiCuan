@@ -1,8 +1,9 @@
+/* eslint-disable react/prop-types */
 import { FormControl, InputLabel, MenuItem, Select } from '@mui/material'
 import { useState } from 'react';
 
 // eslint-disable-next-line react/prop-types
-function CentraManagerDropDown({label}) {
+function CentraManagerDropDown({label, listOption}) {
     const [age, setAge] = useState('1');
 
     const handleChange = (event) => {
@@ -17,8 +18,9 @@ function CentraManagerDropDown({label}) {
         label={label}
         onChange={handleChange}
         >
-            <MenuItem value="1">Usuable</MenuItem>
-            <MenuItem value="2">Expired</MenuItem>    
+          {listOption.map((data, index) => (
+                    <MenuItem key={index} value={`${index + 1}`}>{data}</MenuItem>
+          ))}   
         </Select>
     </FormControl>
   )

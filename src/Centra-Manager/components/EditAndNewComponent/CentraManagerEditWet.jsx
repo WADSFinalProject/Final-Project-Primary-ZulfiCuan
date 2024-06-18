@@ -1,10 +1,9 @@
 import '../../css/ProductionCentraManager.css'
 import CentraManagerAddNewTextField from './CentraManagerAddNewTextField'
 import CentraManagerDatePicker from './CentraManagerDatePicker'
-import CentraManagerDropDown from './CentraManagerDropDown'
 
 // eslint-disable-next-line react/prop-types
-function CentraManagerAddNewWet({setNavigation, previousState}) {
+function CentraManagerEditWet({setNavigation, previousState}) {
   return (
     <div className='CentraManagerAddNewContainer'>
         <form className='CentraManagerAddNewFormContainer'>
@@ -13,7 +12,7 @@ function CentraManagerAddNewWet({setNavigation, previousState}) {
                 <CentraManagerAddNewTextField label={"ID"}/>
             </div>
             <div style={{marginTop: '10px'}}>
-                <div className='CentraManagerAddNewSubText'>Provider</div>
+                <div className='CentraManagerAddNewSubText'>Machine ID</div>
                 <CentraManagerAddNewTextField label={"Provider"}/>
             </div>
             <div style={{marginTop: '10px'}}>
@@ -21,8 +20,8 @@ function CentraManagerAddNewWet({setNavigation, previousState}) {
                 <CentraManagerAddNewTextField label={"Weight"}/>
             </div>
             <div style={{marginTop: '10px'}}>
-                <div className='CentraManagerAddNewSubText'>Status</div>
-                <CentraManagerDropDown listOption={["Usable", "Expired"]}/>
+                <div className='CentraManagerAddNewSubText'>Date</div>
+                <CentraManagerDatePicker />
             </div>
             <div style={{marginTop: '10px'}}>
                 <div className='CentraManagerAddNewSubText'>Exp. Date</div>
@@ -31,10 +30,10 @@ function CentraManagerAddNewWet({setNavigation, previousState}) {
         </form>
         <div className='CentraManagerAddNewButtonContainers'>
                 <div className='CentraManagerAddNewButtonCancelContainer' onClick={() => setNavigation(previousState)}>Cancel</div>
-                <div className='CentraManagerAddNewButtonAddContainer'>Add</div>
+                <div className='CentraManagerAddNewButtonAddContainer'>Save</div>
         </div>
     </div>
   )
 }
 
-export default CentraManagerAddNewWet
+export default CentraManagerEditWet

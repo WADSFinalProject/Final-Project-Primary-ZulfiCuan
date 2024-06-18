@@ -50,7 +50,7 @@ function DryLeaves({setNavigation}) {
         </div>
         <div>
           {DataLeaves.map((dataLeaves, index) => (
-                    <div key={index}><BatchContainerProduction data={dataLeaves} animationStart={index * 200 + 100}/></div>
+                    <div key={index}><BatchContainerProduction part={'Dry'} data={dataLeaves} animationStart={index * 200 + 100} setNavigation={setNavigation}/></div>
                 ))}
         </div>
       </div>

@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { useSpring, animated } from '@react-spring/web'
 
 // eslint-disable-next-line react/prop-types
-function BatchContainerProduction({data , setDeleteUpdate, animationStart}) {
+function BatchContainerProduction({part, data , setDeleteUpdate, animationStart, setNavigation}) {
   const springs = useSpring({
     config: {
       tension: 190, 
@@ -38,6 +38,30 @@ function BatchContainerProduction({data , setDeleteUpdate, animationStart}) {
     }
   }
 
+  var movementSlot = []
+  if (part == 'Wet') {
+    movementSlot = 
+    [[false, false], 
+    [false, false, false, false, false, false, false, true, false, false], 
+    [false, false, false, false, false], 
+    [false, false, false], 
+    [false, false, false]]
+  } else if (part == 'Dry') {
+    movementSlot = 
+    [[false, false], 
+    [false, false, false, false, false, false, false, false, true, false], 
+    [false, false, false, false, false], 
+    [false, false, false], 
+    [false, false, false]]
+  } else if (part == 'Flour') {
+    movementSlot = 
+    [[false, false], 
+    [false, false, false, false, false, false, false, false, false, true], 
+    [false, false, false, false, false], 
+    [false, false, false], 
+    [false, false, false]]
+  }
+
   return (
     <animated.div className='BatchProductionContainerContainer' style={{...springs}}>
       <div>
@@ -58,11 +82,11 @@ function BatchContainerProduction({data , setDeleteUpdate, animationStart}) {
         <div className='BatchProductionContainerBottomTextEdit'>
           <div className='BatchProductionContainerDeleteButton' onClick={() => setDeleteUpdate(true)}>
             <div style={{margin: "auto"}} >Delete</div>
-            <img src='src\Centra-Manager\assets\DeleteIcon.svg' style={{margin: "auto"}}></img>
+            <img src='src\Centra-Manager\assets\DeleteIcon.svg' style={{margin: "auto", maxWidth: "none"}}></img>
           </div>
-          <div className='BatchProductionContainerEditButton'>
+          <div className='BatchProductionContainerEditButton' onClick={() => setNavigation(movementSlot)}>
             <div style={{margin: "auto"}}>Input</div>
-            <img src='src\Centra-Manager\assets\PencilIcon.svg' style={{margin: "auto"}}></img>
+            <img src='src\Centra-Manager\assets\PencilIcon.svg' style={{margin: "auto", maxWidth: "none"}}></img>
           </div>
         </div>
       </div>

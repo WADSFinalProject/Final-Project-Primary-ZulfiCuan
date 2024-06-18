@@ -1,7 +1,16 @@
 import '../css/CentraManager.css'
 
 // eslint-disable-next-line react/prop-types
-function QRNavigationPopUpCM({setNavigation}) {
+function QRNavigationPopUpCM({setNavigation, closePopUp}) {
+  function handleFunction() {
+    setNavigation(
+      [[false, false], 
+      [false, false, false, false, false, false, false, false, false, false], 
+      [false, false, true, false, false], 
+      [false, false, false], 
+      [false, false, false]])
+    closePopUp()
+  }
   return (
     <div className='ContainerQRNavigationPopUp'>
       <div className='ContainerQRNavigationPopUpContainer'>
@@ -41,7 +50,7 @@ function QRNavigationPopUpCM({setNavigation}) {
         </div>
         <div className='QRAddManuallyButton'>
             <div className='QRAddManuallyButtonContainer'>
-              <span className='QRAddManuallyText'><span className='PlusCentraManager'>+</span> Add Manually</span>
+              <span className='QRAddManuallyText' onClick={() => handleFunction()}><span className='PlusCentraManager'>+</span> Add Manually</span>
             </div>
         </div>
       </div>

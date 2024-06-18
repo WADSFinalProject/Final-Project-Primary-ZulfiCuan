@@ -4,7 +4,7 @@ import PieChartDashboard from "../Charts/PieChartDashboard"
 import ShippingDashboard from "./ShippingDashboard"
 
 // eslint-disable-next-line react/prop-types
-function CentraManagerDashboard() {
+function CentraManagerDashboard({setNavigation}) {
     const testTable = [
         {
             ShippingID: "1239 8628 2748 29",
@@ -45,7 +45,12 @@ function CentraManagerDashboard() {
             <div className="ShippingTitleHeaderCentraManager">
                 <div className="TitleRecentShipping">Recent Shipping</div>
                 <div className="ViewMoreRecentShipping">
-                    <div className="ViewMoreRecentShippingText">View more</div>
+                    <div className="ViewMoreRecentShippingText" onClick={() => setNavigation(
+                        [[false, false], 
+                        [false, false, false, false, false, false, false, false, false, false], 
+                        [false, false, false, false, false], 
+                        [true, false, false], 
+                        [false, false, false]])}>View more</div>
                     <img className="ArrowRecentShipping" src="src\Centra-Manager\assets\arrow.svg"></img>
                 </div>
             </div>

@@ -5,7 +5,8 @@ import useWindowDimensions from '/src/UseWindowDimensions.jsx';
 import RegisterPrimary from './RegisterPrimary';
 import { useState } from 'react';
 
-function LoginPage() {
+// eslint-disable-next-line react/prop-types
+function LoginPage({test}) {
   // eslint-disable-next-line no-unused-vars
   const {height, width} = useWindowDimensions();
   const [status, setStatus] = useState('Register');
@@ -47,7 +48,7 @@ function LoginPage() {
   return (
     <div>
     <animated.div className='SecondarySlot' style={{backgroundColor: color, ...springs}}>
-          <h1 className='TitleText' style={{color:textColor}}>Moringa</h1>
+          <h1 className='TitleText' style={{color:textColor}} onClick={() => test()}>Moringa</h1>
     </animated.div>
       <div className='PrimaryContainer'>
         <div className='PrimarySlot'>

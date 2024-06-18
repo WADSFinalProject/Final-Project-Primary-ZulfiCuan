@@ -2,7 +2,8 @@ import '../../css/ProfileCentraManager.css'
 import ProfileCentraManagerButtons from './ProfileCentraManagerButtons'
 import { useSpring, animated } from '@react-spring/web'
 
-function CentraManagerProfileMain() {
+// eslint-disable-next-line react/prop-types
+function CentraManagerProfileMain({setNavigation}) {
   const springs = useSpring({
     config: {
       tension: 190, 
@@ -22,9 +23,9 @@ function CentraManagerProfileMain() {
             <div className='ProfileCentraManagerContainerIDText'>ID: U108</div>
         </animated.div>
         <div style={{paddingTop: "258px"}}>
-            <ProfileCentraManagerButtons label={"Edit Profile"} imgSRC={'src/Centra-Manager/assets/EditIcon.svg'} animationStart={200}/>
-            <ProfileCentraManagerButtons label={"Settings"} imgSRC={'src/Centra-Manager/assets/SettingsIcon.svg'} animationStart={400}/>
-            <ProfileCentraManagerButtons label={"Logout"} imgSRC={'src/Centra-Manager/assets/LogOutIcon.svg'} animationStart={600}/>
+            <ProfileCentraManagerButtons label={"Edit Profile"} imgSRC={'src/Centra-Manager/assets/EditIcon.svg'} animationStart={200} setNavigation={setNavigation}/>
+            <ProfileCentraManagerButtons label={"Settings"} imgSRC={'src/Centra-Manager/assets/SettingsIcon.svg'} animationStart={400} setNavigation={setNavigation}/>
+            <ProfileCentraManagerButtons label={"Logout"} imgSRC={'src/Centra-Manager/assets/LogOutIcon.svg'} animationStart={600} setNavigation={setNavigation}/>
         </div>
     </div>
   )

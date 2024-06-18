@@ -53,7 +53,7 @@ function WetLeaves({setNavigation}) {
         </div>
         <div>
           {DataLeaves.map((dataLeaves, index) => (
-                    <div key={index}><BatchContainerProduction data={dataLeaves} setDeleteUpdate={setDeleteShow} animationStart={index * 200 + 100}/></div>
+                    <div key={index}><BatchContainerProduction part={'Wet'} data={dataLeaves} setDeleteUpdate={setDeleteShow} animationStart={index * 200 + 100} setNavigation={setNavigation}/></div>
                 ))}
         </div>
       </div>

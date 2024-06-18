@@ -16,6 +16,12 @@ import QRNavigationPopUpCM from "./QRNavigationPopUpCM"
 import QRCodeScanningPageCentraManager from "./QRCodeScanningPageCentraManager"
 import CentraManagerShippingAddNew from "./BodyComponents/CentraManagerShippingAddNew"
 import CentraManagerShippingTrackOrder from "./BodyComponents/CentraManagerShippingTrackOrder"
+import CentraManagerEditWet from "./EditAndNewComponent/CentraManagerEditWet"
+import CentraManagerEditDry from "./EditAndNewComponent/CentraManagerEditDry"
+import CentraManagerEditFlour from "./EditAndNewComponent/CentraManagerEditFlour"
+import CentraManagerProfilePage from "./BodyComponents/CentraManagerProfilePage"
+import CentraManagerSettingsPage from "./BodyComponents/CentraManagerSettingsPage"
+import CentraManagerAddManuallyItem from "./BodyComponents/CentraManagerAddManuallyItem"
 
 var PreviousSlot = 
 [[true, false], 
@@ -74,12 +80,13 @@ function CentraManagerCentral() {
     }
 
   var HeaderLabel = 'Home'
-  var currentPosition  = <CentraManagerDashboard />
+  var currentPosition  = <CentraManagerDashboard setNavigation={setNavigationSlot} />
   var headerPosition = <CentraManagerHeader Label={HeaderLabel} setNavigation={setNavigationSlot}/>
+  var changeColor = {}
 
   if (NavigationSlot[0][0] == true) {
     HeaderLabel = 'Home'
-    currentPosition  = <CentraManagerDashboard />
+    currentPosition  = <CentraManagerDashboard setNavigation={setNavigationSlot} />
     headerPosition = <CentraManagerHeader Label={HeaderLabel} setNavigation={setNavigationSlot}/>
     PreviousSlot = 
       [[true, false], 
@@ -112,7 +119,7 @@ function CentraManagerCentral() {
       api.start({to: {y: 0,},})
   } else if (NavigationSlot[4][0] == true) {
     HeaderLabel = 'Profile'
-    currentPosition = <CentraManagerProfileMain />
+    currentPosition = <CentraManagerProfileMain setNavigation={setNavigationSlot} />
     headerPosition = <CentraManagerHeader Label={HeaderLabel} setNavigation={setNavigationSlot}/>
     PreviousSlot = 
       [[false, false], 
@@ -190,10 +197,43 @@ function CentraManagerCentral() {
     currentPosition = <CentraManagerShippingTrackOrder />
     headerPosition = <CentraManagerHeaderBackButton label={HeaderLabel} setNavigation={setNavigationSlot} previousState={PreviousSlot} size={"20px"}/>
     api.start({to: {y: 200,},})
+  } else if (NavigationSlot[1][7] == true) {
+    HeaderLabel = 'Edit - Wet Leaves'
+    currentPosition = <CentraManagerEditWet setNavigation={setNavigationSlot} previousState={PreviousSlot} />
+    headerPosition = <CentraManagerHeaderBackButton label={HeaderLabel} setNavigation={setNavigationSlot} previousState={PreviousSlot} size={"20px"}/>
+    api.start({to: {y: 200,},})
+  } else if (NavigationSlot[1][8] == true) {
+    HeaderLabel = 'Edit - Dry Leaves'
+    currentPosition = <CentraManagerEditDry setNavigation={setNavigationSlot} previousState={PreviousSlot} />
+    headerPosition = <CentraManagerHeaderBackButton label={HeaderLabel} setNavigation={setNavigationSlot} previousState={PreviousSlot} size={"20px"}/>
+    api.start({to: {y: 200,},})
+  } else if (NavigationSlot[1][9] == true) {
+    HeaderLabel = 'Edit - Flour'
+    currentPosition = <CentraManagerEditFlour setNavigation={setNavigationSlot} previousState={PreviousSlot} />
+    headerPosition = <CentraManagerHeaderBackButton label={HeaderLabel} setNavigation={setNavigationSlot} previousState={PreviousSlot} size={"20px"}/>
+    api.start({to: {y: 200,},})
+  } else if (NavigationSlot[4][1] == true) {
+    HeaderLabel = 'Edit Profile'
+    currentPosition = <CentraManagerProfilePage setNavigation={setNavigationSlot} previousState={PreviousSlot}/>
+    headerPosition = <CentraManagerHeaderBackButton label={HeaderLabel} setNavigation={setNavigationSlot} previousState={PreviousSlot} size={"20px"}/>
+    api.start({to: {y: 200,},})
+    changeColor = {backgroundColor: "#EBEBEB"}
+  } else if (NavigationSlot[4][2] == true) {
+    HeaderLabel = 'Settings'
+    currentPosition = <CentraManagerSettingsPage setNavigation={setNavigationSlot} previousState={PreviousSlot}/>
+    headerPosition = <CentraManagerHeaderBackButton label={HeaderLabel} setNavigation={setNavigationSlot} previousState={PreviousSlot} size={"20px"}/>
+    api.start({to: {y: 200,},})
+    changeColor = {backgroundColor: "#EBEBEB"}
+  } else if (NavigationSlot[2][2] == true) {
+    HeaderLabel = 'Add Manually'
+    currentPosition = <CentraManagerAddManuallyItem setNavigation={setNavigationSlot} previousState={PreviousSlot}/>
+    headerPosition = <CentraManagerHeaderBackButton label={HeaderLabel} setNavigation={setNavigationSlot} previousState={PreviousSlot} size={"20px"}/>
+    api.start({to: {y: 200,},})
   }
+
   return (
     <div>
-        <div className="HeaderCentraManager">
+        <div className="HeaderCentraManager" style={changeColor}>
           {headerPosition}
         </div>
         <div className="BodyCentraManager">{currentPosition}</div>
@@ -201,7 +241,7 @@ function CentraManagerCentral() {
           <CentraManagerNavigation setNavigationSlot={setNavigationSlot} NavigationSlot={NavigationSlot} setQRCode={QRCodeOpen}/>
         </animated.div>
         <animated.div className='CentraManagerQRCodePopUpPage' style={{...QRCode}}>
-          <QRNavigationPopUpCM setNavigation={setNavigationSlot}/>
+          <QRNavigationPopUpCM setNavigation={setNavigationSlot} closePopUp={QRCodeClose}/>
         </animated.div>
         <animated.div className="CentraManagerQRCodePopUpCover" style={{...QRCover}} onClick={() => QRCodeClose()}></animated.div>
     </div>

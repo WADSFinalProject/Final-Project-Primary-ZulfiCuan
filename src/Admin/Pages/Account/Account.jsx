@@ -41,4 +41,5 @@ function Account({togglePage, pages}) {
   );
 }
 
+
 export default Account;

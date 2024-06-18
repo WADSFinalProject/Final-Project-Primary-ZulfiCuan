@@ -26,18 +26,10 @@ const columns = [
 const initialRows = [
   { id: 'U108', name: 'John Doe', email: 'johndoe@centra.com', password: 'xxxxxxxxx', birthDate: '12/04/1987', role: 'Admin' },
   { id: 'U109', name: 'Jane Smith', email: 'janesmith@centra.com', password: 'xxxxxxxxx', birthDate: '05/15/1990', role: 'User' },
-  { id: 'U110', name: 'Mike Johnson', email: 'mikejohnson@centra.com', password: 'xxxxxxxxx', birthDate: '08/23/1985', role: 'User' },
-  { id: 'U111', name: 'Emily Davis', email: 'emilydavis@centra.com', password: 'xxxxxxxxx', birthDate: '11/19/1992', role: 'Admin' },
-  { id: 'U108', name: 'John Doe', email: 'johndoe@centra.com', password: 'xxxxxxxxx', birthDate: '12/04/1987', role: 'Admin' },
-  { id: 'U109', name: 'Jane Smith', email: 'janesmith@centra.com', password: 'xxxxxxxxx', birthDate: '05/15/1990', role: 'User' },
-  { id: 'U110', name: 'Mike Johnson', email: 'mikejohnson@centra.com', password: 'xxxxxxxxx', birthDate: '08/23/1985', role: 'User' },
-  { id: 'U111', name: 'Emily Davis', email: 'emilydavis@centra.com', password: 'xxxxxxxxx', birthDate: '11/19/1992', role: 'Admin' },
-  { id: 'U109', name: 'Jane Smith', email: 'janesmith@centra.com', password: 'xxxxxxxxx', birthDate: '05/15/1990', role: 'User' },
-  // ... (rest of the rows)
+  // ... (other initial rows)
 ];
 
-
-export default function AccountTable() {
+const AccountTable = () => {
   const [page, setPage] = useState(0);
   const rowsPerPage = 8;
   const [editOpen, setEditOpen] = useState(false);
@@ -58,12 +50,19 @@ export default function AccountTable() {
     setEditOpen(false);
   };
 
-  const handleDeleteOpen = () => {
-    setDeleteOpen(true);
+  const handleDeleteOpen = (account) => {
+    setSelectedAccount(account); // Set the selected account to delete
+    setDeleteOpen(true); // Open the delete dialog
   };
 
   const handleDeleteClose = () => {
     setDeleteOpen(false);
+  };
+
+  const handleDeleteAccount = () => {
+    const updatedRows = rows.filter((row) => row.id !== selectedAccount.id);
+    setRows(updatedRows);
+    setDeleteOpen(false); // Close the delete dialog
   };
 
   const handleSaveAccount = (updatedAccount) => {
@@ -138,7 +137,7 @@ export default function AccountTable() {
                                 backgroundColor: '#ff6a3e',
                               },
                             }}
-                            onClick={handleDeleteOpen}
+                            onClick={() => handleDeleteOpen(row)} // Pass the current row (account) to handleDeleteOpen
                           >
                             <DeleteOutlineIcon />
                           </IconButton>
@@ -177,7 +176,10 @@ export default function AccountTable() {
       <DeleteAccountPopup
         open={deleteOpen}
         onClose={handleDeleteClose}
+        onDelete={handleDeleteAccount} // Pass the onDelete function
       />
     </Paper>
   );
-}
+};
+
+export default AccountTable;

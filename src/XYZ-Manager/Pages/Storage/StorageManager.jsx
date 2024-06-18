@@ -34,8 +34,6 @@ const initialRows = [
   { batchid: 'U115', shippingid: '9318', storageid: '2488', weight: '20.9 kg', storagelocation: 'Warehouse 2', datereceived: '14/04/1987'},
   { batchid: 'U116', shippingid: '9319', storageid: '2489', weight: '23.2 kg', storagelocation: 'Warehouse 3', datereceived: '13/04/1987'},
   { batchid: 'U117', shippingid: '9320', storageid: '2490', weight: '22.9 kg', storagelocation: 'Warehouse 1', datereceived: '12/04/1987'},
-
-
   // ... (rest of the rows)
 ];
 
@@ -71,7 +69,7 @@ export default function StorageManager({togglePage, pages}) {
   const handleSaveAccount = (updatedAccount) => {
     console.log('Updated account details:', updatedAccount);
     const updatedRows = rows.map((row) =>
-      row.id === updatedAccount.id ? updatedAccount : row
+      row.batchid === updatedAccount.batchid ? updatedAccount : row
     );
     setRows(updatedRows);
     handleEditClose();
@@ -183,4 +181,3 @@ export default function StorageManager({togglePage, pages}) {
     </Paper>
   );
 }
-

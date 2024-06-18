@@ -67,6 +67,7 @@ function Dashboard({togglePage, pages}) {
   return (
     <div className="home-2-manager">
         <SideBar togglePage={togglePage} pages={pages}/>
+        <div className="fixdash-2-manager"></div>
         <div className="homeContainer-manager">
             <Navbar2 togglePage={togglePage} pages={pages}/>
             <div className="welcomewidget-2-manager">

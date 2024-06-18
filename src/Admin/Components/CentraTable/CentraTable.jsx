@@ -13,7 +13,7 @@ import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
 import Backdrop from '@mui/material/Backdrop';
 import CircularProgress from '@mui/material/CircularProgress';
 import Button from '@mui/material/Button';
-import EditAccountPopup from '../PopupEditAssest/EditAccountPopup'; // Import the EditAccountPopup component
+import EditAccountPopup from '../PopupEditAssest/EditCentraPopup';
 import DeleteAccountPopup from '../PopupEditAssest/DeleteAccountPopup';
 
 const columns = [

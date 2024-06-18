@@ -6,10 +6,11 @@ import SideBar from '../../Components/sidebar/SideBar.jsx'; // Import SideBar
 import Centra from "../Centra/Centra.jsx";
 import { useState } from 'react';
 import AdminSettings from '../Settings/AdminSettings.jsx';
+import Profile from '../Profile/Profile.jsx';
 
 
 export const pageLogic = [
-  [true, false, false,false], // rescale page, notification page
+  [true, false, false,false, false], // rescale page, notification page
   [false,false,false], // account page, notifcation page , setting page
 ];
 
@@ -22,6 +23,7 @@ function MainPage() {
       {pages[0][1] && <Centra togglePage={togglePage}/>}
       {pages[0][2] && <Account togglePage={togglePage}/>}
       {pages[0][3] && <AdminSettings togglePage={togglePage}/>}
+      {pages [0][4] && <Profile togglePage={togglePage} pages={pages}/>}
     </div>
   );
 }

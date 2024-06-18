@@ -16,7 +16,7 @@ function ProfileNotifSetting({togglePage, pages}) {
                 <div className="role-admin">{ProfiileNotifNames.userRole}</div>
             </div>
             <div className="item-admin">  {/* pfp */}
-                <img src="src/Admin/assets/pexels-lum3n-44775-406014.jpg" alt="" className='avatar-admin' />
+                <img src="src/Admin/assets/pexels-lum3n-44775-406014.jpg" alt="" className='avatar-admin' onClick={() => togglePage(0, 4)}  />
             </div>
             <div className="separator-admin"></div>
             <div className="notif-admin"> {/* notif */}

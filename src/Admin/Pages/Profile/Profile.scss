@@ -1,125 +1,179 @@
-$blue: #003366;
-$light-blue: #c8e6c9;
-$dark-blue: #002244;
-$white: #ffffff;
-$text: #04315B;
-
-
-.settings-container {
-  padding: 25px;
+$blue : #003366;
+.container-admin {
+  padding: 40px;
+  padding-left: 40px;
   margin: auto;
   font-family: Arial, Helvetica, sans-serif;
-  background-color: $white;
+  background-color: #ffffff;
   border-radius: 8px;
-  max-width: 700px; /* Increased max-width to make borders longer */
+  max-width: 100%;
 }
 
-.header {
+
+.header-admin {
   text-align: left;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   color: $blue;
-  font-size: 40px;
+  font-size: 40px ;
   font-weight: bold;
 }
 
-.form {
+.form-admin {
   display: flex;
-  flex-direction: column;
-  gap: 10px !important;
+  flex-wrap: wrap;
+  gap: 20px;
+  flex-direction: row !important;
 }
 
-.input-group {
-  display: flex;
-  flex-direction: column;
-  gap: 1px !important;
-}
-
-.label {
-  color: $blue;
-  font-weight: bold;
-}
-
-.input, .select {
-  padding: 14px !important;
-  font: helvetica;
-  font-size: 16px;
-  color: $text;
-  font-weight: 500;
-  border: 1px solid $blue;
-  border-radius: 4px;
-  width: 100%; /* Ensure full width */
-  max-width: 100%; /* Ensure full width */
-  box-sizing: border-box; /* Ensure padding is included in the width */
-}
-
-.radio-group-container {
-  border: 2px solid $blue;
-  padding: 13px;
-  border-radius: 14px;
-  width: 100%; /* Ensure full width */
-  max-width: 100%; /* Ensure full width */
-  box-sizing: border-box; /* Ensure padding is included in the width */
-}
-
-.radio-group {
-  display: flex;
-  justify-content: space-evenly;
-
-}
-
-.radio-group label {
+.image-container-admin {
   display: flex;
   align-items: center;
-  gap: 25px;
-  color: $text;
-  font-weight: 500;
+  gap: 10px;
+  margin-bottom: 20px;
 }
 
-.button-group {
-  display: flex;
-  justify-content: space-between;
-}
-
-.button {
-  padding: 14px 20px !important;
-  cursor: pointer;
+.image-container-admin .button-admin{
+  padding: 8px 40px;
+  height: 40px;
   border-radius: 25px;
-  font-weight: bold;
-  font-size: 16px;
-  border: 2px solid $blue;
-}
-
-.cancel-button {
-  background-color: $white;
   color: $blue;
+  font-weight: bold;
+  font-size: 14px;
+}
+.avatar-admin {
+  width: 100px;
+  height: 100px;
+  background-color: #ffffff;
+  border-radius: 50%;
+}
+.button-upload-admin{
+  width:250px;
+}
+.file-input-admin {
+  margin-left: 10px;
 }
 
-.save-button {
-  background-color: $blue;
-  color: $white;
+.button-admin {
+  background-color: #c8e6c9;
+  color: #388e3c;
   border: none;
+  padding: 8px 16px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+  text-align: center !important;
+
+}
+.input-group-password-admin .button-admin{
+  position: relative;
+  background-color: $blue;
+  border-radius: 25px;
+  color:#fff;
+  align-items: center;
+  top: 6px;
+}
+.button-admin:hover {
+  background-color: #a5d6a7;
 }
 
-.button:hover {
-  opacity: 0.9;
-}
-
-.sign-out-button {
-  background-color: $white !important;
-  color: $blue !important;
-  border: 3px solid $blue !important;
-  margin-top: 20px;
+.input-group-admin {
+  flex-direction: column;
+  gap: 10px;
   width: 100%;
+}
+
+.label-admin {
+  margin-bottom: 0px;
+  color: #003366 !important;
+}
+
+.input-admin, .select-admin, .input-pw-admin {
+  padding: 10px;
+  font-size: 16px;
+  border: 2px solid $blue !important;
+  border-radius:12px ;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+}
+
+.input-group-password-admin {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  
+}
+
+.input-group-password-admin .input-pw-admin {
+  flex-grow: 1;
+}
+
+.button-group-admin {
+  display: flex;
+  gap: 20px;
+  width: 100%;
+}
+
+.button-group-admin .button-admin {
+  margin-top: 20px;
+  flex: 1;
+  background-color: #003366 !important;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
   border-radius: 25px !important;
 }
 
-.sign-out-button:hover {
-  background-color: $blue !important;
-  color: $white !important;
+.button-group-admin .button-admin:hover {
+  background-color: #002244 !important;
 }
-    
-.button-sizing{
-    align-items: center;
-    padding-right: 43px;
-    padding-left: 43px;
+
+.change-button-admin .button-admin:hover {
+  background-color: #002244;
+}
+
+.left-section-admin, .right-section-admin {
+  flex: 1;
+  min-width: 550px; /* Adjust as needed to prevent collapsing */
+}
+
+.text-below-buttons-admin{
+  margin-top: 80px;
+}
+
+.container-text-below-buttons-admin{
+  margin: 10px;
+  align-items: center;
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-direction: column;
+  text-align: center !important;
+  font-weight: 500;
+}
+
+.h3-style-admin{
+  font-size: 15px;
+  align-items: center;
+  font: helvetica;
+  flex-direction: column;
+  margin-top: 10px;
+  text-align: center;
+  font-weight: 500;
+  color: #04315B;
+}
+
+.buttons-vertical-admin{
+  align-items: center;
+  display: flex;
+  gap: 8px;
+  text-align: center !important;
+}
+
+@media (min-width: 768px) {
+  .left-section, .right-section {
+    flex: 1 1 48%;
+  }
 }

@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import './Profile.scss';
-import SideBar from '../../components/SideBar.scss';
+import SideBar from '../../Components/sidebar/SideBar';
 import Navbar from '../../Components/Navbar/Navbar';
-// import MySVG from '../../assets/choose_file_image.svg';
+import MySVG from '../../assets/choose_file_image.svg';
 
-const Profile = () => {
+const Profile = ({togglePage, pages}) => {
   const [formData, setFormData] = useState({
     fullName: 'Mas Budi',
     birthDate: '1988-08-08',
@@ -47,15 +47,15 @@ const Profile = () => {
   };
 
   return (
-    <div className="home">
-      <SideBar />
-      <div className="homeContainer">
-        <Navbar />
-        <div className="container">
-          <h1 className="header">Profile</h1>
-          <div className="image-container">
-  <label htmlFor="fileInput" className="file-input">
-    {/* <img src={MySVG} alt="Choose file" />    */}
+    <div className="home-admin">
+      <SideBar togglePage={togglePage} pages={pages}/>
+      <div className="homeContainer-admin">
+        <Navbar togglePage={togglePage} pages={pages}/>
+        <div className="container-admin">
+          <h1 className="header-admin">Profile</h1>
+          <div className="image-container-admin">
+  <label htmlFor="fileInput" className="file-input-admin">
+    <img src={MySVG} alt="Choose file" />
   </label>
   <input
     id="fileInput"
@@ -64,12 +64,12 @@ const Profile = () => {
     onChange={handleFileChange}
     style={{ display: 'none' }}
   />
-   <div className="container-text-below-buttons">
-    <div className="buttons-vertical">
-    <button type="button" onClick={handleSubmit} className="button button-upload">Upload</button>
-    <button type="button" onClick={handleReset} className="button">Reset</button>
+   <div className="container-text-below-buttons-admin">
+    <div className="buttons-vertical-admin">
+    <button type="button" onClick={handleSubmit} className="button-admin button-upload-admin">Upload</button>
+    <button type="button" onClick={handleReset} className="button-admin">Reset</button>
     </div>
-    <div className = "h3-style">
+    <div className = "h3-style-admin">
       <h3>Allowed JPG, GIF, or PNG. Max size of 1MB.</h3>
     </div>
     </div>
@@ -80,76 +80,79 @@ const Profile = () => {
     
     
   
-          <form onSubmit={handleSubmit} className="form">
-            <div className="left-section">
-              <div className="input-group">
-                <label className="label">Full Name</label>
+          <form onSubmit={handleSubmit} className="form-admin">
+            <div className ="left-section-editor-admin">
+            <div className="left-section-admin">
+              <div className="input-group-admin">
+                <label className="label-admin">Full Name</label>
                 <input
                   type="text"
                   name="fullName"
                   value={formData.fullName}
                   onChange={handleChange}
-                  className="input"
+                  className="input-admin"
                 />
               </div>
-              <div className="input-group">
-                <label className="label">Email</label>
+              <div className="input-group-admin">
+                <label className="label-admin">Email</label>
                 <input
                   type="email"
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  className="input"
+                  className="input-admin"
                 />
               </div>
-              <div className="input-group">
+              <div className="input-group-admin">
                 <label className="label">Role</label>
                 <select
                   name="role"
                   value={formData.role}
                   onChange={handleChange}
-                  className="select"
+                  className="select-admin"
                 >
-                  <option value="Manager">Manager</option>
+                  <option value="admin">Manager</option>
                   <option value="Employee">Employee</option>
                   <option value="Admin">Admin</option>
                 </select>
               </div>
             </div>
-            <div className="right-section">
-              <div className="input-group">
-                <label className="label">Birth Date</label>
+            </div>
+            <div className="right-section-admin">
+              <div className="input-group-admin">
+                <label className="label-admin">Birth Date</label>
                 <input
                   type="date"
                   name="birthDate"
                   value={formData.birthDate}
                   onChange={handleChange}
-                  className="input"
+                  className="input-admin"
                 />
               </div>
-              <div className="input-group-password">
-                <div className="input-group">
-                  <label className="label">Password</label>
+              <div className="input-group-password-admin">
+                <div className="input-group-admin">
+                  <label className="label-admin">Password</label>
                   <input
                     type="password"
                     name="password"
                     value={formData.password}
                     onChange={handleChange}
-                    className="input-pw"
+                    className="input-pw-admin"
                   />
                 </div>
-                <div className="change-button">
-                <button type="button" className="button">Change</button>
+                <div className="change-button-admin">
+                <button type="button" className="button-admin">Change</button>
                 </div>
                 
               </div>
-              <div className="button-group">
-                <button type="submit" className="button">Save Changes</button>
-                <button type="button" onClick={handleReset} className="button">Cancel</button>
+              <div className="button-group-admin">
+                <button type="submit" className="button-admin">Save Changes</button>
+                <button type="button" onClick={handleReset} className="button-admin">Cancel</button>
               </div>
             </div>
+            
           </form>
-
+          
         </div>
       </div>
     </div>

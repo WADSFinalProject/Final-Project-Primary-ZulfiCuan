@@ -36,6 +36,7 @@ const initialRows = [
   // ... (rest of the rows)
 ];
 
+
 export default function AccountTable() {
   const [page, setPage] = useState(0);
   const rowsPerPage = 8;

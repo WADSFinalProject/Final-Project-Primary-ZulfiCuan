@@ -25,7 +25,7 @@ function Account({togglePage, pages}) {
         {showAddAccount ? (
           <div className="editAccountContainer-admin">
             <AddAccountPage onBack={handleBack} />
-          </div>
+          </div>  
         ) : (
           <div className="accountTableContainer-admin">
             <div className="accountHeader-admin">

@@ -18,14 +18,20 @@ function Centra({togglePage, pages}) {
     <div className='CentraPage-admin'>
       <SideBar togglePage={togglePage} pages />
       <div className="CentraContent-admin">
-      <Navbar />
-        <div className="CentraTableContainer-admin">
+      <Navbar togglePage={togglePage} pages />
+      {showAddCentra ? (
+          <div className="editCentraContainer-admin">
+            <AddCentraPage onBack={handleBack} />
+          </div>  
+        ) : (
+          <div className="CentraTableContainer-admin">
           <div className="CentraHeader-admin">
             <h1 className="CentraTitle-admin">Centra</h1>
+            {/* <CreateCentraButton onClick={handleAddCentra} /> */}
           </div>
-        </div>
-        <CentraTable />
-
+         <CentraTable />
+         </div>
+        )}
       </div>
   </div>
   )

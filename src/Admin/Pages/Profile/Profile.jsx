@@ -48,6 +48,7 @@ const Profile = ({togglePage, pages}) => {
 
   return (
     <div className="home-admin">
+      <div className="fixdash"></div>
       <SideBar togglePage={togglePage} pages={pages}/>
       <div className="homeContainer-admin">
         <Navbar togglePage={togglePage} pages={pages}/>

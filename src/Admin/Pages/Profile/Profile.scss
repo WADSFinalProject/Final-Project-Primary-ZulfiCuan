@@ -9,6 +9,16 @@ $blue : #003366;
   max-width: 100%;
 }
 
+.fixdash{
+  background-color: #04315b;
+  width: 15vw; // Adjust the percentage of the viewport width here
+  min-width: 250px; // Ensure it doesn't get smaller than 250px
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  font-family: 'Helvetica', sans-serif;
+}
 
 .header-admin {
   text-align: left;

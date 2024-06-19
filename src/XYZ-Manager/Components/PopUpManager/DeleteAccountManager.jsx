@@ -9,7 +9,7 @@ import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
 
-const DeleteAccountManager = ({ togglePage, pages, open, onClose, onDelete }) => {
+const DeleteAccountManager = ({ open, onClose, onDelete }) => {
   return (
     <Dialog
       open={open}
@@ -46,7 +46,7 @@ const DeleteAccountManager = ({ togglePage, pages, open, onClose, onDelete }) =>
         >
           <DeleteOutlineIcon />
         </IconButton>
-        Delete
+        Delete 
         <IconButton
           aria-label="close"
           onClick={onClose}
@@ -63,7 +63,7 @@ const DeleteAccountManager = ({ togglePage, pages, open, onClose, onDelete }) =>
       <DialogContent>
         <Grid container spacing={2}>
           <Grid item xs={12}>
-            <p>Are you sure you want to delete this line?</p>
+            <p>Are you sure you want to delete this?</p>
           </Grid>
         </Grid>
       </DialogContent>

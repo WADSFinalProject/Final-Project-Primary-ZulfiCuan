@@ -5,11 +5,11 @@ function CentraManagerQRConfirmation({data, setNavigation, previousState}) {
   return (
     <div className='CentraManagerAddNewContainer'>
         <div>
-            {data['type']}
+            {data}
         </div>
         <div className='CentraManagerAddNewButtonContainers'>
             <div className='CentraManagerAddNewButtonCancelContainer' onClick={() => setNavigation(previousState)}>Cancel</div>
-            <div className='CentraManagerAddNewButtonAddContainer'>Save</div>
+            <div className='CentraManagerAddNewButtonAddContainer'>Add</div>
         </div>
     </div>
   )

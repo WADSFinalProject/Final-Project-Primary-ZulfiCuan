@@ -10,7 +10,7 @@ function Shipping({togglePage, pages}) {
 
   const sampleShipmentData = [
     {
-      batchId: "001",
+      // batchId: "001",
       shippingId: "2602177051",
       trackingLocation: "New York, NY",
       shippingAddress: "123 Main St, NY 10001",
@@ -18,7 +18,7 @@ function Shipping({togglePage, pages}) {
       estimatedArrival: "15/06/2024",
     },
     {
-      batchId: "002",
+      // batchId: "002",
       shippingId: "2602177052",
       trackingLocation: "Los Angeles, CA",
       shippingAddress: "456 Maple Ave, CA 90001",
@@ -26,7 +26,7 @@ function Shipping({togglePage, pages}) {
       estimatedArrival: "16/06/2024",
     },
     {
-      batchId: "003",
+      // batchId: "003",
       shippingId: "2602177053",
       trackingLocation: "Chicago, IL",
       shippingAddress: "789 Oak St, IL 60601",
@@ -34,7 +34,7 @@ function Shipping({togglePage, pages}) {
       estimatedArrival: "17/06/2024",
     },
     {
-      batchId: "004",
+      // batchId: "004",
       shippingId: "2602177054",
       trackingLocation: "Houston, TX",
       shippingAddress: "321 Pine Rd, TX 77001",
@@ -42,7 +42,7 @@ function Shipping({togglePage, pages}) {
       estimatedArrival: "18/06/2024",
     },
     {
-      batchId: "005",
+      // batchId: "005",
       shippingId: "2602177055",
       trackingLocation: "Phoenix, AZ",
       shippingAddress: "654 Cedar Ln, AZ 85001",
@@ -50,7 +50,7 @@ function Shipping({togglePage, pages}) {
       estimatedArrival: "19/06/2024",
     },
     {
-      batchId: "006",
+      // batchId: "006",
       shippingId: "2602177056",
       trackingLocation: "Philadelphia, PA",
       shippingAddress: "987 Birch Blvd, PA 19101",
@@ -58,7 +58,7 @@ function Shipping({togglePage, pages}) {
       estimatedArrival: "20/06/2024",
     },
     {
-      batchId: "007",
+      // batchId: "007",
       shippingId: "2602177057",
       trackingLocation: "San Antonio, TX",
       shippingAddress: "123 Elm St, TX 78201",
@@ -66,7 +66,7 @@ function Shipping({togglePage, pages}) {
       estimatedArrival: "21/06/2024",
     },
     {
-      batchId: "008",
+      // batchId: "008",
       shippingId: "2602177058",
       trackingLocation: "San Diego, CA",
       shippingAddress: "456 Palm Dr, CA 92101",
@@ -74,7 +74,7 @@ function Shipping({togglePage, pages}) {
       estimatedArrival: "22/06/2024",
     },
     {
-      batchId: "009",
+      // batchId: "009",
       shippingId: "2602177059",
       trackingLocation: "New York, NY",
       shippingAddress: "678 Main St, NY 10001",
@@ -82,7 +82,7 @@ function Shipping({togglePage, pages}) {
       estimatedArrival: "23/06/2024",
     },
     {
-      batchId: "010",
+      // batchId: "010",
       shippingId: "2602177060",
       trackingLocation: "Los Angeles, CA",
       shippingAddress: "901 Maple Ave, CA 90001",
@@ -90,7 +90,7 @@ function Shipping({togglePage, pages}) {
       estimatedArrival: "24/06/2024",
     },
     {
-      batchId: "011",
+      // batchId: "011",
       shippingId: "2602177061",
       trackingLocation: "Chicago, IL",
       shippingAddress: "786 Oak St, IL 60601",
@@ -98,7 +98,7 @@ function Shipping({togglePage, pages}) {
       estimatedArrival: "25/06/2024",
     },
     {
-      batchId: "012",
+      // batchId: "012",
       shippingId: "2602177062",
       trackingLocation: "Houston, TX",
       shippingAddress: "421 Pine Rd, TX 77001",
@@ -106,7 +106,7 @@ function Shipping({togglePage, pages}) {
       estimatedArrival: "26/06/2024",
     },
     {
-      batchId: "013",
+      // batchId: "013",
       shippingId: "2602177063",
       trackingLocation: "Phoenix, AZ",
       shippingAddress: "531 Cedar Ln, AZ 85001",
@@ -114,7 +114,7 @@ function Shipping({togglePage, pages}) {
       estimatedArrival: "27/06/2024",
     },
     {
-      batchId: "014",
+      // batchId: "014",
       shippingId: "2602177064",
       trackingLocation: "Philadelphia, PA",
       shippingAddress: "699 Birch Blvd, PA 19101",
@@ -122,7 +122,7 @@ function Shipping({togglePage, pages}) {
       estimatedArrival: "28/06/2024",
     },
     {
-      batchId: "015",
+      // batchId: "015",
       shippingId: "2602177065",
       trackingLocation: "San Antonio, TX",
       shippingAddress: "701 Elm St, TX 78201",
@@ -130,7 +130,7 @@ function Shipping({togglePage, pages}) {
       estimatedArrival: "29/06/2024",
     },
     {
-      batchId: "016",
+      // batchId: "016",
       shippingId: "2602177066",
       trackingLocation: "San Diego, CA",
       shippingAddress: "105 Palm Dr, CA 92101",
@@ -138,7 +138,7 @@ function Shipping({togglePage, pages}) {
       estimatedArrival: "01/07/2024",
     },
     {
-      batchId: "017",
+      // batchId: "017",
       shippingId: "2602177067",
       trackingLocation: "New York, NY",
       shippingAddress: "888 Main St, NY 10001",
@@ -146,7 +146,7 @@ function Shipping({togglePage, pages}) {
       estimatedArrival: "02/07/2024",
     },
     {
-      batchId: "018",
+      // batchId: "018",
       shippingId: "2602177068",
       trackingLocation: "Los Angeles, CA",
       shippingAddress: "698 Maple Ave, CA 90001",
@@ -154,7 +154,7 @@ function Shipping({togglePage, pages}) {
       estimatedArrival: "03/07/2024",
     },
     {
-      batchId: "019",
+      // batchId: "019",
       shippingId: "2602177069",
       trackingLocation: "Chicago, IL",
       shippingAddress: "565 Oak St, IL 60601",
@@ -162,7 +162,7 @@ function Shipping({togglePage, pages}) {
       estimatedArrival: "04/07/2024",
     },
     {
-      batchId: "020",
+      // batchId: "020",
       shippingId: "2602177070",
       trackingLocation: "Houston, TX",
       shippingAddress: "430 Pine Rd, TX 77001",
@@ -170,7 +170,7 @@ function Shipping({togglePage, pages}) {
       estimatedArrival: "05/07/2024",
     },
     {
-      batchId: "021",
+      // batchId: "021",
       shippingId: "2602177071",
       trackingLocation: "Phoenix, AZ",
       shippingAddress: "971 Cedar Ln, AZ 85001",
@@ -178,7 +178,7 @@ function Shipping({togglePage, pages}) {
       estimatedArrival: "06/07/2024",
     },
     {
-      batchId: "022",
+      // batchId: "022",
       shippingId: "2602177072",
       trackingLocation: "Philadelphia, PA",
       shippingAddress: "808 Birch Blvd, PA 19101",
@@ -186,7 +186,7 @@ function Shipping({togglePage, pages}) {
       estimatedArrival: "07/07/2024",
     },
     {
-      batchId: "023",
+      // batchId: "023",
       shippingId: "2602177073",
       trackingLocation: "San Antonio, TX",
       shippingAddress: "787 Elm St, TX 78201",
@@ -194,7 +194,7 @@ function Shipping({togglePage, pages}) {
       estimatedArrival: "08/07/2024",
     },
     {
-      batchId: "024",
+      // batchId: "024",
       shippingId: "2602177074",
       trackingLocation: "San Diego, CA",
       shippingAddress: "011 Palm Dr, CA 92101",
@@ -224,7 +224,7 @@ function Shipping({togglePage, pages}) {
   };
 
   const filteredData = sampleShipmentData.filter(shipment => 
-    shipment.batchId.toString().includes(query.toLowerCase()) ||
+    // shipment.batchId.toString().includes(query.toLowerCase()) ||
     shipment.shippingId.toString().includes(query.toLowerCase()) ||
     shipment.trackingLocation.toLowerCase().includes(query.toLowerCase()) ||
     shipment.shippingAddress.toLowerCase().includes(query.toLowerCase()) ||
@@ -269,7 +269,7 @@ function Shipping({togglePage, pages}) {
         </div>
         <div className="shipment-container-2">
           <div id="shipment" className="shipment-fields-2">
-            <div className="field">Batch ID</div>
+            {/* <div className="field">Batch ID</div> */}
             <div className="field">Shipping ID</div>
             <div className="field">Tracking Location</div>
             <div className="field">Shipping Address</div>
@@ -295,7 +295,7 @@ function Shipping({togglePage, pages}) {
             <h2>Shipment Information</h2>
         </div>
         <p><strong>Shipment ID:</strong> 001</p>
-        <p><strong>Batch ID:</strong> 2602177051</p>
+        {/* <p><strong>Batch ID:</strong> 2602177051</p> */}
         <p><strong>Tracking Location:</strong> New York, NY</p>
         <p><strong>Shipping Address:</strong> 123 Main St, NY 10001</p>
       </div>

@@ -67,9 +67,10 @@ $blue: #04315B;
       content: '';
       position: absolute;
       top: 0;
-      left: 48px; /* Adjust this value to position the line correctly */
+      left: 48.5px; /* Adjust this value to position the line correctly */
+      margin-top: 8px;
       width: 2px;
-      height: 50%; /* This will make the line go through the entire timeline */
+      height: 45%; /* This will make the line go through the entire timeline */
       background-color: $white;
     }
 
@@ -83,7 +84,7 @@ $blue: #04315B;
         content: '';
         position: absolute;
         left: 24px; /* Position the dot correctly */
-        top: 0;
+        top: 3px;
         width: 12px;
         height: 12px;
         background-color: $white;

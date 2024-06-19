@@ -13,35 +13,31 @@ function LoginPrimary({click, currentState}) {
   const [password, setPassword] = useState('')
   var dataEmail = ''
 
-  async function checkPending(email) {
-    var status = "true"
-    axios.post(`http://localhost:8000/users/email/`, {"email": email}, {withCredentials: true})
-        .then(response => {
-          status = response['user']['pending']
-        })
-        .catch(error => {
-          console.error('Error fetching session data:', error);
-        });
-    return status
-  }
-
   async function loginUser(email, password) {
     axios.post(`http://localhost:8000/logins/`, {
       "email": email,
       "password": password,
     }, {withCredentials: true})
     .then(response => {
-      if (checkPending(email) == false) {
-        axios.post(`http://localhost:8000/create_session/${response.data['User has been auth']}`, {}, {withCredentials: true})
-        .then(response => {
-          console.log(response.data);
-          location.reload()
-        })
-        .catch(error => {
-          console.error('Error fetching session data:', error);
-        });
-      }
-    })
+              var saved = response
+              axios.post(`http://localhost:8000/users/email/`, {"email": email}, {withCredentials: true})
+              .then(response => {
+                var status = response.data['user']['pending']
+                          if (status == false) {
+                            axios.post(`http://localhost:8000/create_session/${saved.data['User has been auth']}`, {}, {withCredentials: true})
+                            .then(response => {
+                              console.log(response.data);
+                              location.reload()
+                            })
+                            .catch(error => {
+                              console.error('Error fetching session data:', error);
+                            });
+                          }
+                        })
+              .catch(error => {
+                console.error('Error fetching session data:', error);
+              });
+            })
     .catch(error => {
       console.error('Error fetching session data:', error);
     });

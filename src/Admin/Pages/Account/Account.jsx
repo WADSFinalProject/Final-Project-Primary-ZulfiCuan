@@ -33,16 +33,7 @@ function Account({ togglePage, pages }) {
 
   return (
     <div className="accountPage-admin">
-<<<<<<< HEAD
-      <SideBar togglePage={togglePage} />
-=======
       <SideBar togglePage={togglePage}/>
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 71869b6aa68eaf3d7f8d6f5f2a565d32f7d31369
-=======
->>>>>>> 3fa601ee80c4bcce4d96c6d1ef9c3c6a450a397a
       <div className="fixdash"></div>
       <div className="accountContent-admin">
         <Navbar togglePage={togglePage} />

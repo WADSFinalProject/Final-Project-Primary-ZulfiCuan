@@ -1,7 +1,7 @@
 import { TextField } from '@mui/material'
 
 // eslint-disable-next-line react/prop-types
-function TextInputMobile({label}) {
+function TextInputMobile({label, setData}) {
   const style = {
     // Root class for the input field
     "& .MuiOutlinedInput-root": {
@@ -31,6 +31,7 @@ function TextInputMobile({label}) {
         label={label}
         variant="outlined"
         sx={style}
+        onChange={(e) => setData(e.target.value)}
     ></TextField>
   )
 }

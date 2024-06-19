@@ -1,7 +1,8 @@
 import { Button} from "@mui/material"
 
 // eslint-disable-next-line react/prop-types
-function ButtonInputMobile({label}) {
+function ButtonInputMobile({label, submit}) {
+    
     const style = {
         color: '#04315B',
         textTransform: 'none',
@@ -12,7 +13,7 @@ function ButtonInputMobile({label}) {
         },
     }
     return (
-        <Button variant="contained" sx={style}>{label}</Button>
+        <Button variant="contained" sx={style} onClick={() => submit()}>{label}</Button>
     )
 }
 export default ButtonInputMobile

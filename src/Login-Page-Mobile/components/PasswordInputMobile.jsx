@@ -3,7 +3,7 @@ import { IconButton, InputAdornment, TextField } from "@mui/material";
 import { useState } from 'react'
 
 // eslint-disable-next-line react/prop-types
-function PasswordInputMobile({label}) {
+function PasswordInputMobile({label, setData}) {
   const [showPassword, setShowPassword] = useState(false);
   const handleClickShowPassword = () => {
     setShowPassword(!showPassword);
@@ -38,6 +38,7 @@ function PasswordInputMobile({label}) {
       type={showPassword ? "text" : "password"}
       label={label}
       sx={style}
+      onChange={(e) => setData(e.target.value)}
       InputProps={{
         endAdornment: (
           <InputAdornment position="end">

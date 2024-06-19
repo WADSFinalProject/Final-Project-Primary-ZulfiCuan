@@ -11,7 +11,6 @@ import { useState } from 'react'
 function LoginPrimary({click, currentState}) {
   const [name, setName] = useState('')
   const [password, setPassword] = useState('')
-  var dataEmail = ''
 
   async function loginUser(email, password) {
     axios.post(`http://localhost:8000/logins/`, {

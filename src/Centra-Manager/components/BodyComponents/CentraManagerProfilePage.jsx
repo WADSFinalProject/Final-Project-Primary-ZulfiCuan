@@ -30,7 +30,7 @@ function CentraManagerProfilePage({setNavigation, previousState}) {
                 <CentraManagerDropDown listOption={["Male", "Female"]}/>
             </div>
             <div style={{marginTop: '10px'}}>
-                <div className='CentraManagerAddNewSubText'>Exp. Date</div>
+                <div className='CentraManagerAddNewSubText'>Birth Date</div>
                 <CentraManagerDatePicker />
             </div>
         </form>

@@ -201,7 +201,11 @@ const sampleShipmentData = [
 ];
 
 function ShipmentMain({togglePage, pages}) {
+<<<<<<< HEAD
+  const [activeButton, setActiveButton] = useState(null);
+=======
   const [activeButton, setActiveButton] = useState('viewAll');
+>>>>>>> f9a36a0117a8cf9abefd12968133e50afbc7bfd3
   const [currentPage, setCurrentPage] = useState(1); // State to manage current page
   const itemsPerPage = 8; // Number of items per page
   const totalPages = Math.ceil(sampleShipmentData.length / itemsPerPage); // Calculate total pages
@@ -214,11 +218,34 @@ function ShipmentMain({togglePage, pages}) {
     setCurrentPage(page);
   };
 
+<<<<<<< HEAD
   return (
     <div className="home-manager">
       <SideBar togglePage={togglePage} pages={pages}/>
       <div className="homeContainer-manager">
         <Navbar togglePage={togglePage} pages={pages}/>
+=======
+  const [query, setQuery] = useState('');
+  const handleSearch = (searchQuery) => {
+    setQuery(searchQuery);
+    // console.log(query);
+  };
+
+
+  const filteredData = sampleShipmentData.filter(shipment => 
+    shipment.batchId.toString().includes(query.toLowerCase()) ||
+    shipment.shippingId.toString().includes(query.toLowerCase()) ||
+    shipment.trackingLocation.toLowerCase().includes(query.toLowerCase()) ||
+    shipment.shippingAddress.toLowerCase().includes(query.toLowerCase()) ||
+    shipment.estimatedArrival.toString().includes(query.toLowerCase())
+  );
+
+  return (
+    <div className="home-manager">
+      <SideBar togglePage={togglePage} pages={pages} />
+      <div className="homeContainer-manager">
+        <Navbar togglePage={togglePage} pages={pages} value={query} onSearch={handleSearch}/>
+>>>>>>> f9a36a0117a8cf9abefd12968133e50afbc7bfd3
         <div className="shipment-manager">Shipments</div>
         <div className="buttonsContainer-manager">
           <button
@@ -262,8 +289,13 @@ function ShipmentMain({togglePage, pages}) {
             <div className="field-manager">Estimated Arrival</div>
           </div>
         </div>
-        <Table activeButton={activeButton} togglePage={togglePage} pages={pages}
+<<<<<<< HEAD
+        <Table togglePage={togglePage} pages={pages}
           shipmentData={sampleShipmentData.slice(
+=======
+        <Table activeButton={activeButton} togglePage={togglePage} pages={pages}
+          shipmentData={filteredData.slice(
+>>>>>>> f9a36a0117a8cf9abefd12968133e50afbc7bfd3
             (currentPage - 1) * itemsPerPage,
             currentPage * itemsPerPage
           )}

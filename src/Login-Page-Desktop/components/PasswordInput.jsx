@@ -3,7 +3,7 @@ import { IconButton, InputAdornment, TextField } from "@mui/material";
 import { useState } from 'react'
 
 // eslint-disable-next-line react/prop-types
-function PasswordInput({label, color = color}) {
+function PasswordInput({label, color = color, setData}) {
   const [showPassword, setShowPassword] = useState(false);
   const handleClickShowPassword = () => {
     setShowPassword(!showPassword);
@@ -27,6 +27,7 @@ function PasswordInput({label, color = color}) {
       type={showPassword ? "text" : "password"}
       label={label}
       sx={style}
+      onChange={(e) => setData(e.target.value)}
       InputProps={{
         endAdornment: (
           <InputAdornment position="end">

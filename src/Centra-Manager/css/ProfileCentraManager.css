@@ -97,4 +97,29 @@
     line-height: normal;
     margin-top: 25px;
     margin-bottom: 15px;
+<<<<<<< HEAD
+}
+
+.CentraManagerSelectionContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    width: 92%;
+    margin: 10px auto auto auto;
+    text-align: center;
+    gap: 10px;
+}
+
+.CentraManagerSelectionText {
+    border: 1px solid #04315B;
+    border-radius: 8px;
+    color: #04315B;
+    font-family: Helvetica;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    padding: 10px 0px 10px 0px;
+    transition: 0.2s;
+=======
+>>>>>>> f9a36a0117a8cf9abefd12968133e50afbc7bfd3
 }

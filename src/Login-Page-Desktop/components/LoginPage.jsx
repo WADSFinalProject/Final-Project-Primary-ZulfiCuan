@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import '../css/LoginPage.css'
 import LoginPrimary from './LoginPrimary'
 import { useSpring, animated } from '@react-spring/web'
@@ -6,12 +7,13 @@ import RegisterPrimary from './RegisterPrimary';
 import { useState } from 'react';
 
 // eslint-disable-next-line react/prop-types
-function LoginPage({test}) {
+function LoginPage() {
   // eslint-disable-next-line no-unused-vars
   const {height, width} = useWindowDimensions();
   const [status, setStatus] = useState('Register');
   const [color, setColor] = useState('#04315B');
   const [textColor, setTextColor] = useState('white')
+  const [userdata, setUserData] = useState('')
 
   const [springs, api] = useSpring(() => ({
     from: { x: 0 },
@@ -48,7 +50,7 @@ function LoginPage({test}) {
   return (
     <div>
     <animated.div className='SecondarySlot' style={{backgroundColor: color, ...springs}}>
-          <h1 className='TitleText' style={{color:textColor}} onClick={() => test()}>Moringa</h1>
+          <h1 className='TitleText' style={{color:textColor}}>Moringa</h1>
     </animated.div>
       <div className='PrimaryContainer'>
         <div className='PrimarySlot'>

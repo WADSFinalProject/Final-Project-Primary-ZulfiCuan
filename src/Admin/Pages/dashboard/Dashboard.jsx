@@ -24,7 +24,7 @@ function Dashboard({ togglePage, pages }) {
           <WelcomeWidget />
         </animated.div>
         <animated.div style={widgetSpring} className="widgetsContainer-admin">
-          <div className='widgetOnClick' onClick={() => togglePage(0,2)}>
+          <div className='widgetOnClick' onClick={() => togglePage(0,5)}>
             <Widget type="PendAccount"/>
           </div>
           <div className='widgetOnClick' onClick={() => togglePage(0,2)}>

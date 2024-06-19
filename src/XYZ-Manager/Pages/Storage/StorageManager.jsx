@@ -14,27 +14,24 @@ import EditAccountManager from '../../Components/PopUpManager/EditAccountManager
 import DeleteAccountManager from '../../Components/PopUpManager/DeleteAccountManager';
 
 const columns = [
-  { id: 'batchid', label: 'Batch ID', minWidth: 170, align: 'center' },
   { id: 'shippingid', label: 'Shipping ID', minWidth: 170, align: 'center' },
   { id: 'storageid', label: 'Storage ID', minWidth: 170, align: 'center' },
   { id: 'weight', label: 'Weight', minWidth: 170, align: 'center' },
-  { id: 'storagelocation', label: 'Storage Location', minWidth: 170, align: 'center' },
   { id: 'datereceived', label: 'Date Received', minWidth: 170, align: 'center' },
   { id: 'action', label: 'Action', minWidth: 170, align: 'center' },
 ];
 
 const initialRows = [
-  { batchid: 'U108', shippingid: '9311', storageid: '2481', weight: '24 kg', storagelocation: 'Warehouse 1', datereceived: '21/04/1987' },
-  { batchid: 'U109', shippingid: '9312', storageid: '2482', weight: '22.4 kg', storagelocation: 'Warehouse 2', datereceived: '20/04/1987' },
-  { batchid: 'U110', shippingid: '9313', storageid: '2483', weight: '23 kg', storagelocation: 'Warehouse 3', datereceived: '19/04/1987' },
-  { batchid: 'U111', shippingid: '9314', storageid: '2484', weight: '21 kg', storagelocation: 'Warehouse 3', datereceived: '18/04/1987' },
-  { batchid: 'U112', shippingid: '9315', storageid: '2485', weight: '21.3 kg', storagelocation: 'Warehouse 1', datereceived: '17/04/1987' },
-  { batchid: 'U113', shippingid: '9316', storageid: '2486', weight: '20 kg', storagelocation: 'Warehouse 1', datereceived: '16/04/1987' },
-  { batchid: 'U114', shippingid: '9317', storageid: '2487', weight: '23.4 kg', storagelocation: 'Warehouse 2', datereceived: '15/04/1987' },
-  { batchid: 'U115', shippingid: '9318', storageid: '2488', weight: '20.9 kg', storagelocation: 'Warehouse 2', datereceived: '14/04/1987' },
-  { batchid: 'U116', shippingid: '9319', storageid: '2489', weight: '23.2 kg', storagelocation: 'Warehouse 3', datereceived: '13/04/1987' },
-  { batchid: 'U117', shippingid: '9320', storageid: '2490', weight: '22.9 kg', storagelocation: 'Warehouse 1', datereceived: '12/04/1987' },
-  // ... (rest of the rows)
+  { shippingid: '9311', storageid: '2481', weight: '24 kg', datereceived: '1987-04-21' },
+  { shippingid: '9312', storageid: '2482', weight: '22.4 kg', datereceived: '1987-04-20' },
+  { shippingid: '9313', storageid: '2483', weight: '23 kg', datereceived: '1987-04-19' },
+  { shippingid: '9314', storageid: '2484', weight: '21 kg', datereceived: '1987-04-18' },
+  { shippingid: '9315', storageid: '2485', weight: '21.3 kg', datereceived: '1987-04-17' },
+  { shippingid: '9316', storageid: '2486', weight: '20 kg', datereceived: '1987-04-16' },
+  { shippingid: '9317', storageid: '2487', weight: '23.4 kg', datereceived: '1987-04-15' },
+  { shippingid: '9318', storageid: '2488', weight: '20.9 kg', datereceived: '1987-04-14' },
+  { shippingid: '9319', storageid: '2489', weight: '23.2 kg', datereceived: '1987-04-13' },
+  { shippingid: '9320', storageid: '2490', weight: '22.9 kg', datereceived: '1987-04-12' },
 ];
 
 export default function StorageManager({ togglePage, pages }) {
@@ -70,14 +67,15 @@ export default function StorageManager({ togglePage, pages }) {
   const handleSaveAccount = (updatedAccount) => {
     console.log('Updated account details:', updatedAccount);
     const updatedRows = rows.map((row) =>
-      row.batchid === updatedAccount.batchid ? updatedAccount : row
+      row.shippingid === updatedAccount.shippingid ? updatedAccount : row
     );
+    console.log('Updated rows:', updatedRows); // Debugging line
     setRows(updatedRows);
     handleEditClose();
   };
 
   const handleDeleteAccount = () => {
-    const updatedRows = rows.filter((row) => row.batchid !== selectedAccount.batchid);
+    const updatedRows = rows.filter((row) => row.shippingid !== selectedAccount.shippingid);
     setRows(updatedRows);
     handleDeleteClose();
   };
@@ -168,7 +166,7 @@ export default function StorageManager({ togglePage, pages }) {
       </TableContainer>
       <TablePagination
         sx={{ backgroundColor: '#ebebeb' }}
-        rowsPerPageOptions={[10]}
+        rowsPerPageOptions={[8]}
         component="div"
         count={rows.length}
         rowsPerPage={rowsPerPage}

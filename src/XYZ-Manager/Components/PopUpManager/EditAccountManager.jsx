@@ -16,12 +16,12 @@ import InputLabel from '@mui/material/InputLabel';
 
 const EditAccountManager = ({ togglePage, pages, open, onClose, accountDetails, onSave }) => {
   const [formValues, setFormValues] = useState({
-    batchid: '',
+    // batchid: '',
     shippingid: '',
     storageid: '',
     weight: '',
     datereceived: '',
-    storagelocation: '',
+    // storagelocation: '',
   });
 
   useEffect(() => {
@@ -84,7 +84,7 @@ const EditAccountManager = ({ togglePage, pages, open, onClose, accountDetails, 
       </DialogTitle>
       <DialogContent> {/* the grid  */}
         <Grid container spacing={2}>
-          <Grid item xs={6}>
+          {/* <Grid item xs={6}>
             <TextField
               margin="dense"
               label="Batch ID" //ID
@@ -101,7 +101,7 @@ const EditAccountManager = ({ togglePage, pages, open, onClose, accountDetails, 
                 sx: { color: '#04315b' }, // Text color
               }}
             />
-          </Grid>
+          </Grid> */}
           <Grid item xs={6}>
             <TextField
               margin="dense"
@@ -111,6 +111,7 @@ const EditAccountManager = ({ togglePage, pages, open, onClose, accountDetails, 
               name="shippingid"
               value={formValues.shippingid}
               onChange={handleChange}
+              disabled
               InputProps={{
                 sx: { borderRadius: '16px', borderColor: '#04315b', color: '#04315b' }, // Rounded corners, border color, and text color
               }}
@@ -171,7 +172,7 @@ const EditAccountManager = ({ togglePage, pages, open, onClose, accountDetails, 
               }}
             />
           </Grid>
-          <Grid item xs={6}>
+          {/* <Grid item xs={6}>
             <FormControl fullWidth margin="dense">
               <InputLabel sx={{ color: '#04315b' }}>Warehouse Locs</InputLabel>
               <Select
@@ -189,7 +190,7 @@ const EditAccountManager = ({ togglePage, pages, open, onClose, accountDetails, 
                 <MenuItem value="Warehouse 3">Warehouse 3</MenuItem>
               </Select>
             </FormControl>
-          </Grid>
+          </Grid> */}
         </Grid>
       </DialogContent>
       <DialogActions sx={{ paddingRight: '24px', paddingBottom: '24px' }}> {/* confirm button */}

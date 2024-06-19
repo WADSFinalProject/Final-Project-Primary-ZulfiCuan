@@ -37,10 +37,10 @@ const Table = ({ togglePage, pages, shipmentData, activeButton }) => {
           )
           .map((shipment, index) => (
             <tr className="tr-manager" key={index}>
-              <td className="td-manager" onClick={() => togglePage(2,0)}>
+              {/* <td className="td-manager" onClick={() => togglePage(2,0)}>
                 <a href="#" className="clickable-manager">{shipment.batchId}</a>
-              </td>
-              <td className="td-manager">
+              </td> */}
+              <td className="td-manager" onClick={() => togglePage(2,0)}>
                 <a href="#" className="clickable-manager">{shipment.shippingId}</a>
               </td>
               <td className="td-manager">{shipment.trackingLocation}</td>

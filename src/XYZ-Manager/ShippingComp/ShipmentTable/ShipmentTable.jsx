@@ -37,9 +37,9 @@ const ShipmentTable = ({ togglePage, pages, shipmentData, activeButton }) => {
           )
           .map((shipment, index) => (
             <tr className="tr-manager" key={index}>
-              <td className="td-manager">
+              {/* <td className="td-manager">
                 <a href="#" className="clickable">{shipment.batchId}</a>
-              </td>
+              </td> */}
               <td className="td-manager">
                 <a href="#" className="clickable">{shipment.shippingId}</a>
               </td>

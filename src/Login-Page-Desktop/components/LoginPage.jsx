@@ -5,6 +5,7 @@ import { useSpring, animated } from '@react-spring/web'
 import useWindowDimensions from '/src/UseWindowDimensions.jsx';
 import RegisterPrimary from './RegisterPrimary';
 import { useState } from 'react';
+import axios from 'axios';
 
 // eslint-disable-next-line react/prop-types
 function LoginPage() {
@@ -50,7 +51,7 @@ function LoginPage() {
   return (
     <div>
     <animated.div className='SecondarySlot' style={{backgroundColor: color, ...springs}}>
-          <h1 className='TitleText' style={{color:textColor}}>Moringa</h1>
+          <h1 className='TitleText' style={{color:textColor}} >Moringa</h1>
     </animated.div>
       <div className='PrimaryContainer'>
         <div className='PrimarySlot'>

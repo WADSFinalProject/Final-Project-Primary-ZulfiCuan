@@ -11,32 +11,42 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 
 function App() {
-const [Roles, setRoles] = useState('None')
-const test = "hello"
+  const [state, setState] = useState('Login')
+  var stateVariable = <SwitchLogin />
+
   useEffect(() => {
-      try {
-        const response = axios.post('http://localhost:8000/whoami/', {}, {withCredentials: true});
-        console.log(response.data);
-      } catch (error) {
-        console.error(error);
-      }
-    }, []);
+    axios.post('http://localhost:8000/whoami/', {}, {withCredentials: true})
+    .then(response => {
+        axios.post('http://localhost:8000/users/email/', {"email": response.data['username']}, {withCredentials: true})
+        .then(response => {
+          setState(response.data['user']['role']);
+        })
+        .catch(error => {
+          console.error('Error fetching session data:', error);
+        });
+    })
+    .catch(error => {
+      console.error('Error fetching session data:', error);
+    });
+  }, [])
 
-  async function getUser() {
-      axios.post(`http://localhost:8000/create_session/${test}`, {}, {withCredentials: true})
-      .then(response => {
-        console.log(response.data);
-      })
-      .catch(error => {
-        console.error('Error fetching session data:', error);
-      });
-    }
-
+  if (state == 'Centra Manager') {
+    stateVariable = <CentraManagerMain />
+  } else if (state == 'Admin') {
+    stateVariable = <AdminPage />
+  } else if (state == 'XYZ Storage') {
+    stateVariable = <XYZStorage />
+  } else if (state == 'XYZ Manager') {
+    stateVariable = <ManagerPage />
+  } else if (state == 'Harbour') {
+    stateVariable = <Harbour />
+  }
+  
   return (
     <div>
         <Router>
             <Routes>
-                <Route exact path="/" element={<SwitchLogin />} />
+                <Route exact path="/" element={stateVariable} />
                 <Route exact path="/CentraManager" element={<CentraManagerMain />} />
                 <Route exact path="/Harbour" element={<Harbour />} />                
                 <Route exact path="/XYZstorage" element={<XYZStorage />} />

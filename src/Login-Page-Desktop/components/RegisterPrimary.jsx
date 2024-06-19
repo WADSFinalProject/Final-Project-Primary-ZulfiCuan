@@ -30,6 +30,7 @@ function RegisterPrimary({click, currentState}) {
     }, {withCredentials: true})
     .then(response => {
       console.log(response.data);
+      location.reload()
     })
     .catch(error => {
       console.error('Error fetching session data:', error);

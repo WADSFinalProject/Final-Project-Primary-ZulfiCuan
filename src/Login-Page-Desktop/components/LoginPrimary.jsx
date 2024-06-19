@@ -11,6 +11,7 @@ import { useState } from 'react'
 function LoginPrimary({click, currentState}) {
   const [name, setName] = useState('')
   const [password, setPassword] = useState('')
+  var dataEmail = ''
 
   async function loginUser(email, password) {
     axios.post(`http://localhost:8000/logins/`, {
@@ -18,7 +19,14 @@ function LoginPrimary({click, currentState}) {
       "password": password,
     }, {withCredentials: true})
     .then(response => {
-      console.log(response.data);
+      axios.post(`http://localhost:8000/create_session/${response.data['User has been auth']}`, {}, {withCredentials: true})
+        .then(response => {
+          console.log(response.data);
+          location.reload()
+        })
+        .catch(error => {
+          console.error('Error fetching session data:', error);
+        });
     })
     .catch(error => {
       console.error('Error fetching session data:', error);

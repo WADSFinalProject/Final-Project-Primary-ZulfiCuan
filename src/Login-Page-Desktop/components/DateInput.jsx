@@ -2,7 +2,7 @@ import { DatePicker, LocalizationProvider } from "@mui/x-date-pickers"
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 
 // eslint-disable-next-line react/prop-types
-function DateInput({color}) {
+function DateInput({color, setData}) {
   const style = {
     '& .MuiInputBase-input': {
       height: '100%'
@@ -23,6 +23,7 @@ function DateInput({color}) {
       <DatePicker 
         label={"Birth Date"}
         sx={style}
+        onChange={(date) => setData(date.format('DD/MM/YYYY'))}
       ></DatePicker>
     </LocalizationProvider>
   )

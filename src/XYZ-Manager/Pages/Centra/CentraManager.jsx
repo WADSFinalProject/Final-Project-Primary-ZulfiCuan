@@ -60,7 +60,7 @@ const markers = [
 
 ];
 
-function Centra({togglePage, pages}) {
+function Centra({togglePage, pages, userName}) {
   const [sampleShipmentData, setSampleShipmentData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1); // State to manage current page
   const itemsPerPage = 8; // Number of items per page
@@ -89,7 +89,7 @@ function Centra({togglePage, pages}) {
       <SideBar togglePage={togglePage} pages={pages}/>
       <div className="fixdash-2-manager"></div>
       <div className="homeContainer-manager">
-        <Navbar togglePage={togglePage} pages={pages}/>
+        <Navbar togglePage={togglePage} pages={pages} userName={userName}/>
         <div className="centraContainer-manager">
           <div className="centra-manager">Centra</div>
           <div className="map-container-2-manager">

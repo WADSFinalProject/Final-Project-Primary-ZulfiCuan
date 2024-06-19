@@ -3,7 +3,7 @@ import './NotificationsManager.scss';
 import SideBar from '../../Components/sidebar/SideBarManager';
 import Navbar2 from '../../Components/Navbar/NavbarManager2';
 
-function NotificationManager({togglePage, pages}) {
+function NotificationManager({togglePage, pages, userName}) {
   const currentDate = new Date();
   const options = { year: 'numeric', month: 'long', day: 'numeric' };
   const weekday = currentDate.toLocaleDateString('en-GB', { weekday: 'long' });
@@ -14,7 +14,7 @@ function NotificationManager({togglePage, pages}) {
         <SideBar togglePage={togglePage} pages={pages}/>
         <div className="fixdash-2-manager"></div>
         <div className="homeContainer-manager">
-            <Navbar2 togglePage={togglePage} pages={pages}/>
+            <Navbar2 togglePage={togglePage} pages={pages} userName={userName}/>
             <h1 className="NotificationTitle-manager">Notifications </h1>
             <div className="NotificationContainer-manager">
             <div className="notification-manager">

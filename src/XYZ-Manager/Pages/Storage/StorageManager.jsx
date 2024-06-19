@@ -67,12 +67,18 @@ export default function StorageManager({ togglePage, pages }) {
   };
 
   const handleSaveAccount = (updatedAccount) => {
-    console.log('Updated account details:', updatedAccount);
-    const updatedRows = rows.map((row) =>
-      row.idShipment === updatedAccount.idShipment ? updatedAccount : row
-    );
-    setRows(updatedRows);
-    handleEditClose();
+    console.log('Saving:', updatedAccount);
+    axios.put(`http://localhost:8000/storages/put/${updatedAccount.idShipment}`, { weight: updatedAccount.weight })
+      .then(response => {
+        const updatedRows = rows.map((row) =>
+          row.idShipment === updatedAccount.idShipment ? updatedAccount : row
+        );
+        setRows(updatedRows);
+        handleEditClose();
+      })
+      .catch(error => {
+        console.error('Error updating data:', error);
+      });
   };
 
   const handleDeleteAccount = () => {

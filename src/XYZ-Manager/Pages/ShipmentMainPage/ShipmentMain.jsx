@@ -7,7 +7,7 @@ import Table from "../../Components/Table/TableManager.jsx";
 import PageButtonsShipment from "../../Components/PageButtonsShipment/PageButtonsShipment.jsx";
 import LoadingPage from "../LoadingPage/LoadingPageManager.jsx";
 
-function ShipmentMain({ togglePage, pages }) {
+function ShipmentMain({ togglePage, pages, userName }) {
   const [activeButton, setActiveButton] = useState('viewAll');
   const [currentPage, setCurrentPage] = useState(1); // State to manage current page
   const [shipmentData, setShipmentData] = useState([]); // State to hold shipment data
@@ -59,7 +59,7 @@ function ShipmentMain({ togglePage, pages }) {
       <SideBar/>
       <div className="fixdash-2-manager"></div>
       <div className="homeContainer-manager">
-      <Navbar/>
+      <Navbar userName={userName}/>
     <div className="loading-manager">
       Loading Page...
       </div>
@@ -73,7 +73,7 @@ function ShipmentMain({ togglePage, pages }) {
       <SideBar togglePage={togglePage} pages={pages} />
       <div className="fixdash-2-manager"></div>
       <div className="homeContainer-manager">
-        <Navbar togglePage={togglePage} pages={pages} value={query} onSearch={handleSearch}/>
+        <Navbar togglePage={togglePage} pages={pages} value={query} onSearch={handleSearch} userName={userName}/>
         <div className="shipment-manager">Shipments</div>
         <div className="buttonsContainer-manager">
           <button

@@ -1,31 +1,22 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import '../../css/ProductionCentraManager.css'
 import ProductionInsideChart from '../Charts/ProductionInsideChart'
 import BatchContainerProduction from './BatchContainerProduction'
+import axios from 'axios'
 
 // eslint-disable-next-line react/prop-types
 function FlourLeaves({setNavigation}) {
   // eslint-disable-next-line no-unused-vars
-  const [DataLeaves, setDataLeaves] = useState([{
-    ID: "ID W23",
-    SecondSlot: "M14",
-    Weight: "10 kg",
-    date: "14/02/2024",
-    status: "exp. 14/05/2024" 
-  }, {
-    ID: "ID W33",
-    SecondSlot: "M15",
-    Weight: "10 kg",
-    date: "14/02/2024",
-    status: "exp. 14/05/2024" 
-  }, {
-    ID: "ID W43",
-    SecondSlot: "M16",
-    Weight: "10 kg",
-    date: "14/02/2024",
-    status: "exp. 14/05/2024" 
-  },
-])
+  const [flourData, setFlourData] = useState([])
+    useEffect(() => {
+      axios.get('https://test-backend-sfso.vercel.app/flours')
+        .then(response => {
+          setFlourData(response.data.all_Flour);
+        })
+        .catch(error => {
+          console.error('Error fetching storage data:', error);
+        });
+      }, []);
   return (
     <div style={{marginTop: "36px"}}>
       <div className="ProductionInsideContainer">
@@ -48,8 +39,8 @@ function FlourLeaves({setNavigation}) {
           <ProductionInsideChart />
         </div>
         <div>
-          {DataLeaves.map((dataLeaves, index) => (
-                    <div key={index}><BatchContainerProduction part={'Flour'} data={dataLeaves} animationStart={index * 200 + 100} setNavigation={setNavigation}/></div>
+          {flourData.map((dataLeaves, index) => (
+                    <div key={index}><BatchContainerProduction part={'Flour'} data={dataLeaves} animationStart={index * 200 + 100} setNavigation={setNavigation} id={dataLeaves.idFlour}/></div>
                 ))}
         </div>
       </div>

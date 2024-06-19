@@ -3,7 +3,7 @@ import '../../css/ProductionCentraManager.css'
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 
 // eslint-disable-next-line react/prop-types
-function CentraManagerDatePicker() {
+function CentraManagerDatePicker({setData}) {
     
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
@@ -17,6 +17,7 @@ function CentraManagerDatePicker() {
                 },
                 borderRadius: '10px',
                 },}}
+            onChange={(date) => setData(date.format('DD/MM/YYYY'))}    
             keyboard
             slotProps={{
               textField: {

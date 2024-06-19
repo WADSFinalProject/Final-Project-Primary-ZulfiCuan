@@ -2,43 +2,66 @@ import DashBoardBarChart from "../Charts/DashBoardBarChart"
 import "../../css/CentraManagerBody.css"
 import PieChartDashboard from "../Charts/PieChartDashboard"
 import ShippingDashboard from "./ShippingDashboard"
+import { useEffect, useState } from "react"
+import axios from "axios"
 
 // eslint-disable-next-line react/prop-types
 function CentraManagerDashboard({setNavigation}) {
-    const testTable = [
-        {
-            ShippingID: "1239 8628 2748 29",
-            Status: "Delivered",
-            Provider: "Indonesia's Military",
-            Weight: "10 kg",
-            BatchID: "F24, F25",
-            Date: "05/02/24"
-        },
-        {
-            ShippingID: "1239 8628 2748 29",
-            Status: "Delivered",
-            Provider: "Indonesia's Military",
-            Weight: "10 kg",
-            BatchID: "F24, F25",
-            Date: "05/02/24"
-        },
-        {
-            ShippingID: "1239 8628 2748 29",
-            Status: "Shipping",
-            Provider: "Indonesia's Military",
-            Weight: "10 kg",
-            BatchID: "F24, F25",
-            Date: "05/02/24"
-        },
-    ]
+    const [shippingData, setShippingData] = useState([])
+    const [totalData, setTotalData] = useState([])
+
+    useEffect(() => {
+      axios.get('https://test-backend-sfso.vercel.app/shipments')
+        .then(response => {
+          setShippingData(response.data.all_shipment);
+        })
+        .catch(error => {
+          console.error('Error fetching storage data:', error);
+        });
+
+        axios.get('https://test-backend-sfso.vercel.app/wetleaves')
+        .then(response => {
+          var wet = response.data.all_wet
+          var totalWet = 0
+          wet.forEach((TableData) => {
+            totalWet = totalWet + TableData.weight 
+          })
+                axios.get('https://test-backend-sfso.vercel.app/dryleaves')
+                .then(response => {
+                var dry = response.data.all_dry
+                var totalDry = 0
+                dry.forEach((TableData) => {
+                    totalDry = totalDry + TableData.weight 
+                })
+                            axios.get('https://test-backend-sfso.vercel.app/flours')
+                            .then(response => {
+                            var flour = response.data.all_Flour
+                            var totalFlour = 0
+                            flour.forEach((TableData) => {
+                                totalFlour = totalFlour + TableData.weight 
+                            })
+                            setTotalData([totalWet, totalDry, totalFlour])
+                            })
+                            .catch(error => {
+                            console.error('Error fetching storage data:', error);
+                            });
+                })
+                .catch(error => {
+                console.error('Error fetching storage data:', error);
+                });
+        })
+        .catch(error => {
+          console.error('Error fetching storage data:', error);
+        });
+      }, []);
   return (
     <div>
         <div className="CentraManagerDashboardTopWrapper">
             <div className="TotalChartTextTitleDashboard">Total Amount Summary</div>
-            <DashBoardBarChart />
+            <DashBoardBarChart dataForTable={totalData} />
             <div className="PieChartHandlerDashboard">
-                <PieChartDashboard dataPie={[75, 25]}/>
-                <PieChartDashboard dataPie={[84, 16]}/>
+                <PieChartDashboard dataPie={[totalData[0], totalData[1]]} label={"Dry Ratio"}/>
+                <PieChartDashboard dataPie={[totalData[1], totalData[2]]} label={"Flour Ratio"}/>
             </div>
         </div>
         <div className="GapSetterCentraManagerDashboard">
@@ -55,7 +78,7 @@ function CentraManagerDashboard({setNavigation}) {
                 </div>
             </div>
             <div>
-                {testTable.map((testTable, index) => (
+                {shippingData.map((testTable, index) => (
                     <div key={index}><ShippingDashboard ShippingData={testTable} animationStart={index * 200 + 100} /></div>
                 ))}
             </div>

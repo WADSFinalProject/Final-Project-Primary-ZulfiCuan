@@ -21,7 +21,7 @@ function RegisterPrimary({click, currentState}) {
   }
 
   async function createUser(email, name, role, birthdate, password) {
-    axios.post(`http://localhost:8000/users/`, {
+    axios.post(`https://test-backend-k9s7.vercel.app/users/`, {
       "email": email,
       "password": password,
       "name": name,

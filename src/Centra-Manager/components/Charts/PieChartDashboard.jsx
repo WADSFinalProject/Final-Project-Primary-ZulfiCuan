@@ -3,7 +3,7 @@ import { Doughnut } from "react-chartjs-2"
 import "../../css/CentraManagerChart.css"
 
 // eslint-disable-next-line react/prop-types
-function PieChartDashboard({dataPie}) {
+function PieChartDashboard({dataPie, label}) {
   Chart.register(ArcElement, Title, SubTitle)
   const data = {
     labels: ["Data", ""],
@@ -36,7 +36,7 @@ function PieChartDashboard({dataPie}) {
         },
         subtitle: {
           display: "true",
-          text: "Lorem Insum",
+          text: label,
           padding: {
             top: 70,
             bottom: -100,

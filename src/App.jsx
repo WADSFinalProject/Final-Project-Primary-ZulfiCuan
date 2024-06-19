@@ -15,9 +15,9 @@ function App() {
   var stateVariable = <SwitchLogin />
 
   useEffect(() => {
-    axios.post('http://localhost:8000/whoami/', {}, {withCredentials: true})
+    axios.post('https://test-backend-k9s7.vercel.app/whoami', {}, {withCredentials: true})
     .then(response => {
-        axios.post('http://localhost:8000/users/email/', {"email": response.data['username']}, {withCredentials: true})
+        axios.post('https://test-backend-k9s7.vercel.app/users/email/', {"email": response.data['username']}, {withCredentials: true})
         .then(response => {
           setState(response.data['user']['role']);
         })

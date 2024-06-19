@@ -1,34 +1,26 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import '../../css/ProductionCentraManager.css'
 import ProductionInsideChart from '../Charts/ProductionInsideChart'
 import BatchContainerProduction from './BatchContainerProduction'
 import DeleteProductionInside from './DeleteProductionInside'
+import axios from 'axios'
 
 // eslint-disable-next-line react/prop-types
 function WetLeaves({setNavigation}) {
   // eslint-disable-next-line no-unused-vars
   const [DeleteShow, setDeleteShow] = useState(false)
   // eslint-disable-next-line no-unused-vars
-  const [DataLeaves, setDataLeaves] = useState([{
-    ID: "ID W23",
-    SecondSlot: "John Doe",
-    Weight: "14 kg",
-    date: "14/02/2024",
-    status: "Usable" 
-  }, {
-    ID: "ID W33",
-    SecondSlot: "John Doe",
-    Weight: "14 kg",
-    date: "14/02/2024",
-    status: "Usable" 
-  }, {
-    ID: "ID W43",
-    SecondSlot: "John Doe",
-    Weight: "14 kg",
-    date: "14/02/2024",
-    status: "Expired" 
-  },
-])
+  const [wetData, setWetData] = useState([])
+    useEffect(() => {
+      axios.get('https://test-backend-sfso.vercel.app/wetleaves')
+        .then(response => {
+          setWetData(response.data.all_wet);
+        })
+        .catch(error => {
+          console.error('Error fetching storage data:', error);
+        });
+      }, []); 
+
   return (
     <div style={{marginTop: "36px"}}>
       <div className="ProductionInsideContainer">
@@ -52,8 +44,8 @@ function WetLeaves({setNavigation}) {
           <ProductionInsideChart />
         </div>
         <div>
-          {DataLeaves.map((dataLeaves, index) => (
-                    <div key={index}><BatchContainerProduction part={'Wet'} data={dataLeaves} setDeleteUpdate={setDeleteShow} animationStart={index * 200 + 100} setNavigation={setNavigation}/></div>
+          {wetData.map((dataLeaves, index) => (
+                    <div key={index}><BatchContainerProduction part={'Wet'} data={dataLeaves} setDeleteUpdate={setDeleteShow} animationStart={index * 200 + 100} setNavigation={setNavigation} id={dataLeaves.idWet}/></div>
                 ))}
         </div>
       </div>

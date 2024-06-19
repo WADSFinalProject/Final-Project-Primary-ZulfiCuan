@@ -7,7 +7,7 @@ import { useSpring, animated } from '@react-spring/web'
 function CentraManagerProfileMain({setNavigation}) {
 
   async function deleteSession() {
-      axios.post('http://localhost:8000/delete_session/', {}, {withCredentials: true})
+      axios.post('https://test-backend-k9s7.vercel.app/delete_session/', {}, {withCredentials: true})
         .then(() => {
             location.reload()
         })

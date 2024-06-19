@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import '../css/LoginPage.css'
 import LoginPrimary from './LoginPrimary'
 import { useSpring, animated } from '@react-spring/web'
@@ -12,6 +13,7 @@ function LoginPage() {
   const [status, setStatus] = useState('Register');
   const [color, setColor] = useState('#04315B');
   const [textColor, setTextColor] = useState('white')
+  const [userdata, setUserData] = useState('')
 
   const [springs, api] = useSpring(() => ({
     from: { x: 0 },

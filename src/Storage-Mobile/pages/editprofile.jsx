@@ -1,11 +1,12 @@
 import React from 'react'
 import { icons, images } from '../constants'
 import FormField from '../components/FormField'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Dropdown from '../components/Dropdown';
 import MyDatePicker from '../components/MyDatePicker';
 import CustomButton from '../components/CustomButton';
 import { useSpring, animated } from '@react-spring/web';
+import axios from 'axios';
 
 function EditProfile({ togglePage, pages }) {
 
@@ -17,13 +18,28 @@ function EditProfile({ togglePage, pages }) {
     from: { y: -100, opacity: 0 },
     to: { y: 0, opacity: 1 },
   })  
+  
+  const [profile, setProfile] = useState([]);
 
-  const [profile, setProfile] = useState({
-    fullName: '',
-    email: '',
-    phoneNumber: '',
-    role: 'XYZ Storage',
-  })
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       const whoAmIResponse = await axios.post('http://localhost:8000/whoami/', {}, { withCredentials: true });
+  //       const emailResponse = await axios.post('http://localhost:8000/users/email/', { "email": whoAmIResponse.data['username'] }, { withCredentials: true });
+  //       const user = emailResponse.data.user;
+  //       setProfile([user]);
+  //     } catch (error) {
+  //       console.error('Error fetching data:', error);
+  //     }
+  //   };
+
+  //   fetchData();
+  // }, []); // The empty array ensures this effect runs only once
+
+  // useEffect(() => {
+  //   console.log('userList has been updated:', profile);
+  // }, [profile]);
+
 
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -70,7 +86,7 @@ function EditProfile({ togglePage, pages }) {
       </animated.div>
 
       <div className='mt-3 w-full flex flex-col items-center justify-center'>
-        <div className='relative flex flex-col items-center justify-center w-25 h-25 bg-white rounded-full'>
+        {/* <div className='relative flex flex-col items-center justify-center w-25 h-25 bg-white rounded-full'>
           <img
             src={images.xyzPfp}
             alt='Profile Picture'
@@ -86,7 +102,7 @@ function EditProfile({ togglePage, pages }) {
               style={{ objectFit: 'contain'}}
             />
           </div>
-        </div>
+        </div> */}
 
         <FormField 
         otherStyles='mt-12 w-[90vw]'

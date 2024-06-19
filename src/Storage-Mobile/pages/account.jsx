@@ -2,11 +2,12 @@ import React from 'react'
 import BottomTab from '../components/BottomTab'
 import { images, icons } from '../constants' 
 import LongButton from '../components/LongButton'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useSpring, animated } from '@react-spring/web'
+import axios from 'axios'
 
-function Account({ togglePage, pages }) {
+function Account({ togglePage, pages, userName, userId }) {
 
   const springs = useSpring({
     config: {
@@ -35,11 +36,11 @@ function Account({ togglePage, pages }) {
     setIsSubmitting(false);
   };
 
-  const submit2 = () => {
-    setIsSubmitting(true);
-    togglePage(1, 2);
-    setIsSubmitting(false);
-  };
+  // const submit2 = () => {
+  //   setIsSubmitting(true);
+  //   togglePage(1, 2);
+  //   setIsSubmitting(false);
+  // };
 
   const logout = () => {
     setIsSubmitting(true);
@@ -75,26 +76,26 @@ function Account({ togglePage, pages }) {
 
         <animated.div style={{...appear}}>
           <p className='mt-2 text-lg text-secondary font-hnbold'>
-            John Doeee
+            {userName}
           </p>
         </animated.div>
 
         <animated.div style={{...appear}}>
           <p className='text-sm text-secondary font-hnroman'>
-            XYZ Storage
+            XYZ Employee
           </p>
         </animated.div>
 
         <animated.div style={{...appear}}>
           <div className='flex items-center justify-center mt-2 w-16 h-5 bg-primary-100 rounded-2xl'>
             <p className='text-xxs text-offwhite font-hnlight'>
-              ID: U108
+              ID: {userId}
             </p>
           </div>
         </animated.div>
       </animated.div>
 
-      <LongButton 
+      <LongButton
       title='Edit Profile'
       icon={icons.xyzEdit}
       handlePress={submit}
@@ -102,13 +103,13 @@ function Account({ togglePage, pages }) {
       delay={0}
       />
 
-      <LongButton 
+      {/* <LongButton 
       title='Settings'
       icon={icons.xyzSettings}
       handlePress={submit2}
       isLoading={isSubmitting}
       delay={100}
-      />
+      /> */}
 
       <LongButton 
       title='Logout'

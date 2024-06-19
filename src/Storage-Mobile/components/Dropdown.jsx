@@ -1,17 +1,21 @@
 import React from 'react'
 import { useState } from 'react';
 
-function Dropdown() {
-    const [gender, setGender] = useState('Male');
+function Dropdown({ genderr }) {
+    const [gender, setGender] = useState('Not Set');
     const [fadeIn, setFadeIn] = useState(false);
 
     const toggleGender = () => {
         setFadeIn(true);
         setTimeout(() => {
-          setGender((prevGender) => (prevGender === 'Male' ? 'Female' : 'Male'));
-          setFadeIn(false);
+            setGender((prevGender) => {
+                if (prevGender === 'Male') return 'Female';
+                if (prevGender === 'Female') return 'Not Set';
+                return 'Male';
+            });
+            setFadeIn(false);
         }, 300); // Adjust the duration according to your preference
-      };
+    };
 
     return (
         <div className='mt-3 w-[90vw] space-y-1'>

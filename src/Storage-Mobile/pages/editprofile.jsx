@@ -8,7 +8,7 @@ import CustomButton from '../components/CustomButton';
 import { useSpring, animated } from '@react-spring/web';
 import axios from 'axios';
 
-function EditProfile({ togglePage, pages, userName, userEmail, userPhoneNumber }) {
+function EditProfile({ togglePage, pages, userName, userEmail, userPhoneNumber, userGender, userDOB }) {
 
   const spring = useSpring({
     config: {
@@ -19,7 +19,15 @@ function EditProfile({ togglePage, pages, userName, userEmail, userPhoneNumber }
     to: { y: 0, opacity: 1 },
   })  
   
-  const [profile, setProfile] = useState([]);
+  const [profile, setProfile] = useState({
+    name: userName,
+    email: userEmail,
+    phoneNumber: userPhoneNumber,
+    genderr: userGender,
+    dob: userDOB,
+  });
+
+  // console.log(profile);
 
   // useEffect(() => {
   //   const fetchData = async () => {
@@ -111,7 +119,7 @@ function EditProfile({ togglePage, pages, userName, userEmail, userPhoneNumber }
         titleStyles='font-hnroman text-secondary'
         showTitle='true'
         textStyles='bg-offwhite flex-1 font-hnroman text-secondary text-sm'
-        placeholder={userName}
+        placeholder={profile.name}
         handleChangeText={(e) => setProfile({ ...profile, fullName: e.target.value})}
         type="text"
         />
@@ -123,7 +131,7 @@ function EditProfile({ togglePage, pages, userName, userEmail, userPhoneNumber }
         titleStyles='font-hnroman text-secondary'
         showTitle='true'
         textStyles='bg-offwhite flex-1 font-hnroman text-secondary text-sm'
-        placeholder={userEmail}
+        placeholder={profile.email}
         handleChangeText={(e) => setProfile({ ...profile, email: e.target.value})}
         type="text"
         />
@@ -135,7 +143,7 @@ function EditProfile({ togglePage, pages, userName, userEmail, userPhoneNumber }
         titleStyles='font-hnroman text-secondary'
         showTitle='true'
         textStyles='bg-offwhite flex-1 font-hnroman text-secondary text-sm'
-        placeholder={userPhoneNumber}
+        placeholder={profile.phoneNumber}
         handleChangeText={(e) => setProfile({ ...profile, phoneNumber: e.target.value})}
         type="number"
         />
@@ -147,11 +155,11 @@ function EditProfile({ togglePage, pages, userName, userEmail, userPhoneNumber }
         titleStyles='font-hnroman text-offwhite-500'
         showTitle='true'
         textStyles='bg-offwhite flex-1 font-hnroman text-offwhite-500 text-sm'
-        value={profile.role}
+        value='XYZ Employee'
         type="text"
         />
 
-        <Dropdown 
+        <Dropdown genderr={profile.genderr}
         />
 
         <MyDatePicker />

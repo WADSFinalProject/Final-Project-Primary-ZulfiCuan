@@ -34,7 +34,7 @@ function App() {
     stateVariable = <CentraManagerMain />
   } else if (state == 'Admin') {
     stateVariable = <AdminPage />
-  } else if (state == 'XYZ Storage') {
+  } else if (state == 'XYZ Employee') {
     stateVariable = <XYZStorage />
   } else if (state == 'XYZ Manager') {
     stateVariable = <ManagerPage />

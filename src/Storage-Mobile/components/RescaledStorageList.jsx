@@ -34,6 +34,27 @@ function RescaledStorageList({ allStorage, searchQuery }) {
   return (
     <>
         {allStorage
+        .filter((storage) => storage.isRescaled === true)
+        .filter(storage =>
+          storage.provider.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          storage.weight.toString().includes(searchQuery.toLowerCase()) ||
+          storage.idStorage.toString().includes(searchQuery.toLowerCase()) ||
+          storage.idShipment.toString().includes(searchQuery.toLowerCase()) ||
+          storage.arrival.toString().includes(searchQuery.toLowerCase()) ||
+          storage.expiredDate.toString().includes(searchQuery.toLowerCase())
+        )
+        .length === 0 ? (<div className='flex flex-col justify-center items-center'>
+          <img 
+          src={icons.xyzBox}
+          className='mt-12 w-28 h-28'
+          style={{objectFit: 'contain',
+            filter: 'grayscale(100%)'
+          }}
+          />
+          <p className='mt-4 ml-16 mr-16 text-offwhite-500 text-center font-hnmedium text-md'>Looks like there are no items to rescale...</p>
+          </div>
+        ) : (
+        allStorage
         .filter(storage => storage.isRescaled === true)
         .filter(storage => 
             storage.provider.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -149,7 +170,7 @@ function RescaledStorageList({ allStorage, searchQuery }) {
             </div>
             
           </div>
-        ))}
+        )))}
     </>
   );
 }

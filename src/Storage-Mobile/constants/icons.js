@@ -18,6 +18,7 @@ import xyzDownArrow from "../assets/icons/xyzDownArrow.png"
 import xyzUpArrow from "../assets/icons/xyzUpArrow.png"
 import xyzCalendar from "../assets/icons/xyzCalendar.png"
 import xyzHG from "../assets/icons/xyzHG.gif"
+import xyzBox from "../assets/icons/xyzBox.gif"
 
 export default {
     xyzEmail,
@@ -40,4 +41,5 @@ export default {
     xyzUpArrow,
     xyzCalendar,
     xyzHG,
+    xyzBox,
 };

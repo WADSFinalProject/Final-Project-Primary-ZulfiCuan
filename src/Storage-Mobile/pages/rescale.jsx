@@ -7,7 +7,7 @@ import RescaleLists from '../components/RescaleLists'
 import { useState, useEffect } from 'react'
 import { useSpring, animated } from '@react-spring/web'
 
-function Rescale({ togglePage, pages }) {
+function Rescale({ togglePage, pages, userName }) {
 
   const [scrollPercent, setScrollPercent] = useState(0);
 
@@ -89,7 +89,7 @@ function Rescale({ togglePage, pages }) {
 
               <animated.div style={{...spring2}}>
                 <p className="text-base font-hnbold text-secondary">
-                  John Doeee
+                  {userName}
                 </p>
               </animated.div>
           </div>

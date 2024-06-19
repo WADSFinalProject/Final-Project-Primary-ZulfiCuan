@@ -9,7 +9,7 @@ let stopScan = false
 let scanResult = ''
 
 // eslint-disable-next-line react/prop-types
-function QRCodeScanningPageCentraManager() {
+function QRCodeScanningPageCentraManager({setData, setNavigation}) {
   const [btnScan, setBtnScan] = useState(true);
 
   const scanNow = async (isScan) => {
@@ -23,8 +23,15 @@ function QRCodeScanningPageCentraManager() {
       videoElement,
       result => {
         scanResult = result.data
+        setData(result.data)
         setBtnScan(true)
         stopScan = true
+        setNavigation(
+          [[false, false], 
+          [false, false, false, false, false, false, false, false, false, false], 
+          [false, false, false, true, false], 
+          [false, false, false], 
+          [false, false, false]])
       },
       {
         onDecodeError: error => {

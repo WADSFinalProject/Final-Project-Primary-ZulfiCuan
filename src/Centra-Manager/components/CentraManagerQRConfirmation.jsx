@@ -2,6 +2,7 @@
 
 // eslint-disable-next-line react/prop-types
 function CentraManagerQRConfirmation({data, setNavigation, previousState}) {
+    console.log(data)
   return (
     <div className='CentraManagerAddNewContainer'>
         <div>

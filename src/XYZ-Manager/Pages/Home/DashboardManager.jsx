@@ -64,13 +64,13 @@ const markers = [
 ];
 
 
-function Dashboard({togglePage, pages}) {
+function Dashboard({togglePage, pages, userName}) {
   return (
     <div className="home-2-manager">
         <SideBar togglePage={togglePage} pages={pages}/>
         <div className="fixdash-2-manager"></div>
         <div className="homeContainer-manager">
-            <Navbar2 togglePage={togglePage} pages={pages}/>
+            <Navbar2 togglePage={togglePage} pages={pages} userName={userName}/>
             <div className="welcomewidget-2-manager">
               <WelcomeWidget togglePage={togglePage} pages={pages}/>
             </div>

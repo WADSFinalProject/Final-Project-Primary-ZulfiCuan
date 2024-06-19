@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import Paper from '@mui/material/Paper';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -14,24 +15,11 @@ import EditAccountManager from '../../Components/PopUpManager/EditAccountManager
 import DeleteAccountManager from '../../Components/PopUpManager/DeleteAccountManager';
 
 const columns = [
-  { id: 'shippingid', label: 'Shipping ID', minWidth: 170, align: 'center' },
-  { id: 'storageid', label: 'Storage ID', minWidth: 170, align: 'center' },
+  { id: 'idShipment', label: 'Shipping ID', minWidth: 170, align: 'center' },
+  { id: 'provider', label: 'Provider', minWidth: 170, align: 'center' },
   { id: 'weight', label: 'Weight', minWidth: 170, align: 'center' },
-  { id: 'datereceived', label: 'Date Received', minWidth: 170, align: 'center' },
+  { id: 'arrival', label: 'Date Received', minWidth: 170, align: 'center' },
   { id: 'action', label: 'Action', minWidth: 170, align: 'center' },
-];
-
-const initialRows = [
-  { shippingid: '9311', storageid: '2481', weight: '24 kg', datereceived: '1987-04-21' },
-  { shippingid: '9312', storageid: '2482', weight: '22.4 kg', datereceived: '1987-04-20' },
-  { shippingid: '9313', storageid: '2483', weight: '23 kg', datereceived: '1987-04-19' },
-  { shippingid: '9314', storageid: '2484', weight: '21 kg', datereceived: '1987-04-18' },
-  { shippingid: '9315', storageid: '2485', weight: '21.3 kg', datereceived: '1987-04-17' },
-  { shippingid: '9316', storageid: '2486', weight: '20 kg', datereceived: '1987-04-16' },
-  { shippingid: '9317', storageid: '2487', weight: '23.4 kg', datereceived: '1987-04-15' },
-  { shippingid: '9318', storageid: '2488', weight: '20.9 kg', datereceived: '1987-04-14' },
-  { shippingid: '9319', storageid: '2489', weight: '23.2 kg', datereceived: '1987-04-13' },
-  { shippingid: '9320', storageid: '2490', weight: '22.9 kg', datereceived: '1987-04-12' },
 ];
 
 export default function StorageManager({ togglePage, pages }) {
@@ -40,7 +28,21 @@ export default function StorageManager({ togglePage, pages }) {
   const [editOpen, setEditOpen] = useState(false);
   const [deleteOpen, setDeleteOpen] = useState(false);
   const [selectedAccount, setSelectedAccount] = useState(null);
-  const [rows, setRows] = useState(initialRows);
+  const [rows, setRows] = useState([]);
+
+  useEffect(() => {
+    axios.get('http://localhost:8000/storages') // Replace with your API endpoint
+      .then(response => {
+        if (Array.isArray(response.data.all_storage)) {
+          setRows(response.data.all_storage);
+        } else {
+          console.error('API response is not an array:', response.data);
+        }
+      })
+      .catch(error => {
+        console.error('Error fetching data:', error);
+      });
+  }, []);
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
@@ -67,17 +69,22 @@ export default function StorageManager({ togglePage, pages }) {
   const handleSaveAccount = (updatedAccount) => {
     console.log('Updated account details:', updatedAccount);
     const updatedRows = rows.map((row) =>
-      row.shippingid === updatedAccount.shippingid ? updatedAccount : row
+      row.idShipment === updatedAccount.idShipment ? updatedAccount : row
     );
-    console.log('Updated rows:', updatedRows); // Debugging line
     setRows(updatedRows);
     handleEditClose();
   };
 
   const handleDeleteAccount = () => {
-    const updatedRows = rows.filter((row) => row.shippingid !== selectedAccount.shippingid);
-    setRows(updatedRows);
-    handleDeleteClose();
+    axios.delete(`http://localhost:8000/storages/${selectedAccount.idShipment}`)
+      .then(response => {
+        const updatedRows = rows.filter((row) => row.idShipment !== selectedAccount.idShipment);
+        setRows(updatedRows);
+        handleDeleteClose();
+      })
+      .catch(error => {
+        console.error('Error deleting data:', error);
+      });
   };
 
   const emptyRows = rowsPerPage - Math.min(rowsPerPage, rows.length - page * rowsPerPage);

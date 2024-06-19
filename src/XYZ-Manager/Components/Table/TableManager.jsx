@@ -40,11 +40,11 @@ const Table = ({ togglePage, pages, shipmentData, activeButton }) => {
               {/* <td className="td-manager" onClick={() => togglePage(2,0)}>
                 <a href="#" className="clickable-manager">{shipment.batchId}</a>
               </td> */}
-              <td className="td-manager" onClick={() => togglePage(2,0)}>
-                <a href="#" className="clickable-manager">{shipment.shippingId}</a>
+              <td className="td-manager">
+                <a href="#" className="clickable-manager">{shipment.idShipment}</a>
               </td>
-              <td className="td-manager">{shipment.trackingLocation}</td>
-              <td className="td-manager">{shipment.shippingAddress}</td>
+              <td className="td-manager">{shipment.orderDetails}</td>
+              <td className="td-manager">{shipment.address}</td>
               <td className="td-manager">
                 <a
                   href="#"
@@ -54,7 +54,7 @@ const Table = ({ togglePage, pages, shipmentData, activeButton }) => {
                   {shipment.status}
                 </a>
               </td>
-              <td className="td-manager">{shipment.estimatedArrival}</td>
+              <td className="td-manager">{shipment.estimated}</td>
             </tr>
           ))}
         </tbody>

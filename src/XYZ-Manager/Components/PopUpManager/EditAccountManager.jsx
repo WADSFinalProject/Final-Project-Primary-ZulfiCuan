@@ -17,10 +17,10 @@ import InputLabel from '@mui/material/InputLabel';
 const EditAccountManager = ({ togglePage, pages, open, onClose, accountDetails, onSave }) => {
   const [formValues, setFormValues] = useState({
     // batchid: '',
-    shippingid: '',
-    storageid: '',
+    idShipment: '',
+    provider: '',
     weight: '',
-    datereceived: '',
+    arrival: '',
     // storagelocation: '',
   });
 
@@ -108,8 +108,8 @@ const EditAccountManager = ({ togglePage, pages, open, onClose, accountDetails, 
               label="Shipping ID" // Name
               type="text"
               fullWidth
-              name="shippingid"
-              value={formValues.shippingid}
+              name="Shipment ID"
+              value={formValues.idShipment}
               onChange={handleChange}
               disabled
               InputProps={{
@@ -123,12 +123,13 @@ const EditAccountManager = ({ togglePage, pages, open, onClose, accountDetails, 
           <Grid item xs={6}>
             <TextField
               margin="dense"
-              label="Storage ID" // Email
+              label="Provider" // Email
               type="text"
               fullWidth
-              name="storageid"
-              value={formValues.storageid}
+              name="provider"
+              value={formValues.provider}
               onChange={handleChange}
+              disabled
               InputProps={{
                 sx: { borderRadius: '16px', borderColor: '#04315b', color: '#04315b' }, // Rounded corners, border color, and text color
               }}
@@ -160,9 +161,10 @@ const EditAccountManager = ({ togglePage, pages, open, onClose, accountDetails, 
               label="Date Received" // Birthdate
               type="date"
               fullWidth
-              name="datereceived"
-              value={formValues.datereceived}
+              name="arrival"
+              value={formValues.arrival}
               onChange={handleChange}
+              disabled
               InputLabelProps={{
                 shrink: true,
                 sx: { color: '#04315b' }, // Text color

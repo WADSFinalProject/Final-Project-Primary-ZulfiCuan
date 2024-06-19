@@ -1,4 +1,5 @@
-import { BrowserRouter as Router, Route, Routes, useNavigate } from 'react-router-dom';
+/* eslint-disable no-unused-vars */
+import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import SwitchLogin from './Login-Page-Desktop/SwitchLogin';
 import CentraManagerMain from './Centra-Manager/components/CentraManagerMain';
 import '../src/index.css'

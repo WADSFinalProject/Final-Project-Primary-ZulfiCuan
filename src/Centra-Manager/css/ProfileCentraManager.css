@@ -97,6 +97,7 @@
     line-height: normal;
     margin-top: 25px;
     margin-bottom: 15px;
+<<<<<<< HEAD
 }
 
 .CentraManagerSelectionContainer {
@@ -119,4 +120,6 @@
     line-height: normal;
     padding: 10px 0px 10px 0px;
     transition: 0.2s;
+=======
+>>>>>>> f9a36a0117a8cf9abefd12968133e50afbc7bfd3
 }

@@ -20,6 +20,10 @@ function Account({togglePage, pages}) {
   return (
     <div className="accountPage-admin">
       <SideBar togglePage={togglePage}/>
+<<<<<<< HEAD
+=======
+      <div className="fixdash"></div>
+>>>>>>> f9a36a0117a8cf9abefd12968133e50afbc7bfd3
       <div className="accountContent-admin">
         <Navbar togglePage={togglePage}/>
         {showAddAccount ? (

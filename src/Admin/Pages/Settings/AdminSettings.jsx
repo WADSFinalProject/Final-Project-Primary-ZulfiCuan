@@ -34,6 +34,10 @@ const SettingsForms = ({togglePage, pages}) => {
   return (
     <div className="home-admin">
     <SideBar togglePage={togglePage} pages={pages}/>
+<<<<<<< HEAD
+=======
+    <div className="fixdash"></div>
+>>>>>>> f9a36a0117a8cf9abefd12968133e50afbc7bfd3
     <div className="homeContainer-admin">
         <Navbar togglePage={togglePage} pages={pages}/>
         <div className="settings-container-admin">

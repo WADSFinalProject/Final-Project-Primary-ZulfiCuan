@@ -14,14 +14,22 @@
         align-items: center;
         justify-content: space-between;
         width: 100%;
+<<<<<<< HEAD
         padding: 0 20px; // Adjusted padding
         margin-top: 10px;
         margin-bottom: 10px;
+=======
+        padding: 0 20px; // Adjusted padsding
+>>>>>>> f9a36a0117a8cf9abefd12968133e50afbc7bfd3
         .search-admin {
             display: flex;
             align-items: center;
             background-color: white;
+<<<<<<< HEAD
             height: 62px; // Keep consistent with original design
+=======
+            height: 40px; // Keep consistent with original design
+>>>>>>> f9a36a0117a8cf9abefd12968133e50afbc7bfd3
             border-radius: 31px; // Makes the search bar more cylindrical
             padding: 5px 10px; // Adjusts the padding inside the search bar
             border: 2px solid rgba(4, 49, 91, 1);
@@ -95,15 +103,24 @@
 
             .separator-admin {
                 width: 2px;
+<<<<<<< HEAD
                 height: 52px; // Adjust the height as needed
+=======
+                height: 40px; // Adjust the height as needed
+>>>>>>> f9a36a0117a8cf9abefd12968133e50afbc7bfd3
                 background-color: rgba(4, 49, 91, 1);
                 margin: 0 16px; // Adjust the spacing as needed
                 
             }
 
             .avatar-admin {
+<<<<<<< HEAD
                 width: 63px;
                 height: 63px;
+=======
+                width: 40px;
+                height: 40px;
+>>>>>>> f9a36a0117a8cf9abefd12968133e50afbc7bfd3
                 border-radius: 50%;
                 margin-left: 16px; // Adjust the spacing between icons as needed    
                 

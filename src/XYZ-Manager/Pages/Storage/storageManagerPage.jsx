@@ -15,11 +15,18 @@ function storageManagerPage({togglePage, pages}) {
 //     setShowAddAccount(false); // hide add account form
 //   };
 
+const [query, setQuery] = useState('');
+const handleSearch = (searchQuery) => {
+  setQuery(searchQuery);
+  // console.log(query);
+};
+
+
   return (
     <div className="accountPage-manager">
       <SideBar togglePage={togglePage} pages={pages}/>
       <div className="accountContent-manager">
-        <Navbar togglePage={togglePage} pages={pages} />
+        <Navbar togglePage={togglePage} pages={pages}  value={query} onSearch={handleSearch}/>
           <div className="accountTableContainer-manager">
             <div className="accountHeader-manager">
               <h1 className="accountTitle-manager">Storage</h1>

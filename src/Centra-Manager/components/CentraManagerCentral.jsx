@@ -234,7 +234,7 @@ function CentraManagerCentral() {
     api.start({to: {y: 200,},})
   } else if (NavigationSlot[2][3] == true) {
     HeaderLabel = 'QR Confirmation'
-    currentPosition = <CentraManagerQRConfirmation data={scanningFor}/>
+    currentPosition = <CentraManagerQRConfirmation data={scanningFor} setNavigation={setNavigationSlot} previousState={PreviousSlot}/>
     headerPosition = <CentraManagerHeaderBackButton label={HeaderLabel} setNavigation={setNavigationSlot} previousState={PreviousSlot} size={"20px"}/>
     api.start({to: {y: 200,},})
   }

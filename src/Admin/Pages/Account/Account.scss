@@ -14,15 +14,14 @@
   flex-direction: column;
   flex: 1;
   margin: 0px 20px 20px;
-  // overflow: hidden; /* Ensure it doesn't overflow */
 }
 
 .accountHeader-admin {
   display: flex;
   align-items: center;
-  justify-content: space-between; /* This will space the title and button */
+  justify-content: space-between;
   padding-top: 12px;
-  padding-bottom: 5px;  
+  padding-bottom: 5px;
 }
 
 .accountTitle-admin {
@@ -30,40 +29,35 @@
   font-family: "Helvetica";
   color: #04315b;
   text-align: left;
-  margin: 0; /* Ensure there is no default margin */
+  margin: 0;
   font-weight: bold;
 }
-// .editAccountContainer-admin{
-//   display: flex;
-//   flex-direction: column;
-//   flex: 1;
-//   margin: 0px 20px 20px;
-//   // overflow: hidden; /* Ensure it doesn't overflow */
-// }
-.createAccountButton-admin {
-  margin-left: auto; /* Push the button to the right */
-  background-color: transparent;
-  color: black !important;
-  border: 1px solid black !important;
-  border-radius: 50px; /* Makes the button cylindrical */
-  font-family: var(--font-helvetica-neue);
-  text-transform: none !important; /* Override uppercase transformation */
-  font-weight: 500; /* Optional: Adjust font weight if needed */
 
-  &:hover {
-    background-color: rgba(0, 0, 0, 0.1); /* Slight background change on hover */
-    border-color: black !important;
-  }
-
-  .MuiButton-startIcon-admin {
-    color: black; /* Makes the icon color black */
-  }
+.accountHeaderButtons {
+  display: flex;
+  align-items: center;
 }
 
-.fixdash{
+.pendingButton {
+  background-color: #f48c06; /* Orange background color */
+  border: none;
+  border-radius: 50%; /* Makes it circular */
+  cursor: pointer;
+  padding: 7px;
+  margin-right: 10px; /* Adjust margin as needed */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pendingButton:hover {
+  background-color: #e86f00; /* Darker shade on hover */
+}
+
+.fixdash {
   background-color: #04315b;
-  width: 15vw; // Adjust the percentage of the viewport width here
-  min-width: 250px; // Ensure it doesn't get smaller than 250px
+  width: 15vw;
+  min-width: 250px;
   min-height: 100vh;
   display: flex;
   flex-direction: column;

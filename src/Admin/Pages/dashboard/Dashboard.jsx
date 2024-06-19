@@ -10,9 +10,9 @@ import { useSpring, animated } from '@react-spring/web';
 
 function Dashboard({ togglePage, pages }) {
   // Spring animation for the widgets
-  const welcomeWidgetSpring = useSpring({ config: {tension: 170, friction: 60}, from: { x: -500, opacity: 0 }, to: { x: 0, opacity: 1 }});
-  const widgetSpring = useSpring({ config: {tension: 170, friction: 60}, from: { x: 500, opacity: 0 }, to: { x: 0, opacity: 1 }});
-  const chartSpring = useSpring({ config: {tension: 170, friction: 60}, from: { y: 500, opacity: 0 }, to: { y: 0, opacity: 1 }});
+  const welcomeWidgetSpring = useSpring({ config: {tension: 170, friction: 35}, from: { x: -500, opacity: 0 }, to: { x: 0, opacity: 1 }});
+  const widgetSpring = useSpring({ config: {tension: 170, friction: 35}, from: { x: 500, opacity: 0 }, to: { x: 0, opacity: 1 }});
+  const chartSpring = useSpring({ config: {tension: 170, friction: 35}, from: { y: 500, opacity: 0 }, to: { y: 0, opacity: 1 }});
 
   return (
     <div className="dashboardPage-admin">

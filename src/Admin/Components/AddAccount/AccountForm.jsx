@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
+import { TextField, Button, Box } from '@mui/material';
 import './AccountForm.scss';
 
 const AccountForm = ({ onSave }) => {
   const [accountData, setAccountData] = useState({
-    id: '',
     name: '',
     email: '',
     password: '',
@@ -11,17 +11,38 @@ const AccountForm = ({ onSave }) => {
     role: '',
   });
 
+  const [errors, setErrors] = useState({});
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setAccountData((prevData) => ({
       ...prevData,
       [name]: value,
     }));
+    setErrors((prevErrors) => ({
+      ...prevErrors,
+      [name]: '',
+    }));
+  };
+
+  const validate = () => {
+    let newErrors = {};
+    if (!accountData.name) newErrors.name = 'Name is required';
+    if (!accountData.email) newErrors.email = 'Email is required';
+    if (!accountData.password) newErrors.password = 'Password is required';
+    if (!accountData.birthDate) newErrors.birthDate = 'Birth Date is required';
+    if (!accountData.role) newErrors.role = 'Role is required';
+    return newErrors;
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onSave(accountData);
+    const validationErrors = validate();
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors);
+    } else {
+      onSave(accountData);
+    }
   };
 
   return (
@@ -29,35 +50,79 @@ const AccountForm = ({ onSave }) => {
       <div className="formBox-admin">
         <div className="formRow-admin">
           <div className="formInput-admin">
-            <label>ID:</label>
-            <input type="text" name="id" value={accountData.id} onChange={handleChange} />
-          </div>
-          <div className="formInput-admin">
             <label>Name:</label>
-            <input type="text" name="name" value={accountData.name} onChange={handleChange} />
+            <TextField
+              fullWidth
+              variant="outlined"
+              name="name"
+              value={accountData.name}
+              onChange={handleChange}
+              error={!!errors.name}
+              helperText={errors.name}
+            />
           </div>
-        </div>
-        <div className="formRow-admin">
           <div className="formInput-admin">
             <label>Email:</label>
-            <input type="email" name="email" value={accountData.email} onChange={handleChange} />
-          </div>
-          <div className="formInput-admin">
-            <label>Password:</label>
-            <input type="password" name="password" value={accountData.password} onChange={handleChange} />
+            <TextField
+              fullWidth
+              variant="outlined"
+              name="email"
+              type="email"
+              value={accountData.email}
+              onChange={handleChange}
+              error={!!errors.email}
+              helperText={errors.email}
+            />
           </div>
         </div>
         <div className="formRow-admin">
           <div className="formInput-admin">
-            <label>Birth Date:</label>
-            <input type="date" name="birthDate" value={accountData.birthDate} onChange={handleChange} />
+            <label>Password:</label>
+            <TextField
+              fullWidth
+              variant="outlined"
+              name="password"
+              type="password"
+              value={accountData.password}
+              onChange={handleChange}
+              error={!!errors.password}
+              helperText={errors.password}
+            />
           </div>
           <div className="formInput-admin">
-            <label>Role:</label>
-            <input type="text" name="role" value={accountData.role} onChange={handleChange} />
+            <label>Birth Date:</label>
+            <TextField
+              fullWidth
+              variant="outlined"
+              name="birthDate"
+              type="date"
+              InputLabelProps={{ shrink: true }}
+              value={accountData.birthDate}
+              onChange={handleChange}
+              error={!!errors.birthDate}
+              helperText={errors.birthDate}
+            />
           </div>
         </div>
-        <button type="submit" className="submitButton-admin">Save Account</button>
+        <div className="formRow-admin">
+          <div className="formInput-admin">
+            <label>Role:</label>
+            <TextField
+              fullWidth
+              variant="outlined"
+              name="role"
+              value={accountData.role}
+              onChange={handleChange}
+              error={!!errors.role}
+              helperText={errors.role}
+            />
+          </div>
+        </div>
+        <Box mt={2}  style={{ textAlign: 'right' }}>
+          <Button type="submit" variant="contained" color="primary" >
+            Save Account
+          </Button>
+        </Box>
       </div>
     </form>
   );

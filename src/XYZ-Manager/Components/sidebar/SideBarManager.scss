@@ -7,6 +7,8 @@
     flex-direction: column;
     overflow-y: auto;
     font-family: 'Helvetica', sans-serif;
+    position: fixed;
+
   
     .top-manager {
       height: 50px;
@@ -15,6 +17,7 @@
       justify-content: center;
       margin-top: 10%;
       margin-bottom: 10%;
+      
       
       .logo-manager {
         font-size: 2.5rem;

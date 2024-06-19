@@ -13,12 +13,14 @@ $blue: #04315B;
   color: rgba(4, 49, 91, 1);
   width: 100%;
   border: 2px solid black;
+  cursor: default;
 
   .date-manager {
       font-size: 16px;
       font-weight: bold;
       margin-bottom: 10px;
       color: $white;
+      cursor: default;
 
   }
 

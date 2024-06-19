@@ -25,6 +25,7 @@ const handleSearch = (searchQuery) => {
   return (
     <div className="accountPage-manager">
       <SideBar togglePage={togglePage} pages={pages}/>
+      <div className="fixdash-2-manager"></div>
       <div className="accountContent-manager">
         <Navbar togglePage={togglePage} pages={pages}  value={query} onSearch={handleSearch}/>
           <div className="accountTableContainer-manager">

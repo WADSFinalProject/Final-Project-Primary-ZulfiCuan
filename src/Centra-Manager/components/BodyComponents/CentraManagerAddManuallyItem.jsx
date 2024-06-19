@@ -1,17 +1,13 @@
 import { useState } from 'react'
 import '../../css/ProfileCentraManager.css'
-<<<<<<< HEAD
 import CentraManagerAddManuallyShipping from './CentraManagerAddManuallyShipping'
 import CentraManagerAddManuallyWet from './CentraManagerAddManuallyWet'
 import CentraManagerAddManuallyDry from './CentraManagerAddManuallyDry'
 import CentraManagerAddManuallyFlour from './CentraManagerAddManuallyFlour'
-=======
->>>>>>> f9a36a0117a8cf9abefd12968133e50afbc7bfd3
 
 // eslint-disable-next-line react/prop-types
 function CentraManagerAddManuallyItem({setNavigation, previousState}) {
     const [state, setState] = useState([true, false, false, false])
-<<<<<<< HEAD
     var currentState = <CentraManagerAddManuallyShipping />
 
     if (state[0]) {
@@ -33,18 +29,6 @@ function CentraManagerAddManuallyItem({setNavigation, previousState}) {
             <div className='CentraManagerSelectionText' style={state[3] ? {color: "white", backgroundColor: "#04315B"} : {}} onClick={() => setState([false, false, false, true])}>Flour</div>
         </div>
         {currentState}
-=======
-
-  return (
-    <div className='CentraManagerAddNewContainer'>
-        <div>
-            <div>Shipping</div>
-            <div>Wet Leaves</div>
-            <div>Dry Leaves</div>
-            <div>Flour</div>
-        </div>
-
->>>>>>> f9a36a0117a8cf9abefd12968133e50afbc7bfd3
         <div className='CentraManagerAddNewButtonContainers'>
                 <div className='CentraManagerAddNewButtonCancelContainer' onClick={() => setNavigation(previousState)}>Cancel</div>
                 <div className='CentraManagerAddNewButtonAddContainer'>Save</div>

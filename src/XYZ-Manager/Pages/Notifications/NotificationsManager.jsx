@@ -14,19 +14,12 @@ function NotificationManager({togglePage, pages}) {
         <SideBar togglePage={togglePage} pages={pages}/>
         <div className="homeContainer-manager">
             <Navbar2 togglePage={togglePage} pages={pages}/>
-<<<<<<< HEAD
-              <div className="notification-manager">
-                <div className="notification-date-manager">{formattedDate}</div>
-                  <h1>Shipping Notification!</h1>
-                  <p>A shipment status has been renewed! Refer to the Shipment Section for a better look.</p>
-=======
             <h1 className="NotificationTitle-manager">Notifications </h1>
             <div className="NotificationContainer-manager">
             <div className="notification-manager">
                   <div className="notification-date-manager">{formattedDate}</div>
                     <h1>Shipping Notification!</h1>
                     <p>A shipment status has been renewed! Refer to the Shipment Section for a better look.</p>
->>>>>>> f9a36a0117a8cf9abefd12968133e50afbc7bfd3
                 </div>
                 <div className="notification-manager">
                 <div className="notification-date-manager">{formattedDate}</div>
@@ -54,8 +47,6 @@ function NotificationManager({togglePage, pages}) {
                   <p>A shipment status has been renewed! Refer to the Storage Section for a better look.</p>
                 </div>
             </div>
-<<<<<<< HEAD
-=======
                 {/* <div className="notification-manager">
                   <div className="notification-date-manager">{formattedDate}</div>
                     <h1>Shipping Notification!</h1>
@@ -87,7 +78,6 @@ function NotificationManager({togglePage, pages}) {
                   <p>A shipment status has been renewed! Refer to the Storage Section for a better look.</p>
                 </div> */}
             </div>
->>>>>>> f9a36a0117a8cf9abefd12968133e50afbc7bfd3
         </div>
       
   );

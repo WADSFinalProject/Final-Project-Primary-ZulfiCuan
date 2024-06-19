@@ -1,27 +1,15 @@
-<<<<<<< HEAD
-.accountPage-admin {
-=======
 .accountPage-manager {
->>>>>>> f9a36a0117a8cf9abefd12968133e50afbc7bfd3
     display: flex;
     height: 100vh;
   }
   
-<<<<<<< HEAD
-  .accountContent-admin {
-=======
   .accountContent-manager {
->>>>>>> f9a36a0117a8cf9abefd12968133e50afbc7bfd3
     display: flex;
     flex-direction: column;
     flex: 1;
   }
   
-<<<<<<< HEAD
-  .accountTableContainer-admin {
-=======
   .accountTableContainer-manager {
->>>>>>> f9a36a0117a8cf9abefd12968133e50afbc7bfd3
     display: flex;
     flex-direction: column;
     flex: 1;
@@ -29,11 +17,7 @@
     // overflow: hidden; /* Ensure it doesn't overflow */
   }
   
-<<<<<<< HEAD
-  .accountHeader-admin {
-=======
   .accountHeader-manager {
->>>>>>> f9a36a0117a8cf9abefd12968133e50afbc7bfd3
     display: flex;
     align-items: center;
     justify-content: space-between; /* This will space the title and button */
@@ -41,11 +25,7 @@
     padding-bottom: 5px;  
   }
   
-<<<<<<< HEAD
-  .accountTitle-admin {
-=======
   .accountTitle-manager {
->>>>>>> f9a36a0117a8cf9abefd12968133e50afbc7bfd3
     font-size: 32px;
     font-family: "Helvetica";
     color: #04315b;
@@ -53,22 +33,14 @@
     margin: 0; /* Ensure there is no default margin */
     font-weight: bold;
   }
-<<<<<<< HEAD
-  // .editAccountContainer-admin{
-=======
   // .editAccountContainer-manager{
->>>>>>> f9a36a0117a8cf9abefd12968133e50afbc7bfd3
   //   display: flex;
   //   flex-direction: column;
   //   flex: 1;
   //   margin: 0px 20px 20px;
   //   // overflow: hidden; /* Ensure it doesn't overflow */
   // }
-<<<<<<< HEAD
-  .createAccountButton-admin {
-=======
   .createAccountButton-manager {
->>>>>>> f9a36a0117a8cf9abefd12968133e50afbc7bfd3
     margin-left: auto; /* Push the button to the right */
     background-color: transparent;
     color: black !important;
@@ -83,11 +55,7 @@
       border-color: black !important;
     }
   
-<<<<<<< HEAD
-    .MuiButton-startIcon-admin {
-=======
     .MuiButton-startIcon-manager {
->>>>>>> f9a36a0117a8cf9abefd12968133e50afbc7bfd3
       color: black; /* Makes the icon color black */
     }
   }

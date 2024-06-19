@@ -10,6 +10,7 @@ import TableRow from '@mui/material/TableRow';
 import IconButton from '@mui/material/IconButton';
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 import PendingAccountPopup from '../PopupEditAssest/PendingAccountPopup';
+import PriorityHighIcon from '@mui/icons-material/PriorityHigh';
 
 const columns = [
   { id: 'name', label: 'Name', minWidth: 170, align: 'center' },
@@ -104,7 +105,7 @@ const PendingAccountTable = ({ pendingAccounts }) => {
                             }}
                             onClick={() => handlePendingOpen(row)}
                           >
-                            <CheckCircleOutlineIcon />
+                            <PriorityHighIcon />
                           </IconButton>
                         </>
                       ) : (
@@ -147,4 +148,4 @@ const PendingAccountTable = ({ pendingAccounts }) => {
   );
 };
 
-export default PendingAccountTable;
+export default PendingAccountTable; 

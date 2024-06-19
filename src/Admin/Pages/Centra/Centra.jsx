@@ -17,8 +17,8 @@ function Centra({togglePage, pages}) {
     setShowAddCentra(false);
   };
 
-  const widgetSpring = useSpring({ config: {tension: 170, friction: 60}, from: { x: 500, opacity: 0 }, to: { x: 0, opacity: 1 }});
-  const TitletSpring = useSpring({ from: { opacity: 0 }, to: { opacity: 1 }, delay: 500});
+  const widgetSpring = useSpring({ config: {tension: 170, friction: 30}, from: { x: 500, opacity: 0 }, to: { x: 0, opacity: 1 }});
+  const TitletSpring = useSpring({ from: { opacity: 0 }, to: { opacity: 1 }, delay: 200});
 
   return (
     <div className='CentraPage-admin'>

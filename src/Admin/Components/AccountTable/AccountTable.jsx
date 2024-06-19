@@ -68,6 +68,10 @@ const AccountTable = ({ accounts, setAccounts }) => {
 
   const emptyRows = rowsPerPage - Math.min(rowsPerPage, accounts.length - page * rowsPerPage);
 
+  const maskPassword = (password) => {
+    return '*'.repeat(password.length); // Replace with your own masking logic if needed
+  };
+
   return (
     <Paper sx={{ width: '100%', overflow: 'hidden', borderRadius: '16px', maxWidth: '100%' }}>
       <TableContainer sx={{ maxHeight: 'calc(100vh - 150px)', overflowX: 'auto' }}>
@@ -134,6 +138,8 @@ const AccountTable = ({ accounts, setAccounts }) => {
                             <DeleteOutlineIcon />
                           </IconButton>
                         </>
+                      ) : column.id === 'password' ? (
+                        maskPassword(value) // Mask the password
                       ) : (
                         value
                       )}

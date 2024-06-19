@@ -13,7 +13,7 @@ function LoginPrimary({click, currentState}) {
   const [password, setPassword] = useState('')
 
   async function loginUser(email, password) {
-    axios.post(`http://localhost:8000/login/`, {
+    axios.post(`http://localhost:8000/logins/`, {
       "email": email,
       "password": password,
     }, {withCredentials: true})

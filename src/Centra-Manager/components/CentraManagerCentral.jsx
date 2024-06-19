@@ -22,6 +22,7 @@ import CentraManagerEditFlour from "./EditAndNewComponent/CentraManagerEditFlour
 import CentraManagerProfilePage from "./BodyComponents/CentraManagerProfilePage"
 import CentraManagerSettingsPage from "./BodyComponents/CentraManagerSettingsPage"
 import CentraManagerAddManuallyItem from "./BodyComponents/CentraManagerAddManuallyItem"
+import CentraManagerQRConfirmation from "./CentraManagerQRConfirmation"
 
 var PreviousSlot = 
 [[true, false], 
@@ -38,6 +39,8 @@ function CentraManagerCentral() {
     [false, false, false, false, false], 
     [false, false, false], 
     [false, false, false]]);  
+
+  const [scanningFor, setScanningFor] = useState('')
 
     const [springs, api] = useSpring(() => ({
       config: {
@@ -184,7 +187,7 @@ function CentraManagerCentral() {
   } else if (NavigationSlot[2][0] == true) {
     QRCodeClose()
     HeaderLabel = 'Scanning QR'
-    currentPosition = <QRCodeScanningPageCentraManager />
+    currentPosition = <QRCodeScanningPageCentraManager setData={setScanningFor} setNavigation={setNavigationSlot}/>
     headerPosition = <CentraManagerHeaderBackButton label={HeaderLabel} setNavigation={setNavigationSlot} previousState={PreviousSlot} size={"20px"}/>
     api.start({to: {y: 200,},})
   } else if (NavigationSlot[3][1] == true) {
@@ -227,6 +230,11 @@ function CentraManagerCentral() {
   } else if (NavigationSlot[2][2] == true) {
     HeaderLabel = 'Add Manually'
     currentPosition = <CentraManagerAddManuallyItem setNavigation={setNavigationSlot} previousState={PreviousSlot}/>
+    headerPosition = <CentraManagerHeaderBackButton label={HeaderLabel} setNavigation={setNavigationSlot} previousState={PreviousSlot} size={"20px"}/>
+    api.start({to: {y: 200,},})
+  } else if (NavigationSlot[2][3] == true) {
+    HeaderLabel = 'QR Confirmation'
+    currentPosition = <CentraManagerQRConfirmation data={scanningFor}/>
     headerPosition = <CentraManagerHeaderBackButton label={HeaderLabel} setNavigation={setNavigationSlot} previousState={PreviousSlot} size={"20px"}/>
     api.start({to: {y: 200,},})
   }

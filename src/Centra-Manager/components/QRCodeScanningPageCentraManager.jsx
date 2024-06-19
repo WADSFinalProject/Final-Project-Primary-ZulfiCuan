@@ -72,13 +72,6 @@ function QRCodeScanningPageCentraManager({setData, setNavigation}) {
                 }}
               ></video>
             )}
-            {btnScan && (
-              <Typography variant="h6">
-                Hasil Scan:
-                <br />
-                {scanResult}
-              </Typography>
-            )}
           </Box>
           <Fab
             color={btnScan ? "primary" : "secondary"}

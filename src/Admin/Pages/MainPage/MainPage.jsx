@@ -7,6 +7,7 @@ import Centra from "../Centra/Centra.jsx";
 import { useState } from 'react';
 import AdminSettings from '../Settings/AdminSettings.jsx';
 import Profile from '../Profile/Profile.jsx';
+import PendingAccount from '../PendingAccount/PendingAccount.jsx';
 
 
 export const pageLogic = [
@@ -24,6 +25,8 @@ function MainPage() {
       {pages[0][2] && <Account togglePage={togglePage}/>}
       {pages[0][3] && <AdminSettings togglePage={togglePage}/>}
       {pages [0][4] && <Profile togglePage={togglePage} pages={pages}/>}
+      {pages[0][5] && <PendingAccount togglePage={togglePage}/>}
+      
     </div>
   );
 }

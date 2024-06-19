@@ -29,6 +29,7 @@ function Account({ togglePage, pages }) {
   };
 
   const widgetSpring = useSpring({ config: {tension: 170, friction: 60}, from: { x: 500, opacity: 0 }, to: { x: 0, opacity: 1 }});
+  const TitletSpring = useSpring({ from: { opacity: 0 }, to: { opacity: 1 }, delay: 500});
 
 
   return (
@@ -45,7 +46,9 @@ function Account({ togglePage, pages }) {
         ) : (
           <div className="accountTableContainer-admin">
             <div className="accountHeader-admin">
+              <animated.div style={TitletSpring}>
               <h1 className="accountTitle-admin">Account</h1>
+              </animated.div>
               <CreateAccountButton onClick={handleAddAccount} />
             </div>
             <animated.div style={widgetSpring} className="accountTableWrapper-admin">

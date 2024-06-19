@@ -2,7 +2,7 @@ import React from "react";
 import "./ShipmentTable.scss";
 
 // eslint-disable-next-line react/prop-types
-const ShipmentTable = ({ shipmentData }) => {
+const ShipmentTable = ({ togglePage, pages, shipmentData, activeButton }) => {
 
   const handleClick = (status) => {
     // Do something when the status is clicked
@@ -28,7 +28,14 @@ const ShipmentTable = ({ shipmentData }) => {
     <div className="table-container-shipp">
       <table className = "table-manager">
         <tbody>
-          {shipmentData.map((shipment, index) => (
+          {shipmentData
+          .filter((shipment) =>
+            (activeButton === 'inProgress' && (shipment.status === 'Shipping' || shipment.status === 'Waiting Pickup')) ||
+            (activeButton === 'cancelled' && shipment.status === 'Cancelled') ||
+            (activeButton === 'completed' && shipment.status === 'Delivered') ||
+            (activeButton === 'viewAll' && shipment)
+          )
+          .map((shipment, index) => (
             <tr className="tr-manager" key={index}>
               <td className="td-manager">
                 <a href="#" className="clickable">{shipment.batchId}</a>

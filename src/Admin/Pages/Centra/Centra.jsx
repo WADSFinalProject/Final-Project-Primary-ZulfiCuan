@@ -3,6 +3,8 @@ import SideBar from '../../Components/sidebar/SideBar'
 import Navbar from '../../Components/Navbar/Navbar';
 import CentraTable from '../../Components/CentraTable/CentraTable';
 import { useState } from 'react';
+import { useSpring, animated } from '@react-spring/web';
+
 
 function Centra({togglePage, pages}) {
   const [showAddCentra, setShowAddCentra] = useState(false);
@@ -14,6 +16,10 @@ function Centra({togglePage, pages}) {
   const handleBack = () => {
     setShowAddCentra(false);
   };
+
+  const widgetSpring = useSpring({ config: {tension: 170, friction: 60}, from: { x: 500, opacity: 0 }, to: { x: 0, opacity: 1 }});
+  const TitletSpring = useSpring({ from: { opacity: 0 }, to: { opacity: 1 }, delay: 500});
+
   return (
     <div className='CentraPage-admin'>
       <SideBar togglePage={togglePage} pages />
@@ -27,10 +33,14 @@ function Centra({togglePage, pages}) {
         ) : (
           <div className="CentraTableContainer-admin">
           <div className="CentraHeader-admin">
-            <h1 className="CentraTitle-admin">Centra</h1>
+            <animated.div style={TitletSpring}>
+              <h1 className="CentraTitle-admin">Centra</h1>
+            </animated.div>
             {/* <CreateCentraButton onClick={handleAddCentra} /> */}
           </div>
+          <animated.div style={widgetSpring}>
          <CentraTable />
+          </animated.div>
          </div>
         )}
       </div>

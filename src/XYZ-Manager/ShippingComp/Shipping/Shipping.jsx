@@ -204,7 +204,7 @@ function Shipping({togglePage, pages}) {
   ];
 
 
-  const [activeButton, setActiveButton] = useState(null);
+  const [activeButton, setActiveButton] = useState('viewAll');
   const [currentPage, setCurrentPage] = useState(1); // State to manage current page
   const itemsPerPage = 8; // Number of items per page
   const totalPages = Math.ceil(sampleShipmentData.length / itemsPerPage); // Calculate total pages
@@ -223,8 +223,12 @@ function Shipping({togglePage, pages}) {
     setQuery(searchQuery);
   };
 
-  const filteredData = data.filter(item => 
-    item.toLowerCase().includes(query.toLowerCase())
+  const filteredData = sampleShipmentData.filter(shipment => 
+    shipment.batchId.toString().includes(query.toLowerCase()) ||
+    shipment.shippingId.toString().includes(query.toLowerCase()) ||
+    shipment.trackingLocation.toLowerCase().includes(query.toLowerCase()) ||
+    shipment.shippingAddress.toLowerCase().includes(query.toLowerCase()) ||
+    shipment.estimatedArrival.toString().includes(query.toLowerCase())
   );
 
   return (
@@ -274,8 +278,8 @@ function Shipping({togglePage, pages}) {
           </div>
         </div>
         <ShipmentTable
-        data={filteredData}
-          shipmentData={sampleShipmentData.slice(
+        activeButton={activeButton} togglePage={togglePage} pages={pages}
+          shipmentData={filteredData.slice(
             (currentPage - 1) * itemsPerPage,
             currentPage * itemsPerPage
           )}

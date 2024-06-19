@@ -63,6 +63,7 @@ const markers = [
 
 ];
 
+
 function Dashboard({togglePage, pages}) {
   return (
     <div className="home-2-manager">

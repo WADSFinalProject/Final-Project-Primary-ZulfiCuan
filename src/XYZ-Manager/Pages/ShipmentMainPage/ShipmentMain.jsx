@@ -232,6 +232,7 @@ function ShipmentMain({togglePage, pages}) {
   return (
     <div className="home-manager">
       <SideBar togglePage={togglePage} pages={pages} />
+      <div className="fixdash-2-manager"></div>
       <div className="homeContainer-manager">
         <Navbar togglePage={togglePage} pages={pages} value={query} onSearch={handleSearch}/>
         <div className="shipment-manager">Shipments</div>

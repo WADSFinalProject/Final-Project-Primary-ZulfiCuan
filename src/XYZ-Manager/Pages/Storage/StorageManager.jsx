@@ -224,3 +224,4 @@ export default function StorageManager({ togglePage, pages }) {
     </Paper>
   );
 }
+}

@@ -11,7 +11,7 @@ import PendingAccount from '../PendingAccount/PendingAccount.jsx';
 
 
 export const pageLogic = [
-  [true, false, false,false, false], // rescale page, notification page
+  [true, false, false,false, false, false], // rescale page, notification page
   [false,false,false], // account page, notifcation page , setting page
 ];
 

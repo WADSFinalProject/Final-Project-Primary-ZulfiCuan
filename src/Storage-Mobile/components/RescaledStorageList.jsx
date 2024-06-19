@@ -51,7 +51,7 @@ function RescaledStorageList({ allStorage, searchQuery }) {
             filter: 'grayscale(100%)'
           }}
           />
-          <p className='mt-4 ml-16 mr-16 text-offwhite-500 text-center font-hnmedium text-md'>Looks like there are no items to rescale...</p>
+          <p className='mt-4 ml-16 mr-16 text-offwhite-500 text-center font-hnmedium text-md'>No storage item found...</p>
           </div>
         ) : (
         allStorage

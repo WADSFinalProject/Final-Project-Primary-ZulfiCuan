@@ -8,7 +8,7 @@ import CustomButton from '../components/CustomButton';
 import { useSpring, animated } from '@react-spring/web';
 import axios from 'axios';
 
-function EditProfile({ togglePage, pages }) {
+function EditProfile({ togglePage, pages, userName, userEmail, userPhoneNumber }) {
 
   const spring = useSpring({
     config: {
@@ -111,8 +111,7 @@ function EditProfile({ togglePage, pages }) {
         titleStyles='font-hnroman text-secondary'
         showTitle='true'
         textStyles='bg-offwhite flex-1 font-hnroman text-secondary text-sm'
-        placeholder='John Doe'
-        value={profile.fullName}
+        placeholder={userName}
         handleChangeText={(e) => setProfile({ ...profile, fullName: e.target.value})}
         type="text"
         />
@@ -124,8 +123,7 @@ function EditProfile({ togglePage, pages }) {
         titleStyles='font-hnroman text-secondary'
         showTitle='true'
         textStyles='bg-offwhite flex-1 font-hnroman text-secondary text-sm'
-        placeholder='name@example.com'
-        value={profile.email}
+        placeholder={userEmail}
         handleChangeText={(e) => setProfile({ ...profile, email: e.target.value})}
         type="text"
         />
@@ -137,8 +135,7 @@ function EditProfile({ togglePage, pages }) {
         titleStyles='font-hnroman text-secondary'
         showTitle='true'
         textStyles='bg-offwhite flex-1 font-hnroman text-secondary text-sm'
-        placeholder='08123456789'
-        value={profile.phoneNumber}
+        placeholder={userPhoneNumber}
         handleChangeText={(e) => setProfile({ ...profile, phoneNumber: e.target.value})}
         type="number"
         />

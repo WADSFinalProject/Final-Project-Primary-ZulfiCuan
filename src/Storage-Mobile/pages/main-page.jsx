@@ -20,7 +20,9 @@ function StorageMainPage() {
 
   const [userList, setUserList] = useState([]);
   const [userName, setUserName] = useState('');
-  const [userId, setuserId] = useState('');
+  const [userId, setUserId] = useState('');
+  const [userEmail, setUserEmail] = useState('');
+  const [userPhoneNumber, setUserPhoneNumber] = useState('');
 
   useEffect(() => {
     const fetchData = async () => {
@@ -30,7 +32,9 @@ function StorageMainPage() {
         const user = emailResponse.data.user;
         setUserList(prevList => [...prevList, user]);
         setUserName(user.name);
-        setuserId(user.idUser);
+        setUserId(user.idUser);
+        setUserEmail(user.email);
+        setUserPhoneNumber(user.phoneNumber);
       } catch (error) {
         console.error('Error fetching data:', error);
       }
@@ -44,7 +48,7 @@ function StorageMainPage() {
       {pages[0][0] && <Rescale togglePage={togglePage} pages={pages} userName={userName}/>}
       {pages[0][1] && <Notifications togglePage={togglePage} pages={pages}/>}
       {pages[1][0] && <Account togglePage={togglePage} pages={pages} userName={userName} userId={userId}/>}
-      {pages[1][1] && <EditProfile togglePage={togglePage} pages={pages}/>}
+      {pages[1][1] && <EditProfile togglePage={togglePage} pages={pages} userName={userName} userEmail={userEmail} userPhoneNumber={userPhoneNumber} />}
       {pages[2][0] && <QR togglePage={togglePage} pages={pages}/>}
 
     </div>

@@ -34,18 +34,6 @@ const initialRows = [
   { batchid: 'U115', shippingid: '9318', storageid: '2488', weight: '20.9 kg', storagelocation: 'Warehouse 2', datereceived: '14/04/1987' },
   { batchid: 'U116', shippingid: '9319', storageid: '2489', weight: '23.2 kg', storagelocation: 'Warehouse 3', datereceived: '13/04/1987' },
   { batchid: 'U117', shippingid: '9320', storageid: '2490', weight: '22.9 kg', storagelocation: 'Warehouse 1', datereceived: '12/04/1987' },
-  { batchid: 'U108', shippingid: '9311', storageid: '2481', weight: '24 kg', storagelocation: 'Warehouse 1',datereceived: '1987-04-29'},
-  { batchid: 'U109', shippingid: '9312', storageid: '2482', weight: '22.4 kg', storagelocation: 'Warehouse 2',datereceived: '1987-04-30'},
-  { batchid: 'U110', shippingid: '9313', storageid: '2483', weight: '23 kg', storagelocation: 'Warehouse 3', datereceived: '1987-05-1'},
-  { batchid: 'U111', shippingid: '9314', storageid: '2484', weight: '21 kg', storagelocation: 'Warehouse 3', datereceived: '1987-05-2'},
-  { batchid: 'U112', shippingid: '9315', storageid: '2485', weight: '21.3 kg', storagelocation: 'Warehouse 1', datereceived: '1987-05-3'},
-  { batchid: 'U113', shippingid: '9316', storageid: '2486', weight: '20 kg', storagelocation: 'Warehouse 1', datereceived: '1987-05-13'},
-  { batchid: 'U114', shippingid: '9317', storageid: '2487', weight: '23.4 kg', storagelocation: 'Warehouse 2', datereceived: '1987-05-26'},
-  { batchid: 'U115', shippingid: '9318', storageid: '2488', weight: '20.9 kg', storagelocation: 'Warehouse 2', datereceived: '1987-06-29'},
-  { batchid: 'U116', shippingid: '9319', storageid: '2489', weight: '23.2 kg', storagelocation: 'Warehouse 3', datereceived: '1987-07-18'},
-  { batchid: 'U117', shippingid: '9320', storageid: '2490', weight: '22.9 kg', storagelocation: 'Warehouse 1', datereceived: '1987-08-29'},
-
-
   // ... (rest of the rows)
 ];
 
@@ -72,15 +60,12 @@ export default function StorageManager({ togglePage, pages }) {
 
   const handleDeleteOpen = (account) => {
     setSelectedAccount(account);
-  const handleDeleteOpen = (account) => {
     setDeleteOpen(true);
-    setSelectedAccount(account);
   };
 
   const handleDeleteClose = () => {
     setDeleteOpen(false);
   };
-
 
   const handleSaveAccount = (updatedAccount) => {
     console.log('Updated account details:', updatedAccount);
@@ -99,34 +84,14 @@ export default function StorageManager({ togglePage, pages }) {
 
   const emptyRows = rowsPerPage - Math.min(rowsPerPage, rows.length - page * rowsPerPage);
 
-  const [query, setQuery] = useState('');
-  const handleSearch = (searchQuery) => {
-    setQuery(searchQuery);
-    // console.log(query);
-  };
-
-  const filteredData = initialRows.filter(column => 
-    column.batchid.toString().includes(query.toLowerCase()) ||
-    column.shippingid.toLowerCase().includes(query.toLowerCase()) ||
-    column.storageid.toLowerCase().includes(query.toLowerCase()) ||
-    column.weight.toString().includes(query.toLowerCase()) ||
-    column.storagelocation.toString().includes(query.toLowerCase())||
-    column.datereceived.toString().includes(query.toLowerCase())
-  );
-
   return (
-    
     <Paper sx={{ width: '100%', overflow: 'hidden', borderRadius: '16px', maxWidth: '100%' }}>
       <TableContainer sx={{ maxHeight: 'calc(100vh - 150px)', overflowX: 'auto' }}>
         <Table stickyHeader aria-label="sticky table">
           <TableHead>
             <TableRow>
               {columns.map((column) => (
-              
-                <TableCell initialRows={filteredData.slice(
-                  (page - 1) * rowsPerPage,
-                  page * rowsPerPage
-                  )}
+                <TableCell
                   key={column.id}
                   align={column.align}
                   sx={{ minWidth: column.minWidth, backgroundColor: '#002855', color: 'white', textAlign: 'center' }}

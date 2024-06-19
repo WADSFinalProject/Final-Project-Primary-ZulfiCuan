@@ -4,8 +4,8 @@ import NotificationsNoneOutlinedIcon from '@mui/icons-material/NotificationsNone
 import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
 
 // eslint-disable-next-line react/prop-types
-function Navbar2({togglePage, pages}) {
-  const userName = "John Doe"; // This will come from your backend
+function Navbar2({togglePage, pages, onSearch, value, userName}) {
+  // const userName = "John Doe"; // This will come from your backend
   const userRole = "Manager"; // This will come from your backend
 
   return (

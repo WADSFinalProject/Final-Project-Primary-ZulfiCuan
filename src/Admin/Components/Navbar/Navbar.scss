@@ -14,12 +14,14 @@
         align-items: center;
         justify-content: space-between;
         width: 100%;
-        padding: 0 20px; // Adjusted padsding
+        padding: 0 20px; // Adjusted padding
+        margin-top: 10px;
+        margin-bottom: 10px;
         .search-admin {
             display: flex;
             align-items: center;
             background-color: white;
-            height: 40px; // Keep consistent with original design
+            height: 62px; // Keep consistent with original design
             border-radius: 31px; // Makes the search bar more cylindrical
             padding: 5px 10px; // Adjusts the padding inside the search bar
             border: 2px solid rgba(4, 49, 91, 1);

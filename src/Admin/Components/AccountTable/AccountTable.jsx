@@ -23,19 +23,12 @@ const columns = [
   { id: 'action', label: 'Action', minWidth: 170, align: 'center' },
 ];
 
-const initialRows = [
-  { id: 'U108', name: 'John Doe', email: 'johndoe@centra.com', password: 'xxxxxxxxx', birthDate: '12/04/1987', role: 'Admin' },
-  { id: 'U109', name: 'Jane Smith', email: 'janesmith@centra.com', password: 'xxxxxxxxx', birthDate: '05/15/1990', role: 'User' },
-  // ... (other initial rows)
-];
-
-const AccountTable = () => {
+const AccountTable = ({ accounts, setAccounts }) => {
   const [page, setPage] = useState(0);
   const rowsPerPage = 8;
   const [editOpen, setEditOpen] = useState(false);
   const [deleteOpen, setDeleteOpen] = useState(false);
   const [selectedAccount, setSelectedAccount] = useState(null);
-  const [rows, setRows] = useState(initialRows);
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
@@ -51,8 +44,8 @@ const AccountTable = () => {
   };
 
   const handleDeleteOpen = (account) => {
-    setSelectedAccount(account); // Set the selected account to delete
-    setDeleteOpen(true); // Open the delete dialog
+    setSelectedAccount(account);
+    setDeleteOpen(true);
   };
 
   const handleDeleteClose = () => {
@@ -60,21 +53,20 @@ const AccountTable = () => {
   };
 
   const handleDeleteAccount = () => {
-    const updatedRows = rows.filter((row) => row.id !== selectedAccount.id);
-    setRows(updatedRows);
-    setDeleteOpen(false); // Close the delete dialog
+    const updatedAccounts = accounts.filter((account) => account.id !== selectedAccount.id);
+    setAccounts(updatedAccounts);
+    setDeleteOpen(false);
   };
 
   const handleSaveAccount = (updatedAccount) => {
-    console.log('Updated account details:', updatedAccount);
-    const updatedRows = rows.map((row) =>
-      row.id === updatedAccount.id ? updatedAccount : row
+    const updatedAccounts = accounts.map((account) =>
+      account.id === updatedAccount.id ? updatedAccount : account
     );
-    setRows(updatedRows);
+    setAccounts(updatedAccounts);
     handleEditClose();
   };
 
-  const emptyRows = rowsPerPage - Math.min(rowsPerPage, rows.length - page * rowsPerPage);
+  const emptyRows = rowsPerPage - Math.min(rowsPerPage, accounts.length - page * rowsPerPage);
 
   return (
     <Paper sx={{ width: '100%', overflow: 'hidden', borderRadius: '16px', maxWidth: '100%' }}>
@@ -94,7 +86,7 @@ const AccountTable = () => {
             </TableRow>
           </TableHead>
           <TableBody sx={{ backgroundColor: '#ebebeb' }}>
-            {rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row, rowIndex) => (
+            {accounts.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row, rowIndex) => (
               <TableRow hover role="checkbox" tabIndex={-1} key={rowIndex}>
                 {columns.map((column) => {
                   const value = row[column.id];
@@ -137,7 +129,7 @@ const AccountTable = () => {
                                 backgroundColor: '#ff6a3e',
                               },
                             }}
-                            onClick={() => handleDeleteOpen(row)} // Pass the current row (account) to handleDeleteOpen
+                            onClick={() => handleDeleteOpen(row)}
                           >
                             <DeleteOutlineIcon />
                           </IconButton>
@@ -162,7 +154,7 @@ const AccountTable = () => {
         sx={{ backgroundColor: '#ebebeb' }}
         rowsPerPageOptions={[10]}
         component="div"
-        count={rows.length}
+        count={accounts.length}
         rowsPerPage={rowsPerPage}
         page={page}
         onPageChange={handleChangePage}
@@ -176,7 +168,7 @@ const AccountTable = () => {
       <DeleteAccountPopup
         open={deleteOpen}
         onClose={handleDeleteClose}
-        onDelete={handleDeleteAccount} // Pass the onDelete function
+        onDelete={handleDeleteAccount}
       />
     </Paper>
   );

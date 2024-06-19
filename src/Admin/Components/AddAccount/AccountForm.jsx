@@ -1,71 +1,65 @@
-import React from 'react';
-import { TextField, MenuItem, Button } from '@mui/material';
+import React, { useState } from 'react';
 import './AccountForm.scss';
 
-const roles = ['XYZ Central', 'Guard Harbour'];
+const AccountForm = ({ onSave }) => {
+  const [accountData, setAccountData] = useState({
+    id: '',
+    name: '',
+    email: '',
+    password: '',
+    birthDate: '',
+    role: '',
+  });
 
-const AccountForm = () => {
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setAccountData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    onSave(accountData);
+  };
+
   return (
-    <div className="formContainer-admin">
-      <form noValidate autoComplete="off" className="formBox-admin">
+    <form onSubmit={handleSubmit} className="formContainer-admin">
+      <div className="formBox-admin">
         <div className="formRow-admin">
-          <TextField
-            label="Full Name"
-            variant="outlined"
-            className="formInput-admin"
-            defaultValue="Mas Budi"
-            fullWidth
-          />
-          <TextField
-            label="Password"
-            variant="outlined"
-            className="formInput-admin"
-            defaultValue="xxxxxxxxxx"
-            type="password"
-            fullWidth
-          />
+          <div className="formInput-admin">
+            <label>ID:</label>
+            <input type="text" name="id" value={accountData.id} onChange={handleChange} />
+          </div>
+          <div className="formInput-admin">
+            <label>Name:</label>
+            <input type="text" name="name" value={accountData.name} onChange={handleChange} />
+          </div>
         </div>
         <div className="formRow-admin">
-          <TextField
-            label="Email"
-            variant="outlined"
-            className="formInput-admin"
-            defaultValue="budimas@centra.com"
-            fullWidth
-          />
-          <TextField
-            label="Role"
-            variant="outlined"
-            className="formInput-admin"
-            defaultValue="Guard Harbour"
-            select
-            fullWidth
-          >
-            {roles.map((role) => (
-              <MenuItem key={role} value={role}>
-                {role}
-              </MenuItem>
-            ))}
-          </TextField>
+          <div className="formInput-admin">
+            <label>Email:</label>
+            <input type="email" name="email" value={accountData.email} onChange={handleChange} />
+          </div>
+          <div className="formInput-admin">
+            <label>Password:</label>
+            <input type="password" name="password" value={accountData.password} onChange={handleChange} />
+          </div>
         </div>
         <div className="formRow-admin">
-          <TextField
-            label="Birth Date"
-            variant="outlined"
-            className="formInput-admin"
-            defaultValue="18/04/1989"
-            type="date"
-            InputLabelProps={{
-              shrink: true,
-            }}
-            fullWidth
-          />
+          <div className="formInput-admin">
+            <label>Birth Date:</label>
+            <input type="date" name="birthDate" value={accountData.birthDate} onChange={handleChange} />
+          </div>
+          <div className="formInput-admin">
+            <label>Role:</label>
+            <input type="text" name="role" value={accountData.role} onChange={handleChange} />
+          </div>
         </div>
-        <Button variant="contained" color="primary" className="submitButton-admin">
-          Confirm
-        </Button>
-      </form>
-    </div>
+        <button type="submit" className="submitButton-admin">Save Account</button>
+      </div>
+    </form>
   );
 };
 

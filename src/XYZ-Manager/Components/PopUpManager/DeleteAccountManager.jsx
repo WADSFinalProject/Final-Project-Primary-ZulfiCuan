@@ -63,7 +63,7 @@ const DeleteAccountManager = ({ open, onClose, onDelete }) => {
       <DialogContent>
         <Grid container spacing={2}>
           <Grid item xs={12}>
-            <p>Are you sure you want to delete this?</p>
+            <p>Are you sure you want to delete this account?</p>
           </Grid>
         </Grid>
       </DialogContent>

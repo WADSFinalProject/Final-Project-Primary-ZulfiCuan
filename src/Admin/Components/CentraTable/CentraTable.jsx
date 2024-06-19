@@ -22,9 +22,9 @@ const columns = [
     { id: 'phone', label: 'Phone', minWidth: 170, align: 'center' },
     { id: 'location', label: 'Location', minWidth: 170, align: 'center' },
     { id: 'action', label: 'Action', minWidth: 170, align: 'center' },
-  ];
-  
-  const initialRows = [
+];
+
+const initialRows = [
     { id: 'U108', manager: 'Alice Brown', phone: '123-456-7890', location: 'New York', action: 'Edit' },
     { id: 'U109', manager: 'Bob White', phone: '234-567-8901', location: 'Los Angeles', action: 'Edit' },
     { id: 'U110', manager: 'Charlie Black', phone: '345-678-9012', location: 'Chicago', action: 'Edit' },
@@ -35,9 +35,7 @@ const columns = [
     { id: 'U115', manager: 'Hank Purple', phone: '890-123-4567', location: 'San Diego', action: 'Edit' },
     { id: 'U116', manager: 'Ivy Cyan', phone: '901-234-5678', location: 'Dallas', action: 'Edit' },
     { id: 'U117', manager: 'Jack Magenta', phone: '012-345-6789', location: 'San Jose', action: 'Edit' },
-  ];
-  
-  
+];
 
 export default function CentraTable() {
   const [page, setPage] = useState(0);
@@ -47,38 +45,44 @@ export default function CentraTable() {
   const [selectedAccount, setSelectedAccount] = useState(null);
   const [rows, setRows] = useState(initialRows);
 
-  const handleChangePage = (event, newPage) => {
-    setPage(newPage);
-  };
+    const handleChangePage = (event, newPage) => {
+        setPage(newPage);
+    };
 
-  const handleEditOpen = (account) => {
-    setSelectedAccount(account);
-    setEditOpen(true);
-  };
+    const handleEditOpen = (account) => {
+        setSelectedAccount(account);
+        setEditOpen(true);
+    };
 
-  const handleEditClose = () => {
-    setEditOpen(false);
-  };
+    const handleEditClose = () => {
+        setEditOpen(false);
+    };
 
-  const handleDeleteOpen = () => {
-    setDeleteOpen(true);
-  };
+    const handleDeleteOpen = (account) => { // Modified line
+        setSelectedAccount(account); // Set selected account
+        setDeleteOpen(true);
+    };
 
-  const handleDeleteClose = () => {
-    setDeleteOpen(false);
-  };
+    const handleDeleteClose = () => {
+        setDeleteOpen(false);
+    };
 
-  const handleSaveAccount = (updatedAccount) => {
-    console.log('Updated account details:', updatedAccount); // Debugging line
-    // Update the rows with the new account details
-    const updatedRows = rows.map((row) =>
-      row.id === updatedAccount.id ? updatedAccount : row
-    );
-    setRows(updatedRows);
-    handleEditClose(); // Close the edit popup
-  };
+    const handleSaveAccount = (updatedAccount) => {
+        console.log('Updated account details:', updatedAccount);
+        const updatedRows = rows.map((row) =>
+            row.id === updatedAccount.id ? updatedAccount : row
+        );
+        setRows(updatedRows);
+        handleEditClose();
+    };
 
-  const emptyRows = rowsPerPage - Math.min(rowsPerPage, rows.length - page * rowsPerPage);
+    const handleDeleteAccount = () => { // Added function
+        const updatedRows = rows.filter((row) => row.id !== selectedAccount.id);
+        setRows(updatedRows);
+        handleDeleteClose();
+    };
+
+    const emptyRows = rowsPerPage - Math.min(rowsPerPage, rows.length - page * rowsPerPage);
 
   return (
     <Paper sx={{ marginBottom: '1.5rem', width: '100%', overflow: 'hidden', borderRadius: '16px' }}>

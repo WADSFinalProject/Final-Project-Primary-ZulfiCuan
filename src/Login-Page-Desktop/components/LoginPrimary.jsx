@@ -1,17 +1,41 @@
+/* eslint-disable no-unused-vars */
 import '../css/LoginPage.css'
 import RegisterText from './RegisterText'
 import PasswordInput from './PasswordInput'
 import TextInput from './TextInput'
+import axios from 'axios'
+import { useState } from 'react'
 // import TextInput from './TextInput'
 
 // eslint-disable-next-line react/prop-types
 function LoginPrimary({click, currentState}) {
+  const [name, setName] = useState('')
+  const [password, setPassword] = useState('')
+
+  async function loginUser(email, password) {
+    axios.post(`http://localhost:8000/login/`, {
+      "email": email,
+      "password": password,
+    }, {withCredentials: true})
+    .then(response => {
+      console.log(response.data);
+    })
+    .catch(error => {
+      console.error('Error fetching session data:', error);
+    });
+  }
+
+  function onSubmit (event) {
+    event.preventDefault()
+    loginUser(name, password)
+  }
+
   return (
     <div>
-      <form className='LoginContainer'>
+      <form className='LoginContainer' onSubmit={onSubmit}>
         <label className='TitleLogin'>Login</label>
-        <TextInput label={"Email / Username"} color={'#1976d2'}/>
-        <PasswordInput label="Password" color={'#1976d2'}/>
+        <TextInput label={"Email / Username"} color={'#1976d2'} setData={setName}/>
+        <PasswordInput label="Password" color={'#1976d2'} setData={setPassword}/>
         {/* <TextInput placeHolder={'Email / Username'} imgSRC={'src/assets/images/Emailcon.svg'} type={'Text'}/>
         <TextInput placeHolder={'Password'} imgSRC={'src/assets/images/LockIcon.svg'} type={"Password"}/> */}
         <div className='ExtraButtons'>

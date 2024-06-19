@@ -95,13 +95,13 @@ function Account({ togglePage, pages, userName, userId }) {
         </animated.div>
       </animated.div>
 
-      <LongButton
+      {/* <LongButton
       title='Edit Profile'
       icon={icons.xyzEdit}
       handlePress={submit}
       isLoading={isSubmitting}
       delay={0}
-      />
+      /> */}
 
       {/* <LongButton 
       title='Settings'

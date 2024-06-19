@@ -6,11 +6,12 @@ import FormField from '../components/FormField';
 import QrScanner from 'qr-scanner';
 import CustomButton from '../components/CustomButton';
 import CircularProgressBar from '../components/CircularProgressBar';
+import axios from 'axios';
 
 let stopScan = false
-let scanResult = ''
 
 function QR({ togglePage, pages }) {
+  const [scanResult, setScanResult] = useState(null);
 
   const appear = useSpring({ 
     config: {
@@ -49,8 +50,9 @@ function QR({ togglePage, pages }) {
     const scanner = new QrScanner(
       videoElement,
       result => {
-        scanResult = result.data
+        setScanResult(JSON.parse(result.data));
         setResultsPage(true)
+        console.log(scanResult)
         stopScan=true
       },{
         onDecodeError: err => {
@@ -99,15 +101,31 @@ function QR({ togglePage, pages }) {
   const [isSaving, setIsSaving] = useState(false);
 
   const save = async () => {
-    if (!QRItem.id || !QRItem.batchID || !QRItem.weight || !QRItem.date) {
-      alert('Error: Please fill in all fields');
+    if (!scanResult.idShipment || !scanResult.provider || !scanResult.weight || !scanResult.arrival) {
+      alert('Error: All fields must be filled, QR is invalid/flawed');
       return;
     }
     
     setIsSaving(true);
 
     try {
-      // backend await code here
+      // backend code here
+      axios.post('http://localhost:8000/storages',
+        { idShipment: scanResult.idShipment,
+          provider: scanResult.provider,
+          weight: scanResult.weight,
+          arrival: scanResult.arrival,
+          isRescaled: false,
+          rescaledDate: scanResult.rescaledDate,
+          expiredDate: scanResult.expiredDate
+        }
+      )
+      .then((response) => {
+        console.log('Shipment added successfully:', response.data);
+      })
+      .catch((error) => {
+        console.error('Error adding shipment:', error);
+      });
       toggleExpand();
 
       setTimeout(() => {
@@ -165,65 +183,61 @@ function QR({ togglePage, pages }) {
           </video>}
         
         {(scanBtn === false && resultsPage === true ) && <div className='flex flex-col flex-1 w-full items-center'>
-        <img 
+        {/* <img 
         src={images.xyzQRCode}
         className='w-24 h-24 mt-6'
         style={{objectFit: 'contain'}}
-        />
+        /> */}
 
-        <div className='flex flex-col justify-center items-center w-28 h-6 mt-4 rounded-full bg-secondary'>
-          <p className='text-xxs text-offwhite font-hnroman'>7XVFBBMGKLDMF</p>
-        </div>
+      <div className='flex flex-col justify-center items-center w-28 h-6 mt-4 rounded-full bg-secondary'>
+        <p className='text-xxs text-offwhite font-hnroman'>ID: {scanResult.idShipment}</p>
+      </div>
+
+      {/* <div className='border w-48 bg-offwhite border-secondary p-4 my-4 rounded-lg'>
+        <p>Provider: {scanResult.provider}</p>
+        <p>Weight: {scanResult.weight}</p>
+        <p>Arrival: {scanResult.arrival}</p>
+        <p>Rescaled Date: {scanResult.rescaledDate}</p>
+        <p>Expired Date: {scanResult.expiredDate}</p>
+      </div> */}
 
         <FormField 
-        otherStyles='mt-2 w-[90vw]'
+        otherStyles='mt-8 w-[90vw]'
         containerStyles='rounded-lg px-4 border border-secondary bg-offwhite'
-        title='ID'
+        title='Provider'
         titleStyles='font-hnroman text-secondary'
         showTitle='true'
         textStyles='bg-offwhite flex-1 font-hnroman text-secondary text-sm'
-        value={QRItem.id}
-        handleChangeText={(e) => setQRItem({ ...QRItem, id: e.target.value})}
+        value={scanResult.provider}
+        // handleChangeText={(e) => setQRItem({ ...QRItem, batchID: e.target.value})}
         type="text"
         />
 
         <FormField 
-        otherStyles='mt-2 w-[90vw]'
-        containerStyles='rounded-lg px-4 border border-secondary bg-offwhite'
-        title='Batch ID'
-        titleStyles='font-hnroman text-secondary'
-        showTitle='true'
-        textStyles='bg-offwhite flex-1 font-hnroman text-secondary text-sm'
-        value={QRItem.batchID}
-        handleChangeText={(e) => setQRItem({ ...QRItem, batchID: e.target.value})}
-        type="text"
-        />
-
-        <FormField 
-        otherStyles='mt-2 w-[90vw]'
+        otherStyles='mt-4 w-[90vw]'
         containerStyles='rounded-lg px-4 border border-secondary bg-offwhite'
         title='Weight (in kg)'
         titleStyles='font-hnroman text-secondary'
         showTitle='true'
         textStyles='bg-offwhite flex-1 font-hnroman text-secondary text-sm'
-        value={QRItem.weight}
-        handleChangeText={(e) => setQRItem({ ...QRItem, weight: e.target.value})}
+        value={scanResult.weight}
+        // handleChangeText={(e) => setQRItem({ ...QRItem, weight: e.target.value})}
         type="text"
         />
 
         <FormField 
-        otherStyles='mt-2 w-[90vw]'
+        otherStyles='mt-4 w-[90vw]'
         containerStyles='rounded-lg px-4 border border-secondary bg-offwhite'
         title='Date'
         titleStyles='font-hnroman text-secondary'
         showTitle='true'
         textStyles='bg-offwhite flex-1 font-hnroman text-secondary text-sm'
-        value={QRItem.date}
-        handleChangeText={(e) => setQRItem({ ...QRItem, date: e.target.value})}
+        value={formatDate(scanResult.arrival)}
+        // handleChangeText={(e) => setQRItem({ ...QRItem, date: e.target.value})}
         type="text"
         />
 
-        <div className='mt-6 flex h-12 w-[90vw] items-center justify-center'>
+        <div className='mt-12 flex h-12 w-[90vw] items-center justify-center'>
           <CustomButton 
             containerStyles='h-12 w-[60vw] mr-2 bg-offwhite-400 rounded-3xl border border-secondary'
             title='Cancel'
@@ -261,7 +275,7 @@ function QR({ togglePage, pages }) {
           </p>
 
           <div className={`flex flex-col justify-center items-center w-32 h-5 mt-4 rounded-full bg-primary transition-opacity duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
-            <p className='text-xxs text-secondary font-hnmedium'>7XVFBBMGKLDMF</p>
+            <p className='text-xxs text-secondary font-hnmedium'>{scanResult.idShipment}</p>
           </div>
  
           <p className={`mt-6 text-xs font-hnmedium text-offwhite transition-opacity duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
@@ -274,4 +288,8 @@ function QR({ togglePage, pages }) {
   )
 }
 
+const formatDate = (dateString) => {
+  const date = new Date(dateString);
+  return date.toLocaleString(); // Adjust format as needed
+};
 export default QR

@@ -22,5 +22,5 @@
 .react-datepicker__day--selected,
 .react-datepicker__day--keyboard-selected {
   background-color: #04315b; /* Example: change the background color of selected days */
-  color: #faf9f6; /* Example: change the color of the text for selected days */
+  color: #faf9f6; /* Example: change the color of the text for selected days
 }

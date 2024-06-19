@@ -24,22 +24,20 @@ const columns = [
 ];
 
 const initialRows = [
-  { batchid: 'U108', shippingid: '9311', storageid: '2481', weight: '24 kg', storagelocation: 'Warehouse 1',datereceived: '21/04/1987'},
-  { batchid: 'U109', shippingid: '9312', storageid: '2482', weight: '22.4 kg', storagelocation: 'Warehouse 2',datereceived: '20/04/1987'},
-  { batchid: 'U110', shippingid: '9313', storageid: '2483', weight: '23 kg', storagelocation: 'Warehouse 3', datereceived: '19/04/1987'},
-  { batchid: 'U111', shippingid: '9314', storageid: '2484', weight: '21 kg', storagelocation: 'Warehouse 3', datereceived: '18/04/1987'},
-  { batchid: 'U112', shippingid: '9315', storageid: '2485', weight: '21.3 kg', storagelocation: 'Warehouse 1', datereceived: '17/04/1987'},
-  { batchid: 'U113', shippingid: '9316', storageid: '2486', weight: '20 kg', storagelocation: 'Warehouse 1', datereceived: '16/04/1987'},
-  { batchid: 'U114', shippingid: '9317', storageid: '2487', weight: '23.4 kg', storagelocation: 'Warehouse 2', datereceived: '15/04/1987'},
-  { batchid: 'U115', shippingid: '9318', storageid: '2488', weight: '20.9 kg', storagelocation: 'Warehouse 2', datereceived: '14/04/1987'},
-  { batchid: 'U116', shippingid: '9319', storageid: '2489', weight: '23.2 kg', storagelocation: 'Warehouse 3', datereceived: '13/04/1987'},
-  { batchid: 'U117', shippingid: '9320', storageid: '2490', weight: '22.9 kg', storagelocation: 'Warehouse 1', datereceived: '12/04/1987'},
-
-
+  { batchid: 'U108', shippingid: '9311', storageid: '2481', weight: '24 kg', storagelocation: 'Warehouse 1', datereceived: '21/04/1987' },
+  { batchid: 'U109', shippingid: '9312', storageid: '2482', weight: '22.4 kg', storagelocation: 'Warehouse 2', datereceived: '20/04/1987' },
+  { batchid: 'U110', shippingid: '9313', storageid: '2483', weight: '23 kg', storagelocation: 'Warehouse 3', datereceived: '19/04/1987' },
+  { batchid: 'U111', shippingid: '9314', storageid: '2484', weight: '21 kg', storagelocation: 'Warehouse 3', datereceived: '18/04/1987' },
+  { batchid: 'U112', shippingid: '9315', storageid: '2485', weight: '21.3 kg', storagelocation: 'Warehouse 1', datereceived: '17/04/1987' },
+  { batchid: 'U113', shippingid: '9316', storageid: '2486', weight: '20 kg', storagelocation: 'Warehouse 1', datereceived: '16/04/1987' },
+  { batchid: 'U114', shippingid: '9317', storageid: '2487', weight: '23.4 kg', storagelocation: 'Warehouse 2', datereceived: '15/04/1987' },
+  { batchid: 'U115', shippingid: '9318', storageid: '2488', weight: '20.9 kg', storagelocation: 'Warehouse 2', datereceived: '14/04/1987' },
+  { batchid: 'U116', shippingid: '9319', storageid: '2489', weight: '23.2 kg', storagelocation: 'Warehouse 3', datereceived: '13/04/1987' },
+  { batchid: 'U117', shippingid: '9320', storageid: '2490', weight: '22.9 kg', storagelocation: 'Warehouse 1', datereceived: '12/04/1987' },
   // ... (rest of the rows)
 ];
 
-export default function StorageManager({togglePage, pages}) {
+export default function StorageManager({ togglePage, pages }) {
   const [page, setPage] = useState(0);
   const rowsPerPage = 8;
   const [editOpen, setEditOpen] = useState(false);
@@ -60,7 +58,8 @@ export default function StorageManager({togglePage, pages}) {
     setEditOpen(false);
   };
 
-  const handleDeleteOpen = () => {
+  const handleDeleteOpen = (account) => {
+    setSelectedAccount(account);
     setDeleteOpen(true);
   };
 
@@ -75,6 +74,12 @@ export default function StorageManager({togglePage, pages}) {
     );
     setRows(updatedRows);
     handleEditClose();
+  };
+
+  const handleDeleteAccount = () => {
+    const updatedRows = rows.filter((row) => row.batchid !== selectedAccount.batchid);
+    setRows(updatedRows);
+    handleDeleteClose();
   };
 
   const emptyRows = rowsPerPage - Math.min(rowsPerPage, rows.length - page * rowsPerPage);
@@ -140,7 +145,7 @@ export default function StorageManager({togglePage, pages}) {
                                 backgroundColor: '#ff6a3e',
                               },
                             }}
-                            onClick={handleDeleteOpen}
+                            onClick={() => handleDeleteOpen(row)}
                           >
                             <DeleteOutlineIcon />
                           </IconButton>
@@ -179,6 +184,7 @@ export default function StorageManager({togglePage, pages}) {
       <DeleteAccountManager
         open={deleteOpen}
         onClose={handleDeleteClose}
+        onDelete={handleDeleteAccount}
       />
     </Paper>
   );

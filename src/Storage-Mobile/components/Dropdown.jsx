@@ -1,9 +1,14 @@
 import React from 'react'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 function Dropdown({ genderr }) {
     const [gender, setGender] = useState('Not Set');
     const [fadeIn, setFadeIn] = useState(false);
+    useEffect(() => {
+      genderr = gender;
+      console.log(genderr);
+    }, [gender])
+    
 
     const toggleGender = () => {
         setFadeIn(true);

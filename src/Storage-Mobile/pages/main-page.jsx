@@ -52,7 +52,7 @@ function StorageMainPage() {
       {pages[0][0] && <Rescale togglePage={togglePage} pages={pages} userName={userName}/>}
       {pages[0][1] && <Notifications togglePage={togglePage} pages={pages}/>}
       {pages[1][0] && <Account togglePage={togglePage} pages={pages} userName={userName} userId={userId}/>}
-      {pages[1][1] && <EditProfile togglePage={togglePage} pages={pages} userName={userName} userEmail={userEmail} userPhoneNumber={userPhoneNumber} userGender={userGender} userDOB={userDOB} />}
+      {pages[1][1] && <EditProfile togglePage={togglePage} pages={pages} userName={userName} userId={userId} userEmail={userEmail} userPhoneNumber={userPhoneNumber} userGender={userGender} userDOB={userDOB} />}
       {pages[2][0] && <QR togglePage={togglePage} pages={pages}/>}
     </div>
   )

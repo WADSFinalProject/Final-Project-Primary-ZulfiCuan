@@ -31,7 +31,7 @@ export default function StorageManager({ togglePage, pages }) {
   const [rows, setRows] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:8000/storages') // Replace with your API endpoint
+    axios.get('https://test-backend-k9s7.vercel.app/storages') // Replace with your API endpoint
       .then(response => {
         if (Array.isArray(response.data.all_storage)) {
           setRows(response.data.all_storage);

@@ -20,7 +20,7 @@ function ShipmentMain({ togglePage, pages, userName }) {
     // Fetch data from the API when the component mounts
     const fetchShipmentData = async () => {
       try {
-        const response = await axios.get('http://localhost:8000/shipments');
+        const response = await axios.get('https://test-backend-k9s7.vercel.app/shipments');
         setShipmentData(response.data.all_shipment);
         setIsLoading(false);
       } catch (error) {

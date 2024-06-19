@@ -35,7 +35,7 @@ const SettingsForms = ({ togglePage, pages, userName }) => {
 
   async function deleteSession() {
     try {
-      await axios.post('http://localhost:8000/delete_session/', {}, { withCredentials: true });
+      await axios.post('https://test-backend-k9s7.vercel.app/delete_session/', {}, { withCredentials: true });
       location.reload();
     } catch (error) {
       console.error('Error fetching session data:', error);

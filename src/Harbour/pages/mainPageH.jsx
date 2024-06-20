@@ -4,8 +4,6 @@ import useTogglePages from '../hooks/useTogglePages'
 import History from './history';
 import Notifications from './notifications';
 import Account from './account'
-import EditProfile from './editprofile'
-import Settings from './settings'
 import QR from './qr';
 
 export const pageLogic = [

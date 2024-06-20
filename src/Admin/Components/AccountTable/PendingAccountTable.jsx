@@ -17,7 +17,7 @@ const columns = [
   { id: 'role', label: 'Role', minWidth: 170, align: 'center' },
   { id: 'email', label: 'Email', minWidth: 170, align: 'center' },
   { id: 'password', label: 'Password', minWidth: 170, align: 'center' },
-  { id: 'birthDate', label: 'Birth Date', minWidth: 170, align: 'center' },
+  { id: 'dateOfBirth', label: 'Birth Date', minWidth: 170, align: 'center' },
   { id: 'action', label: 'Action', minWidth: 170, align: 'center' },
 ];
 

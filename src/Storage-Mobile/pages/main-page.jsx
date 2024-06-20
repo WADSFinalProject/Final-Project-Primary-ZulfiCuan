@@ -4,7 +4,10 @@ import useTogglePages from '../hooks/useTogglePages'
 import Rescale from './rescale';
 import Notifications from './notifications';
 import Account from './account'
+<<<<<<< HEAD
 // import EditProfile from './editprofile'
+=======
+>>>>>>> b9cc1286bffb3ff1aaed203937b259d47d202187
 import QR from './qr';
 import axios from 'axios';
 

@@ -3,11 +3,12 @@ import '../../css/ProductionCentraManager.css'
 import { useState } from 'react';
 
 // eslint-disable-next-line react/prop-types
-function CentraManagerAddNewTextField({label}) {
+function CentraManagerAddNewTextField({label, setData}) {
     const [labelCheck, setLabelCheck] = useState("");
 
     const handleChange = event => {
         setLabelCheck(event.target.value);
+        setData(event.target.value)
     };
   return (
     <TextField 

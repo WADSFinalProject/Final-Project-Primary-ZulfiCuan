@@ -5,26 +5,26 @@ import { useSpring, animated } from '@react-spring/web'
 // eslint-disable-next-line react/prop-types
 function ShippingDashboard({ShippingData, animationStart}) {
     var color = {}
-    if (ShippingData.Status == 'Delivered') {
+    if (ShippingData.status == 'Delivered') {
         color = {
             color: "#2D756A",
             backgroundColor: "#BEDED9",
             borderColor: "#2D756A"
         }
-    } else if (ShippingData.Status == 'Shipping') {
+    } else if (ShippingData.status == 'Shipping') {
         color = {
             color: "#074B8A",
             backgroundColor: "#CCDBE8",
             borderColor: "#074B8A"
         }
-    } else if (ShippingData.Status == 'Waiting Pickup') {
+    } else if (ShippingData.status == 'Waiting Pickup') {
         color = {
             color: "#947710",
             backgroundColor: "#F0E9C6",
             borderColor: "#947710",
             width: "85px",
         }
-    } else if (ShippingData.Status == 'Cancelled') {
+    } else if (ShippingData.status == 'Cancelled') {
         color = {
             color: "#973C30",
             backgroundColor: "#EEC2BC",
@@ -50,31 +50,31 @@ function ShippingDashboard({ShippingData, animationStart}) {
   return (
     <animated.div className="PrimaryShippingDashboardContainer" style={{...springs}}>
         <div className="TitleTextShippingDashboardContainer">
-            <div className="TitleTextShippingDashboard">Shipping ID : <span className="TitleTextShippingDashboardExtra">{ShippingData.ShippingID}</span></div>
+            <div className="TitleTextShippingDashboard">Shipping ID : <span className="TitleTextShippingDashboardExtra">{ShippingData.idShipment}</span></div>
             <div>
-                <div className="ShippingDashboardShowStatus" style={color}>{ShippingData.Status}</div>
+                <div className="ShippingDashboardShowStatus" style={color}>{ShippingData.status}</div>
             </div>
         </div>
         <div className="ShippingDashboardMiniTextContainer">
             <div className="ShippingDashboardMiniText">
                 <div className="ShippingDashboardMainText">Provider</div>
                 <div className="ShippingDashboardDoubleDotText">:</div>
-                <div className="ShippingDashboardAnswerText">{ShippingData.Provider}</div>
+                <div className="ShippingDashboardAnswerText">{ShippingData.provider}</div>
             </div>
             <div className="ShippingDashboardMiniText">
                 <div className="ShippingDashboardMainText">Weight</div>
                 <div className="ShippingDashboardDoubleDotText">:</div>
-                <div className="ShippingDashboardAnswerText">{ShippingData.Weight}</div>
+                <div className="ShippingDashboardAnswerText">{ShippingData.weight}</div>
             </div>
             <div className="ShippingDashboardMiniText">
-                <div className="ShippingDashboardMainText">Batch ID</div>
+                <div className="ShippingDashboardMainText">Number</div>
                 <div className="ShippingDashboardDoubleDotText">:</div>
-                <div className="ShippingDashboardAnswerText">{ShippingData.BatchID}</div>
+                <div className="ShippingDashboardAnswerText">{ShippingData.orderNumber}</div>
             </div>
             <div className="ShippingDashboardMiniText">
                 <div className="ShippingDashboardMainText">Date</div>
                 <div className="ShippingDashboardDoubleDotText">:</div>
-                <div className="ShippingDashboardAnswerText">{ShippingData.Date}</div>
+                <div className="ShippingDashboardAnswerText">{ShippingData.timeCreated}</div>
             </div>
         </div>
     </animated.div>

@@ -1,31 +1,22 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import '../../css/ProductionCentraManager.css'
 import ProductionInsideChart from '../Charts/ProductionInsideChart'
 import BatchContainerProduction from './BatchContainerProduction'
+import axios from 'axios'
 
 // eslint-disable-next-line react/prop-types
 function DryLeaves({setNavigation}) {
   // eslint-disable-next-line no-unused-vars
-  const [DataLeaves, setDataLeaves] = useState([{
-    ID: "ID W23",
-    SecondSlot: "M67",
-    Weight: "5,1 kg",
-    date: "14/02/2024",
-    status: "exp. 14/05/2024" 
-  }, {
-    ID: "ID W33",
-    SecondSlot: "M77",
-    Weight: "5,1 kg",
-    date: "14/02/2024",
-    status: "exp. 14/05/2024" 
-  }, {
-    ID: "ID W43",
-    SecondSlot: "M87",
-    Weight: "5.1 kg",
-    date: "14/02/2024",
-    status: "exp. 14/05/2024" 
-  },
-])
+  const [dryData, setDryData] = useState([])
+    useEffect(() => {
+      axios.get('https://test-backend-sfso.vercel.app/dryleaves')
+        .then(response => {
+          setDryData(response.data.all_dry);
+        })
+        .catch(error => {
+          console.error('Error fetching storage data:', error);
+        });
+      }, []);
   return (
     <div style={{marginTop: "36px"}}>
       <div className="ProductionInsideContainer">
@@ -49,8 +40,8 @@ function DryLeaves({setNavigation}) {
           <ProductionInsideChart />
         </div>
         <div>
-          {DataLeaves.map((dataLeaves, index) => (
-                    <div key={index}><BatchContainerProduction part={'Dry'} data={dataLeaves} animationStart={index * 200 + 100} setNavigation={setNavigation}/></div>
+          {dryData.map((dataLeaves, index) => (
+                    <div key={index}><BatchContainerProduction part={'Dry'} data={dataLeaves} animationStart={index * 200 + 100} setNavigation={setNavigation} id={dataLeaves.idDry}/></div>
                 ))}
         </div>
       </div>

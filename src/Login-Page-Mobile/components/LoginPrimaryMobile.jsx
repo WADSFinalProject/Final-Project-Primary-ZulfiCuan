@@ -10,17 +10,17 @@ function LoginPrimaryMobile() {
     const [password, setPassword] = useState('')
 
     async function loginUser(email, password) {
-      axios.post(`http://localhost:8000/logins/`, {
+      axios.post(`https://test-backend-k9s7.vercel.app/logins/`, {
         "email": email,
         "password": password,
       }, {withCredentials: true})
       .then(response => {
                 var saved = response
-                axios.post(`http://localhost:8000/users/email/`, {"email": email}, {withCredentials: true})
+                axios.post(`https://test-backend-k9s7.vercel.app/users/email/`, {"email": email}, {withCredentials: true})
                 .then(response => {
                   var status = response.data['user']['pending']
                             if (status == false) {
-                              axios.post(`http://localhost:8000/create_session/${saved.data['User has been auth']}`, {}, {withCredentials: true})
+                              axios.post(`https://test-backend-k9s7.vercel.app/create_session/${saved.data['User has been auth']}`, {}, {withCredentials: true})
                               .then(response => {
                                 console.log(response.data);
                                 location.reload()

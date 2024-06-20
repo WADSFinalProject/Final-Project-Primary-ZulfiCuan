@@ -1,6 +1,7 @@
-import { useState } from 'react'
+import { useEffect, useState } from "react"
 import '../../css/ShippingCentraManager.css'
 import ShippingDashboard from './ShippingDashboard'
+import axios from "axios"
 
 // eslint-disable-next-line react/prop-types
 function CentraManagerShippingMain({setNavigation}) {
@@ -9,86 +10,32 @@ function CentraManagerShippingMain({setNavigation}) {
     backgroundColor: "#04315B",
     color: "white"
   }
+
   // Data For Shipping
-  const testTable = [
-    {
-        ShippingID: "1239 8628 2748 29",
-        Status: "Delivered",
-        Provider: "Indonesia's Military",
-        Weight: "10 kg",
-        BatchID: "F24, F25",
-        Date: "05/02/24"
-    },
-    {
-        ShippingID: "1239 8628 2748 29",
-        Status: "Delivered",
-        Provider: "Indonesia's Military",
-        Weight: "10 kg",
-        BatchID: "F24, F25",
-        Date: "05/02/24"
-    },
-    {
-        ShippingID: "1239 8628 2748 29",
-        Status: "Shipping",
-        Provider: "Indonesia's Military",
-        Weight: "10 kg",
-        BatchID: "F24, F25",
-        Date: "05/02/24"
-    },
-    {
-      ShippingID: "1239 8628 2748 29",
-      Status: "Shipping",
-      Provider: "Indonesia's Military",
-      Weight: "10 kg",
-      BatchID: "F24, F25",
-      Date: "05/02/24"
-  },
-  {
-      ShippingID: "1239 8628 2748 29",
-      Status: "Delivered",
-      Provider: "Indonesia's Military",
-      Weight: "10 kg",
-      BatchID: "F24, F25",
-      Date: "05/02/24"
-  },
-  {
-    ShippingID: "1239 8628 2748 29",
-    Status: "Waiting Pickup",
-    Provider: "Indonesia's Military",
-    Weight: "10 kg",
-    BatchID: "F24, F25",
-    Date: "05/02/24"
-  },
-  {
-      ShippingID: "1239 8628 2748 29",
-      Status: "Cancelled",
-      Provider: "Indonesia's Military",
-      Weight: "10 kg",
-      BatchID: "F24, F25",
-      Date: "05/02/24"
-  },
-  {
-    ShippingID: "1239 8628 2748 29",
-    Status: "Cancelled",
-    Provider: "Indonesia's Military",
-    Weight: "10 kg",
-    BatchID: "F24, F25",
-    Date: "05/02/24"
-  },
-]
+  const [shippingData, setShippingData] = useState([])
+    useEffect(() => {
+      axios.get('https://test-backend-sfso.vercel.app/shipments')
+        .then(response => {
+          setShippingData(response.data.all_shipment);
+        })
+        .catch(error => {
+          console.error('Error fetching storage data:', error);
+        });
+      }, []);  
 
 function dataTableCheck(Position, Table) {
   var DataTable = []
+  console.log(Table)
   Table.forEach((TableData, index) => {
     if (Position[0]) {
       DataTable.push(Table[index])
-    } else if (TableData.Status == 'Delivered' && Position[2]) {
+    } else if (TableData.status == 'Delivered' && Position[2]) {
       DataTable.push(Table[index])
-    } else if (TableData.Status == 'Shipping' && Position[1]) {
+    } else if (TableData.status == 'Shipping' && Position[1]) {
       DataTable.push(Table[index])
-    } else if (TableData.Status == 'Waiting Pickup' && Position[1]) {
+    } else if (TableData.status == 'Waiting Pickup' && Position[1]) {
       DataTable.push(Table[index])
-    } else if (TableData.Status == 'Cancelled' && Position[3]) {
+    } else if (TableData.status == 'Cancelled' && Position[3]) {
       DataTable.push(Table[index])
     }
   });
@@ -120,7 +67,7 @@ function dataTableCheck(Position, Table) {
             <div className='ShippingViewButtonContainerText' style={currentButtonPosition[3] ? selectedStyle : {}} onClick={() => setCurrentButtonPosition([false, false, false, true])}>Cancelled</div>
         </div>
         <div style={{width: "99vw", marginLeft: "-4%"}}>
-            {dataTableCheck(currentButtonPosition, testTable).map((data, index) => (
+            {dataTableCheck(currentButtonPosition, shippingData).map((data, index) => (
                     <div key={index}><ShippingDashboard ShippingData={data} animationStart={index * 200 + 100}/></div>
                 ))}
         </div>

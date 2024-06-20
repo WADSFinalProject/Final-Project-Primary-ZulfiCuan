@@ -3,7 +3,7 @@ import { Bar } from "react-chartjs-2"
 import "../../css/CentraManagerChart.css"
 
 // eslint-disable-next-line react/prop-types
-function DashBoardBarChart() {
+function DashBoardBarChart({dataForTable}) {
     Chart.register(CategoryScale, LinearScale, BarElement, Tooltip)
     const data = {
         labels: ["Wet", "Dry", "Flour"],
@@ -13,7 +13,7 @@ function DashBoardBarChart() {
             backgroundColor: "#3C9284",
             borderColor: "rgb(255, 99, 132)",
             borderRadius: 8,
-            data: [60, 40, 50],
+            data: dataForTable,
     }]};
     const option = {
         reposive: true,

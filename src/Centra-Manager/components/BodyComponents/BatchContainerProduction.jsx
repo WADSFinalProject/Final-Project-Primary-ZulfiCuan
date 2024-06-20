@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { useSpring, animated } from '@react-spring/web'
 
 // eslint-disable-next-line react/prop-types
-function BatchContainerProduction({part, data , setDeleteUpdate, animationStart, setNavigation}) {
+function BatchContainerProduction({part, data , setDeleteUpdate, animationStart, setNavigation, id}) {
   const springs = useSpring({
     config: {
       tension: 190, 
@@ -18,13 +18,13 @@ function BatchContainerProduction({part, data , setDeleteUpdate, animationStart,
     background: "#BEDED9",
     color: "#2D756A"
   }
-  if (data.status == "Usable") {
+  if (data.expired == false) {
     styleStatus = {
       border: "1px solid #2D756A",
       background: "#BEDED9",
       color: "#2D756A"
     }
-  } else if (data.status == "Expired") {
+  } else if (data.expired == true) {
     styleStatus = {
       border: "1px solid #973C30",
       background: "#FFBDB4",
@@ -66,16 +66,16 @@ function BatchContainerProduction({part, data , setDeleteUpdate, animationStart,
     <animated.div className='BatchProductionContainerContainer' style={{...springs}}>
       <div>
         <div className='BatchProductionContainerTopText'>
-          <div>{data.ID}</div>
+          <div>{id + 1000}</div>
           <div>|</div>
-          <div>{data.SecondSlot}</div>
-          <div className='BatchProductionContainerDateText'>{data.date}</div>
+          <div>{data.idCentra}</div>
+          <div className='BatchProductionContainerDateText'>{data.timeCreated}</div>
         </div>
         <div className='BatchProductionContainerTopTextTwo'>
           <div>weight</div>
           <div>:</div>
-          <div className='BatchProductionContainerTopWeightText'>{data.Weight}</div>
-          <div className='BatchProductionContainerStatusText'><span className='BatchProductionContainerStatusTextIn' style={styleStatus}>{data.status}</span></div>
+          <div className='BatchProductionContainerTopWeightText'>{data.weight}</div>
+          <div className='BatchProductionContainerStatusText'><span className='BatchProductionContainerStatusTextIn' style={styleStatus}>{data.expired ? "Expired": "Usuable"}</span></div>
         </div>
       </div>
       <div className='BatchProductionCotainerBottomText'>

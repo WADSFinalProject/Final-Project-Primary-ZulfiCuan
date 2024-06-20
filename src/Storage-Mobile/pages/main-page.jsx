@@ -4,7 +4,7 @@ import useTogglePages from '../hooks/useTogglePages'
 import Rescale from './rescale';
 import Notifications from './notifications';
 import Account from './account'
-import EditProfile from './editprofile'
+// import EditProfile from './editprofile'
 import QR from './qr';
 import axios from 'axios';
 
@@ -50,9 +50,9 @@ function StorageMainPage() {
   return (
     <div>
       {pages[0][0] && <Rescale togglePage={togglePage} pages={pages} userName={userName}/>}
-      {pages[0][1] && <Notifications togglePage={togglePage} pages={pages}/>}
+      {pages[0][1] && <Notifications togglePage={togglePage} pages={pages} userId={userId}/>}
       {pages[1][0] && <Account togglePage={togglePage} pages={pages} userName={userName} userId={userId}/>}
-      {pages[1][1] && <EditProfile togglePage={togglePage} pages={pages} userName={userName} userId={userId} userEmail={userEmail} userPhoneNumber={userPhoneNumber} userGender={userGender} userDOB={userDOB} />}
+      {/* {pages[1][1] && <EditProfile togglePage={togglePage} pages={pages} userName={userName} userId={userId} userEmail={userEmail} userPhoneNumber={userPhoneNumber} userGender={userGender} userDOB={userDOB} />} */}
       {pages[2][0] && <QR togglePage={togglePage} pages={pages}/>}
     </div>
   )

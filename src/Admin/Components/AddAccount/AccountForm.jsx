@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { TextField, Button, Box } from '@mui/material';
+import { TextField, Button, Box, FormControl, InputLabel, Select, MenuItem } from '@mui/material';
 import './AccountForm.scss';
 
 const AccountForm = ({ onSave }) => {
@@ -106,20 +106,33 @@ const AccountForm = ({ onSave }) => {
         </div>
         <div className="formRow-admin">
           <div className="formInput-admin">
-            <label>Role:</label>
-            <TextField
-              fullWidth
-              variant="outlined"
-              name="role"
-              value={accountData.role}
-              onChange={handleChange}
-              error={!!errors.role}
-              helperText={errors.role}
-            />
+            <FormControl fullWidth margin="dense">
+              <InputLabel>Role</InputLabel>
+              <Select
+                name="role"
+                value={accountData.role}
+                onChange={handleChange}
+                error={!!errors.role}
+                label="Role"
+                fullWidth
+              >
+                <MenuItem value="">None</MenuItem>
+                <MenuItem value="XYZ Employee">XYZ Employee</MenuItem>
+                <MenuItem value="XYZ Manager">XYZ Manager</MenuItem>
+                <MenuItem value="Harbour">Harbour</MenuItem> 
+                <MenuItem value="Centra Employee 1">Centra Employee</MenuItem>
+                <MenuItem value="Centra Manager 1">Centra Manager</MenuItem>
+              </Select>
+              {errors.role && (
+                <Box mt={1} color="error.main">
+                  {errors.role}
+                </Box>
+              )}
+            </FormControl>
           </div>
         </div>
-        <Box mt={2}  style={{ textAlign: 'right' }}>
-          <Button type="submit" variant="contained" color="primary" >
+        <Box mt={2} style={{ textAlign: 'right' }}>
+          <Button type="submit" variant="contained" color="primary">
             Save Account
           </Button>
         </Box>

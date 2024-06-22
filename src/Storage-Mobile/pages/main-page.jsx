@@ -29,8 +29,8 @@ function StorageMainPage() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const whoAmIResponse = await axios.post('http://localhost:8000/whoami/', {}, { withCredentials: true });
-        const emailResponse = await axios.post('http://localhost:8000/users/email/', { "email": whoAmIResponse.data['username'] }, { withCredentials: true });
+        const whoAmIResponse = await axios.post('https://www.moringazulficuan.me/whoami/', {}, { withCredentials: true });
+        const emailResponse = await axios.post('https://www.moringazulficuan.me/users/email/', { "email": whoAmIResponse.data['username'] }, { withCredentials: true });
         const user = emailResponse.data.user;
         setUserList(prevList => [...prevList, user]);
         setUserName(user.name);

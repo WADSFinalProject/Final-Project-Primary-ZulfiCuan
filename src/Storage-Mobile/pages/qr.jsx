@@ -110,7 +110,7 @@ function QR({ togglePage, pages }) {
 
     try {
       // backend code here
-      axios.post('https://www.moringazulficuan.me/storages',
+      axios.post('https://test-backend-k9s7.vercel.app/storages',
         { idShipment: scanResult.idShipment,
           provider: scanResult.provider,
           weight: scanResult.weight,

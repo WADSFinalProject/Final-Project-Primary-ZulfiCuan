@@ -86,7 +86,7 @@ function History({ togglePage, pages, userName, userId }) {
   })
 
   useEffect(() => {
-    axios.get('http://localhost:8000/shipments')
+    axios.get('https://test-backend-k9s7.vercel.app/shipments')
       .then(response => {
         setAllShipments(response.data.all_shipment);
       })

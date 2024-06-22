@@ -28,7 +28,7 @@ function Account({ togglePage, pages, userName, userId }) {
   })
 
   async function deleteSession() {
-    axios.post('http://localhost:8000/delete_session/', {}, {withCredentials: true})
+    axios.post('https://www.moringazulficuan.me/delete_session/', {}, {withCredentials: true})
       .then(() => {
           location.reload()
       })

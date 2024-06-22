@@ -30,7 +30,7 @@ const PendingAccountTable = () => {
 
   useEffect(() => {
     // Fetch data using Axios
-    axios.get('http://localhost:8000/users')
+    axios.get('https://test-backend-k9s7.vercel.app/users')
       .then(response => {
         const allUsers = response.data.all_user;
         // Filter pending accounts where pending is true

@@ -13,7 +13,7 @@ function Account({ togglePage, pages, setActiveAccountCount }) {
   const [accounts, setAccounts] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:8000/users')
+    axios.get('https://test-backend-k9s7.vercel.app/users')
       .then(response => {
         setAccounts(response.data.all_user);
         // Calculate active accounts count

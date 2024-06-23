@@ -40,7 +40,7 @@ const EditAccountPopup = ({ open, onClose, accountDetails, onSave }) => {
       role: role,
     };
 
-    axios.put(`http://localhost:8000/users/${accountDetails.idUser}`, updatedDetails)
+    axios.put(`https://test-backend-k9s7.vercel.app/users/${accountDetails.idUser}`, updatedDetails)
       .then(response => {
         console.log('Data saved successfully:', response);
         onSave(updatedDetails);  // Notify parent of the changes

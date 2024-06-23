@@ -57,7 +57,7 @@ const PendingAccountTable = () => {
   };
 
   const confirmAccount = (accountDetails) => {
-    const url = `http://localhost:8000/users/pending/${accountDetails.idUser}`;
+    const url = `https://test-backend-k9s7.vercel.app/users/pending/${accountDetails.idUser}`;
 
     const data = {
       pending: false  // Set pending to false for acceptance
@@ -76,7 +76,7 @@ const PendingAccountTable = () => {
   };
 
   const rejectAccount = (accountDetails) => {
-    const url = `http://localhost:8000/users/pending/${accountDetails.idUser}`;
+    const url = `https://test-backend-k9s7.vercel.app/users/pending/${accountDetails.idUser}`;
 
     const data = {
       pending: false  // You might want to set some other state for rejection

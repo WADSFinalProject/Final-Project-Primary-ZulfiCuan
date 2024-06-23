@@ -43,7 +43,7 @@ const AccountForm = ({ onSave }) => {
       setErrors(validationErrors);
     } else {
       try {
-        const response = await axios.post('http://localhost:8000/users', accountData);
+        const response = await axios.post('https://test-backend-k9s7.vercel.app/users', accountData);
         onSave(response.data); // Call the onSave callback with the response data
       } catch (error) {
         console.error('There was an error creating the account!', error);

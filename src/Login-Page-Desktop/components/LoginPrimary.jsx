@@ -8,7 +8,7 @@ import { useState } from 'react'
 // import TextInput from './TextInput'
 
 // eslint-disable-next-line react/prop-types
-function LoginPrimary({click, currentState}) {
+function LoginPrimary({click, currentState, setState}) {
   const [name, setName] = useState('')
   const [password, setPassword] = useState('')
 
@@ -41,9 +41,21 @@ function LoginPrimary({click, currentState}) {
     });
   }
 
+  async function getRole(name) {
+    axios.post('https://test-backend-k9s7.vercel.app/users/email/', {"email": name}, {withCredentials: true})
+        .then(response => {
+          setState(response.data['user']['role']);
+        })
+        .catch(error => {
+          console.error('Error fetching session data:', error);
+      });
+  }
+
   function onSubmit (event) {
     event.preventDefault()
     loginUser(name, password)
+    // to by pass cookies in case it doesnt work
+    getRole(name)
   }
 
   return (

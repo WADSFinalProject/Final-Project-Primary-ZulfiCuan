@@ -27,7 +27,7 @@ function Notifications({ togglePage, pages, userId }) {
   const [notifs, setNotifs] = useState([]);
   console.log(userId);
   useEffect(() => {
-    axios.get(`http://localhost:8000/notifications/${userId}`)
+    axios.get(`https://test-backend-k9s7.vercel.app/notifications/${userId}`)
       .then(response => {
         setNotifs(response.data.notification);
       })

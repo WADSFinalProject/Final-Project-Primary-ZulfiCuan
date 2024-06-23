@@ -17,7 +17,7 @@ const columns = [
   { id: 'role', label: 'Role', minWidth: 170, align: 'center' },
   { id: 'email', label: 'Email', minWidth: 170, align: 'center' },
   { id: 'password', label: 'Password', minWidth: 170, align: 'center' },
-  { id: 'birthDate', label: 'Birth Date', minWidth: 170, align: 'center' },
+  { id: 'dateOfBirth', label: 'Birth Date', minWidth: 170, align: 'center' },
   { id: 'action', label: 'Action', minWidth: 170, align: 'center' },
 ];
 
@@ -30,7 +30,7 @@ const PendingAccountTable = () => {
 
   useEffect(() => {
     // Fetch data using Axios
-    axios.get('http://localhost:8000/users')
+    axios.get('https://test-backend-k9s7.vercel.app/users')
       .then(response => {
         const allUsers = response.data.all_user;
         // Filter pending accounts where pending is true

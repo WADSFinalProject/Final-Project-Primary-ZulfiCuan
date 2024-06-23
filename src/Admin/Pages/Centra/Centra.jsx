@@ -12,7 +12,7 @@ function Centra({ togglePage, pages }) {
   const [centraData, setCentraData] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:8000/centras')
+    axios.get('https://test-backend-k9s7.vercel.app/centras')
       .then(response => {
         setCentraData(response.data.all_centra);
         
